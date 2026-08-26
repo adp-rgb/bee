@@ -3,197 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IAC International Geography Bee Simulator</title>
+  <title>AI IAC Geography Bee Generator</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- PDF.js library for in-browser PDF parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body class="bg-slate-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
 
-  <!-- Main Container -->
   <div class="max-w-2xl w-full bg-slate-800 rounded-2xl shadow-2xl p-6 border border-slate-700 my-6">
     
     <!-- Header -->
     <div class="text-center mb-6">
-      <h1 class="text-3xl font-extrabold text-amber-400 mb-1">IAC Geography Bee 🐝</h1>
-      <p class="text-slate-400 text-xs">Official IAC Rule Engine: Cap at 6 Tossups + Speed Bonus Structure</p>
+      <h1 class="text-3xl font-extrabold text-amber-400 mb-1">AI Geography Bee Generator 🐝</h1>
+      <p class="text-slate-400 text-xs">Upload any PDF to auto-generate official IAC-style quizzes</p>
     </div>
 
-    <!-- Controls / Age Selection -->
-    <div class="mb-4 bg-slate-700/50 p-4 rounded-xl border border-slate-600">
-      <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Competition Division:</label>
-      <div class="grid grid-cols-2 gap-3">
-        <button onclick="setAgeTier('junior')" id="btn-junior" class="py-2 px-4 rounded-lg font-bold border-2 border-indigo-500 bg-indigo-600 text-white transition-all">
-          Middle School / Elementary (Ages 9–11)
-        </button>
-        <button onclick="setAgeTier('senior')" id="btn-senior" class="py-2 px-4 rounded-lg font-bold border-2 border-slate-600 bg-slate-800 text-slate-300 transition-all">
-          Varsity / JV (Ages 12–15)
-        </button>
+    <!-- API Key Input & PDF Upload Panel -->
+    <div class="mb-6 bg-slate-700/50 p-4 rounded-xl border border-slate-600 space-y-3">
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Gemini API Key (Free):</label>
+        <input type="password" id="api-key" placeholder="Paste your AI Studio API key here" class="w-full bg-slate-900 border border-slate-600 rounded-lg px-3 py-2 text-sm text-amber-300 focus:outline-none focus:border-amber-400">
       </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Upload Geography PDF Document:</label>
+        <input type="file" id="pdf-file" accept="application/pdf" onchange="generateQuizFromPDF()" class="w-full text-xs text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:font-bold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 cursor-pointer">
+      </div>
+    </div>
+
+    <!-- Status Message -->
+    <div id="status-box" class="hidden text-center py-3 px-4 mb-4 rounded-xl text-sm font-semibold bg-indigo-900/60 border border-indigo-500 text-indigo-200">
+      <span id="status-text">Processing PDF...</span>
     </div>
 
     <!-- Quiz Area -->
     <div id="quiz-card" class="space-y-4">
-      <!-- Status Trackers -->
       <div class="flex justify-between items-center text-xs font-bold bg-slate-900/60 p-3 rounded-lg border border-slate-700">
-        <span id="question-tracker" class="text-slate-300">Question: 1 / 30</span>
+        <span id="question-tracker" class="text-slate-300">Question: 1 / 0</span>
         <span id="correct-tracker" class="text-indigo-400">Correct: 0 / 6</span>
         <span id="score-tracker" class="text-amber-400 text-sm">Score: 0 pts</span>
       </div>
 
-      <!-- Question Text -->
       <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-700 min-h-[140px] flex flex-col justify-center relative">
-        <span id="reading-status" class="absolute top-2 right-3 text-[10px] font-bold text-amber-500 uppercase tracking-wider">Reading in Progress...</span>
-        <h2 id="question-text" class="text-base font-normal text-slate-200 leading-relaxed pt-2">Loading Question...</h2>
+        <h2 id="question-text" class="text-base font-normal text-slate-200 leading-relaxed">Upload a PDF file above to generate your first AI geography bee quiz!</h2>
       </div>
 
-      <!-- Buzzer & Action Strip -->
-      <div id="buzzer-container" class="flex gap-2">
-        <button id="buzz-btn" onclick="buzzIn()" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-extrabold py-3 px-4 rounded-xl shadow-lg transition-all text-sm tracking-wider uppercase">
-          🚨 BUZZ IN NOW! (Interrupt)
-        </button>
-      </div>
-
-      <!-- Reading Source Excerpt Box -->
-      <div id="source-box" class="hidden bg-amber-950/40 border border-amber-600/40 p-3 rounded-xl text-xs text-amber-200/90 leading-relaxed">
-        <span class="font-bold text-amber-400 block mb-1">📖 Source Clue Excerpt:</span>
-        <p id="source-text"></p>
-      </div>
-
-      <!-- Answer Options (Hidden until buzzed or reading completes) -->
-      <div id="options-container" class="grid grid-cols-1 gap-3 pt-1">
-        <!-- Injected via JS -->
-      </div>
-    </div>
-
-    <!-- Result Area (Hidden by Default) -->
-    <div id="result-card" class="hidden text-center py-8 space-y-4">
-      <div class="text-5xl">🏆</div>
-      <h2 id="result-title" class="text-2xl font-bold text-amber-400">Round Completed!</h2>
-      <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700 max-w-sm mx-auto space-y-2 text-sm text-slate-300">
-        <p id="final-correct" class="text-indigo-300">Tossups Correct: 0</p>
-        <p id="final-bonus" class="text-emerald-400">IAC Speed Bonus: +0 pts</p>
-        <p id="final-score" class="text-amber-400 font-extrabold text-xl pt-2 border-t border-slate-700">Total Score: 0 pts</p>
-      </div>
-      <button onclick="restartQuiz()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg">
-        Play Next Round
-      </button>
+      <div id="options-container" class="grid grid-cols-1 gap-3 pt-1"></div>
     </div>
 
   </div>
 
   <script>
-    // Questions extracted from PDF documents
-    const quizData = {
-      junior: [
-        {
-          question: "An annual 1,500-step stair challenge takes place in this city's 'Tower Eye.' This city's Royal Botanic Gardens and Port Jackson are overlooked by a bridge dubbed 'The Coathanger.' The Manly and Bondi Beaches serve this city, where Jorn Utzon designed a building whose roof invokes a series of sails. For the point, name this capital of New South Wales and site of a famous opera house, the most populous Australian city.",
-          options: ["Melbourne", "Sydney", "Brisbane", "Perth"],
-          answer: 1,
-          source: "An annual 1,500-step stair challenge takes place in this city's 'Tower Eye.' ... Manly and Bondi Beaches ... Jorn Utzon designed a building whose roof invokes a series of sails."
-        },
-        {
-          question: "Immigrants from this country to Brazil introduced sfiha meat pies to South America. The Baalbeck International Festival is celebrated in this country, where the Phoenicians set up a trading post at its city of Tyre. Maronites make up over 20 percent of this country, where a Green Line in the capital divides Christian and Muslim communities. For the point, name this Middle Eastern country with capital at Beirut.",
-          options: ["Lebanon", "Syria", "Jordan", "Egypt"],
-          answer: 0,
-          source: "Immigrants from this country to Brazil introduced sfiha meat pies ... Maronites make up over 20 percent ... capital at Beirut."
-        },
-        {
-          question: "This city's Georgian Quarter is home to its fashionable Merrion Square. An area of this city filled with tech companies is nicknamed Silicon Docks, near North Wall on the north banks of a river that flows under bridges named for Samuel Beckett and Sean O'Casey. The River Liffey flows through, for the point, what capital city of Ireland?",
-          options: ["Belfast", "Dublin", "Cork", "Galway"],
-          answer: 1,
-          source: "Silicon Docks ... River Liffey flows through ... capital city of Ireland."
-        },
-        {
-          question: "It costs 50 kroner to be admitted onto one of these structures that was built in 1914 in Tivoli. One of these in Jackson, New Jersey that reaches 456 feet in height is known as Kingda Ka. Intamin is a designer of these structures, including Millennium Force at Cedar Point in Ohio. For the point, name these thrill rides that involve a train of cars on a wooden or steel track.",
-          options: ["Ferris wheels", "Roller coasters", "Cable cars", "Funicular railways"],
-          answer: 1,
-          source: "Kingda Ka ... Millennium Force at Cedar Point ... thrill rides that involve a train of cars."
-        },
-        {
-          question: "A statue of this person at Cumbre Pass was erected to commemorate a 1904 peace deal between Chile and Argentina. A concrete and soapstone sculpture of this person atop Mount Corcovado is a popular tourist attraction that overlooks the city of Rio de Janeiro. For the point, name this figure, the subject of multiple 'Redeemer' statues.",
-          options: ["Pope John Paul II", "Saint Francis", "Jesus Christ", "Simon Bolivar"],
-          answer: 2,
-          source: "Mount Corcovado ... overlooks Rio de Janeiro ... Redeemer statues."
-        },
-        {
-          question: "What is the largest island on Earth whose capital city is Nuuk?",
-          options: ["Madagascar", "Greenland", "Java", "Crete"],
-          answer: 1,
-          source: "Greenland is the largest island on Earth whose capital is Nuuk."
-        }
-      ],
-      senior: [
-        {
-          question: "The Cimbri were a tribe thought to have been from this peninsula, inspiring an alternate name. This peninsula's most populous city, nicknamed the 'City of Smiles,' is Aarhus. Funen is found between this peninsula and the island of Zealand. A World War I battle fought off this peninsula saw the German navy defeated by the forces of John Jellicoe. For the point, name this peninsula shared by Germany and Denmark.",
-          options: ["Iberian Peninsula", "Jutland Peninsula", "Scandinavian Peninsula", "Balkan Peninsula"],
-          answer: 1,
-          source: "Cimbri tribe ... Aarhus ... World War I battle ... shared by Germany and Denmark."
-        },
-        {
-          question: "The second most common route to this peak's summit is the Polish Glacier route. After seven failed attempts, Edward FitzGerald became the first man to reach this mountain's summit. Nicknamed the 'Mountain of Death,' this peak is found in the province of Mendoza. The subduction of the Nazca plate formed this mountain, which is one of the seven summits. For the point, name this peak in the Andes, the tallest in South America.",
-          options: ["Cotopaxi", "Aconcagua", "Mount Elbrus", "Chimborazo"],
-          answer: 1,
-          source: "Polish Glacier route ... Mendoza ... tallest in South America."
-        },
-        {
-          question: "The Angsi Glacier is the source of this river, which flows through a protected area known for its rhinoceroses, Kaziranga National Park. In Sikkim, this river's basin is home to the mountain Kanchenjunga. This river's upper portion is known as the Yarlung Tsangpo in Tibet. This river joins the Padma in Bangladesh. For the point, name this river that flows through eastern India and China.",
-          options: ["Mekong River", "Indus River", "Brahmaputra River", "Yellow River"],
-          answer: 2,
-          source: "Kaziranga National Park ... Yarlung Tsangpo ... joins the Padma."
-        },
-        {
-          question: "This city is home to the Hector Pieterson Museum and the headquarters of the mobile telephone company Vodacom. Don Mattera wrote about his life among gangs in this country's suburb of Sophiatown. This city, found in the province of Gauteng, contains a campus of the University of Witwatersrand. Miners lived in this city's Soweto township. For the point, name this most populous city in South Africa.",
-          options: ["Durban", "Pretoria", "Johannesburg", "Cape Town"],
-          answer: 2,
-          source: "Soweto township ... Gauteng ... most populous city in South Africa."
-        },
-        {
-          question: "A small number of these locations feature monuments dedicated to Radhabinod Pal, who controversially ruled that people mentioned in a Book of Souls at one of these locations were not guilty of war crimes. One of these locations in Mie Prefecture is torn down and rebuilt every twenty years; that structure in Ise includes two large torii gates. Hachiman and Amaterasu are among the kami worshiped at, for the point, what religious structures in Japan?",
-          options: ["Shinto shrines", "Buddhist temples", "Torii gates", "Imperial palaces"],
-          answer: 0,
-          source: "Mie Prefecture ... Ise ... two large torii gates ... kami worshiped."
-        },
-        {
-          question: "Which major European river flows through capital cities such as Vienna, Budapest, and Belgrade before emptying into the Black Sea?",
-          options: ["Rhine River", "Volga River", "Danube River", "Yangtze River"],
-          answer: 2,
-          source: "Flows through Vienna, Budapest, and Belgrade into the Black Sea."
-        }
-      ]
-    };
+    // Initialize PDF.js worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-    // IAC Bee Rules Calculation Engine
-    function calculateIACBonus(questionNumberReached) {
-      if (questionNumberReached === 6) return 9;
-      if (questionNumberReached <= 8) return 8;
-      if (questionNumberReached <= 10) return 7;
-      if (questionNumberReached <= 12) return 6;
-      if (questionNumberReached <= 15) return 5;
-      if (questionNumberReached <= 18) return 4;
-      if (questionNumberReached <= 21) return 3;
-      if (questionNumberReached <= 24) return 2;
-      if (questionNumberReached <= 27) return 1;
-      return 0; // Questions 28-30
-    }
-
-    let currentTier = 'junior';
-    let currentQuestions = [];
+    let quizData = [];
     let currentIndex = 0;
     let correctCount = 0;
     let rawScore = 0;
-    let isBuzzed = false;
-    let isReading = true;
 
-    function setAgeTier(tier) {
-      currentTier = tier;
-      document.getElementById('btn-junior').className = tier === 'junior' 
-        ? "py-2 px-4 rounded-lg font-bold border-2 border-indigo-500 bg-indigo-600 text-white transition-all"
-        : "py-2 px-4 rounded-lg font-bold border-2 border-slate-600 bg-slate-800 text-slate-300 transition-all";
+    // 1. Extract text from uploaded PDF
+    async function generateQuizFromPDF() {
+      const apiKey = document.getElementById('api-key').value.trim();
+      const fileInput = document.getElementById('pdf-file');
+      const statusBox = document.getElementById('status-box');
+      const statusText = document.getElementById('status-text');
+
+      if (!apiKey) {
+        alert("Please enter your free Gemini API key first!");
+        return;
+      }
+      if (!fileInput.files.length) return;
+
+      statusBox.classList.remove('hidden');
+      statusText.innerText = "📄 Extracting text from PDF...";
+
+      try {
+        const file = fileInput.files[0];
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        let extractedText = "";
+
+        for (let i = 1; i <= Math.min(pdf.numPages, 5); i++) {
+          const page = await pdf.getPage(i);
+          const content = await page.getTextContent();
+          extractedText += content.items.map(item => item.str).join(" ") + "\n";
+        }
+
+        statusText.innerText = "🤖 AI Agent is generating pyramidal IAC questions...";
+        await callGeminiAI(extractedText, apiKey);
+
+      } catch (err) {
+        statusText.innerText = "❌ Error processing PDF or API call failed.";
+        console.error(err);
+      }
+    }
+
+    // 2. Call Gemini API to generate structured quiz JSON
+    async function callGeminiAI(pdfText, apiKey) {
+      const prompt = `
+You are an official International Academic Competitions (IAC) Geography Bee quiz writer.
+Analyze the following text and generate 6 pyramidal tossup questions in JSON format.
+
+RULES FOR QUESTIONS:
+1. Each question MUST be 50-70 words long (3 sentences).
+2. Sentence 1: Hard/obscure clue. Sentence 2: Medium clue. Sentence 3: "For the point, name..." easy clue.
+3. Provide 4 answer choices where 1 is correct and 3 are plausible distractors.
+
+OUTPUT JSON FORMAT ONLY:
+[
+  {
+    "question": "Full question text...",
+    "options": ["Option A", "Option B", "Option C", "Option D"],
+    "answer": 0,
+    "source": "Excerpt from PDF text used"
+  }
+]
+
+SOURCE TEXT:
+${pdfText.substring(0, 4000)}
+`;
+
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { responseMimeType: "application/json" }
+        })
+      });
+
+      const data = await response.json();
+      const rawJson = data.candidates[0].content.parts[0].text;
       
-      document.getElementById('btn-senior').className = tier === 'senior' 
-        ? "py-2 px-4 rounded-lg font-bold border-2 border-indigo-500 bg-indigo-600 text-white transition-all"
-        : "py-2 px-4 rounded-lg font-bold border-2 border-slate-600 bg-slate-800 text-slate-300 transition-all";
-
+      quizData = JSON.parse(rawJson);
+      document.getElementById('status-box').classList.add('hidden');
+      
       restartQuiz();
     }
 
@@ -201,145 +148,42 @@
       currentIndex = 0;
       correctCount = 0;
       rawScore = 0;
-      currentQuestions = [...quizData[currentTier]];
-      document.getElementById('quiz-card').classList.remove('hidden');
-      document.getElementById('result-card').classList.add('hidden');
-      updateTrackers();
+      if (quizData.length === 0) return;
       loadQuestion();
     }
 
-    function updateTrackers() {
-      document.getElementById('question-tracker').innerText = `Question: ${currentIndex + 1} / 30`;
-      document.getElementById('correct-tracker').innerText = `Correct: ${correctCount} / 6`;
-      document.getElementById('score-tracker').innerText = `Score: ${rawScore} pts`;
-    }
-
     function loadQuestion() {
-      isBuzzed = false;
-      isReading = true;
-
-      const q = currentQuestions[currentIndex];
-      document.getElementById('reading-status').innerText = "Reading in Progress...";
-      document.getElementById('reading-status').className = "absolute top-2 right-3 text-[10px] font-bold text-amber-500 uppercase tracking-wider";
+      const q = quizData[currentIndex];
+      document.getElementById('question-tracker').innerText = `Question: ${currentIndex + 1} /${quizData.length}`;
       document.getElementById('question-text').innerText = q.question;
-      
-      // Reset Source Box
-      document.getElementById('source-box').classList.add('hidden');
-      document.getElementById('source-text').innerText = '';
 
-      // Reset Options Container
       const container = document.getElementById('options-container');
       container.innerHTML = '';
 
-      // Re-enable Buzz Button
-      document.getElementById('buzz-btn').disabled = false;
-      document.getElementById('buzz-btn').className = "w-full bg-rose-600 hover:bg-rose-500 text-white font-extrabold py-3 px-4 rounded-xl shadow-lg transition-all text-sm tracking-wider uppercase";
-
-      // Render Answer Buttons
       q.options.forEach((opt, idx) => {
         const btn = document.createElement('button');
-        btn.className = "w-full text-left bg-slate-700 hover:bg-slate-600 text-slate-100 font-medium py-3 px-4 rounded-xl border border-slate-600 transition-all active:scale-[0.98]";
+        btn.className = "w-full text-left bg-slate-700 hover:bg-slate-600 text-slate-100 font-medium py-3 px-4 rounded-xl border border-slate-600 transition-all";
         btn.innerText = opt;
         btn.onclick = () => selectOption(idx);
         container.appendChild(btn);
       });
-
-      // Simulate question finishing after 4 seconds if not buzzed
-      setTimeout(() => {
-        if (!isBuzzed && isReading) {
-          isReading = false;
-          document.getElementById('reading-status').innerText = "Reading Finished (No Penalty for Wrong Answer)";
-          document.getElementById('reading-status').className = "absolute top-2 right-3 text-[10px] font-bold text-emerald-400 uppercase tracking-wider";
-        }
-      }, 4000);
-    }
-
-    function buzzIn() {
-      isBuzzed = true;
-      document.getElementById('buzz-btn').disabled = true;
-      document.getElementById('buzz-btn').className = "w-full bg-slate-700 text-slate-400 font-extrabold py-3 px-4 rounded-xl cursor-not-allowed text-sm uppercase";
-      document.getElementById('reading-status').innerText = "BUZZED IN! Select your answer within 3s";
-      document.getElementById('reading-status').className = "absolute top-2 right-3 text-[10px] font-bold text-rose-400 uppercase tracking-wider";
     }
 
     function selectOption(index) {
-      const q = currentQuestions[currentIndex];
-      const buttons = document.getElementById('options-container').children;
-
-      for (let btn of buttons) {
-        btn.disabled = true;
-      }
-
-      const qNumberReached = currentIndex + 1;
-
+      const q = quizData[currentIndex];
       if (index === q.answer) {
-        // Correct Answer
-        buttons[index].className = "w-full text-left bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl border border-emerald-500";
+        rawScore += 1;
         correctCount++;
-        rawScore += 1; // 1 point per tossup
-
-        // IAC Cap Out Check: If player hits 6 correct answers
-        if (correctCount === 6) {
-          const bonus = calculateIACBonus(qNumberReached);
-          rawScore += bonus;
-          updateTrackers();
-          
-          document.getElementById('source-text').innerText = q.source;
-          document.getElementById('source-box').classList.remove('hidden');
-
-          setTimeout(() => {
-            showResults(true, bonus, qNumberReached);
-          }, 2500);
-          return;
-        }
-
-      } else {
-        // Incorrect Answer
-        buttons[index].className = "w-full text-left bg-rose-600 text-white font-bold py-3 px-4 rounded-xl border border-rose-500";
-        buttons[q.answer].className = "w-full text-left bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl border border-emerald-500";
-
-        // IAC Interrupt Rule: If reader is still reading and player interrupts, -1 point penalty
-        if (isReading) {
-          rawScore -= 1;
-        }
       }
-
-      updateTrackers();
-
-      // Show Reading Source Excerpt
-      document.getElementById('source-text').innerText = q.source;
-      document.getElementById('source-box').classList.remove('hidden');
-
-      setTimeout(() => {
-        currentIndex++;
-        if (currentIndex < currentQuestions.length && currentIndex < 30) {
-          loadQuestion();
-        } else {
-          showResults(false, 0, currentIndex);
-        }
-      }, 3000);
-    }
-
-    function showResults(cappedOut, bonus, qNum) {
-      document.getElementById('quiz-card').classList.add('hidden');
-      document.getElementById('result-card').classList.remove('hidden');
-
-      if (cappedOut) {
-        document.getElementById('result-title').innerText = "🎉 Capped Out (6/6 Correct)!";
-        document.getElementById('final-correct').innerText = `Reached 6 points on Question #${qNum}`;
-        document.getElementById('final-bonus').innerText = `IAC Speed Bonus: +${bonus} pts`;
+      currentIndex++;
+      if (currentIndex < quizData.length) {
+        loadQuestion();
       } else {
-        document.getElementById('result-title').innerText = "Round Completed!";
-        document.getElementById('final-correct').innerText = `Tossups Correct: ${correctCount} / 6`;
-        document.getElementById('final-bonus').innerText = `IAC Speed Bonus: +0 pts`;
+        document.getElementById('question-text').innerText = `🎉 Quiz Finished! Final Score: ${rawScore} /${quizData.length} pts`;
+        document.getElementById('options-container').innerHTML = '';
+        confetti({ particleCount: 100, spread: 70 });
       }
-
-      document.getElementById('final-score').innerText = `Total Score: ${rawScore} pts`;
-      confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
     }
-
-    // Initialize on load
-    restartQuiz();
   </script>
 </body>
 </html>
