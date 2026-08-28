@@ -20,7 +20,7 @@ jobs:
         # Updated from @v5 to @v7 for Node 24 support
         uses: actions/setup-python@v7
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install Dependencies
         run: |
