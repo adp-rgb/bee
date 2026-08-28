@@ -1,5 +1,6 @@
 import os
 import json
+import time
 from pathlib import Path
 from google import genai
 from google.genai import types
@@ -21,16 +22,34 @@ def run_ai_agent():
 
     print(f"Found {len(pdf_files)} PDF file(s) in data/: {[f.name for f in pdf_files]}")
 
-    # 3. Upload all detected PDFs to Gemini
     uploaded_files = []
+    file_parts = []
+
     try:
+        # 3. Upload all PDFs and prepare content parts
         for pdf_path in pdf_files:
             print(f"Uploading {pdf_path.name} to Gemini...")
             file_obj = client.files.upload(file=str(pdf_path))
             uploaded_files.append(file_obj)
-            print(f"Uploaded successfully: {file_obj.name}")
 
-        # 4. Formulate prompt referencing all uploaded materials
+            # Wait briefly to ensure file processing state is ACTIVE
+            while file_obj.state.name == "PROCESSING":
+                print(f"Waiting for {pdf_path.name} to finish processing...")
+                time.sleep(2)
+                file_obj = client.files.get(name=file_obj.name)
+
+            if file_obj.state.name != "ACTIVE":
+                raise RuntimeError(f"File {pdf_path.name} failed to process: {file_obj.state.name}")
+
+            # Convert uploaded file URI into a valid Part object
+            part = types.Part.from_uri(
+                file_uri=file_obj.uri,
+                mime_type=file_obj.mime_type
+            )
+            file_parts.append(part)
+            print(f"Ready: {file_obj.name}")
+
+        # 4. Formulate prompt
         prompt = """
         You are an AI research agent for International Academic Competitions (IAC), Science Bowl, and Geography Bees.
         Analyze all uploaded PDF documents containing past competitive questions, formats, and style guidelines.
@@ -55,8 +74,8 @@ def run_ai_agent():
         ]
         """
 
-        # 5. Pass all uploaded file objects along with the prompt
-        contents = uploaded_files + [prompt]
+        # 5. Combine file parts and text prompt into contents list
+        contents = file_parts + [prompt]
 
         response = client.models.generate_content(
             model='gemini-3.6-flash',
@@ -66,7 +85,7 @@ def run_ai_agent():
             )
         )
 
-        # 6. Save output JSON
+        # 6. Parse and save JSON output
         quiz_data = json.loads(response.text)
         with open("quizzes.json", "w", encoding="utf-8") as f:
             json.dump(quiz_data, f, indent=2)
@@ -74,7 +93,7 @@ def run_ai_agent():
         print("Successfully generated quiz set from all PDF sources in quizzes.json!")
 
     finally:
-        # 7. Clean up all uploaded files from Gemini storage
+        # 7. Clean up files from Gemini storage
         for file_obj in uploaded_files:
             try:
                 client.files.delete(name=file_obj.name)
