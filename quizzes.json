@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "category": "Physical Geography / Earth Science",
+    "question": "This region contains the Very Large Telescope at the Paranal Observatory and houses the historic Humberstone and Santa Laura Saltpeter Works. Bordered by the Chilean Coast Range to the west and the Andes to the east, it experiences an extreme rain shadow effect that creates hyperarid soils often studied as an analog for Mars. For the point, name this extremely dry non-polar desert located primarily in northern Chile.",
+    "options": [
+      "Atacama Desert",
+      "Gobi Desert",
+      "Kalahari Desert",
+      "Mojave Desert"
+    ],
+    "answer": 0,
+    "explanation": "The Atacama Desert in northern Chile is considered the driest non-polar desert in the world due to rain shadow effects from the Andes mountains and the cold Humboldt Current."
+  },
+  {
+    "id": 2,
+    "category": "Physical Geography / Earth Science",
+    "question": "The Charlie-Gibbs Fracture Zone and the Romanche Trench interrupt this geologic feature, which emerges above sea level at the Reykjanes Ridge in Iceland. First mapped continuously by Marie Tharp and Bruce Heezen, this slow-spreading underwater mountain range experiences frequent basaltic volcanism along its central rift valley. For the point, name this massive divergent tectonic plate boundary running down the center of the Atlantic Ocean.",
+    "options": [
+      "Mariana Trench",
+      "Mid-Atlantic Ridge",
+      "East Pacific Rise",
+      "Great Rift Valley"
+    ],
+    "answer": 1,
+    "explanation": "The Mid-Atlantic Ridge is a underwater mountain chain formed by a divergent boundary separating the North American and Eurasian plates in the north, and the South American and African plates in the south."
+  },
+  {
+    "id": 3,
+    "category": "Physical Geography / Earth Science",
+    "question": "Mid-20th-century expeditions such as Project Mohole attempted to drill down to retrieve core samples from this geological interface. First identified in 1909 following an earthquake in Croatia, seismic P-wave velocities abruptly increase across this boundary from about 6 to 8 kilometers per second due to an increase in rock density. For the point, name this seismic boundary that separates the Earth's crust from the underlying mantle.",
+    "options": [
+      "Gutenberg discontinuity",
+      "Lehmann discontinuity",
+      "Mohorovi\u010di\u0107 discontinuity",
+      "Conrad discontinuity"
+    ],
+    "answer": 2,
+    "explanation": "The Mohorovi\u010di\u0107 discontinuity (often called the Moho) is the boundary between the crust and mantle, defined by a distinct jump in seismic wave velocity."
+  },
+  {
+    "id": 4,
+    "category": "General Science",
+    "question": "In bacteria, the antibiotic chloramphenicol inhibits this organelle's peptidyl transferase activity, which is carried out by its catalytic 23S rRNA subunit. This non-membrane-bound structure contains A, P, and E binding sites that facilitate the pairing of transfer RNA anticodons with messenger RNA sequence codons. For the point, name this cellular organelle, found free-floating or attached to the rough endoplasmic reticulum, that serves as the site of protein synthesis.",
+    "options": [
+      "Golgi apparatus",
+      "Lysosome",
+      "Mitochondrion",
+      "Ribosome"
+    ],
+    "answer": 3,
+    "explanation": "Ribosomes consist of ribosomal RNA (rRNA) and proteins, translating mRNA sequences into amino acid chains to synthesize proteins."
+  },
+  {
+    "id": 5,
+    "category": "General Science",
+    "question": "Philipp Lenard observed that the maximum kinetic energy of emitted particles in this process depended on light frequency rather than light intensity, contradicting classical wave theory. Albert Einstein earned his 1921 Nobel Prize in Physics by mathematically modeling this phenomenon, proposing that light consists of localized energy packets called photons whose energy must exceed a material's work function. For the point, name this physical effect where shining light on a material causes the emission of electrons.",
+    "options": [
+      "Photoelectric effect",
+      "Compton effect",
+      "Thermiotic emission",
+      "Meissner effect"
+    ],
+    "answer": 0,
+    "explanation": "The photoelectric effect occurs when light shines on a surface and ejects electrons; Einstein's explanation proved the particle nature of light."
+  }
+]
