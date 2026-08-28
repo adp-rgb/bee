@@ -30,6 +30,7 @@ jobs:
       - name: Run AI Research Agent
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python agent.py
 
       - name: Commit and Push Updated Knowledge Resource
