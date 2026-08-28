@@ -1,17 +1,17 @@
 import os
 import json
-import google.generativeai as genai
-
-# Fetch key from GEMINI_API_KEY or GOOGLE_API_KEY
-api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
-
-if not api_key:
-    raise ValueError("No API key found. Please set GEMINI_API_KEY or GOOGLE_API_KEY environment variable.")
-
-genai.configure(api_key=api_key)
+from google import genai
+from google.genai import types
 
 def run_ai_agent():
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    # Fetch API Key from environment variable
+    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+    
+    if not api_key:
+        raise ValueError("No API key found. Ensure GEMINI_API_KEY is set in your environment.")
+
+    # Initialize client with the new SDK
+    client = genai.Client(api_key=api_key)
     
     prompt = """
     You are an AI research agent for International Academic Competitions (IAC), Science Bowl, and Geography Bees.
@@ -34,9 +34,13 @@ def run_ai_agent():
     ]
     """
 
-    response = model.generate_content(
-        prompt,
-        generation_config={"response_mime_type": "application/json"}
+    # Generate content using gemini-2.5-flash
+    response = client.models.generate_content(
+        model='gemini-2.5-flash',
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json"
+        )
     )
 
     # Validate and save JSON knowledge base
