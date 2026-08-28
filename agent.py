@@ -4,15 +4,14 @@ from google import genai
 from google.genai import types
 
 def run_ai_agent():
-    # Force GEMINI_API_KEY priority over GOOGLE_API_KEY
+    # Retrieve key cleanly
     api_key = (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
     
     if not api_key:
-        raise ValueError("No valid API key found. Ensure GEMINI_API_KEY is configured in GitHub Secrets.")
+        raise ValueError("GEMINI_API_KEY environment variable is missing or empty.")
 
-    # Pass the key explicitly to avoid automatic fallback to GOOGLE_API_KEY
     client = genai.Client(api_key=api_key)
-    
+
     prompt = """
     You are an AI research agent for International Academic Competitions (IAC), Science Bowl, and Geography Bees.
     Your task is to generate 5 high-quality, pyramidal-style quiz tossups (3-sentence structure: obscure clue -> medium clue -> giveaway starting with 'For the point, name...').
@@ -34,8 +33,9 @@ def run_ai_agent():
     ]
     """
 
+    # Updated model string to gemini-3.6-flash
     response = client.models.generate_content(
-        model='gemini-2.5-flash',
+        model='gemini-3.6-flash',
         contents=prompt,
         config=types.GenerateContentConfig(
             response_mime_type="application/json"
