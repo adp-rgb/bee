@@ -2,8 +2,13 @@ import os
 import json
 import google.generativeai as genai
 
-# Configure Gemini API
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+# Fetch key from GEMINI_API_KEY or GOOGLE_API_KEY
+api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+
+if not api_key:
+    raise ValueError("No API key found. Please set GEMINI_API_KEY or GOOGLE_API_KEY environment variable.")
+
+genai.configure(api_key=api_key)
 
 def run_ai_agent():
     model = genai.GenerativeModel('gemini-1.5-flash')
