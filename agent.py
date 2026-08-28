@@ -4,13 +4,13 @@ from google import genai
 from google.genai import types
 
 def run_ai_agent():
-    # Fetch API Key from environment variable
+    # Automatically retrieves GEMINI_API_KEY from environment variables
     api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
     
     if not api_key:
-        raise ValueError("No API key found. Ensure GEMINI_API_KEY is set in your environment.")
+        raise ValueError("No API key found. Ensure GEMINI_API_KEY is configured in GitHub Secrets.")
 
-    # Initialize client with the new SDK
+    # Initialize client using modern SDK
     client = genai.Client(api_key=api_key)
     
     prompt = """
@@ -43,7 +43,7 @@ def run_ai_agent():
         )
     )
 
-    # Validate and save JSON knowledge base
+    # Save JSON knowledge base
     quiz_data = json.loads(response.text)
     
     with open("quizzes.json", "w", encoding="utf-8") as f:
