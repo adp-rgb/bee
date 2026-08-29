@@ -76,7 +76,8 @@ def run_ai_agent():
             model='gemini-3.6-flash',
             contents=content_payload,
             config=types.GenerateContentConfig(
-                response_mime_type="application/json"
+                response_mime_type="application/json",
+                max_output_tokens=8192  # Gives enough token room for 30 detailed questions
             )
         )
 
