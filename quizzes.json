@@ -2,66 +2,66 @@
   {
     "id": 1,
     "category": "Physical Geography / Earth Science",
-    "question": "This region contains the Very Large Telescope at the Paranal Observatory and houses the historic Humberstone and Santa Laura Saltpeter Works. Bordered by the Chilean Coast Range to the west and the Andes to the east, it experiences an extreme rain shadow effect that creates hyperarid soils often studied as an analog for Mars. For the point, name this extremely dry non-polar desert located primarily in northern Chile.",
+    "question": "The Barguzin and Sarma are two prominent winds that blow across this body of water, which contains Olkhon Island. Fed by the Selenga River, this body of water is home to the nerpa, the world's only exclusively freshwater seal species. For the point, name this rift lake in Siberia, the world's deepest freshwater lake.",
     "options": [
-      "Atacama Desert",
-      "Gobi Desert",
-      "Kalahari Desert",
-      "Mojave Desert"
+      "Lake Baikal",
+      "Lake Tanganyika",
+      "Lake Superior",
+      "Lake Malawi"
     ],
     "answer": 0,
-    "explanation": "The Atacama Desert in northern Chile is considered the driest non-polar desert in the world due to rain shadow effects from the Andes mountains and the cold Humboldt Current."
+    "explanation": "Lake Baikal in southern Siberia, Russia, is the world's deepest and oldest lake, containing roughly 20% of the world's unfrozen surface fresh water."
   },
   {
     "id": 2,
     "category": "Physical Geography / Earth Science",
-    "question": "The Charlie-Gibbs Fracture Zone and the Romanche Trench interrupt this geologic feature, which emerges above sea level at the Reykjanes Ridge in Iceland. First mapped continuously by Marie Tharp and Bruce Heezen, this slow-spreading underwater mountain range experiences frequent basaltic volcanism along its central rift valley. For the point, name this massive divergent tectonic plate boundary running down the center of the Atlantic Ocean.",
+    "question": "The Valle de la Luna lies within this region, where the Very Large Telescope is operated atop Mount Paranal by the European Southern Observatory. Rain shadow effects created by the Andes mountain range to the east block moisture from reaching this plateau, resulting in massive salt flats known as salars. For the point, name this hyper-arid desert in northern Chile, considered the driest non-polar desert on Earth.",
     "options": [
-      "Mariana Trench",
-      "Mid-Atlantic Ridge",
-      "East Pacific Rise",
-      "Great Rift Valley"
+      "Gobi Desert",
+      "Atacama Desert",
+      "Mojave Desert",
+      "Kalahari Desert"
     ],
     "answer": 1,
-    "explanation": "The Mid-Atlantic Ridge is a underwater mountain chain formed by a divergent boundary separating the North American and Eurasian plates in the north, and the South American and African plates in the south."
+    "explanation": "The Atacama Desert in northern Chile is the driest non-polar desert in the world due to a double rain shadow created by the Andes and the Chilean Coast Range."
   },
   {
     "id": 3,
     "category": "Physical Geography / Earth Science",
-    "question": "Mid-20th-century expeditions such as Project Mohole attempted to drill down to retrieve core samples from this geological interface. First identified in 1909 following an earthquake in Croatia, seismic P-wave velocities abruptly increase across this boundary from about 6 to 8 kilometers per second due to an increase in rock density. For the point, name this seismic boundary that separates the Earth's crust from the underlying mantle.",
+    "question": "The continental island of Lizard Island and the low-lying coral cay of Heron Island are key research locations within this marine structure. Threatened by crown-of-thorns starfish outbreaks and mass coral bleaching events, this feature lies off the coast of Queensland in the Coral Sea. For the point, name this world's largest coral reef system, located off northeastern Australia.",
     "options": [
-      "Gutenberg discontinuity",
-      "Lehmann discontinuity",
-      "Mohorovi\u010di\u0107 discontinuity",
-      "Conrad discontinuity"
+      "Mesoamerican Barrier Reef",
+      "New Caledonia Barrier Reef",
+      "Great Barrier Reef",
+      "Florida Reef Tract"
     ],
     "answer": 2,
-    "explanation": "The Mohorovi\u010di\u0107 discontinuity (often called the Moho) is the boundary between the crust and mantle, defined by a distinct jump in seismic wave velocity."
+    "explanation": "The Great Barrier Reef is the world's largest coral reef system, composed of over 2,900 individual reefs stretching over 2,300 kilometers off Queensland, Australia."
   },
   {
     "id": 4,
     "category": "General Science",
-    "question": "In bacteria, the antibiotic chloramphenicol inhibits this organelle's peptidyl transferase activity, which is carried out by its catalytic 23S rRNA subunit. This non-membrane-bound structure contains A, P, and E binding sites that facilitate the pairing of transfer RNA anticodons with messenger RNA sequence codons. For the point, name this cellular organelle, found free-floating or attached to the rough endoplasmic reticulum, that serves as the site of protein synthesis.",
+    "question": "Inner folds called cristae expand the surface area of this organelle's inner membrane, enclosing a fluid space known as the matrix. Possessing its own circular DNA inherited exclusively through maternal lineages, this organelle hosts the Krebs cycle and oxidative phosphorylation. For the point, name this cellular organelle responsible for generating ATP, often called the powerhouse of the cell.",
     "options": [
-      "Golgi apparatus",
       "Lysosome",
-      "Mitochondrion",
-      "Ribosome"
+      "Mitochondria",
+      "Endoplasmic Reticulum",
+      "Golgi Apparatus"
     ],
-    "answer": 3,
-    "explanation": "Ribosomes consist of ribosomal RNA (rRNA) and proteins, translating mRNA sequences into amino acid chains to synthesize proteins."
+    "answer": 1,
+    "explanation": "Mitochondria are membrane-bound cellular organelles that produce energy (ATP) through cellular respiration and contain their own distinct mitochondrial DNA (mtDNA)."
   },
   {
     "id": 5,
     "category": "General Science",
-    "question": "Philipp Lenard observed that the maximum kinetic energy of emitted particles in this process depended on light frequency rather than light intensity, contradicting classical wave theory. Albert Einstein earned his 1921 Nobel Prize in Physics by mathematically modeling this phenomenon, proposing that light consists of localized energy packets called photons whose energy must exceed a material's work function. For the point, name this physical effect where shining light on a material causes the emission of electrons.",
+    "question": "The enzyme RuBisCO catalyzes the initial carbon-fixing step of the Calvin cycle in the stroma during this metabolic pathway. Light-dependent reactions in this process take place along the thylakoid membranes, utilizing chlorophyll to split water molecules and release oxygen gas. For the point, name this biological process used by plants to convert solar energy into chemical energy.",
     "options": [
-      "Photoelectric effect",
-      "Compton effect",
-      "Thermiotic emission",
-      "Meissner effect"
+      "Cellular Respiration",
+      "Fermentation",
+      "Photosynthesis",
+      "Nitrogen Fixation"
     ],
-    "answer": 0,
-    "explanation": "The photoelectric effect occurs when light shines on a surface and ejects electrons; Einstein's explanation proved the particle nature of light."
+    "answer": 2,
+    "explanation": "Photosynthesis is the process by which green plants and certain organisms synthesize nutrients from carbon dioxide and water using light absorbed by chlorophyll."
   }
 ]
