@@ -3,133 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Geography & Science Bee Quiz</title>
+  <title>Academic Bee Hub</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-900 text-white min-h-screen p-4 sm:p-6 flex flex-col items-center justify-center">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
 
-  <div class="max-w-2xl w-full bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-700 shadow-2xl">
-    
-<!-- Header -->
-    <div class="flex justify-between items-start mb-4">
-      <div>
-        <h1 class="text-xl sm:text-2xl font-bold text-amber-400">Academic Bee Trainer 🐝</h1>
-        <p class="text-slate-400 text-xs">Auto-generated via AI Agent & GitHub Actions</p>
+  <!-- Top Navigation Header -->
+  <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="bg-amber-500 text-slate-950 font-black p-2 rounded-xl text-lg shadow-lg shadow-amber-500/20">🐝</div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold text-slate-100 leading-tight">Academic Bee Trainer</h1>
+          <p class="text-[10px] text-amber-400 font-medium">12,000+ Pyramidal Clues Engine</p>
+        </div>
       </div>
-      
-      <!-- Container holding both the Dropdown and Progress Badge -->
       <div class="flex items-center gap-2">
-        <select id="question-select" onchange="jumpToQuestion(this.value)" class="bg-slate-800 text-xs text-amber-400 font-bold px-2 py-1 rounded border border-slate-700 outline-none cursor-pointer">
-        </select>
-        <span id="quiz-progress" class="text-xs font-bold bg-slate-700 text-slate-300 px-2.5 py-1 rounded-full">
-          0/0
+        <span class="text-xs bg-slate-800 border border-slate-700 text-slate-300 px-3 py-1.5 rounded-full font-semibold">
+          Middle School
         </span>
       </div>
     </div>
+  </header>
 
-    <!-- Quiz Content Container -->
-    <div id="quiz-container" class="space-y-4">
-      <div class="text-xs font-semibold text-indigo-400 uppercase tracking-wider" id="category">
-        Loading...
+  <main class="max-w-6xl mx-auto px-4 py-6 w-full flex-1 space-y-6">
+
+    <!-- Performance Dashboard Section -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex items-center gap-4">
+        <div class="bg-indigo-500/10 text-indigo-400 p-3 rounded-xl border border-indigo-500/20 font-bold text-xl">📝</div>
+        <div>
+          <p class="text-xs text-slate-400 uppercase tracking-wider font-medium">Attempted</p>
+          <p id="stat-attempted" class="text-2xl font-bold text-slate-100">0</p>
+        </div>
       </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex items-center gap-4">
+        <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-xl border border-emerald-500/20 font-bold text-xl">🎯</div>
+        <div>
+          <p class="text-xs text-slate-400 uppercase tracking-wider font-medium">Accuracy</p>
+          <p id="stat-accuracy" class="text-2xl font-bold text-slate-100">0%</p>
+        </div>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex items-center gap-4">
+        <div class="bg-amber-500/10 text-amber-400 p-3 rounded-xl border border-amber-500/20 font-bold text-xl">🏆</div>
+        <div>
+          <p class="text-xs text-slate-400 uppercase tracking-wider font-medium">Rank Status</p>
+          <p class="text-2xl font-bold text-amber-400">Novice</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QuizVidya-Style Category Dashboard -->
+    <section class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+        <div>
+          <h2 class="text-lg font-bold text-slate-100">Science & Geography Bee Prep</h2>
+          <p class="text-xs text-slate-400">Select a study mode or begin full tossup rounds.</p>
+        </div>
+        
+        <!-- Dropdown Question Jumper -->
+        <div class="flex items-center gap-2">
+          <label for="question-select" class="text-xs text-slate-400">Jump To:</label>
+          <select id="question-select" onchange="jumpToQuestion(this.value)" class="bg-slate-800 text-xs text-amber-400 font-bold px-3 py-1.5 rounded-xl border border-slate-700 outline-none cursor-pointer">
+          </select>
+        </div>
+      </div>
+
+      <!-- Module Action Grid (Cleaned-Up Alternative Labels) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+        <button onclick="filterMode('all')" class="flex items-center justify-between bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 p-3 rounded-xl text-xs font-semibold transition-all">
+          <span>🏆 Full Tossup Round</span>
+          <span>→</span>
+        </button>
+
+        <button onclick="toggleFlashcards()" class="flex items-center justify-between bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 p-3 rounded-xl text-xs font-semibold transition-all">
+          <span>🎴 Active Recall Deck</span>
+          <span>→</span>
+        </button>
+
+        <button onclick="filterMode('Geography')" class="flex items-center justify-between bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 p-3 rounded-xl text-xs font-semibold transition-all">
+          <span>🌍 Geography Drill</span>
+          <span>→</span>
+        </button>
+
+        <button onclick="filterMode('Science')" class="flex items-center justify-between bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 p-3 rounded-xl text-xs font-semibold transition-all">
+          <span>🧪 Science Drill</span>
+          <span>→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Quiz Interface -->
+    <section class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-2xl space-y-4">
       
-      <div class="bg-slate-900 p-4 rounded-xl text-sm sm:text-base leading-relaxed border border-slate-700/50" id="question">
+      <!-- Quiz Header -->
+      <div class="flex items-center justify-between">
+        <span id="category" class="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full">
+          Loading Category...
+        </span>
+        <span id="quiz-progress" class="text-xs font-semibold text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+          0/0
+        </span>
+      </div>
+
+      <!-- Question Text Box -->
+      <div id="question" class="bg-slate-950 p-4 sm:p-5 rounded-xl text-sm sm:text-base leading-relaxed border border-slate-800 text-slate-200 min-h-[100px] flex items-center">
         Fetching latest quiz pack...
       </div>
-      
-      <!-- Option Buttons -->
+
+      <!-- Option Buttons Container -->
       <div id="options" class="grid grid-cols-1 gap-2.5 pt-1"></div>
-      
+
       <!-- Explanation Box -->
-      <div id="explanation" class="hidden bg-emerald-950/80 border border-emerald-600/50 p-4 rounded-xl text-xs sm:text-sm text-emerald-200"></div>
-    </div>
+      <div id="explanation" class="hidden bg-emerald-950/60 border border-emerald-600/40 p-4 rounded-xl text-xs sm:text-sm text-emerald-200 leading-relaxed"></div>
 
-    <!-- Mobile-Friendly Navigation Controls -->
-    <div class="flex items-center justify-between gap-3 mt-6 pt-4 border-t border-slate-700/60">
-      <button id="prev-btn" onclick="prevQuestion()" disabled 
-        class="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-slate-700 hover:bg-slate-600 active:scale-95 disabled:opacity-40 disabled:pointer-events-none transition-all">
-        ← Previous
-      </button>
+      <!-- Navigation Bar -->
+      <div class="flex items-center justify-between gap-3 pt-4 border-t border-slate-800">
+        <button id="prev-btn" onclick="prevQuestion()" disabled 
+          class="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-300 disabled:opacity-30 disabled:pointer-events-none transition-all border border-slate-700">
+          ← Previous
+        </button>
 
-      <button id="next-btn" onclick="nextQuestion()" disabled 
-        class="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-amber-500 hover:bg-amber-400 text-slate-950 active:scale-95 disabled:opacity-40 disabled:pointer-events-none transition-all">
-        Next →
-      </button>
-    </div>
+        <button id="next-btn" onclick="nextQuestion()" disabled 
+          class="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all shadow-lg shadow-amber-500/10">
+          Next →
+        </button>
+      </div>
+    </section>
 
-  </div>
+  </main>
 
   <script>
+    let rawQuizzes = [];
     let quizzes = [];
     let currentIdx = 0;
-    let rulesSummary = null;
+    let attemptedCount = 0;
+    let correctCount = 0;
 
-async function loadQuizzes() {
-  try {
-    const res = await fetch('./quizzes.json');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    
-    quizzes = Array.isArray(data) ? data : (data.quizzes || []);
-    rulesSummary = data.rules_summary || null;
-    
-    if (rulesSummary) {
-      console.log(`Loaded Round: ${quizzes.length} Total Questions | Max Points: ${rulesSummary.max_correct_per_player}`);
+    async function loadQuizzes() {
+      try {
+        const res = await fetch('./quizzes.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        
+        rawQuizzes = Array.isArray(data) ? data : (data.quizzes || []);
+        quizzes = [...rawQuizzes];
+
+        if (quizzes.length > 0) {
+          renderQuestion();
+        } else {
+          document.getElementById('question').innerText = 'No questions available in quizzes.json.';
+        }
+      } catch (err) {
+        console.error('Error fetching quiz data:', err);
+        document.getElementById('question').innerText = 'Failed to load quizzes.json. Check GitHub Pages setup.';
+      }
     }
 
-    if (quizzes.length > 0) {
-      renderQuestion();
-    } else {
-      document.getElementById('question').innerText = 'No questions available in quizzes.json.';
+    function updateQuestionSelector() {
+      const select = document.getElementById('question-select');
+      if (!select) return;
+      select.innerHTML = quizzes.map((_, i) => 
+        `<option value="${i}" ${i === currentIdx ? 'selected' : ''}>Q${i + 1}</option>`
+      ).join('');
     }
-  } catch (err) {
-    console.error('Error fetching quiz data:', err);
-    document.getElementById('question').innerText = 'Failed to load quizzes.json. Make sure the file exists on GitHub Pages.';
-  }
-}
+
     function renderQuestion() {
+      if (quizzes.length === 0) return;
       const q = quizzes[currentIdx];
       
-      // Update Category & Progress Bar
-      document.getElementById('category').innerText = q.category;
+      updateQuestionSelector();
+
+      document.getElementById('category').innerText = q.category || 'General Knowledge';
       document.getElementById('quiz-progress').innerText = `${currentIdx + 1}/${quizzes.length}`;
       document.getElementById('question').innerText = q.question;
-      document.getElementById('explanation').classList.add('hidden');
+      
+      const explanationEl = document.getElementById('explanation');
+      explanationEl.classList.add('hidden');
+      explanationEl.innerText = '';
 
-      // Clear Options
       const optsContainer = document.getElementById('options');
       optsContainer.innerHTML = '';
 
-      // Build Option Buttons
       q.options.forEach((opt, idx) => {
         const btn = document.createElement('button');
-        btn.className = "w-full text-left bg-slate-700 hover:bg-slate-600 active:bg-slate-500 p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-medium border border-slate-600 transition-all";
+        btn.className = "w-full text-left bg-slate-800 hover:bg-slate-700 active:bg-slate-600 p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-medium border border-slate-700 text-slate-200 transition-all";
         btn.innerText = opt;
         
         btn.onclick = () => {
           const allBtns = optsContainer.querySelectorAll('button');
-          allBtns.forEach(b => b.disabled = true); // Disable options after choice
+          allBtns.forEach(b => b.disabled = true);
 
+          attemptedCount++;
           if (idx === q.answer) {
-            btn.className = "w-full text-left bg-emerald-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg";
+            correctCount++;
+            btn.className = "w-full text-left bg-emerald-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-emerald-900/40";
           } else {
-            btn.className = "w-full text-left bg-rose-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg";
-            // Highlight correct option
+            btn.className = "w-full text-left bg-rose-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-rose-900/40";
             if (allBtns[q.answer]) {
               allBtns[q.answer].className = "w-full text-left bg-emerald-700 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold border border-emerald-500";
             }
           }
           
-          document.getElementById('explanation').innerText = `Explanation: ${q.explanation}`;
-          document.getElementById('explanation').classList.remove('hidden');
+          updateDashboardStats();
+          explanationEl.innerText = `Explanation: ${q.explanation}`;
+          explanationEl.classList.remove('hidden');
         };
         
         optsContainer.appendChild(btn);
       });
 
-      // Update Navigation Buttons State
       document.getElementById('prev-btn').disabled = currentIdx === 0;
       document.getElementById('next-btn').disabled = currentIdx === quizzes.length - 1;
+    }
+
+    function updateDashboardStats() {
+      document.getElementById('stat-attempted').innerText = attemptedCount;
+      const accuracy = attemptedCount > 0 ? Math.round((correctCount / attemptedCount) * 100) : 0;
+      document.getElementById('stat-accuracy').innerText = `${accuracy}%`;
     }
 
     function prevQuestion() {
@@ -145,70 +236,29 @@ async function loadQuizzes() {
         renderQuestion();
       }
     }
-    function updateQuestionSelector() {
-      const select = document.getElementById('question-select');
-      if (!select) return;
-      
-      // Build dropdown options dynamically for all questions (1 to 30)
-      select.innerHTML = quizzes.map((_, i) => 
-        `<option value="${i}" ${i === currentIdx ? 'selected' : ''}>Q${i + 1}</option>`
-      ).join('');
-    }
 
     function jumpToQuestion(idx) {
       currentIdx = parseInt(idx, 10);
       renderQuestion();
     }
 
-    function renderQuestion() {
-      const q = quizzes[currentIdx];
-      
-      // Sync the dropdown state with current question
-      updateQuestionSelector();
+    function filterMode(catKey) {
+      if (catKey === 'all') {
+        quizzes = [...rawQuizzes];
+      } else {
+        quizzes = rawQuizzes.filter(q => q.category.toLowerCase().includes(catKey.toLowerCase()));
+      }
+      currentIdx = 0;
+      if (quizzes.length > 0) {
+        renderQuestion();
+      } else {
+        document.getElementById('question').innerText = `No questions found for ${catKey}.`;
+        document.getElementById('options').innerHTML = '';
+      }
+    }
 
-      // Update Category & Progress Bar
-      document.getElementById('category').innerText = q.category;
-      document.getElementById('quiz-progress').innerText = `${currentIdx + 1}/${quizzes.length}`;
-      document.getElementById('question').innerText = q.question;
-      
-      // Clear explanation box on question change
-      const explanationEl = document.getElementById('explanation');
-      explanationEl.classList.add('hidden');
-      explanationEl.innerText = '';
-
-      // Clear Options
-      const optsContainer = document.getElementById('options');
-      optsContainer.innerHTML = '';
-
-      // Build Option Buttons
-      q.options.forEach((opt, idx) => {
-        const btn = document.createElement('button');
-        btn.className = "w-full text-left bg-slate-700 hover:bg-slate-600 active:bg-slate-500 p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-medium border border-slate-600 transition-all";
-        btn.innerText = opt;
-        
-        btn.onclick = () => {
-          const allBtns = optsContainer.querySelectorAll('button');
-          allBtns.forEach(b => b.disabled = true); // Disable options after choice
-
-          if (idx === q.answer) {
-            btn.className = "w-full text-left bg-emerald-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg";
-          } else {
-            btn.className = "w-full text-left bg-rose-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg";
-            if (allBtns[q.answer]) {
-              allBtns[q.answer].className = "w-full text-left bg-emerald-700 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold border border-emerald-500";
-            }
-          }
-          
-          explanationEl.innerText = `Explanation: ${q.explanation}`;
-          explanationEl.classList.remove('hidden');
-        };
-        
-        optsContainer.appendChild(btn);
-      });
-
-      // Update Navigation Buttons State
-      document.getElementById('prev-btn').disabled = currentIdx === 0;
-      document.getElementById('next-btn').disabled = currentIdx === quizzes.length - 1;
+    function toggleFlashcards() {
+      alert("Flashcard Mode: Questions act as active recall cards. Simply read the question and select an option to check your memory!");
     }
 
     loadQuizzes();
