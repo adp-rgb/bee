@@ -1,0 +1,23 @@
+{
+  "competition_name": "IAC Bee Competition",
+  "questions_per_round": 30,
+  "max_correct_per_player": 6,
+  "question_structure": "3-sentence pyramidal form (obscure clue -> medium clue -> giveaway starting with 'For the point, name...')",
+  "scoring": {
+    "correct_answer_points": 1,
+    "early_incorrect_penalty": -1,
+    "max_incorrect_per_question": 3,
+    "bonus_structure": [
+      { "question_reached": 6, "bonus": 9, "total": 15 },
+      { "question_reached": [7, 8], "bonus": 8, "total": 14 },
+      { "question_reached": [9, 10], "bonus": 7, "total": 13 },
+      { "question_reached": [11, 12], "bonus": 6, "total": 12 },
+      { "question_reached": [13, 14, 15], "bonus": 5, "total": 11 },
+      { "question_reached": [16, 17, 18], "bonus": 4, "total": 10 },
+      { "question_reached": [19, 20, 21], "bonus": 3, "total": 9 },
+      { "question_reached": [22, 23, 24], "bonus": 2, "total": 8 },
+      { "question_reached": [25, 26, 27], "bonus": 1, "total": 7 },
+      { "question_reached": [28, 29, 30], "bonus": 0, "total": 6 }
+    ]
+  }
+}
