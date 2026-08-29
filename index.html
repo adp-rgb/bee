@@ -57,11 +57,14 @@
     let quizzes = [];
     let currentIdx = 0;
 
-    async function loadQuizzes() {
+async function loadQuizzes() {
       try {
         const res = await fetch('./quizzes.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        quizzes = await res.json();
+        const data = await res.json();
+        
+        // Support both wrapped metadata JSON and direct array JSON
+        quizzes = Array.isArray(data) ? data : (data.quizzes || []);
         
         if (quizzes.length > 0) {
           renderQuestion();
