@@ -1,8 +1,7 @@
 import os
 import json
+import time
 from pathlib import Path
-import chromadb
-from pypdf import PdfReader
 from google import genai
 from google.genai import types
 
@@ -13,46 +12,6 @@ def load_rules():
     with open(rules_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def build_vector_store():
-    """Extracts text from all PDFs and text files in data/ into ChromaDB."""
-    chroma_client = chromadb.Client()
-    collection = chroma_client.get_or_create_collection(name="bee_past_questions")
-    
-    data_dir = Path("data")
-    all_files = list(data_dir.glob("*.pdf")) + list(data_dir.glob("*.txt"))
-    
-    print(f"Indexing {len(all_files)} files into local vector database...")
-    
-    doc_id = 0
-    for file_path in all_files:
-        text = ""
-       if file_path.suffix == ".pdf":
-            try:
-                reader = PdfReader(file_path, strict=False)  # strict=False handles minor PDF formatting issues
-                for page in reader.pages:
-                    extracted = page.extract_text()
-                    if extracted:
-                        text += extracted + "\n"
-            except Exception as e:
-                print(f"Skipping unreadable/corrupted PDF {file_path.name}: {e}")
-                continue
-        elif file_path.suffix == ".txt":
-            with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-                text = f.read()
-
-        # Break long text into smaller chunks for quick retrieval
-        chunks = [text[i:i+1000] for i in range(0, len(text), 1000) if len(text[i:i+1000]) > 100]
-        for chunk in chunks:
-            collection.add(
-                documents=[chunk],
-                metadatas=[{"source": file_path.name}],
-                ids=[f"doc_{doc_id}"]
-            )
-            doc_id += 1
-            
-    print(f"Indexed {doc_id} text chunks successfully!")
-    return collection
-
 def run_ai_agent():
     api_key = (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
     if not api_key:
@@ -60,69 +19,101 @@ def run_ai_agent():
 
     client = genai.Client(api_key=api_key)
     rules = load_rules()
-    num_questions = rules.get("questions_per_round", 30)
-
-    # 1. Index local PDFs and web text
-    collection = build_vector_store()
-
-    # 2. Retrieve representative sample clues across subjects
-    query_results = collection.query(
-        query_texts=["pyramidal geography science bee tossup question for the point name"],
-        n_results=15
-    )
-    retrieved_context = "\n---\n".join(query_results["documents"][0])
-
-    # 3. Dynamic Prompt adhering strictly to rules.json
-    prompt = f"""
-    You are an official item writer for the {rules['competition_name']}.
     
-    Below is a reference sample of style and questions extracted from past official exams and the IAC website:
-    {retrieved_context}
+    total_requested = rules.get("questions_per_round", 30)
+    batch_size = 10  # 10 questions per batch prevents token cutoff
+    num_batches = (total_requested + batch_size - 1) // batch_size
 
-    Generate EXACTLY {num_questions} high-quality, pyramidal-style quiz tossups following these rules:
-    - Question Structure: {rules['question_structure']}
-    - Maximum correct answers allowed per player per round: {rules['scoring']['max_correct_per_player']}
-    - Early incorrect answer penalty: {rules['scoring']['early_incorrect_penalty']} point
-
-    Output STRICT JSON matching this exact structure:
-    [
-      {{
-        "id": 1,
-        "category": "Geography / Earth Science",
-        "question": "Pyramidal question text starting with obscure clues and ending with giveaway starting with 'For the point, name...'",
-        "options": ["Option A", "Option B", "Option C", "Option D"],
-        "answer": 0,
-        "explanation": "Fact summary explaining the correct answer."
-      }}
-    ]
-    """
-
-    print(f"Generating {num_questions} questions via Gemini API...")
-    response = client.models.generate_content(
-        model='gemini-3.6-flash',
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json"
-        )
-    )
-
-    quiz_data = json.loads(response.text)
+    data_dir = Path("data")
+    pdf_files = list(data_dir.glob("*.pdf"))
     
-# Replace direct key lookups with safe .get() defaults
-output_payload = {
-    "rules_summary": {
-        "total_questions": len(all_quizzes),
-        "max_correct_per_player": rules.get("scoring", {}).get("max_correct_per_player", 6),
-        "early_penalty": rules.get("scoring", {}).get("early_incorrect_penalty", -1),
-        "bonus_table": rules.get("scoring", {}).get("bonus_structure", {})
-    },
-    "quizzes": all_quizzes
-}
+    uploaded_files = []
+    file_parts = []
 
-    with open("quizzes.json", "w", encoding="utf-8") as f:
-        json.dump(output_payload, f, indent=2)
+    try:
+        # Upload up to 10 PDFs for broader reference coverage
+        if pdf_files:
+            selected_pdfs = pdf_files[:10]
+            print(f"Uploading {len(selected_pdfs)} reference PDF(s)...")
+            
+            for pdf_path in selected_pdfs:
+                file_obj = client.files.upload(file=str(pdf_path))
+                uploaded_files.append(file_obj)
 
-    print(f"Successfully generated {len(quiz_data)} questions in quizzes.json!")
+                while file_obj.state.name == "PROCESSING":
+                    time.sleep(2)
+                    file_obj = client.files.get(name=file_obj.name)
+
+                if file_obj.state.name == "ACTIVE":
+                    file_parts.append(types.Part.from_uri(file_uri=file_obj.uri, mime_type="application/pdf"))
+
+        all_quizzes = []
+        
+        for batch_num in range(num_batches):
+            current_count = min(batch_size, total_requested - len(all_quizzes))
+            print(f"Generating batch {batch_num + 1}/{num_batches} ({current_count} questions)...")
+            
+            prompt_text = f"""
+            You are an official item writer for the {rules['competition_name']}.
+            Analyze the uploaded PDF documents for style, depth, and subject distribution.
+
+            Generate EXACTLY {current_count} pyramidal tossup questions following these rules:
+            - Question Structure: {rules['question_structure']}
+            - Clues move from obscure to accessible giveaway.
+
+            Output STRICT JSON array with exactly {current_count} items:
+            [
+              {{
+                "id": 1,
+                "category": "Geography / Earth Science",
+                "question": "Pyramidal question text...",
+                "options": ["Option A", "Option B", "Option C", "Option D"],
+                "answer": 0,
+                "explanation": "Brief explanation..."
+              }}
+            ]
+            """
+
+            prompt_part = types.Part.from_text(text=prompt_text)
+            content_payload = types.Content(role="user", parts=file_parts + [prompt_part])
+
+            response = client.models.generate_content(
+                model='gemini-3.6-flash',
+                contents=content_payload,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    max_output_tokens=8192
+                )
+            )
+
+            batch_data = json.loads(response.text)
+            all_quizzes.extend(batch_data)
+
+        # Re-index question IDs from 1 to 30
+        for idx, q in enumerate(all_quizzes, start=1):
+            q["id"] = idx
+
+        output_payload = {
+            "rules_summary": {
+                "total_questions": len(all_quizzes),
+                "max_correct_per_player": rules["scoring"]["max_correct_per_player"],
+                "early_penalty": rules["scoring"]["early_incorrect_penalty"],
+                "bonus_table": rules["scoring"]["bonus_structure"]
+            },
+            "quizzes": all_quizzes
+        }
+
+        with open("quizzes.json", "w", encoding="utf-8") as f:
+            json.dump(output_payload, f, indent=2)
+
+        print(f"Successfully generated {len(all_quizzes)} questions in quizzes.json!")
+
+    finally:
+        for file_obj in uploaded_files:
+            try:
+                client.files.delete(name=file_obj.name)
+            except Exception:
+                pass
 
 if __name__ == "__main__":
     run_ai_agent()
