@@ -32,7 +32,7 @@
         
         <!-- Search Input -->
         <div class="relative flex-1">
-          <input type="text" id="topic-search" oninput="filterTopics()" placeholder="Search a topic (e.g., Acceleration, Tectonic Plates)..." 
+          <input type="text" id="topic-search" oninput="filterTopics()" placeholder="Search terms or topics (e.g., speed, force, tectonic)..." 
             class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-amber-500/50 transition-all">
         </div>
 
@@ -103,15 +103,38 @@
         
         renderTopicCloud();
         
-        // Select first available topic automatically
         const keys = Object.keys(topicsData);
         if (keys.length > 0) {
           selectTopic(keys[0]);
         }
       } catch (err) {
         console.error('Failed to load topics.json:', err);
-        document.getElementById('topic-cloud').innerHTML = '<span class="text-xs text-rose-400">Failed to load topics.json. Run build_topics.py to generate data.</span>';
+        document.getElementById('topic-cloud').innerHTML = 
+          '<span class="text-xs text-rose-400">Failed to load topics.json. Ensure build_topics.py has been executed and topics.json is pushed to GitHub repository root.</span>';
       }
+    }
+
+    // Helper to check if search query appears anywhere in a topic payload
+    function matchesQuery(key, data, query) {
+      if (!query) return true;
+      const q = query.toLowerCase();
+
+      // Check key or summary
+      if (key.toLowerCase().includes(q)) return true;
+      if (data.summary && data.summary.toLowerCase().includes(q)) return true;
+
+      // Check inside levels (overview and facts array)
+      if (data.levels) {
+        for (const lvl of Object.values(data.levels)) {
+          if (lvl.overview && lvl.overview.toLowerCase().includes(q)) return true;
+          if (lvl.facts && lvl.facts.some(fact => fact.toLowerCase().includes(q))) return true;
+        }
+      }
+
+      // Check related topics
+      if (data.related_topics && data.related_topics.some(rel => rel.toLowerCase().includes(q))) return true;
+
+      return false;
     }
 
     function renderTopicCloud(filterQuery = '') {
@@ -119,11 +142,11 @@
       container.innerHTML = '';
 
       const keys = Object.keys(topicsData).filter(key => 
-        key.toLowerCase().includes(filterQuery.toLowerCase())
+        matchesQuery(key, topicsData[key], filterQuery)
       );
 
       if (keys.length === 0) {
-        container.innerHTML = '<span class="text-xs text-slate-500">No matching topics found.</span>';
+        container.innerHTML = '<span class="text-xs text-slate-500">No matching topics found. Try searching for broader terms like "acceleration" or "force".</span>';
         return;
       }
 
@@ -170,10 +193,10 @@
       card.classList.remove('hidden');
 
       const data = topicsData[selectedTopicKey];
-      const levelContent = data.levels[currentLevel] || data.levels['middle_school'];
+      const levelContent = data.levels ? (data.levels[currentLevel] || data.levels['middle_school']) : {};
 
-      document.getElementById('topic-title').innerText = data.topic;
-      document.getElementById('topic-summary').innerText = levelContent.overview || data.summary;
+      document.getElementById('topic-title').innerText = data.topic || selectedTopicKey;
+      document.getElementById('topic-summary').innerText = levelContent.overview || data.summary || '';
       
       const levelNames = { elementary: 'Elementary Tier', middle_school: 'Middle School Tier', high_school: 'High School Tier' };
       document.getElementById('active-level-badge').innerText = levelNames[currentLevel];
