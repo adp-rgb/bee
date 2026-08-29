@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essential Knowledge Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
+
+  <!-- Navigation Header -->
+  <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="bg-amber-500 text-slate-950 font-black p-2 rounded-xl text-lg shadow-lg shadow-amber-500/20">🐝</a>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold text-slate-100">Core Topic Knowledge Hub</h1>
+          <p class="text-[10px] text-amber-400 font-medium">Competition Essentials & Fact Summaries</p>
+        </div>
+      </div>
+      <a href="./index.html" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3.5 py-2 rounded-xl font-semibold border border-slate-700 transition-all">
+        ← Practice Quizzes
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6 w-full flex-1 space-y-6">
+
+    <!-- Search & Tier Selector Card -->
+    <section class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <input type="text" id="topic-search" oninput="filterTopics()" placeholder="Search a topic (e.g., Acceleration, Tectonic Plates)..." 
+            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-amber-500/50 transition-all">
+        </div>
+
+        <!-- Grade Level Filter Buttons -->
+        <div class="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800 self-start sm:self-auto">
+          <button onclick="setLevel('elementary')" id="btn-elementary" class="level-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-200 transition-all">
+            Elementary
+          </button>
+          <button onclick="setLevel('middle_school')" id="btn-middle_school" class="level-btn active bg-amber-500 text-slate-950 px-3 py-1.5 rounded-lg text-xs font-bold transition-all shadow-sm">
+            Middle School
+          </button>
+          <button onclick="setLevel('high_school')" id="btn-high_school" class="level-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-200 transition-all">
+            High School
+          </button>
+        </div>
+      </div>
+
+      <!-- Topic Cloud Container -->
+      <div>
+        <p class="text-xs text-slate-400 mb-2 font-medium">Select a topic badge below to explore key facts:</p>
+        <div id="topic-cloud" class="flex flex-wrap gap-2 max-h-48 overflow-y-auto p-1 scrollbar-thin">
+          <span class="text-xs text-slate-500">Loading topic cloud...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Topic Detail Card -->
+    <section id="topic-detail-card" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-2xl space-y-5 hidden">
+      
+      <!-- Topic Title & Level Tag -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
+        <div>
+          <h2 id="topic-title" class="text-xl sm:text-2xl font-bold text-slate-100">Topic Title</h2>
+          <p id="topic-summary" class="text-xs sm:text-sm text-amber-400/90 font-medium mt-1">Short summary overview...</p>
+        </div>
+        <span id="active-level-badge" class="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3 py-1.5 rounded-full self-start sm:self-auto">
+          Middle School Tier
+        </span>
+      </div>
+
+      <!-- Key Facts Bullet Points -->
+      <div class="space-y-3">
+        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Key Competition Facts</h3>
+        <ul id="topic-facts" class="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        </ul>
+      </div>
+
+      <!-- Related Topics Section -->
+      <div class="pt-4 border-t border-slate-800 space-y-2">
+        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Related Topics</h3>
+        <div id="related-topics" class="flex flex-wrap gap-2">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    let topicsData = {};
+    let selectedTopicKey = null;
+    let currentLevel = 'middle_school';
+
+    async function loadTopics() {
+      try {
+        const res = await fetch('./topics.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        topicsData = await res.json();
+        
+        renderTopicCloud();
+        
+        // Select first available topic automatically
+        const keys = Object.keys(topicsData);
+        if (keys.length > 0) {
+          selectTopic(keys[0]);
+        }
+      } catch (err) {
+        console.error('Failed to load topics.json:', err);
+        document.getElementById('topic-cloud').innerHTML = '<span class="text-xs text-rose-400">Failed to load topics.json. Run build_topics.py to generate data.</span>';
+      }
+    }
+
+    function renderTopicCloud(filterQuery = '') {
+      const container = document.getElementById('topic-cloud');
+      container.innerHTML = '';
+
+      const keys = Object.keys(topicsData).filter(key => 
+        key.toLowerCase().includes(filterQuery.toLowerCase())
+      );
+
+      if (keys.length === 0) {
+        container.innerHTML = '<span class="text-xs text-slate-500">No matching topics found.</span>';
+        return;
+      }
+
+      keys.forEach(key => {
+        const btn = document.createElement('button');
+        const isSelected = key === selectedTopicKey;
+        
+        btn.className = isSelected 
+          ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 transition-all shadow-md shadow-amber-500/20"
+          : "px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all";
+        
+        btn.innerText = key;
+        btn.onclick = () => selectTopic(key);
+        container.appendChild(btn);
+      });
+    }
+
+    function selectTopic(key) {
+      if (!topicsData[key]) return;
+      selectedTopicKey = key;
+      renderTopicCloud(document.getElementById('topic-search').value);
+      renderTopicDetails();
+    }
+
+    function setLevel(level) {
+      currentLevel = level;
+      
+      document.querySelectorAll('.level-btn').forEach(btn => {
+        btn.className = "level-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-200 transition-all";
+      });
+      
+      const activeBtn = document.getElementById(`btn-${level}`);
+      if (activeBtn) {
+        activeBtn.className = "level-btn active bg-amber-500 text-slate-950 px-3 py-1.5 rounded-lg text-xs font-bold transition-all shadow-sm";
+      }
+
+      renderTopicDetails();
+    }
+
+    function renderTopicDetails() {
+      if (!selectedTopicKey || !topicsData[selectedTopicKey]) return;
+
+      const card = document.getElementById('topic-detail-card');
+      card.classList.remove('hidden');
+
+      const data = topicsData[selectedTopicKey];
+      const levelContent = data.levels[currentLevel] || data.levels['middle_school'];
+
+      document.getElementById('topic-title').innerText = data.topic;
+      document.getElementById('topic-summary').innerText = levelContent.overview || data.summary;
+      
+      const levelNames = { elementary: 'Elementary Tier', middle_school: 'Middle School Tier', high_school: 'High School Tier' };
+      document.getElementById('active-level-badge').innerText = levelNames[currentLevel];
+
+      // Render Facts
+      const factsContainer = document.getElementById('topic-facts');
+      factsContainer.innerHTML = (levelContent.facts || []).map(fact => 
+        `<li class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex items-start gap-2.5">
+          <span class="text-amber-400 font-bold">•</span>
+          <span>${fact}</span>
+        </li>`
+      ).join('');
+
+      // Render Related Topics
+      const relatedContainer = document.getElementById('related-topics');
+      relatedContainer.innerHTML = (data.related_topics || []).map(rel => 
+        `<button onclick="selectTopic('${rel}')" class="px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-indigo-500/20 transition-all">
+          + ${rel}
+        </button>`
+      ).join('');
+    }
+
+    function filterTopics() {
+      const q = document.getElementById('topic-search').value;
+      renderTopicCloud(q);
+    }
+
+    loadTopics();
+  </script>
+</body>
+</html>
