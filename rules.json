@@ -5,6 +5,7 @@
   "question_structure": "3-sentence pyramidal form (obscure clue -> medium clue -> giveaway starting with 'For the point, name...')",
   "scoring": {
     "correct_answer_points": 1,
+    "max_correct_per_player": 6,
     "early_incorrect_penalty": -1,
     "max_incorrect_per_question": 3,
     "bonus_structure": [
