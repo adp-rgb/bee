@@ -26,13 +26,15 @@ def build_vector_store():
     doc_id = 0
     for file_path in all_files:
         text = ""
-        if file_path.suffix == ".pdf":
+       if file_path.suffix == ".pdf":
             try:
-                reader = PdfReader(file_path)
+                reader = PdfReader(file_path, strict=False)  # strict=False handles minor PDF formatting issues
                 for page in reader.pages:
-                    text += (page.extract_text() or "") + "\n"
+                    extracted = page.extract_text()
+                    if extracted:
+                        text += extracted + "\n"
             except Exception as e:
-                print(f"Error reading {file_path.name}: {e}")
+                print(f"Skipping unreadable/corrupted PDF {file_path.name}: {e}")
                 continue
         elif file_path.suffix == ".txt":
             with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
@@ -106,15 +108,16 @@ def run_ai_agent():
 
     quiz_data = json.loads(response.text)
     
-    output_payload = {
-        "rules_summary": {
-            "total_questions": len(quiz_data),
-            "max_correct_per_player": rules["scoring"]["max_correct_per_player"],
-            "early_penalty": rules["scoring"]["early_incorrect_penalty"],
-            "bonus_table": rules["scoring"]["bonus_structure"]
-        },
-        "quizzes": quiz_data
-    }
+# Replace direct key lookups with safe .get() defaults
+output_payload = {
+    "rules_summary": {
+        "total_questions": len(all_quizzes),
+        "max_correct_per_player": rules.get("scoring", {}).get("max_correct_per_player", 6),
+        "early_penalty": rules.get("scoring", {}).get("early_incorrect_penalty", -1),
+        "bonus_table": rules.get("scoring", {}).get("bonus_structure", {})
+    },
+    "quizzes": all_quizzes
+}
 
     with open("quizzes.json", "w", encoding="utf-8") as f:
         json.dump(output_payload, f, indent=2)
