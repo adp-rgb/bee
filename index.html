@@ -1,67 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Geography & Science Bee Quiz</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-900 text-white min-h-screen p-4 sm:p-6 flex flex-col items-center justify-center">
-
-  <div class="max-w-2xl w-full bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-700 shadow-2xl">
-    
-    <!-- Header -->
-    <div class="flex justify-between items-start mb-4">
-      <div>
-        <h1 class="text-xl sm:text-2xl font-bold text-amber-400">Academic Bee Trainer 🐝</h1>
-        <p class="text-slate-400 text-xs">Auto-generated via AI Agent & GitHub Actions</p>
-      </div>
-      <span id="quiz-progress" class="text-xs font-bold bg-slate-700 text-slate-300 px-2.5 py-1 rounded-full">
-        0/0
-      </span>
-    </div>
-
-    <!-- Quiz Content Container -->
-    <div id="quiz-container" class="space-y-4">
-      <div class="text-xs font-semibold text-indigo-400 uppercase tracking-wider" id="category">
-        Loading...
-      </div>
-      
-      <div class="bg-slate-900 p-4 rounded-xl text-sm sm:text-base leading-relaxed border border-slate-700/50" id="question">
-        Fetching latest quiz pack...
-      </div>
-      
-      <!-- Option Buttons -->
-      <div id="options" class="grid grid-cols-1 gap-2.5 pt-1"></div>
-      
-      <!-- Explanation Box -->
-      <div id="explanation" class="hidden bg-emerald-950/80 border border-emerald-600/50 p-4 rounded-xl text-xs sm:text-sm text-emerald-200"></div>
-    </div>
-
-    <!-- Mobile-Friendly Navigation Controls -->
-    <div class="flex items-center justify-between gap-3 mt-6 pt-4 border-t border-slate-700/60">
-      <button id="prev-btn" onclick="prevQuestion()" disabled 
-        class="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-slate-700 hover:bg-slate-600 active:scale-95 disabled:opacity-40 disabled:pointer-events-none transition-all">
-        ← Previous
-      </button>
-
-      <button id="next-btn" onclick="nextQuestion()" disabled 
-        class="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-amber-500 hover:bg-amber-400 text-slate-950 active:scale-95 disabled:opacity-40 disabled:pointer-events-none transition-all">
-        Next →
-      </button>
-    </div>
-
-  </div>
-
-  <script>
-    let quizzes = [];
-    let currentIdx = 0;
-
-    async function loadQuizzes() {
+async function loadQuizzes() {
       try {
         const res = await fetch('./quizzes.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        quizzes = await res.json();
+        const data = await res.json();
+        
+        // Support both wrapped metadata JSON and direct array JSON
+        quizzes = Array.isArray(data) ? data : (data.quizzes || []);
         
         if (quizzes.length > 0) {
           renderQuestion();
@@ -73,67 +17,3 @@
         document.getElementById('question').innerText = 'Failed to load quizzes.json. Make sure the file exists on GitHub Pages.';
       }
     }
-
-    function renderQuestion() {
-      const q = quizzes[currentIdx];
-      
-      // Update Category & Progress Bar
-      document.getElementById('category').innerText = q.category;
-      document.getElementById('quiz-progress').innerText = `${currentIdx + 1}/${quizzes.length}`;
-      document.getElementById('question').innerText = q.question;
-      document.getElementById('explanation').classList.add('hidden');
-
-      // Clear Options
-      const optsContainer = document.getElementById('options');
-      optsContainer.innerHTML = '';
-
-      // Build Option Buttons
-      q.options.forEach((opt, idx) => {
-        const btn = document.createElement('button');
-        btn.className = "w-full text-left bg-slate-700 hover:bg-slate-600 active:bg-slate-500 p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-medium border border-slate-600 transition-all";
-        btn.innerText = opt;
-        
-        btn.onclick = () => {
-          const allBtns = optsContainer.querySelectorAll('button');
-          allBtns.forEach(b => b.disabled = true); // Disable options after choice
-
-          if (idx === q.answer) {
-            btn.className = "w-full text-left bg-emerald-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg";
-          } else {
-            btn.className = "w-full text-left bg-rose-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg";
-            // Highlight correct option
-            if (allBtns[q.answer]) {
-              allBtns[q.answer].className = "w-full text-left bg-emerald-700 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold border border-emerald-500";
-            }
-          }
-          
-          document.getElementById('explanation').innerText = `Explanation: ${q.explanation}`;
-          document.getElementById('explanation').classList.remove('hidden');
-        };
-        
-        optsContainer.appendChild(btn);
-      });
-
-      // Update Navigation Buttons State
-      document.getElementById('prev-btn').disabled = currentIdx === 0;
-      document.getElementById('next-btn').disabled = currentIdx === quizzes.length - 1;
-    }
-
-    function prevQuestion() {
-      if (currentIdx > 0) {
-        currentIdx--;
-        renderQuestion();
-      }
-    }
-
-    function nextQuestion() {
-      if (currentIdx < quizzes.length - 1) {
-        currentIdx++;
-        renderQuestion();
-      }
-    }
-
-    loadQuizzes();
-  </script>
-</body>
-</html>
