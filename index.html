@@ -10,15 +10,21 @@
 
   <div class="max-w-2xl w-full bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-700 shadow-2xl">
     
-    <!-- Header -->
+<!-- Header -->
     <div class="flex justify-between items-start mb-4">
       <div>
         <h1 class="text-xl sm:text-2xl font-bold text-amber-400">Academic Bee Trainer 🐝</h1>
         <p class="text-slate-400 text-xs">Auto-generated via AI Agent & GitHub Actions</p>
       </div>
-      <span id="quiz-progress" class="text-xs font-bold bg-slate-700 text-slate-300 px-2.5 py-1 rounded-full">
-        0/0
-      </span>
+      
+      <!-- Container holding both the Dropdown and Progress Badge -->
+      <div class="flex items-center gap-2">
+        <select id="question-select" onchange="jumpToQuestion(this.value)" class="bg-slate-800 text-xs text-amber-400 font-bold px-2 py-1 rounded border border-slate-700 outline-none cursor-pointer">
+        </select>
+        <span id="quiz-progress" class="text-xs font-bold bg-slate-700 text-slate-300 px-2.5 py-1 rounded-full">
+          0/0
+        </span>
+      </div>
     </div>
 
     <!-- Quiz Content Container -->
@@ -56,27 +62,31 @@
   <script>
     let quizzes = [];
     let currentIdx = 0;
+    let rulesSummary = null;
 
 async function loadQuizzes() {
-      try {
-        const res = await fetch('./quizzes.json');
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        
-        // Support both wrapped metadata JSON and direct array JSON
-        quizzes = Array.isArray(data) ? data : (data.quizzes || []);
-        
-        if (quizzes.length > 0) {
-          renderQuestion();
-        } else {
-          document.getElementById('question').innerText = 'No questions available in quizzes.json.';
-        }
-      } catch (err) {
-        console.error('Error fetching quiz data:', err);
-        document.getElementById('question').innerText = 'Failed to load quizzes.json. Make sure the file exists on GitHub Pages.';
-      }
+  try {
+    const res = await fetch('./quizzes.json');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    
+    quizzes = Array.isArray(data) ? data : (data.quizzes || []);
+    rulesSummary = data.rules_summary || null;
+    
+    if (rulesSummary) {
+      console.log(`Loaded Round: ${quizzes.length} Total Questions | Max Points: ${rulesSummary.max_correct_per_player}`);
     }
 
+    if (quizzes.length > 0) {
+      renderQuestion();
+    } else {
+      document.getElementById('question').innerText = 'No questions available in quizzes.json.';
+    }
+  } catch (err) {
+    console.error('Error fetching quiz data:', err);
+    document.getElementById('question').innerText = 'Failed to load quizzes.json. Make sure the file exists on GitHub Pages.';
+  }
+}
     function renderQuestion() {
       const q = quizzes[currentIdx];
       
@@ -134,6 +144,71 @@ async function loadQuizzes() {
         currentIdx++;
         renderQuestion();
       }
+    }
+    function updateQuestionSelector() {
+      const select = document.getElementById('question-select');
+      if (!select) return;
+      
+      // Build dropdown options dynamically for all questions (1 to 30)
+      select.innerHTML = quizzes.map((_, i) => 
+        `<option value="${i}" ${i === currentIdx ? 'selected' : ''}>Q${i + 1}</option>`
+      ).join('');
+    }
+
+    function jumpToQuestion(idx) {
+      currentIdx = parseInt(idx, 10);
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = quizzes[currentIdx];
+      
+      // Sync the dropdown state with current question
+      updateQuestionSelector();
+
+      // Update Category & Progress Bar
+      document.getElementById('category').innerText = q.category;
+      document.getElementById('quiz-progress').innerText = `${currentIdx + 1}/${quizzes.length}`;
+      document.getElementById('question').innerText = q.question;
+      
+      // Clear explanation box on question change
+      const explanationEl = document.getElementById('explanation');
+      explanationEl.classList.add('hidden');
+      explanationEl.innerText = '';
+
+      // Clear Options
+      const optsContainer = document.getElementById('options');
+      optsContainer.innerHTML = '';
+
+      // Build Option Buttons
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "w-full text-left bg-slate-700 hover:bg-slate-600 active:bg-slate-500 p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-medium border border-slate-600 transition-all";
+        btn.innerText = opt;
+        
+        btn.onclick = () => {
+          const allBtns = optsContainer.querySelectorAll('button');
+          allBtns.forEach(b => b.disabled = true); // Disable options after choice
+
+          if (idx === q.answer) {
+            btn.className = "w-full text-left bg-emerald-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg";
+          } else {
+            btn.className = "w-full text-left bg-rose-600 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg";
+            if (allBtns[q.answer]) {
+              allBtns[q.answer].className = "w-full text-left bg-emerald-700 text-white p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm font-bold border border-emerald-500";
+            }
+          }
+          
+          explanationEl.innerText = `Explanation: ${q.explanation}`;
+          explanationEl.classList.remove('hidden');
+        };
+        
+        optsContainer.appendChild(btn);
+      });
+
+      // Update Navigation Buttons State
+      document.getElementById('prev-btn').disabled = currentIdx === 0;
+      document.getElementById('next-btn').disabled = currentIdx === quizzes.length - 1;
     }
 
     loadQuizzes();
