@@ -2,6 +2,8 @@ import os
 import json
 import time
 from pathlib import Path
+import requests
+from bs4 import BeautifulSoup
 import chromadb
 from pypdf import PdfReader
 from google import genai
@@ -14,6 +16,53 @@ def load_rules():
         raise FileNotFoundError("rules.json not found.")
     with open(rules_path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+def download_fresh_pdfs(url="https://www.iacompetitions.com/ems-national-geography-bee-past-questions/"):
+    """Scrapes the IAC website for PDF links and downloads them into the data/ directory."""
+    data_dir = Path("data")
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+
+    print(f"Scraping PDF links from {url}...")
+    try:
+        response = requests.get(url, headers=headers, timeout=15)
+        response.raise_for_status()
+    except Exception as e:
+        print(f"Failed to reach website: {e}. Falling back to existing local files.")
+        return
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    pdf_links = []
+
+    for a_tag in soup.find_all("a", href=True):
+        href = a_tag["href"]
+        if href.lower().endswith(".pdf"):
+            if not href.startswith("http"):
+                href = requests.compat.urljoin(url, href)
+            pdf_links.append(href)
+
+    # Deduplicate links
+    pdf_links = list(set(pdf_links))
+    print(f"Found {len(pdf_links)} PDF files on page.")
+
+    for pdf_url in pdf_links:
+        filename = pdf_url.split("/")[-1].split("?")[0]
+        file_path = data_dir / filename
+
+        if file_path.exists():
+            continue
+
+        try:
+            print(f"Downloading {filename}...")
+            pdf_res = requests.get(pdf_url, headers=headers, timeout=15)
+            pdf_res.raise_for_status()
+            with open(file_path, "wb") as f:
+                f.write(pdf_res.content)
+        except Exception as e:
+            print(f"Failed to download {filename}: {e}")
 
 def build_vector_store():
     chroma_client = chromadb.Client()
@@ -54,7 +103,6 @@ def build_vector_store():
     return collection
 
 def generate_with_retry(client, prompt_text, primary_model='gemini-3.6-flash', fallback_model='gemini-2.5-flash', max_retries=5):
-    """Generates content with exponential backoff and fallback model handling for 503 errors."""
     models_to_try = [primary_model, fallback_model]
     
     for model_name in models_to_try:
@@ -87,12 +135,17 @@ def run_ai_agent():
 
     client = genai.Client(api_key=api_key)
     rules = load_rules()
+
+    # 1. Scrape and download fresh PDFs from the website
+    download_fresh_pdfs()
     
+    # 2. Build local vector database from downloaded PDFs
+    collection = build_vector_store()
+
+    # 3. Query relevant context for questions
     total_requested = rules.get("questions_per_round", 30)
     batch_size = 10
     num_batches = (total_requested + batch_size - 1) // batch_size
-
-    collection = build_vector_store()
 
     query_results = collection.query(
         query_texts=["pyramidal geography science bee tossup question for the point name"],
