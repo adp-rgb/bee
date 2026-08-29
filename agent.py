@@ -6,6 +6,7 @@ import chromadb
 from pypdf import PdfReader
 from google import genai
 from google.genai import types
+from google.genai.errors import ServerError, APIError
 
 def load_rules():
     rules_path = Path("rules.json")
@@ -15,7 +16,6 @@ def load_rules():
         return json.load(f)
 
 def build_vector_store():
-    """Extracts text from all PDFs and text files in data/ into ChromaDB."""
     chroma_client = chromadb.Client()
     collection = chroma_client.get_or_create_collection(name="bee_past_questions")
     
@@ -41,7 +41,6 @@ def build_vector_store():
             with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                 text = f.read()
 
-        # Chunk text into 1000-character blocks for retrieval
         chunks = [text[i:i+1000] for i in range(0, len(text), 1000) if len(text[i:i+1000]) > 100]
         for chunk in chunks:
             collection.add(
@@ -53,6 +52,33 @@ def build_vector_store():
             
     print(f"Indexed {doc_id} text chunks successfully!")
     return collection
+
+def generate_with_retry(client, prompt_text, primary_model='gemini-3.6-flash', fallback_model='gemini-2.5-flash', max_retries=5):
+    """Generates content with exponential backoff and fallback model handling for 503 errors."""
+    models_to_try = [primary_model, fallback_model]
+    
+    for model_name in models_to_try:
+        for attempt in range(1, max_retries + 1):
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt_text,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        max_output_tokens=8192
+                    )
+                )
+                return response
+            except (ServerError, APIError) as e:
+                if "503" in str(e) or "UNAVAILABLE" in str(e):
+                    wait_time = attempt * 5
+                    print(f"[{model_name}] 503 High Demand detected. Retrying in {wait_time}s (Attempt {attempt}/{max_retries})...")
+                    time.sleep(wait_time)
+                else:
+                    raise e
+        print(f"Switching from {model_name} to fallback model...")
+
+    raise RuntimeError("Failed to generate content after exhausting model retries due to high demand.")
 
 def run_ai_agent():
     api_key = (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
@@ -66,10 +92,8 @@ def run_ai_agent():
     batch_size = 10
     num_batches = (total_requested + batch_size - 1) // batch_size
 
-    # Build local vector store from files
     collection = build_vector_store()
 
-    # Retrieve relevant example context
     query_results = collection.query(
         query_texts=["pyramidal geography science bee tossup question for the point name"],
         n_results=10
@@ -85,7 +109,7 @@ def run_ai_agent():
         prompt_text = f"""
         You are an official item writer for {rules.get('competition_name', 'IAC Bee')}.
         
-        Reference sample questions from past exams:
+        Reference sample questions:
         {retrieved_context}
 
         Generate EXACTLY {current_count} pyramidal tossup questions following these rules:
@@ -105,19 +129,10 @@ def run_ai_agent():
         ]
         """
 
-        response = client.models.generate_content(
-            model='gemini-3.6-flash',
-            contents=prompt_text,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                max_output_tokens=8192
-            )
-        )
-
+        response = generate_with_retry(client, prompt_text)
         batch_data = json.loads(response.text)
         all_quizzes.extend(batch_data)
 
-    # Re-index Question IDs sequentially
     for idx, q in enumerate(all_quizzes, start=1):
         q["id"] = idx
 
