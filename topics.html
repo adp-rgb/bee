@@ -94,26 +94,81 @@
     let topicsData = {};
     let selectedTopicKey = null;
     let currentLevel = 'middle_school';
-
-    async function loadTopics() {
-      try {
-        const res = await fetch('./topics.json');
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        topicsData = await res.json();
-        
-        renderTopicCloud();
-        
-        const keys = Object.keys(topicsData);
-        if (keys.length > 0) {
-          selectTopic(keys[0]);
-        }
-      } catch (err) {
-        console.error('Failed to load topics.json:', err);
-        document.getElementById('topic-cloud').innerHTML = 
-          '<span class="text-xs text-rose-400">Failed to load topics.json. Ensure build_topics.py has been executed and topics.json is pushed to GitHub repository root.</span>';
+    // Default fallback dataset in case topics.json hasn't been generated/pushed yet
+const DEFAULT_FALLBACK_TOPICS = {
+  "Gravitational Force": {
+    "topic": "Gravitational Force",
+    "summary": "The attractive force exerted by mass upon other mass.",
+    "levels": {
+      "elementary": {
+        "overview": "Gravity is the invisible force that pulls objects toward each other, keeping our feet on the ground.",
+        "facts": [
+          "Gravity keeps the Earth in orbit around the Sun.",
+          "Sir Isaac Newton famously studied gravity after watching an apple fall.",
+          "Objects weigh less on the Moon because its gravity is weaker."
+        ]
+      },
+      "middle_school": {
+        "overview": "A fundamental force of nature described by Newton's Law of Universal Gravitation.",
+        "facts": [
+          "Proportional to mass and inversely proportional to the square of the distance.",
+          "Acceleration due to Earth's gravity is approximately 9.8 m/s².",
+          "Controls ocean tides through the moon's gravitational pull."
+        ]
+      },
+      "high_school": {
+        "overview": "Explained by Einstein's General Theory of Relativity as the curvature of spacetime.",
+        "facts": [
+          "Calculated using F = G * (m1 * m2) / r².",
+          "Gravitational constant (G) is 6.674×10⁻¹¹ N·m²/kg².",
+          "Causes gravitational lensing around high-mass objects like black holes."
+        ]
       }
-    }
+    },
+    "related_topics": ["Acceleration", "Tectonic Plates"]
+  },
+  "Acceleration": {
+    "topic": "Acceleration",
+    "summary": "The rate of change of velocity per unit of time.",
+    "levels": {
+      "middle_school": {
+        "overview": "Measures how fast speed or direction changes over time.",
+        "facts": [
+          "Calculated as change in velocity divided by time (a = Δv / t).",
+          "Standard SI unit is meters per second squared (m/s²).",
+          "Deceleration is negative acceleration."
+        ]
+      }
+    },
+    "related_topics": ["Gravitational Force"]
+  }
+};
 
+   async function loadTopics() {
+  try {
+    const res = await fetch('./topics.json');
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    const data = await res.json();
+    
+    // Use fetched data if valid, otherwise fallback
+    if (data && Object.keys(data).length > 0) {
+      topicsData = data;
+    } else {
+      console.warn('topics.json loaded but is empty. Using fallback dataset.');
+      topicsData = DEFAULT_FALLBACK_TOPICS;
+    }
+  } catch (err) {
+    console.error('Could not load topics.json, using fallback data:', err);
+    topicsData = DEFAULT_FALLBACK_TOPICS;
+  }
+renderTopicCloud();
+
+  const keys = Object.keys(topicsData);
+  if (keys.length > 0) {
+    selectTopic(keys[0]);
+  }
+}
+     
     // Helper to check if search query appears anywhere in a topic payload
     function matchesQuery(key, data, query) {
       if (!query) return true;
