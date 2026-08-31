@@ -3,215 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Essential Knowledge Explorer</title>
+  <title>Good to Know Topics | Knowledge Base</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
 
-  <!-- Navigation Header -->
-  <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+  <!-- Header Navigation -->
+  <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <a href="./index.html" class="bg-amber-500 text-slate-950 font-black p-2 rounded-xl text-lg shadow-lg shadow-amber-500/20">🐝</a>
-        <div>
-          <h1 class="text-base sm:text-lg font-bold text-slate-100">Core Topic Knowledge Hub</h1>
-          <p class="text-[10px] text-amber-400 font-medium">Competition Essentials & Fact Summaries</p>
-        </div>
+        <a href="./index.html" class="bg-amber-500 text-slate-950 font-black p-2 rounded-xl text-lg shadow-lg">🐝</a>
+        <h1 class="text-lg font-bold text-slate-100">Core Topic Knowledge Hub</h1>
       </div>
       <a href="./index.html" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3.5 py-2 rounded-xl font-semibold border border-slate-700 transition-all">
-        ← Practice Quizzes
+        ← Back to Quiz
       </a>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-6 w-full flex-1 space-y-6">
+  <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-1 space-y-6">
 
-    <!-- Search & Tier Selector Card -->
-    <section class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        
-        <!-- Search Input -->
-        <div class="relative flex-1">
-          <input type="text" id="topic-search" oninput="filterTopics()" placeholder="Search terms or topics (e.g., speed, force, tectonic)..." 
-            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-amber-500/50 transition-all">
-        </div>
-
-        <!-- Grade Level Filter Buttons -->
-        <div class="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800 self-start sm:self-auto">
-          <button onclick="setLevel('elementary')" id="btn-elementary" class="level-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-200 transition-all">
-            Elementary
-          </button>
-          <button onclick="setLevel('middle_school')" id="btn-middle_school" class="level-btn active bg-amber-500 text-slate-950 px-3 py-1.5 rounded-lg text-xs font-bold transition-all shadow-sm">
-            Middle School
-          </button>
-          <button onclick="setLevel('high_school')" id="btn-high_school" class="level-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-200 transition-all">
-            High School
-          </button>
-        </div>
+    <!-- Search Input & Topic Badges Cloud -->
+    <section class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
+      <div class="relative">
+        <input type="text" id="topic-search" oninput="filterTopics()" placeholder="Search topics or facts (e.g. Acceleration, Velocity, Gravity)..." 
+          class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-amber-500/50 transition-all">
       </div>
 
-      <!-- Topic Cloud Container -->
-      <div>
-        <p class="text-xs text-slate-400 mb-2 font-medium">Select a topic badge below to explore key facts:</p>
-        <div id="topic-cloud" class="flex flex-wrap gap-2 max-h-48 overflow-y-auto p-1 scrollbar-thin">
-          <span class="text-xs text-slate-500">Loading topic cloud...</span>
-        </div>
+      <!-- Cloud Container -->
+      <div id="topic-cloud" class="flex flex-wrap gap-2 max-h-60 overflow-y-auto p-1 scrollbar-thin">
+        <span class="text-xs text-slate-500">Loading topics database...</span>
       </div>
     </section>
 
-    <!-- Selected Topic Detail Card -->
-    <section id="topic-detail-card" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-2xl space-y-5 hidden">
+    <!-- Active Topic Detail View -->
+    <section id="topic-detail-card" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-6 hidden">
       
-      <!-- Topic Title & Level Tag -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
-        <div>
-          <h2 id="topic-title" class="text-xl sm:text-2xl font-bold text-slate-100">Topic Title</h2>
-          <p id="topic-summary" class="text-xs sm:text-sm text-amber-400/90 font-medium mt-1">Short summary overview...</p>
+      <!-- Topic Header & Navigation Controls -->
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <h2 id="topic-title" class="text-2xl sm:text-3xl font-extrabold text-slate-100">Topic Title</h2>
+        <div class="flex gap-2">
+          <button onclick="navigateTopic(-1)" class="px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700 transition-all">‹ Prev</button>
+          <button onclick="navigateTopic(1)" class="px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700 transition-all">Next ›</button>
         </div>
-        <span id="active-level-badge" class="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3 py-1.5 rounded-full self-start sm:self-auto">
-          Middle School Tier
-        </span>
       </div>
 
-      <!-- Key Facts Bullet Points -->
+      <!-- Overview Summary Box -->
+      <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl">
+        <p id="topic-summary" class="text-sm text-amber-200/90 leading-relaxed font-normal">
+          Topic summary definition...
+        </p>
+      </div>
+
+      <!-- Key Facts Bullet List -->
       <div class="space-y-3">
-        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Key Competition Facts</h3>
-        <ul id="topic-facts" class="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">KEY FACTS</h3>
+        <ul id="topic-facts" class="space-y-2.5 text-sm text-slate-300 leading-relaxed">
         </ul>
       </div>
 
-      <!-- Related Topics Section -->
-      <div class="pt-4 border-t border-slate-800 space-y-2">
-        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Related Topics</h3>
+      <!-- Related Topics Cards -->
+      <div class="pt-4 border-t border-slate-800 space-y-3">
+        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">RELATED TOPICS</h3>
         <div id="related-topics" class="flex flex-wrap gap-2">
         </div>
       </div>
+
     </section>
 
   </main>
 
   <script>
     let topicsData = {};
+    let activeKeysList = [];
     let selectedTopicKey = null;
-    let currentLevel = 'middle_school';
-    // Default fallback dataset in case topics.json hasn't been generated/pushed yet
-const DEFAULT_FALLBACK_TOPICS = {
-  "Gravitational Force": {
-    "topic": "Gravitational Force",
-    "summary": "The attractive force exerted by mass upon other mass.",
-    "levels": {
-      "elementary": {
-        "overview": "Gravity is the invisible force that pulls objects toward each other, keeping our feet on the ground.",
-        "facts": [
-          "Gravity keeps the Earth in orbit around the Sun.",
-          "Sir Isaac Newton famously studied gravity after watching an apple fall.",
-          "Objects weigh less on the Moon because its gravity is weaker."
-        ]
-      },
-      "middle_school": {
-        "overview": "A fundamental force of nature described by Newton's Law of Universal Gravitation.",
-        "facts": [
-          "Proportional to mass and inversely proportional to the square of the distance.",
-          "Acceleration due to Earth's gravity is approximately 9.8 m/s².",
-          "Controls ocean tides through the moon's gravitational pull."
-        ]
-      },
-      "high_school": {
-        "overview": "Explained by Einstein's General Theory of Relativity as the curvature of spacetime.",
-        "facts": [
-          "Calculated using F = G * (m1 * m2) / r².",
-          "Gravitational constant (G) is 6.674×10⁻¹¹ N·m²/kg².",
-          "Causes gravitational lensing around high-mass objects like black holes."
-        ]
-      }
-    },
-    "related_topics": ["Acceleration", "Tectonic Plates"]
-  },
-  "Acceleration": {
-    "topic": "Acceleration",
-    "summary": "The rate of change of velocity per unit of time.",
-    "levels": {
-      "middle_school": {
-        "overview": "Measures how fast speed or direction changes over time.",
-        "facts": [
-          "Calculated as change in velocity divided by time (a = Δv / t).",
-          "Standard SI unit is meters per second squared (m/s²).",
-          "Deceleration is negative acceleration."
-        ]
-      }
-    },
-    "related_topics": ["Gravitational Force"]
-  }
-};
 
-   async function loadTopics() {
-  try {
-    const res = await fetch('./topics.json');
-    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-    const data = await res.json();
-    
-    // Use fetched data if valid, otherwise fallback
-    if (data && Object.keys(data).length > 0) {
-      topicsData = data;
-    } else {
-      console.warn('topics.json loaded but is empty. Using fallback dataset.');
-      topicsData = DEFAULT_FALLBACK_TOPICS;
+    // Fallback data if JSON fails to load
+    const DEFAULT_TOPICS = {
+      "Acceleration": {
+        "topic": "Acceleration",
+        "summary": "Acceleration is the rate at which an object's velocity changes over time. It is a vector, meaning it has both size and direction, and it is measured in meters per second squared (m/s²).",
+        "facts": [
+          "Acceleration describes how quickly velocity changes, including changes in speed, direction, or both.",
+          "Average acceleration can be calculated with the formula a = Δv/Δt.",
+          "Instantaneous acceleration is the derivative of velocity with respect to time.",
+          "Newton's Second Law connects force and acceleration: F = ma, so acceleration equals net force divided by mass (a = Fnet/m).",
+          "On Earth near the surface, the acceleration due to gravity is about 9.8 m/s² downward.",
+          "In uniform circular motion, centripetal acceleration is directed toward the center (ac = v²/r)."
+        ],
+        "related_topics": ["Velocity", "Newton's Second Law of Motion", "Kinematics"]
+      }
+    };
+
+    async function loadTopics() {
+      try {
+        const res = await fetch('./topics.json');
+        if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+        const data = await res.json();
+        topicsData = (data && Object.keys(data).length > 0) ? data : DEFAULT_TOPICS;
+      } catch (e) {
+        console.warn('Failed to load topics.json, using fallback data:', e);
+        topicsData = DEFAULT_TOPICS;
+      }
+
+      renderTopicCloud();
+      
+      const keys = Object.keys(topicsData);
+      if (keys.length > 0) {
+        selectTopic(keys[0]);
+      }
     }
-  } catch (err) {
-    console.error('Could not load topics.json, using fallback data:', err);
-    topicsData = DEFAULT_FALLBACK_TOPICS;
-  }
-renderTopicCloud();
 
-  const keys = Object.keys(topicsData);
-  if (keys.length > 0) {
-    selectTopic(keys[0]);
-  }
-}
-     
-    // Helper to check if search query appears anywhere in a topic payload
-    function matchesQuery(key, data, query) {
+    function matchesSearch(key, item, query) {
       if (!query) return true;
       const q = query.toLowerCase();
 
-      // Check key or summary
       if (key.toLowerCase().includes(q)) return true;
-      if (data.summary && data.summary.toLowerCase().includes(q)) return true;
-
-      // Check inside levels (overview and facts array)
-      if (data.levels) {
-        for (const lvl of Object.values(data.levels)) {
-          if (lvl.overview && lvl.overview.toLowerCase().includes(q)) return true;
-          if (lvl.facts && lvl.facts.some(fact => fact.toLowerCase().includes(q))) return true;
-        }
-      }
-
-      // Check related topics
-      if (data.related_topics && data.related_topics.some(rel => rel.toLowerCase().includes(q))) return true;
+      if (item.summary && item.summary.toLowerCase().includes(q)) return true;
+      if (item.facts && item.facts.some(f => f.toLowerCase().includes(q))) return true;
 
       return false;
     }
 
-    function renderTopicCloud(filterQuery = '') {
+    function renderTopicCloud() {
       const container = document.getElementById('topic-cloud');
+      const query = document.getElementById('topic-search').value.trim();
       container.innerHTML = '';
 
-      const keys = Object.keys(topicsData).filter(key => 
-        matchesQuery(key, topicsData[key], filterQuery)
+      activeKeysList = Object.keys(topicsData).filter(key => 
+        matchesSearch(key, topicsData[key], query)
       );
 
-      if (keys.length === 0) {
-        container.innerHTML = '<span class="text-xs text-slate-500">No matching topics found. Try searching for broader terms like "acceleration" or "force".</span>';
+      if (activeKeysList.length === 0) {
+        container.innerHTML = '<span class="text-xs text-slate-500">No matching topics found.</span>';
         return;
       }
 
-      keys.forEach(key => {
+      activeKeysList.forEach(key => {
         const btn = document.createElement('button');
         const isSelected = key === selectedTopicKey;
         
         btn.className = isSelected 
-          ? "px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 transition-all shadow-md shadow-amber-500/20"
-          : "px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all";
+          ? "px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500 text-slate-950 transition-all shadow-md shadow-amber-500/20"
+          : "px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 transition-all";
         
         btn.innerText = key;
         btn.onclick = () => selectTopic(key);
@@ -220,24 +154,18 @@ renderTopicCloud();
     }
 
     function selectTopic(key) {
-      if (!topicsData[key]) return;
-      selectedTopicKey = key;
-      renderTopicCloud(document.getElementById('topic-search').value);
-      renderTopicDetails();
-    }
-
-    function setLevel(level) {
-      currentLevel = level;
-      
-      document.querySelectorAll('.level-btn').forEach(btn => {
-        btn.className = "level-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-200 transition-all";
-      });
-      
-      const activeBtn = document.getElementById(`btn-${level}`);
-      if (activeBtn) {
-        activeBtn.className = "level-btn active bg-amber-500 text-slate-950 px-3 py-1.5 rounded-lg text-xs font-bold transition-all shadow-sm";
+      if (!topicsData[key]) {
+        // If related topic isn't in DB yet, create dynamic placeholder
+        topicsData[key] = {
+          topic: key,
+          summary: `${key} is a key academic topic in competition science and geography.`,
+          facts: [`Key facts and clues for ${key} are being generated from past packets.`],
+          related_topics: []
+        };
       }
 
+      selectedTopicKey = key;
+      renderTopicCloud();
       renderTopicDetails();
     }
 
@@ -248,35 +176,39 @@ renderTopicCloud();
       card.classList.remove('hidden');
 
       const data = topicsData[selectedTopicKey];
-      const levelContent = data.levels ? (data.levels[currentLevel] || data.levels['middle_school']) : {};
 
       document.getElementById('topic-title').innerText = data.topic || selectedTopicKey;
-      document.getElementById('topic-summary').innerText = levelContent.overview || data.summary || '';
-      
-      const levelNames = { elementary: 'Elementary Tier', middle_school: 'Middle School Tier', high_school: 'High School Tier' };
-      document.getElementById('active-level-badge').innerText = levelNames[currentLevel];
+      document.getElementById('topic-summary').innerText = data.summary || '';
 
-      // Render Facts
+      // Render Facts list
       const factsContainer = document.getElementById('topic-facts');
-      factsContainer.innerHTML = (levelContent.facts || []).map(fact => 
-        `<li class="bg-slate-950 border border-slate-800 p-3 rounded-xl flex items-start gap-2.5">
+      factsContainer.innerHTML = (data.facts || []).map(fact => 
+        `<li class="bg-slate-950 border border-slate-800 p-3.5 rounded-xl flex items-start gap-3">
           <span class="text-amber-400 font-bold">•</span>
           <span>${fact}</span>
         </li>`
       ).join('');
 
-      // Render Related Topics
+      // Render Related Topics buttons
       const relatedContainer = document.getElementById('related-topics');
       relatedContainer.innerHTML = (data.related_topics || []).map(rel => 
-        `<button onclick="selectTopic('${rel}')" class="px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-indigo-500/20 transition-all">
+        `<button onclick="selectTopic('${rel}')" class="w-full text-left bg-slate-950 hover:bg-slate-800 border border-slate-800 p-3 rounded-xl text-xs font-semibold text-indigo-300 transition-all">
           + ${rel}
         </button>`
       ).join('');
     }
 
+    function navigateTopic(direction) {
+      if (activeKeysList.length === 0) return;
+      let currentIndex = activeKeysList.indexOf(selectedTopicKey);
+      if (currentIndex === -1) currentIndex = 0;
+      
+      let newIndex = (currentIndex + direction + activeKeysList.length) % activeKeysList.length;
+      selectTopic(activeKeysList[newIndex]);
+    }
+
     function filterTopics() {
-      const q = document.getElementById('topic-search').value;
-      renderTopicCloud(q);
+      renderTopicCloud();
     }
 
     loadTopics();
