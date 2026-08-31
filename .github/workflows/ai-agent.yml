@@ -31,14 +31,14 @@ jobs:
         run: python agent.py
 
       - name: Generate Knowledge Base
-      env:
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      run: python build_topics.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python build_topics.py
 
-     - name: Commit and Push updated topics.json
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add topics.json
-        git commit -m "Auto-update topics.json [skip ci]" || exit 0
-        git push
+      - name: Commit and Push updated files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add topics.json quizzes.json
+          git commit -m "Auto-update topics.json and quizzes.json [skip ci]" || exit 0
+          git push
