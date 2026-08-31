@@ -3,80 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Good to Know Topics | Knowledge Base</title>
+  <title>Academic Bee - Topics & Knowledge Base</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans p-4 sm:p-6">
 
-  <!-- Header Navigation -->
-  <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <a href="./index.html" class="bg-amber-500 text-slate-950 font-black p-2 rounded-xl text-lg shadow-lg">🐝</a>
-        <h1 class="text-lg font-bold text-slate-100">Core Topic Knowledge Hub</h1>
+  <div class="max-w-6xl mx-auto space-y-6">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center bg-slate-800 p-4 rounded-2xl border border-slate-700 shadow-lg">
+      <div>
+        <h1 class="text-2xl font-bold text-amber-400">Academic Bee Knowledge Base 📚</h1>
+        <p class="text-xs text-slate-400">Explore competition topics with key facts and definitions</p>
       </div>
-      <a href="./index.html" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3.5 py-2 rounded-xl font-semibold border border-slate-700 transition-all">
+      <a href="index.html" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-xl text-sm font-bold transition-all">
         ← Back to Quiz
       </a>
-    </div>
-  </header>
+    </header>
 
-  <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-1 space-y-6">
-
-    <!-- Search Input & Topic Badges Cloud -->
-    <section class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
-      <div class="relative">
-        <input type="text" id="topic-search" oninput="filterTopics()" placeholder="Search topics or facts (e.g. Acceleration, Velocity, Gravity)..." 
-          class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-amber-500/50 transition-all">
+    <!-- Search & Filter Section -->
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+      <div>
+        <input 
+          id="search-input" 
+          type="text" 
+          placeholder="Search for a topic..." 
+          class="w-full bg-slate-700 text-slate-100 px-4 py-3 rounded-xl border border-slate-600 focus:border-amber-400 focus:outline-none transition-all"
+        />
       </div>
-
-      <!-- Cloud Container -->
-      <div id="topic-cloud" class="flex flex-wrap gap-2 max-h-60 overflow-y-auto p-1 scrollbar-thin">
-        <span class="text-xs text-slate-500">Loading topics database...</span>
-      </div>
-    </section>
-
-    <!-- Active Topic Detail View -->
-    <section id="topic-detail-card" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-6 hidden">
       
-      <!-- Topic Header & Navigation Controls -->
-      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-        <h2 id="topic-title" class="text-2xl sm:text-3xl font-extrabold text-slate-100">Topic Title</h2>
-        <div class="flex gap-2">
-          <button onclick="navigateTopic(-1)" class="px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700 transition-all">‹ Prev</button>
-          <button onclick="navigateTopic(1)" class="px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700 transition-all">Next ›</button>
+      <!-- Quick Topic Tags -->
+      <div>
+        <p class="text-xs text-slate-400 mb-2">Quick Browse:</p>
+        <div id="topic-tags" class="flex flex-wrap gap-2"></div>
+      </div>
+    </div>
+
+    <!-- Topics Grid -->
+    <div id="topics-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="col-span-full text-center py-12">
+        <p class="text-slate-400">Loading topics...</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Topic Detail Modal -->
+  <div id="topic-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="sticky top-0 bg-slate-800 border-b border-slate-700 p-6 flex justify-between items-center">
+        <div>
+          <h2 id="modal-topic-title" class="text-2xl font-bold text-amber-400"></h2>
+          <p id="modal-topic-progress" class="text-xs text-slate-400 mt-1"></p>
+        </div>
+        <button onclick="closeTopicModal()" class="text-slate-400 hover:text-white text-2xl transition-all">✕</button>
+      </div>
+
+      <!-- Modal Content (Scrollable) -->
+      <div class="overflow-y-auto flex-1 p-6 space-y-6">
+        
+        <!-- Summary Box -->
+        <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl">
+          <p id="modal-topic-summary" class="text-slate-300 leading-relaxed italic"></p>
+        </div>
+
+        <!-- Key Facts -->
+        <div>
+          <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">🔑 Key Facts</h3>
+          <ul id="modal-topic-facts" class="space-y-3">
+            <!-- Facts will be loaded here -->
+          </ul>
+        </div>
+
+        <!-- Related Topics -->
+        <div id="related-topics-section" class="pt-4 border-t border-slate-700">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider mb-4">🔗 Related Topics</h3>
+          <div id="modal-topic-related" class="flex flex-wrap gap-2">
+            <!-- Related topics will be loaded here -->
+          </div>
         </div>
       </div>
 
-      <!-- Overview Summary Box -->
-      <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl">
-        <p id="topic-summary" class="text-sm text-amber-200/90 leading-relaxed font-normal">
-          Topic summary definition...
-        </p>
+      <!-- Modal Footer Navigation -->
+      <div class="sticky bottom-0 bg-slate-800 border-t border-slate-700 p-6 flex justify-between items-center gap-2">
+        <button onclick="prevTopic()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl text-sm font-bold transition-all">
+          ← Previous
+        </button>
+        <span id="modal-topic-nav" class="text-xs font-bold text-slate-400 bg-slate-700 px-3 py-1 rounded-lg"></span>
+        <button onclick="nextTopic()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-xl text-sm font-bold transition-all">
+          Next →
+        </button>
       </div>
-
-      <!-- Key Facts Bullet List -->
-      <div class="space-y-3">
-        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">KEY FACTS</h3>
-        <ul id="topic-facts" class="space-y-2.5 text-sm text-slate-300 leading-relaxed">
-        </ul>
-      </div>
-
-      <!-- Related Topics Cards -->
-      <div class="pt-4 border-t border-slate-800 space-y-3">
-        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">RELATED TOPICS</h3>
-        <div id="related-topics" class="flex flex-wrap gap-2">
-        </div>
-      </div>
-
-    </section>
-
-  </main>
+    </div>
+  </div>
 
   <script>
-    let topicsData = {};
-    let activeKeysList = [];
-    let selectedTopicKey = null;
+    let allTopics = {};
+    let filteredTopics = [];
+    let currentTopicIndex = 0;
+    let currentTopicsList = [];
 
     // Fallback data if JSON fails to load
     const DEFAULT_TOPICS = {
@@ -85,133 +112,241 @@
         "summary": "Acceleration is the rate at which an object's velocity changes over time. It is a vector, meaning it has both size and direction, and it is measured in meters per second squared (m/s²).",
         "facts": [
           "Acceleration describes how quickly velocity changes, including changes in speed, direction, or both.",
-          "Average acceleration can be calculated with the formula a = Δv/Δt.",
-          "Instantaneous acceleration is the derivative of velocity with respect to time.",
+          "Average acceleration can be calculated with the formula a = Δv/Δt, where Δv is change in velocity and Δt is change in time.",
+          "Instantaneous acceleration is the derivative of velocity with respect to time, and it is also the second derivative of position.",
           "Newton's Second Law connects force and acceleration: F = ma, so acceleration equals net force divided by mass (a = Fnet/m).",
           "On Earth near the surface, the acceleration due to gravity is about 9.8 m/s² downward.",
-          "In uniform circular motion, centripetal acceleration is directed toward the center (ac = v²/r)."
+          "In uniform circular motion, an object has centripetal acceleration even if its speed is constant; its size is ac = v²/r."
         ],
-        "related_topics": ["Velocity", "Newton's Second Law of Motion", "Kinematics"]
+        "related_topics": ["Velocity", "Newton's Laws", "Kinematics"]
+      },
+      "Photosynthesis": {
+        "topic": "Photosynthesis",
+        "summary": "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. It occurs primarily in plant leaves.",
+        "facts": [
+          "The overall equation for photosynthesis is: 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂.",
+          "Photosynthesis occurs in two main stages: the light-dependent reactions (in thylakoids) and the light-independent reactions or Calvin cycle (in the stroma).",
+          "Chlorophyll is the primary pigment that absorbs light energy, appearing green because it reflects green wavelengths.",
+          "The light reactions produce ATP and NADPH, which power the Calvin cycle to fix carbon dioxide into glucose.",
+          "Photosynthesis is the foundation of most food chains, as it produces glucose that organisms use for energy.",
+          "Plants use photosynthesis not only for energy but also to produce oxygen as a byproduct, which is essential for aerobic respiration in most organisms."
+        ],
+        "related_topics": ["Cellular Respiration", "Chloroplasts", "Plant Biology"]
+      },
+      "Tectonic Plates": {
+        "topic": "Tectonic Plates",
+        "summary": "Tectonic plates are large, rigid slabs of Earth's lithosphere that move across the planet's surface. Their interactions create earthquakes, volcanoes, and mountain ranges.",
+        "facts": [
+          "Earth's lithosphere is divided into several major tectonic plates, including the Pacific, North American, Eurasian, African, Antarctic, Indo-Australian, and South American plates.",
+          "Plate boundaries are classified into three main types: divergent (plates moving apart), convergent (plates moving together), and transform (plates sliding horizontally).",
+          "The theory of plate tectonics explains continental drift, seafloor spreading, and the distribution of earthquakes and volcanoes.",
+          "At divergent boundaries, new oceanic crust forms as magma rises from the mantle, pushing plates apart.",
+          "At convergent boundaries, plates collide, causing subduction (one plate sliding beneath another) or mountain formation.",
+          "Transform boundaries occur where plates slide past each other, often producing large earthquakes, such as along the San Andreas Fault."
+        ],
+        "related_topics": ["Earthquakes", "Volcanoes", "Earth's Structure"]
       }
     };
 
-    async function loadTopics() {
+    // Load Topics from JSON
+    async function init() {
       try {
         const res = await fetch('./topics.json');
-        if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+        if (!res.ok) throw new Error('Failed to load topics.json');
         const data = await res.json();
-        topicsData = (data && Object.keys(data).length > 0) ? data : DEFAULT_TOPICS;
-      } catch (e) {
-        console.warn('Failed to load topics.json, using fallback data:', e);
-        topicsData = DEFAULT_TOPICS;
+        
+        // Check if data is empty
+        if (!data || Object.keys(data).length === 0) {
+          allTopics = DEFAULT_TOPICS;
+        } else {
+          allTopics = data;
+        }
+      } catch (err) {
+        console.warn('Using fallback data:', err);
+        allTopics = DEFAULT_TOPICS;
       }
 
-      renderTopicCloud();
+      // Initialize
+      renderTopicTags();
+      searchTopics('');
+    }
+
+    // Render Quick Topic Tags
+    function renderTopicTags() {
+      const tagsContainer = document.getElementById('topic-tags');
+      const topics = Object.keys(allTopics).slice(0, 8); // Show first 8 topics as quick tags
       
-      const keys = Object.keys(topicsData);
-      if (keys.length > 0) {
-        selectTopic(keys[0]);
-      }
-    }
-
-    function matchesSearch(key, item, query) {
-      if (!query) return true;
-      const q = query.toLowerCase();
-
-      if (key.toLowerCase().includes(q)) return true;
-      if (item.summary && item.summary.toLowerCase().includes(q)) return true;
-      if (item.facts && item.facts.some(f => f.toLowerCase().includes(q))) return true;
-
-      return false;
-    }
-
-    function renderTopicCloud() {
-      const container = document.getElementById('topic-cloud');
-      const query = document.getElementById('topic-search').value.trim();
-      container.innerHTML = '';
-
-      activeKeysList = Object.keys(topicsData).filter(key => 
-        matchesSearch(key, topicsData[key], query)
-      );
-
-      if (activeKeysList.length === 0) {
-        container.innerHTML = '<span class="text-xs text-slate-500">No matching topics found.</span>';
+      if (topics.length === 0) {
+        tagsContainer.innerHTML = '<p class="text-xs text-slate-500">No topics available</p>';
         return;
       }
 
-      activeKeysList.forEach(key => {
-        const btn = document.createElement('button');
-        const isSelected = key === selectedTopicKey;
-        
-        btn.className = isSelected 
-          ? "px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500 text-slate-950 transition-all shadow-md shadow-amber-500/20"
-          : "px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 transition-all";
-        
-        btn.innerText = key;
-        btn.onclick = () => selectTopic(key);
-        container.appendChild(btn);
-      });
+      tagsContainer.innerHTML = topics.map(topic => `
+        <button 
+          onclick="filterByTopic('${topic}')" 
+          class="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded-full text-xs font-medium transition-all border border-slate-600 hover:border-amber-400"
+        >
+          ${topic}
+        </button>
+      `).join('');
     }
 
-    function selectTopic(key) {
-      if (!topicsData[key]) {
-        // If related topic isn't in DB yet, create dynamic placeholder
-        topicsData[key] = {
-          topic: key,
-          summary: `${key} is a key academic topic in competition science and geography.`,
-          facts: [`Key facts and clues for ${key} are being generated from past packets.`],
-          related_topics: []
-        };
+    // Search Topics
+    function searchTopics(query) {
+      const searchTerm = query.toLowerCase();
+      filteredTopics = Object.keys(allTopics).filter(topic => {
+        const data = allTopics[topic];
+        const matchTopic = topic.toLowerCase().includes(searchTerm);
+        const matchSummary = data.summary && data.summary.toLowerCase().includes(searchTerm);
+        const matchFacts = data.facts && data.facts.some(f => f.toLowerCase().includes(searchTerm));
+        return matchTopic || matchSummary || matchFacts;
+      });
+      
+      renderTopicsGrid();
+    }
+
+    // Filter by Specific Topic
+    function filterByTopic(topic) {
+      document.getElementById('search-input').value = topic;
+      searchTopics(topic);
+    }
+
+    // Render Topics Grid
+    function renderTopicsGrid() {
+      const container = document.getElementById('topics-container');
+      
+      if (filteredTopics.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-12">
+            <p class="text-slate-400 text-lg">🔍 No topics found</p>
+            <p class="text-slate-500 text-sm mt-2">Try a different search term</p>
+          </div>
+        `;
+        return;
       }
 
-      selectedTopicKey = key;
-      renderTopicCloud();
-      renderTopicDetails();
+      container.innerHTML = filteredTopics.map((topic, idx) => {
+        const data = allTopics[topic];
+        const facts = Array.isArray(data.facts) ? data.facts : [];
+        const summary = data.summary || 'No summary available';
+        
+        return `
+          <div 
+            onclick="openTopicModal('${topic}')"
+            class="group bg-slate-800 border border-slate-700 rounded-2xl p-5 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-400/10 cursor-pointer transition-all shadow-md"
+          >
+            <h3 class="text-lg font-bold text-amber-400 mb-2 group-hover:text-amber-300 transition-all">${topic}</h3>
+            <p class="text-slate-400 text-xs mb-4 line-clamp-2 leading-relaxed">${summary}</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-500 bg-slate-700/50 px-2 py-1 rounded">📖 ${facts.length} facts</span>
+              <span class="text-amber-400 group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
-    function renderTopicDetails() {
-      if (!selectedTopicKey || !topicsData[selectedTopicKey]) return;
-
-      const card = document.getElementById('topic-detail-card');
-      card.classList.remove('hidden');
-
-      const data = topicsData[selectedTopicKey];
-
-      document.getElementById('topic-title').innerText = data.topic || selectedTopicKey;
-      document.getElementById('topic-summary').innerText = data.summary || '';
-
-      // Render Facts list
-      const factsContainer = document.getElementById('topic-facts');
-      factsContainer.innerHTML = (data.facts || []).map(fact => 
-        `<li class="bg-slate-950 border border-slate-800 p-3.5 rounded-xl flex items-start gap-3">
-          <span class="text-amber-400 font-bold">•</span>
-          <span>${fact}</span>
-        </li>`
-      ).join('');
-
-      // Render Related Topics buttons
-      const relatedContainer = document.getElementById('related-topics');
-      relatedContainer.innerHTML = (data.related_topics || []).map(rel => 
-        `<button onclick="selectTopic('${rel}')" class="w-full text-left bg-slate-950 hover:bg-slate-800 border border-slate-800 p-3 rounded-xl text-xs font-semibold text-indigo-300 transition-all">
-          + ${rel}
-        </button>`
-      ).join('');
+    // Open Topic Modal
+    function openTopicModal(topic) {
+      currentTopicsList = [...filteredTopics];
+      currentTopicIndex = currentTopicsList.indexOf(topic);
+      displayTopicDetail(topic);
+      document.getElementById('topic-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
 
-    function navigateTopic(direction) {
-      if (activeKeysList.length === 0) return;
-      let currentIndex = activeKeysList.indexOf(selectedTopicKey);
-      if (currentIndex === -1) currentIndex = 0;
-      
-      let newIndex = (currentIndex + direction + activeKeysList.length) % activeKeysList.length;
-      selectTopic(activeKeysList[newIndex]);
+    // Close Topic Modal
+    function closeTopicModal() {
+      document.getElementById('topic-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
     }
 
-    function filterTopics() {
-      renderTopicCloud();
+    // Display Topic Detail in Modal
+    function displayTopicDetail(topic) {
+      const data = allTopics[topic];
+      const facts = Array.isArray(data.facts) ? data.facts : [];
+      const relatedTopics = Array.isArray(data.related_topics) ? data.related_topics : [];
+      const summary = data.summary || 'No summary available';
+
+      // Title
+      document.getElementById('modal-topic-title').innerText = topic;
+      document.getElementById('modal-topic-progress').innerText = `${currentTopicIndex + 1} of ${currentTopicsList.length}`;
+
+      // Summary
+      document.getElementById('modal-topic-summary').innerText = summary;
+
+      // Facts
+      const factsContainer = document.getElementById('modal-topic-facts');
+      factsContainer.innerHTML = facts.map((fact, idx) => `
+        <li class="bg-slate-950 border border-slate-700 p-4 rounded-xl flex gap-3 items-start hover:border-amber-400/30 transition-all">
+          <span class="text-amber-400 font-bold flex-shrink-0 text-lg">•</span>
+          <span class="text-slate-300 text-sm leading-relaxed">${fact}</span>
+        </li>
+      `).join('');
+
+      // Related Topics
+      const relatedContainer = document.getElementById('modal-topic-related');
+      if (relatedTopics.length > 0) {
+        document.getElementById('related-topics-section').classList.remove('hidden');
+        relatedContainer.innerHTML = relatedTopics.map(relTopic => `
+          <button 
+            onclick="closeTopicModal(); setTimeout(() => filterByTopic('${relTopic}'), 100)"
+            class="bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/50 hover:border-emerald-400 text-emerald-300 px-4 py-2 rounded-full text-xs font-medium transition-all"
+          >
+            ${relTopic}
+          </button>
+        `).join('');
+      } else {
+        document.getElementById('related-topics-section').classList.add('hidden');
+      }
+
+      // Navigation
+      const nav = `${currentTopicIndex + 1} / ${currentTopicsList.length}`;
+      document.getElementById('modal-topic-nav').innerText = nav;
+
+      // Update button states
+      document.querySelectorAll('[onclick*="prevTopic"]')[0].disabled = (currentTopicIndex === 0);
+      document.querySelectorAll('[onclick*="nextTopic"]')[0].disabled = (currentTopicIndex === currentTopicsList.length - 1);
     }
 
-    loadTopics();
+    // Navigation Functions
+    function prevTopic() {
+      if (currentTopicIndex > 0) {
+        currentTopicIndex--;
+        const topic = currentTopicsList[currentTopicIndex];
+        displayTopicDetail(topic);
+      }
+    }
+
+    function nextTopic() {
+      if (currentTopicIndex < currentTopicsList.length - 1) {
+        currentTopicIndex++;
+        const topic = currentTopicsList[currentTopicIndex];
+        displayTopicDetail(topic);
+      }
+    }
+
+    // Search Input Event Listener
+    document.getElementById('search-input').addEventListener('input', (e) => {
+      searchTopics(e.target.value);
+    });
+
+    // Close modal on background click
+    document.getElementById('topic-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'topic-modal') {
+        closeTopicModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeTopicModal();
+      }
+    });
+
+    // Initialize
+    init();
   </script>
 </body>
 </html>
