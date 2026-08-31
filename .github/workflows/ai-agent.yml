@@ -30,10 +30,15 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python agent.py
 
-      - name: Commit and Push Updated Knowledge Resource
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add quizzes.json
-          git commit -m "Auto-generated updated geography and science quizzes [skip ci]" || exit 0
-          git push
+      - name: Generate Knowledge Base
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: python build_topics.py
+
+     - name: Commit and Push updated topics.json
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add topics.json
+        git commit -m "Auto-update topics.json [skip ci]" || exit 0
+        git push
