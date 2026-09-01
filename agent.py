@@ -215,7 +215,7 @@ def run_ai_agent():
     """Main agent function: Scrape, Index, and Generate Science/Geography Bee Quizzes."""
     api_key = (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
     if not api_key:
-        raise ValueError("❌ GEMINI_API_KEY environment variable is missing.")
+        raise ValueError("GEMINI_API_KEY environment variable is missing.")
 
     print("🐝 Academic Bee AI Agent Starting...\n")
     print("=" * 60)
@@ -368,11 +368,12 @@ IMPORTANT:
     with open("quizzes.json", "w", encoding="utf-8") as f:
         json.dump(output_payload, f, indent=2, ensure_ascii=False)
 
-    # Calculate category counts
+    # Calculate category counts - FIX: Use separate variables
     geo_count = len([q for q in all_quizzes if 'Geography' in q.get('category', '')])
     sci_count = len([q for q in all_quizzes if 'Science' in q.get('category', '')])
     
-    print(f"\n✅ SUCCESS! Generated {len(all_quizzes)} pyramidal tossup questions")
+    print("\n" + "=" * 60)
+    print(f"✅ SUCCESS! Generated {len(all_quizzes)} pyramidal tossup questions")
     print(f"📄 Saved to: quizzes.json")
     print(f"📊 Categories: {geo_count} Geography, {sci_count} Science")
     print("=" * 60)
