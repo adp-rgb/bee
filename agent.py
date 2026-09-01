@@ -395,15 +395,17 @@ IMPORTANT:
             "bonus_table": scoring_rules.get("bonus_structure", [])
         },
         "quizzes": all_quizzes,
-        "metadata": {
-            "source": "Science Bee & Geography Bee Official Resources",
-            "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
-            "resources": [
-                "https://www.internationalgeographybee.com/asia/resources/",
-                "https://www.iacompetitions.com/resources/",
-                "https://www.internationalgeographybee.com/europe/resources/"
-            ]
-        }
+"metadata": {
+    "source": "Science Bee & Geography Bee Official Resources",
+    "generated_at": str(time.strftime("%Y-%m-%d %H:%M:%S")),
+    "resources": [
+        "https://iacompetitionsasia.com/resources/",
+        "https://www.internationalgeographybee.com/asia/resources/",
+        "https://www.iacompetitions.com/resources/",
+        "https://www.internationalgeographybee.com/europe/resources/",
+        "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
+    ]
+}
     }
 
     with open("quizzes.json", "w", encoding="utf-8") as f:
