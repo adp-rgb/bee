@@ -5,15 +5,18 @@ import * as cheerio from 'cheerio';
 
 const ai = new GoogleGenAI(); // Uses GEMINI_API_KEY environment variable
 
-// 1. Resource Mapping for IAC / IGB Competition Domains
+// 1. Resource Mapping for IAC / IGB Competition Domains (Consolidated)
 const SOURCE_URLS = {
   Science: [
     'https://iacompetitionsasia.com/resources/',
+    'https://www.iacompetitions.com/resources/',
     'https://www.iacompetitions.com/ems-national-science-bee-past-questions/'
   ],
   Geography: [
+    'https://iacompetitionsasia.com/resources/',
     'https://www.internationalgeographybee.com/asia/resources/',
-    'https://iacompetitionsasia.com/resources/'
+    'https://www.iacompetitions.com/resources/',
+    'https://www.internationalgeographybee.com/europe/resources/'
   ]
 };
 
