@@ -338,33 +338,39 @@ async function loadQuizData() {
     }
   }
 }
-    function processTopicCloudData() {
-      topicList = [];
+function processTopicCloudData() {
+  topicList = [];
 
-      for (const [category, topics] of Object.entries(topicsData)) {
-        topics.forEach(t => {
-          if (typeof t === 'string') {
-            topicList.push({ name: t, category: category });
-          } else if (typeof t === 'object' && t.name) {
-            topicList.push({
-              name: t.name,
-              category: category,
-              definition: t.definition,
-              key_facts: t.key_facts || [],
-              related_topics: t.related_topics || []
-            });
-          }
+  if (Array.isArray(topicsData.Geography) || Array.isArray(topicsData.Science)) {
+    // Categorized format
+    for (const [category, topics] of Object.entries(topicsData)) {
+      if (!Array.isArray(topics)) continue;
+      topics.forEach(t => {
+        const item = typeof t === 'string' ? { name: t } : t;
+        topicList.push({
+          name: item.name || item.topic,
+          category: category,
+          definition: item.definition || item.summary || '',
+          key_facts: item.key_facts || item.facts || [],
+          related_topics: item.related_topics || []
         });
-      }
-
-      allData.forEach(q => {
-        if (q.topic && !topicList.some(t => t.name.toLowerCase() === q.topic.toLowerCase())) {
-          topicList.push({ name: q.topic, category: q.category || 'General' });
-        }
       });
-
-      renderTopicCloud(topicList);
     }
+  } else {
+    // Object dictionary format fallback
+    for (const [key, item] of Object.entries(topicsData)) {
+      topicList.push({
+        name: item.topic || key,
+        category: item.category || 'General',
+        definition: item.summary || item.definition || '',
+        key_facts: item.facts || item.key_facts || [],
+        related_topics: item.related_topics || []
+      });
+    }
+  }
+
+  renderTopicCloud(topicList);
+}
 
     function renderTopicCloud(list) {
       const container = document.getElementById('full-topic-cloud');
