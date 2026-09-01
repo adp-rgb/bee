@@ -303,33 +303,41 @@
     let currentIdx = 0;
     let isFlashcardMode = false;
 
-    async function loadQuizData() {
-      try {
-        const [quizRes, topicRes] = await Promise.all([
-          fetch('quizzes.json'),
-          fetch('topics.json').catch(() => null)
-        ]);
+async function loadQuizData() {
+  try {
+    const [quizRes, topicRes] = await Promise.all([
+      fetch('quizzes.json'),
+      fetch('topics.json').catch(() => null)
+    ]);
 
-        if (!quizRes.ok) throw new Error('quizzes.json not found');
-        const jsonPayload = await quizRes.json();
-        allData = jsonPayload.quizzes || [];
+    if (!quizRes.ok) throw new Error('quizzes.json not found');
 
-        if (topicRes && topicRes.ok) {
-          topicsData = await topicRes.json();
-          renderTopicPills();
-          processTopicCloudData();
-        }
-
-        updateStats();
-      } catch (err) {
-        console.error('Failed to load quiz or topic data:', err);
-        const statusEl = document.getElementById('system-status');
-        if (statusEl) {
-          statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-400"></span> Error`;
-          statusEl.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20";
-        }
-      }
+    // Parse quiz response as raw text first to guard against Python string leaks
+    const quizText = await quizRes.text();
+    if (quizText.includes('time.strftime')) {
+      throw new SyntaxError("quizzes.json contains unparsed Python code string 'time.strftime'");
     }
+
+    const jsonPayload = JSON.parse(quizText);
+    allData = jsonPayload.quizzes || [];
+
+    // Process topic taxonomy if available
+    if (topicRes && topicRes.ok) {
+      topicsData = await topicRes.json();
+      renderTopicPills();
+      processTopicCloudData();
+    }
+
+    updateStats();
+  } catch (err) {
+    console.error('Failed to load quiz or topic data:', err);
+    const statusEl = document.getElementById('system-status');
+    if (statusEl) {
+      statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-400"></span> Error`;
+      statusEl.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20";
+    }
+  }
+}
 
     function processTopicCloudData() {
       topicList = [];
