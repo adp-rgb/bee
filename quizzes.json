@@ -93,392 +93,392 @@
     {
       "id": 1,
       "category": "Geography / Earth Science",
-      "question": "The Hoei eruption in 1707 was the last major eruption of this stratovolcano, creating a crater on its eastern flank. It is one of Japan's 'Three Holy Mountains' alongside Mount Tate and Mount Haku, and its iconic symmetrical cone is visible from Tokyo on clear days. For the point, name this highest peak in Japan.",
+      "question": "The northernmost extent of this mountain range includes a region known as the Rif. The rain shadow created by this range contributed heavily to the formation of the Sahara Desert to its south. For the point, name this North African mountain range containing Mount Toubkal, named for a Greek Titan who holds up the sky.",
       "options": [
-        "Mount Fuji",
-        "Mount Aso",
-        "Mount Ontake",
-        "Mount Unzen"
+        "Atlas Mountains",
+        "Drakensberg Mountains",
+        "Ahaggar Mountains",
+        "Rif Mountains"
       ],
       "answer": 0,
-      "explanation": "Mount Fuji is Japan's tallest mountain, iconic for its symmetrical cone and cultural significance."
+      "explanation": "The Atlas Mountains span Morocco, Algeria, and Tunisia; their highest peak is Mount Toubkal."
     },
     {
       "id": 2,
       "category": "Geography / Earth Science",
-      "question": "Olkhon is the largest island in this rift valley lake, which is home to the nerpa, an endemic species of freshwater seal. Containing roughly 20 percent of the world's unfrozen surface fresh water, this Siberian body of water is both the world's oldest and deepest lake. For the point, name this massive Russian lake.",
+      "question": "The Wadi Hadhramaut flows through the arid eastern region of this country, which has no permanent rivers. Its outlying territory of Socotra is famous for endemic species such as the dragon's blood tree. For the point, name this nation on the southern tip of the Arabian Peninsula with capitals at Sana'a and Aden.",
       "options": [
-        "Lake Ladoga",
-        "Lake Onega",
-        "Lake Baikal",
-        "Lake Balkhash"
+        "Oman",
+        "Yemen",
+        "Saudi Arabia",
+        "United Arab Emirates"
       ],
-      "answer": 2,
-      "explanation": "Lake Baikal in Siberia is famous for being both the deepest and oldest lake in the world."
+      "answer": 1,
+      "explanation": "Yemen is located on the southern Arabian Peninsula and includes the island of Socotra."
     },
     {
       "id": 3,
       "category": "Geography / Earth Science",
-      "question": "The Apur\u00edmac River is widely considered the main source of this watercourse, which empties into the Atlantic Ocean via a massive estuary containing Maraj\u00f3 Island. Flowing past cities like Iquitos and Manaus, this body of water carries more water by discharge volume than any other river system on Earth. For the point, name this primary river of South America that flows through a vast namesake rainforest.",
+      "question": "Hypothetical gravity trains have been proposed to travel between pairs of these geographic locations. An uninhabited volcanic archipelago south of Invercargill forms one of these locations opposite to Normandy, France. For the point, name these points situated on exact opposite sides of the Earth from each other.",
       "options": [
-        "Orinoco River",
-        "Paran\u00e1 River",
-        "Amazon River",
-        "Magdalena River"
+        "Equators",
+        "Prime Meridians",
+        "Antipodes",
+        "Poles"
       ],
       "answer": 2,
-      "explanation": "The Amazon River in South America is the largest river by discharge volume of water in the world."
+      "explanation": "Antipodes are points on the Earth's surface diametrically opposite to each other."
     },
     {
       "id": 4,
       "category": "Geography / Earth Science",
-      "question": "The Tsingy de Bemaraha Strict Nature Reserve features razor-sharp limestone towers on this island, where endemic lemur species thrive. Located across the Mozambique Channel from southeastern Africa, this nation's Avenue of the Baobabs features massive centuries-old trees near Morondava. For the point, name this fourth-largest island in the world, an island nation with its capital at Antananarivo.",
+      "question": "Timberline Lodge on the slopes of this peak offers the only year-round ski lift operation in the United States. This mountain features Lolo Pass and was historically known as Wy'east to the Multnomah people. For the point, name this peak in the Cascade Range, the highest mountain in Oregon.",
       "options": [
-        "Sri Lanka",
-        "Madagascar",
-        "Tasmania",
-        "Mauritius"
+        "Mount Rainier",
+        "Mount Shasta",
+        "Mount St. Helens",
+        "Mount Hood"
       ],
-      "answer": 1,
-      "explanation": "Madagascar is an island country off the southeastern coast of Africa known for its unique biodiversity."
+      "answer": 3,
+      "explanation": "Mount Hood is Oregon's highest peak and home to Timberline Lodge."
     },
     {
       "id": 5,
       "category": "Geography / Earth Science",
-      "question": "A famous statue of a siren sits near a treacherous narrow section of this river named the Lorelei, located near Sankt Goarshausen. Emerging from Lake Constance, it flows past major industrial cities such as Basel, Cologne, and D\u00fcsseldorf before creating a delta near Rotterdam. For the point, name this major European river that forms part of the border between Germany and France.",
+      "question": "The Presidential Range within this mountain system contains Mount Quincy Adams as well as the site of the former \"Old Man of the Mountain\" rock formation. A famous rack railway climbs the highest peak of this system, which is notorious for erratic severe weather. For the point, name this mountain range in New Hampshire dominated by Mount Washington.",
       "options": [
-        "Danube River",
-        "Rhine River",
-        "Elbe River",
-        "Rh\u00f4ne River"
+        "White Mountains",
+        "Green Mountains",
+        "Adirondack Mountains",
+        "Catskill Mountains"
       ],
-      "answer": 1,
-      "explanation": "The Rhine River is a major European waterway running through Western Europe, key to regional history and trade."
+      "answer": 0,
+      "explanation": "The White Mountains are a mountain range in New Hampshire containing Mount Washington."
     },
     {
       "id": 6,
       "category": "Geography / Earth Science",
-      "question": "Valle de la Luna, located near San Pedro, features hyper-arid salt formations within this region, which houses the ALMA astronomical observatory array. Rich in sodium nitrate and lithium deposits, this plateau region sits in the rain shadow of the Andes Mountains along South America's Pacific coast. For the point, name this driest non-polar desert in the world, located primarily in northern Chile.",
+      "question": "This city was dubbed the \"Paris of the Tropics\" during a late 19th-century rubber boom that funded its ornate Teatro Amazonas opera house. It is connected to the town of Iranduba by the Journalist Phelippe Daou Bridge near the Encontro das \u00c1guas. For the point, name this major port city located at the confluence of the Rio Negro and Amazon River in northern Brazil.",
       "options": [
-        "Gobi Desert",
-        "Kalahari Desert",
-        "Atacama Desert",
-        "Patagonian Desert"
+        "Bel\u00e9m",
+        "Manaus",
+        "Iquitos",
+        "Santar\u00e9m"
       ],
-      "answer": 2,
-      "explanation": "The Atacama Desert in Chile is widely recognized as the driest non-polar desert on Earth."
+      "answer": 1,
+      "explanation": "Manaus is the capital of the Brazilian state of Amazonas, located on the Rio Negro."
     },
     {
       "id": 7,
       "category": "Geography / Earth Science",
-      "question": "Stanley Park features a famous seawall and a collection of First Nations totem poles in this city, which is connected to North Vancouver by the Lions Gate Bridge. Situated across the Strait of Georgia from its namesake island, this host of the 2010 Winter Olympics is the most populous metropolitan area in British Columbia. For the point, name this coastal Canadian city located in western Canada.",
+      "question": "Peaks in this mountain chain, such as Salkantay, were traditionally revered as sacred spirit entities called \"Apus.\" Wild camelid species like the vicu\u00f1a and guanaco inhabit the high plateaus of this range, which passes near major cities like Quito and Cuenca. For the point, name this longest continental mountain range in the world, running along the western coast of South America.",
       "options": [
-        "Calgary",
-        "Victoria",
-        "Edmonton",
-        "Vancouver"
+        "Rockies",
+        "Alps",
+        "Andes Mountains",
+        "Appalachians"
       ],
-      "answer": 3,
-      "explanation": "Vancouver is a major coastal city in western Canada's province of British Columbia."
+      "answer": 2,
+      "explanation": "The Andes stretch over 4,300 miles along South America's western coast."
     },
     {
       "id": 8,
       "category": "Geography / Earth Science",
-      "question": "The Silfra fissure in Thingvellir National Park allows divers to swim between the North American and Eurasian tectonic plates in this nation. Powered largely by geothermal energy, this North Atlantic island features dramatic geysers, the Blue Lagoon resort, and the Eyjafjallaj\u00f6kull volcano. For the point, name this Nordic island nation whose capital is Reykjavik.",
+      "question": "Archaeological evidence suggests that the main axis of this site was aligned to face the sunrise on the summer solstice. Located on Salisbury Plain in Wiltshire, this monument features outer bluestones surrounding massive sarsen stones. For the point, name this prehistoric monument in England featuring a circular arrangement of giant standing stones.",
       "options": [
-        "Greenland",
-        "Iceland",
-        "Faroe Islands",
-        "Svalbard"
+        "Avebury",
+        "Newgrange",
+        "Carnac Stones",
+        "Stonehenge"
       ],
-      "answer": 1,
-      "explanation": "Iceland is an island country in the North Atlantic noted for its volcanic and geothermal activity."
+      "answer": 3,
+      "explanation": "Stonehenge is a famous prehistoric megalithic structure located in Wiltshire, England."
     },
     {
       "id": 9,
       "category": "Geography / Earth Science",
-      "question": "The Iron Gates is a scenic gorge on the border between Romania and Serbia through which this river flows before reaching its delta on the Black Sea. Originating in Germany's Black Forest, this river passes through or touches more sovereign countries than any other river, including four capital cities like Vienna and Budapest. For the point, name this second-longest river in Europe after the Volga.",
+      "question": "During a cultural revival in the 1990s, this design was famously worn on a pop art dress by Spice Girl Geri Halliwell. Due to historical maritime ties, the Basque flag was inspired by this emblem, which also forms the canton of national flags like Fiji and Tuvalu. For the point, name this national flag of the United Kingdom.",
       "options": [
-        "Volga River",
-        "Danube River",
-        "Dnieper River",
-        "Vistula River"
+        "Union Jack",
+        "Stars and Stripes",
+        "Maple Leaf",
+        "Tricolour"
       ],
-      "answer": 1,
-      "explanation": "The Danube River is Europe's second-longest river, flowing through ten countries across Central and Eastern Europe."
+      "answer": 0,
+      "explanation": "The Union Jack combines the crosses of St. George, St. Andrew, and St. Patrick to represent the UK."
     },
     {
       "id": 10,
       "category": "Geography / Earth Science",
-      "question": "The Shira plateau and the Mawenzi peak flank the central cone of Kibo, the highest of the three volcanic cones that comprise this mountain. Located near the border with Kenya in views from Amboseli National Park, its Furtw\u00e4ngler Glacier has retreated significantly over the past century. For the point, name this dormant volcano in Tanzania, the highest peak on the African continent.",
+      "question": "By municipal law, modern skyscrapers in this city are prohibited from exceeding the elevation of its central three-peaked hill. Situated at the confluence of the Ottawa and St. Lawrence Rivers, it is the second-largest French-speaking city in the world. For the point, name this most populous city in Quebec, Canada.",
       "options": [
-        "Mount Kenya",
-        "Mount Stanley",
-        "Mount Kilimanjaro",
-        "Mount Elgon"
+        "Quebec City",
+        "Montreal",
+        "Ottawa",
+        "Laval"
       ],
-      "answer": 2,
-      "explanation": "Mount Kilimanjaro in Tanzania is a dormant volcano and the highest peak in Africa."
+      "answer": 1,
+      "explanation": "Montreal is built around Mount Royal in southwestern Quebec."
     },
     {
       "id": 11,
-      "category": "Geography / Earth Science",
-      "question": "This body of water contains Olkhon Island and is the primary natural habitat of the nerpa, the world's only exclusively freshwater seal. Fed by over three hundred rivers including the Selenga, its only outflow is the Angara River. For the point, name this lake in Siberia that holds nearly twenty percent of the world's unfrozen surface fresh water, making it the deepest lake in the world.",
+      "category": "Geography",
+      "question": "The Journalist Phelippe Daou Bridge connects this city to Iranduba, and it features the Amazon Theatre, which was built during a rubber boom that earned it the nickname \"Paris of the Tropics.\" This city serves as the capital of Amazonas state and lies near the Meeting of Waters between the Solim\u00f5es River and the Rio Negro. For the point, name this Brazilian city, the largest urban center in the Amazon Basin.",
       "options": [
-        "Lake Baikal",
-        "Lake Tanganyika",
-        "Lake Superior",
-        "Caspian Sea"
+        "Manaus",
+        "Bel\u00e9m",
+        "Santar\u00e9m",
+        "Porto Velho"
       ],
       "answer": 0,
-      "explanation": "Lake Baikal is located in southern Siberia, Russia. It is the world's deepest lake and holds the largest volume of fresh water."
+      "explanation": "Manaus is the capital of Amazonas, Brazil, located at the confluence of the Rio Negro and Solim\u00f5es River, known historically for its rubber boom."
     },
     {
       "id": 12,
-      "category": "Geography / Earth Science",
-      "question": "A famous dirt road on this island features a striking row of endemic grandidier's baobab trees near Morondava. Separated from the African mainland by the Mozambique Channel, this island is home to unique endemic fauna such as the aye-aye and fossa. For the point, name this large island nation off the southeast coast of Africa with its capital at Antananarivo.",
+      "category": "Geography",
+      "question": "This peak's Lolo Pass was historically used by Native Americans to travel between the Willamette Valley and fishing grounds at Celilo Falls. Known in the Multnomah language as Wy'east, this stratovolcano hosts Timberline Lodge, which offers the only year-round ski resort in the United States. For the point, name this fourth-highest peak in the Cascade Range and the highest mountain in Oregon.",
       "options": [
-        "Madagascar",
-        "Sri Lanka",
-        "Mauritius",
-        "Socotra"
+        "Mount Rainier",
+        "Mount Shasta",
+        "Mount Hood",
+        "Mount Adams"
       ],
-      "answer": 0,
-      "explanation": "Madagascar is an island country off the southeastern coast of Africa, famous for its unique biodiversity including lemurs and baobabs."
+      "answer": 2,
+      "explanation": "Mount Hood is Oregon's highest peak, located in the Cascade Range and home to Timberline Lodge."
     },
     {
       "id": 13,
-      "category": "Geography / Earth Science",
-      "question": "This river has its source at Lake Tomasee in the Swiss Alps and flows near the famous Lorelei rock in its Middle gorge. Passing through major industrial hubs like Basel, Strasbourg, and Cologne, it empties into the North Sea at Rotterdam. For the point, name this major European river that forms much of the border between France and Germany.",
+      "category": "Geography",
+      "question": "This island is famous for its endemic dragon's blood tree, Dracaena cinnabari, which features a distinctive umbrella-shaped canopy. Located east of the Horn of Africa near the mouth of the Red Sea, this island lies near the Guardafui Channel in the Indian Ocean. For the point, name this highly biodiverse island that belongs to Yemen.",
       "options": [
-        "Danube River",
-        "Rhine River",
-        "Elbe River",
-        "Rh\u00f4ne River"
+        "Socotra",
+        "Zanzibar",
+        "Madagascar",
+        "Lamu"
       ],
-      "answer": 1,
-      "explanation": "The Rhine River is one of Europe's major rivers, flowing from Switzerland through Germany and the Netherlands into the North Sea."
+      "answer": 0,
+      "explanation": "Socotra is a biodiverse Yemeni island in the Indian Ocean known for unique endemic flora like the dragon's blood tree."
     },
     {
       "id": 14,
-      "category": "Geography / Earth Science",
-      "question": "This region houses the ALMA astronomical observatory on the Chajnantor Plateau as well as Mario Irarr\u00e1zabal's sculpture Mano del Desierto. Situated in the rain shadow of the Andes, it features rich sodium nitrate deposits that sparked the 19th-century War of the Pacific. For the point, name this non-polar region in northern Chile, widely considered the driest desert in the world.",
+      "category": "Geography",
+      "question": "Mountain peaks in this range, such as Salkantay, are revered in local indigenous traditions as protective mountain spirits called Apus. This mountain system hosts the world's highest active volcano, Ojos del Salado, and borders the high-altitude plateau known as the Altiplano. For the point, name this longest continental mountain range in the world, which runs along the western coast of South America.",
       "options": [
-        "Kalahari Desert",
-        "Mojave Desert",
-        "Atacama Desert",
-        "Gobi Desert"
+        "Andes Mountains",
+        "Sierra Madre",
+        "Appalachian Mountains",
+        "Atlas Mountains"
       ],
-      "answer": 2,
-      "explanation": "The Atacama Desert in northern Chile is known as the driest non-polar desert on Earth."
+      "answer": 0,
+      "explanation": "The Andes run down the entire western coast of South America and constitute the world's longest continental mountain range."
     },
     {
       "id": 15,
-      "category": "Geography / Earth Science",
-      "question": "This peak is bordered to the north by five scenic lakes, including Kawaguchiko and Yamanakako, and forms part of the Three Holy Mountains alongside Mount Tate and Mount Haku. It features a exceptionally symmetrical snow-capped cone that was famously depicted in Hokusai's woodblock print series Thirty-Six Views. For the point, name this active stratovolcano that is the highest mountain in Japan.",
+      "category": "Geography",
+      "question": "This territory's island of Ap Lei Chau is one of the most densely populated places on Earth, and its prominent landmarks include Victoria Peak and the Bank of China Tower. Situated on the eastern side of the Pearl River Estuary, it encompasses the Kowloon Peninsula and New Territories. For the point, name this former British colony that was handed over to China as a Special Administrative Region in 1997.",
       "options": [
-        "Mount Aso",
-        "Mount Fuji",
-        "Mount Kita",
-        "Mount Ontake"
+        "Macau",
+        "Hong Kong",
+        "Singapore",
+        "Taiwan"
       ],
       "answer": 1,
-      "explanation": "Mount Fuji is an active stratovolcano located on Honshu island, standing as Japan's tallest peak."
+      "explanation": "Hong Kong is a Special Administrative Region of China located on the Pearl River Estuary, handed over from British control in 1997."
     },
     {
       "id": 16,
-      "category": "Geography / Earth Science",
-      "question": "Ancient sailors knew the high points surrounding this waterway as the Pillars of Hercules, including Jebel Musa to its south. The British overseas territory at its eastern end features a famous limestone promontory home to wild Barbary macaques. For the point, name this narrow strait connecting the Atlantic Ocean to the Mediterranean Sea between Spain and Morocco.",
+      "category": "Geography",
+      "question": "The Gilf Kebir Plateau in this country's Western Desert contains prehistoric cave art, including the famous Cave of Swimmers. This nation contains the low-lying Qattara Depression as well as the Aswan High Dam, which impounds Lake Nasser. For the point, name this North African country containing the Nile River Delta, the city of Luxor, and the Great Pyramids near Cairo.",
       "options": [
-        "Strait of Hormuz",
-        "Bering Strait",
-        "Strait of Malacca",
-        "Strait of Gibraltar"
+        "Sudan",
+        "Egypt",
+        "Libya",
+        "Algeria"
       ],
-      "answer": 3,
-      "explanation": "The Strait of Gibraltar connects the Atlantic Ocean to the Mediterranean Sea and separates Southern Europe from North Africa."
+      "answer": 1,
+      "explanation": "Egypt is located in North Africa, containing Cairo, the Nile Delta, Lake Nasser behind the Aswan High Dam, and ancient monuments."
     },
     {
       "id": 17,
-      "category": "Geography / Earth Science",
-      "question": "This river originates at Atlin Lake on the border of British Columbia and flows through Whitehorse before entering a neighboring US state. Famous as the heart of the 1890s Klondike Gold Rush near Dawson City, it empties through a vast delta into the Bering Sea. For the point, name this major river flowing across northwestern Canada and Alaska.",
+      "category": "Geography",
+      "question": "The northernmost section of this mountain range is the coastal Rif region bordering the Alboran Sea. Mount Toubkal in Morocco is the highest summit of this range, which casts a prominent rain shadow contributing to the aridity of the desert to its south. For the point, name this mountain range in northwest Africa named for a mythical Greek Titan.",
       "options": [
-        "Mackenzie River",
-        "Yukon River",
-        "Columbia River",
-        "Fraser River"
+        "Drakensberg",
+        "Atlas Mountains",
+        "Zagros Mountains",
+        "Alps"
       ],
       "answer": 1,
-      "explanation": "The Yukon River flows through the Yukon Territory in Canada and across Alaska to the Bering Sea."
+      "explanation": "The Atlas Mountains span Morocco, Algeria, and Tunisia in northwest Africa, named after the Titan Atlas."
     },
     {
       "id": 18,
-      "category": "Geography / Earth Science",
-      "question": "The world's oldest surviving parliament, the Althing, was established in 930 AD at this nation's \u00deingvellir National Park. Known for its geothermal activity, it contains the Strokkur geyser, the Blue Lagoon resort, and Europe's largest ice cap by volume, Vatnaj\u00f6kull. For the point, name this Nordic island nation situated in the North Atlantic with its capital at Reykjav\u00edk.",
+      "category": "Geography",
+      "question": "This range's northern Presidential section contains Mount Quincy Adams, and it formerly featured a famous natural cliff profile known as the \"Old Man of the Mountain.\" Its peak Tuckerman Ravine is famous for extreme weather conditions and high winds recorded at its summit observatory. For the point, name this mountain range in New Hampshire topped by Mount Washington.",
       "options": [
-        "Greenland",
-        "Faroe Islands",
-        "Iceland",
-        "Svalbard"
+        "Green Mountains",
+        "Adirondack Mountains",
+        "White Mountains",
+        "Catskill Mountains"
       ],
       "answer": 2,
-      "explanation": "Iceland is a Nordic island nation in the North Atlantic known for its volcanoes, geysers, glaciers, and hot springs."
+      "explanation": "The White Mountains are located in New Hampshire, containing Mount Washington and formerly the Old Man of the Mountain rock formation."
     },
     {
       "id": 19,
-      "category": "Geography / Earth Science",
-      "question": "This river flows past the Iron Gates gorge between Serbia and Romania before forming a major wetland delta on the Black Sea. It passes through four national capital cities: Vienna, Bratislava, Budapest, and Belgrade. For the point, name this river that originates in the Black Forest of Germany, the second-longest river in Europe after the Volga.",
+      "category": "Geography",
+      "question": "This island's central region features the Amari Valley, while its northern coast hosts historic Venetian harbors in Chania and Rethymno. Its largest city is Heraklion, which is situated near the ancient archaeological complex of Knossos. For the point, name this largest and most populous Greek island, legendary home of the Minoan civilization.",
       "options": [
-        "Dnieper River",
-        "Danube River",
-        "Rhine River",
-        "Volga River"
+        "Rhodes",
+        "Crete",
+        "Corfu",
+        "Lesbos"
       ],
       "answer": 1,
-      "explanation": "The Danube River is Central and Eastern Europe's longest river, flowing through ten countries into the Black Sea."
+      "explanation": "Crete is the largest Greek island, home to Heraklion and the ancient Minoan palace of Knossos."
     },
     {
       "id": 20,
-      "category": "Geography / Earth Science",
-      "question": "This island contains Cradle Mountain-Lake St Clair National Park and is separated from the mainland by the 150-mile wide Bass Strait. Formerly known to Europeans as Van Diemen's Land, its capital is Hobart. For the point, name this island state of Australia famous for its native carnivorous marsupial, a namesake 'devil'.",
+      "category": "Geography",
+      "question": "The Benrath and Speyer lines separate dialect divisions of this language, which holds co-official status alongside Italian in the South Tyrol region. Its cultural linguistic sphere, or Sprachraum, includes Liechtenstein and the majority of cantons in Switzerland. For the point, name this West Germanic language spoken predominantly in Austria and Germany.",
       "options": [
-        "Tasmania",
-        "New Georgia",
-        "Kangaroo Island",
-        "Fraser Island"
+        "Dutch",
+        "German",
+        "Danish",
+        "Swedish"
       ],
-      "answer": 0,
-      "explanation": "Tasmania is an island state of Australia located south of the Australian mainland."
+      "answer": 1,
+      "explanation": "German is a major West Germanic language spoken in Germany, Austria, parts of Switzerland, and South Tyrol."
     },
     {
       "id": 21,
       "category": "Geography / Earth Science",
-      "question": "The salt flat of Salar de Uyuni, the largest of its kind in the world, is located in this nation's Potos\u00ed Department. This landlocked South American country shares Lake Titicaca along its western border with Peru. For the point, name this country with dual capitals at Sucre and La Paz.",
+      "question": "This city is joined to the municipality of Iranduba by the Journalist Phelippe Daou Bridge across the Rio Negro. It contains a monument to the Opening of the Ports, commemorating a late 19th-century rubber boom that gave this city the nickname \"Paris of the Tropics.\" For the point, name this northwestern Brazilian city located at the confluence of the Rio Negro and the Amazon River.",
       "options": [
-        "Bolivia",
-        "Paraguay",
-        "Chile",
-        "Peru"
+        "Manaus",
+        "Bel\u00e9m",
+        "Santar\u00e9m",
+        "Iquitos"
       ],
       "answer": 0,
-      "explanation": "Salar de Uyuni and Lake Titicaca are key geographical features of Bolivia, which has constitutional capital Sucre and seat of government La Paz."
+      "explanation": "Manaus is the capital of the Brazilian state of Amazonas, famous for its location at the meeting of the waters and its rubber boom history."
     },
     {
       "id": 22,
       "category": "Geography / Earth Science",
-      "question": "The Sognefjord, nicknamed the King of the Fjords, penetrates over 100 miles inland in this nation. This country's Svalbard archipelago lies north of the Arctic Circle and houses the Global Seed Vault. For the point, name this Scandinavian nation with its capital at Oslo.",
+      "question": "Peaks in this range like Salkantay are regarded as sacred spirits known as Apus in indigenous Quechua tradition. A mountain in this range called El Altar is named for its resemblance to two nuns and four priests, and major high-altitude cities here include Cuenca, Cali, and Quito. For the point, name this longest continental mountain range in the world, dominating western South America.",
       "options": [
-        "Sweden",
-        "Norway",
-        "Finland",
-        "Denmark"
+        "Appalachian Mountains",
+        "Atlas Mountains",
+        "Andes Mountains",
+        "Rocky Mountains"
       ],
-      "answer": 1,
-      "explanation": "Norway is famous for its extensive western fjords like Sognefjord, the Arctic territory of Svalbard, and its capital city Oslo."
+      "answer": 2,
+      "explanation": "The Andes run along the entire western coast of South America and host peak Chimborazo, Mount Aconcagua, and major Andean cities."
     },
     {
       "id": 23,
       "category": "Geography / Earth Science",
-      "question": "This river's massive delta is home to the Sundarbans, the world's largest contiguous mangrove forest. Originating at the Gangotri Glacier in the Himalayas, this body of water flows across northern India into the Bay of Bengal. For the point, name this most sacred river in Hinduism.",
+      "question": "The dragon's blood tree Dracaena cinnabari is an iconic species endemic to an archipelago controlled by this nation. Its mainland territory includes the eastern section of the Wadi Hadhramaut and borders the Empty Quarter desert, while lacking any permanent rivers. For the point, name this country on the Arabian Peninsula with its capital at Sana'a and major port of Aden.",
       "options": [
-        "Indus River",
-        "Brahmaputra River",
-        "Ganges River",
-        "Yamuna River"
+        "Oman",
+        "Yemen",
+        "Saudi Arabia",
+        "Djibouti"
       ],
-      "answer": 2,
-      "explanation": "The Ganges River flows from the Himalayas across India and Bangladesh, forming the Sundarbans delta, and is venerated in Hinduism."
+      "answer": 1,
+      "explanation": "Yemen owns the Socotra archipelago (home to the dragon blood tree) and occupies the southwestern corner of the Arabian Peninsula."
     },
     {
       "id": 24,
       "category": "Geography / Earth Science",
-      "question": "Mount Apo, an active stratovolcano on the island of Mindanao, is the highest peak in this archipelago. This country's central Visayas region includes major islands such as Cebu, Bohol, and Leyte. For the point, name this Southeast Asian nation with its capital at Manila.",
+      "question": "The northernmost ridge of this mountain system is known as the Rif, which runs along the Mediterranean coast. Mount Toubkal is the highest peak in this system, whose rain shadow contributed heavily to the arid climate of the Sahara Desert. For the point, name this North African mountain range extending across Morocco, Algeria, and Tunisia, named for a classical titan.",
       "options": [
-        "Indonesia",
-        "Malaysia",
-        "Philippines",
-        "Timor-Leste"
+        "Drakensberg",
+        "Ahaggar Mountains",
+        "Atlas Mountains",
+        "Tibesti Mountains"
       ],
       "answer": 2,
-      "explanation": "Mount Apo, Mindanao, and the Visayas region are located in the Philippines, an island country whose capital is Manila."
+      "explanation": "The Atlas Mountains stretch across northwestern Africa and separate the Mediterranean and Atlantic coastlines from the Sahara Desert."
     },
     {
       "id": 25,
       "category": "Geography / Earth Science",
-      "question": "Lake Naivasha and Lake Nakuru lie along the Gregory Rift system within this African nation. Mount Elgon marks part of its western border with Uganda, while its major coastal port on the Indian Ocean is Mombasa. For the point, name this East African country whose capital is Nairobi.",
+      "question": "The Lolo Pass on this peak historically allowed Native Americans to travel from the Willamette Valley to Celilo Falls. Known as Wy'east to the indigenous Multnomah people, it features Timberline Lodge, which hosts the only year-round ski resort in the United States. For the point, name this dormant stratovolcano in the Cascade Range, the highest peak in the state of Oregon.",
       "options": [
-        "Kenya",
-        "Tanzania",
-        "Ethiopia",
-        "Rwanda"
+        "Mount Rainier",
+        "Mount Saint Helens",
+        "Mount Shasta",
+        "Mount Hood"
       ],
-      "answer": 0,
-      "explanation": "Kenya contains Rift Valley lakes, shares Mount Elgon with Uganda, hosts the port of Mombasa, and has Nairobi as its capital."
+      "answer": 3,
+      "explanation": "Mount Hood is Oregon's tallest mountain (11,249 feet) and is located about 50 miles east-southeast of Portland."
     },
     {
       "id": 26,
       "category": "Geography / Earth Science",
-      "question": "The autonomous region of Nakhchivan is an exclave separated from the main territory of this country by Armenia. Situated on the Abseron Peninsula along the western shore of the Caspian Sea, its capital is famous for historic petroleum production. For the point, name this Caucasus nation with its capital at Baku.",
+      "question": "Carving out jagged sharp ridges called ar\u00eates, these features form shallow kettles as they retreat across a landscape. They transform river-carved V-shaped valleys into broad U-shaped valleys through processes like plucking and abrasion, depositing till into drumlins and moraines. For the point, name these massive, slow-moving bodies of ice that release icebergs into the ocean via calving.",
       "options": [
-        "Georgia",
-        "Armenia",
-        "Azerbaijan",
-        "Turkmenistan"
+        "Icebergs",
+        "Glaciers",
+        "Permafrost",
+        "Fjords"
       ],
-      "answer": 2,
-      "explanation": "Azerbaijan includes the exclave of Nakhchivan and has its capital at Baku on the Caspian Sea."
+      "answer": 1,
+      "explanation": "Glaciers reshape terrain through glacial erosion and deposition, leaving distinctive features like moraines, U-shaped valleys, and kettle lakes."
     },
     {
       "id": 27,
       "category": "Geography / Earth Science",
-      "question": "The Ninety East Ridge is a prominent mid-oceanic ridge named for its location along a meridian in this body of water. Marginal seas belonging to it include the Andaman Sea, the Red Sea, and the Arabian Sea. For the point, name this third-largest of the world's oceans, named for a nearby Asian nation.",
+      "question": "An isolated island group named after these locations lies 530 miles southeast of Invercargill, New Zealand, and forms one with Normandy, France. Approximate pairings of these locations include Madrid with Wellington, as well as Shanghai with Buenos Aires. For the point, name these geographical points situated on exact opposite sides of the Earth from one another.",
       "options": [
-        "Atlantic Ocean",
-        "Pacific Ocean",
-        "Indian Ocean",
-        "Arctic Ocean"
+        "Poles",
+        "Antipodes",
+        "Prime Meridians",
+        "Equators"
       ],
-      "answer": 2,
-      "explanation": "The Indian Ocean contains the Ninety East Ridge and marginal seas such as the Red Sea and Arabian Sea."
+      "answer": 1,
+      "explanation": "Antipodes are points on the Earth's surface diametrically opposite to each other. The Antipodes Islands are named for being antipodal to Great Britain."
     },
     {
       "id": 28,
       "category": "Geography / Earth Science",
-      "question": "The Danakil Depression, one of the hottest and lowest places on Earth, lies in the Afar Region of this landlocked country. The Blue Nile originates in this country's Lake Tana before flowing north into Sudan. For the point, name this Horn of Africa nation with its capital at Addis Ababa.",
+      "question": "The extremely dense island of Ap Lei Chau is located within this territory, off the southern coast of its primary island. Situated on the eastern side of the Pearl River Estuary, it encompasses the New Territories, Kowloon Peninsula, and Victoria Peak. For the point, name this former British colony that is now a Special Administrative Region of China.",
       "options": [
-        "Eritrea",
-        "Somalia",
-        "Djibouti",
-        "Ethiopia"
+        "Macau",
+        "Hong Kong",
+        "Singapore",
+        "Taiwan"
       ],
-      "answer": 3,
-      "explanation": "Ethiopia contains the Danakil Depression, Lake Tana (source of the Blue Nile), and its capital Addis Ababa."
+      "answer": 1,
+      "explanation": "Hong Kong was handed back to China by the UK in 1997 and consists of Hong Kong Island, Kowloon, and the New Territories."
     },
     {
       "id": 29,
       "category": "Geography / Earth Science",
-      "question": "The Helmand River is the longest river in this landlocked nation, flowing into the endorheic Sistan Basin. The mountain pass of the Khyber Pass historically connected its city of Jalalabad to Peshawar in Pakistan. For the point, name this Central Asian country whose capital is Kabul.",
+      "question": "The remote Gilf Kebir Plateau sits in the hyper-arid Western Desert region of this nation, which also contains the hyper-depressed Qattara Basin. Its major ancient historic sites include the Karnak Temple complex near Luxor and the valley spanned by the Aswan High Dam. For the point, name this northeast African country centered on the lower Nile River, with its capital at Cairo.",
       "options": [
-        "Tajikistan",
-        "Afghanistan",
-        "Uzbekistan",
-        "Turkmenistan"
+        "Sudan",
+        "Egypt",
+        "Libya",
+        "Algeria"
       ],
       "answer": 1,
-      "explanation": "Afghanistan features the Helmand River, access near the Khyber Pass, and its capital Kabul."
+      "explanation": "Egypt contains iconic geography including the Nile River valley, the Sinai Peninsula, and the Western Desert, alongside historic monuments."
     },
     {
       "id": 30,
       "category": "Geography / Earth Science",
-      "question": "The historic town of St. George on St. George's Island was the first permanent settlement in this territory. Located roughly 640 miles east of Cape Hatteras, North Carolina, this Atlantic archipelago is known for pink sand beaches. For the point, name this British Overseas Territory famous for a mythical, ship-disappearing Triangle.",
+      "question": "By municipal ordinance, local skyscrapers are restricted from exceeding the height of this city's central triple-peaked hill. It sits at the confluence of the Ottawa and St. Lawrence Rivers and serves as the northern terminus of Amtrak's Adirondack rail line. For the point, name this most populous city in the province of Quebec, the second-largest city in Canada.",
       "options": [
-        "Cayman Islands",
-        "Bermuda",
-        "Turks and Caicos Islands",
-        "Falkland Islands"
+        "Quebec City",
+        "Ottawa",
+        "Montreal",
+        "Toronto"
       ],
-      "answer": 1,
-      "explanation": "Bermuda is a British Overseas Territory in the North Atlantic known for St. George, pink sand beaches, and the Bermuda Triangle legend."
+      "answer": 2,
+      "explanation": "Montreal is named after Mount Royal (Mont Royal), the prominent hill in the city center around which city height limits are regulated."
     }
   ]
 }
