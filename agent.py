@@ -32,6 +32,7 @@ def download_fresh_pdfs():
     data_dir = Path("data")
     data_dir.mkdir(parents=True, exist_ok=True)
 
+    # Consolidated list of unique resource locations
     resources = [
         {
             "url": "https://iacompetitionsasia.com/resources/",
@@ -105,6 +106,7 @@ def download_fresh_pdfs():
         print(f"   ✓ Found {len(pdf_links)} PDF resources")
         all_pdf_links.extend(pdf_links)
 
+    # De-duplicate links across all scrapers
     all_pdf_links = list(set(all_pdf_links))
     print(f"\n📥 Total unique PDF resources found: {len(all_pdf_links)}")
 
@@ -136,7 +138,6 @@ def download_fresh_pdfs():
 
     print(f"\n✅ Successfully downloaded {downloaded_count} new PDF resources!")
     return downloaded_count
-
 
 def build_vector_store():
     """Build vector store from downloaded Science Bee and Geography Bee materials."""
