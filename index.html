@@ -148,7 +148,7 @@
       icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
     }
 
-    // Launch Mode Handler
+// Launch Mode Handler
     function launchMode(subject, mode) {
       if (allData.length === 0) {
         alert("Quiz data is loading or missing.");
@@ -161,9 +161,9 @@
       activeSet = allData.filter(q => {
         const matchSub = q.category.toLowerCase().includes(subject.toLowerCase());
         if (mode === 'high-frequency') {
-          return matchSub && (q.id % 2 === 0); // Simulated filtering for demo
+          return matchSub && (q.id % 2 === 0);
         }
-        return matchSub || true; // Fallback to include all
+        return matchSub; // Corrected: Returns true only when category matches
       });
 
       if (activeSet.length === 0) activeSet = allData;
