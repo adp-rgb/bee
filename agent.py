@@ -368,9 +368,13 @@ IMPORTANT:
     with open("quizzes.json", "w", encoding="utf-8") as f:
         json.dump(output_payload, f, indent=2, ensure_ascii=False)
 
+    # Calculate category counts
+    geo_count = len([q for q in all_quizzes if 'Geography' in q.get('category', '')])
+    sci_count = len([q for q in all_quizzes if 'Science' in q.get('category', '')])
+    
     print(f"\n✅ SUCCESS! Generated {len(all_quizzes)} pyramidal tossup questions")
     print(f"📄 Saved to: quizzes.json")
-    print(f"📊 Categories: {len([q for q in all_quizzes if 'Geography' in q.get('category', '')]))} Geography, {len([q for q in all_quizzes if 'Science' in q.get('category', '')]))} Science")
+    print(f"📊 Categories: {geo_count} Geography, {sci_count} Science")
     print("=" * 60)
 
 if __name__ == "__main__":
