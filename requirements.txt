@@ -3,5 +3,3 @@ pypdf
 chromadb
 google-genai
 requests
-axios
-cheerio 
