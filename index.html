@@ -7,13 +7,13 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-all/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
 
   <!-- Header -->
   <header class="border-b border-slate-800 bg-slate-950/80 sticky top-0 z-50 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
       <div class="flex items-center space-x-3">
         <div class="p-2 bg-amber-500 rounded-lg text-slate-950 font-bold text-xl">
           🐝
@@ -23,7 +23,18 @@
           <p class="text-xs text-slate-400">Pyramidal Tossup Generator & Practice Suite</p>
         </div>
       </div>
-      <div class="flex items-center space-x-4">
+
+      <!-- Navigation Tabs -->
+      <nav class="flex bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs font-semibold">
+        <button id="tab-btn-quizzes" onclick="switchTab('quizzes')" class="px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition">
+          🎯 Practice Quizzes
+        </button>
+        <button id="tab-btn-study" onclick="switchTab('study')" class="px-4 py-2 rounded-lg text-slate-400 hover:text-white transition">
+          📖 Good to Know Hub
+        </button>
+      </nav>
+
+      <div class="flex items-center space-x-3">
         <span id="system-status" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Ready
         </span>
@@ -36,58 +47,155 @@
 
   <main class="max-w-6xl mx-auto px-4 py-8 space-y-8">
 
-    <!-- Category Cards -->
-    <section class="grid md:grid-cols-2 gap-6">
+    <!-- TAB 1: QUIZZES & PRACTICE (ORIGINAL FUNCTIONALITY) -->
+    <div id="view-quizzes" class="space-y-8">
       
-      <!-- Geography Card -->
-      <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition shadow-xl relative overflow-hidden group">
-        <div class="absolute -right-4 -bottom-4 text-7xl opacity-10 group-hover:opacity-20 transition">🌐</div>
-        <div class="flex items-center space-x-3 mb-4">
-          <span class="p-3 bg-blue-500/10 text-blue-400 rounded-xl text-xl">🌐</span>
-          <div>
-            <h2 class="text-lg font-bold text-white">Geography Bee</h2>
-            <p class="text-xs text-slate-400">Physical, cultural, and political tossup questions</p>
+      <!-- Category Cards -->
+      <section class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Geography Card -->
+        <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition shadow-xl relative overflow-hidden group">
+          <div class="absolute -right-4 -bottom-4 text-7xl opacity-10 group-hover:opacity-20 transition">🌐</div>
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="p-3 bg-blue-500/10 text-blue-400 rounded-xl text-xl">🌐</span>
+            <div>
+              <h2 class="text-lg font-bold text-white">Geography Bee</h2>
+              <p class="text-xs text-slate-400">Physical, cultural, and political tossup questions</p>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">Filter by Topic</span>
+            <div id="geo-topics" class="flex flex-wrap gap-1.5">
+              <span class="text-xs text-slate-500 italic">Loading topics...</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-slate-700/50">
+            <button onclick="launchMode('Geography', 'standard')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold py-2.5 px-4 rounded-xl text-sm transition">
+              ▶️ Standard Quiz
+            </button>
+            <button onclick="launchMode('Geography', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2.5 px-4 rounded-xl text-sm transition">
+              🎴 Flashcards
+            </button>
+            <button onclick="launchMode('Geography', 'high-frequency')" class="bg-slate-700 hover:bg-slate-600 text-amber-400 font-medium py-2.5 px-4 rounded-xl text-sm transition">
+              ⚡ High Frequency
+            </button>
           </div>
         </div>
-        <div class="flex flex-wrap gap-2 mt-6">
-          <button onclick="launchMode('Geography', 'standard')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold py-2.5 px-4 rounded-xl text-sm transition">
-            ▶️ Standard Quiz
+
+        <!-- Science Card -->
+        <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition shadow-xl relative overflow-hidden group">
+          <div class="absolute -right-4 -bottom-4 text-7xl opacity-10 group-hover:opacity-20 transition">🧪</div>
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl text-xl">🧪</span>
+            <div>
+              <h2 class="text-lg font-bold text-white">Science Bee</h2>
+              <p class="text-xs text-slate-400">Physics, chemistry, biology, and Earth science tossups</p>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">Filter by Topic</span>
+            <div id="sci-topics" class="flex flex-wrap gap-1.5">
+              <span class="text-xs text-slate-500 italic">Loading topics...</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-slate-700/50">
+            <button onclick="launchMode('Science', 'standard')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold py-2.5 px-4 rounded-xl text-sm transition">
+              ▶️ Standard Quiz
+            </button>
+            <button onclick="launchMode('Science', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2.5 px-4 rounded-xl text-sm transition">
+              🎴 Flashcards
+            </button>
+            <button onclick="launchMode('Science', 'high-frequency')" class="bg-slate-700 hover:bg-slate-600 text-amber-400 font-medium py-2.5 px-4 rounded-xl text-sm transition">
+              ⚡ High Frequency
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Active Quiz Workspace -->
+      <section id="quiz-container" class="hidden bg-slate-800/80 border border-slate-700 rounded-2xl p-6 md:p-8 shadow-2xl relative">
+        <div class="flex justify-between items-center border-b border-slate-700/80 pb-4 mb-6">
+          <div>
+            <span id="active-mode-tag" class="text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md border border-amber-400/20">
+              Subject • Mode
+            </span>
+            <span id="question-counter" class="text-xs text-slate-400 ml-3">
+              Question 1 of 10
+            </span>
+          </div>
+          <button onclick="closeQuiz()" class="text-slate-400 hover:text-white transition text-sm">
+            ✕ Close
           </button>
-          <button onclick="launchMode('Geography', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2.5 px-4 rounded-xl text-sm transition">
-            🎴 Flashcards
+        </div>
+
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Pyramidal Tossup Question</h4>
+            <span id="question-topic-tag" class="hidden text-[10px] font-medium text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-700"></span>
+          </div>
+          <div id="question-text" class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl text-slate-200 leading-relaxed text-base md:text-lg">
+            Loading question text...
+          </div>
+        </div>
+
+        <div id="options-grid" class="grid md:grid-cols-2 gap-4 mb-6"></div>
+
+        <div id="explanation-box" class="hidden bg-slate-900/80 border border-slate-700 p-5 rounded-xl mb-6">
+          <h5 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Answer Explanation</h5>
+          <p id="explanation-text" class="text-sm text-slate-300"></p>
+        </div>
+
+        <div class="flex justify-between items-center pt-4 border-t border-slate-700/80">
+          <button onclick="prevQuestion()" id="prev-btn" class="bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-white text-sm font-medium py-2 px-5 rounded-xl transition">
+            ← Previous
           </button>
-          <button onclick="launchMode('Geography', 'high-frequency')" class="bg-slate-700 hover:bg-slate-600 text-amber-400 font-medium py-2.5 px-4 rounded-xl text-sm transition">
-            ⚡ High Frequency
+          <button onclick="nextQuestion()" id="next-btn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-sm font-semibold py-2 px-5 rounded-xl transition">
+            Next →
           </button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TAB 2: NEW "GOOD TO KNOW" STUDY HUB -->
+    <div id="view-study" class="hidden space-y-6">
+      
+      <!-- Offline Callout Banner -->
+      <div class="bg-blue-950/40 border border-blue-500/30 rounded-2xl p-4 text-blue-200 text-xs flex items-start gap-3">
+        <span class="text-lg">📱</span>
+        <div>
+          <p class="font-semibold text-blue-300 mb-0.5">Offline-Ready Study Hub</p>
+          <p class="text-slate-400">These topics are key facts used in past competition questions. Keep this page open during travel to study even with spotty or no internet access!</p>
         </div>
       </div>
 
-      <!-- Science Card -->
-      <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition shadow-xl relative overflow-hidden group">
-        <div class="absolute -right-4 -bottom-4 text-7xl opacity-10 group-hover:opacity-20 transition">🧪</div>
-        <div class="flex items-center space-x-3 mb-4">
-          <span class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl text-xl">🧪</span>
-          <div>
-            <h2 class="text-lg font-bold text-white">Science Bee</h2>
-            <p class="text-xs text-slate-400">Physics, chemistry, biology, and Earth science tossups</p>
-          </div>
+      <!-- Live Topic Search Bar -->
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+        <input type="text" id="topic-search-input" oninput="filterTopicCloud()" placeholder="Search for a topic (e.g. Acceleration, Amazon, Velocity)..." 
+               class="w-full bg-slate-800/90 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition shadow-inner">
+      </div>
+
+      <!-- Topic Cloud Container -->
+      <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Tap a topic below to read facts or search above</span>
+          <span id="topic-count-tag" class="text-xs text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/20">0 Topics</span>
         </div>
-        <div class="flex flex-wrap gap-2 mt-6">
-          <button onclick="launchMode('Science', 'standard')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold py-2.5 px-4 rounded-xl text-sm transition">
-            ▶️ Standard Quiz
-          </button>
-          <button onclick="launchMode('Science', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2.5 px-4 rounded-xl text-sm transition">
-            🎴 Flashcards
-          </button>
-          <button onclick="launchMode('Science', 'high-frequency')" class="bg-slate-700 hover:bg-slate-600 text-amber-400 font-medium py-2.5 px-4 rounded-xl text-sm transition">
-            ⚡ High Frequency
-          </button>
+        
+        <div id="full-topic-cloud" class="flex flex-wrap gap-2 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+          <!-- Dynamic Topic Pills Rendered Here -->
         </div>
       </div>
 
-    </section>
+    </div>
 
-    <!-- Admin & Controls Modal / Section -->
+    <!-- ADMIN & CONFIGURATION PANEL -->
     <section id="admin-panel" class="hidden bg-slate-800/80 border border-slate-700 rounded-2xl p-6 backdrop-blur">
       <h3 class="text-md font-bold text-white mb-4 flex items-center gap-2">
         <span>⚙️</span> Agent Controls & Configuration
@@ -103,91 +211,291 @@
         </div>
         <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800 flex items-center">
           <button onclick="reloadQuizData()" class="w-full bg-slate-800 hover:bg-slate-700 text-amber-400 font-medium py-2 rounded-lg transition border border-slate-700 text-xs">
-            🔄 Reload `quizzes.json`
+            🔄 Reload `quizzes.json` & `topics.json`
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Active Quiz Workspace -->
-    <section id="quiz-container" class="hidden bg-slate-800/80 border border-slate-700 rounded-2xl p-6 md:p-8 shadow-2xl relative">
-      
-      <!-- Top Progress Bar -->
-      <div class="flex justify-between items-center border-b border-slate-700/80 pb-4 mb-6">
-        <div>
-          <span id="active-mode-tag" class="text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md border border-amber-400/20">
-            Subject • Mode
-          </span>
-          <span id="question-counter" class="text-xs text-slate-400 ml-3">
-            Question 1 of 10
-          </span>
-        </div>
-        <button onclick="closeQuiz()" class="text-slate-400 hover:text-white transition text-sm">
-          ✕ Close
-        </button>
-      </div>
-
-      <!-- Pyramidal Question Content -->
-      <div class="mb-8">
-        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Pyramidal Tossup Question</h4>
-        <div id="question-text" class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl text-slate-200 leading-relaxed text-base md:text-lg">
-          Loading question text...
-        </div>
-      </div>
-
-      <!-- Multiple Choice Options / Flashcard View -->
-      <div id="options-grid" class="grid md:grid-cols-2 gap-4 mb-6">
-        <!-- Dynmically Rendered Options -->
-      </div>
-
-      <!-- Explanation Box -->
-      <div id="explanation-box" class="hidden bg-slate-900/80 border border-slate-700 p-5 rounded-xl mb-6">
-        <h5 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Answer Explanation</h5>
-        <p id="explanation-text" class="text-sm text-slate-300"></p>
-      </div>
-
-      <!-- Navigation & Controls -->
-      <div class="flex justify-between items-center pt-4 border-t border-slate-700/80">
-        <button onclick="prevQuestion()" id="prev-btn" class="bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-white text-sm font-medium py-2 px-5 rounded-xl transition">
-          ← Previous
-        </button>
-        <button onclick="nextQuestion()" id="next-btn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-sm font-semibold py-2 px-5 rounded-xl transition">
-          Next →
-        </button>
-      </div>
-
-    </section>
-
   </main>
+
+  <!-- CONCEPT DETAIL MODAL (Matching QuizVidya Screenshot Layout) -->
+  <div id="concept-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-slate-700/80 flex justify-between items-center bg-slate-800/90">
+        <div>
+          <h3 id="modal-topic-title" class="text-xl font-bold text-white">Topic Title</h3>
+          <span id="modal-category-badge" class="text-[10px] uppercase tracking-wider font-semibold bg-amber-400/10 text-amber-400 px-2 py-0.5 rounded border border-amber-400/20">Category</span>
+        </div>
+        <button onclick="closeConceptModal()" class="text-slate-400 hover:text-white text-lg transition">✕</button>
+      </div>
+
+      <!-- Modal Content -->
+      <div class="p-6 overflow-y-auto space-y-6 text-sm">
+        
+        <!-- Core Definition Card -->
+        <div class="bg-blue-950/30 border border-blue-500/30 p-4 rounded-xl text-blue-100 leading-relaxed">
+          <p id="modal-definition">Topic overview definition will be displayed here.</p>
+        </div>
+
+        <!-- Key Facts List -->
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Key Facts</h4>
+          <ul id="modal-key-facts" class="space-y-2 list-disc list-inside text-slate-200 leading-relaxed">
+            <!-- Facts dynamically injected -->
+          </ul>
+        </div>
+
+        <!-- Related Topics -->
+        <div id="modal-related-section" class="pt-4 border-t border-slate-700/60">
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Related Topics</h4>
+          <div id="modal-related-topics" class="flex flex-wrap gap-2">
+            <!-- Related topic buttons dynamically injected -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 border-t border-slate-700/80 bg-slate-900/50 flex justify-end">
+        <button onclick="closeConceptModal()" class="bg-slate-700 hover:bg-slate-600 text-white font-medium px-4 py-2 rounded-xl text-xs transition">
+          Close Overview
+        </button>
+      </div>
+
+    </div>
+  </div>
 
   <script>
     let allData = [];
+    let topicsData = {};
+    let topicList = []; // Flattened topic objects array
     let activeSet = [];
     let currentIdx = 0;
     let isFlashcardMode = false;
 
-// Load both quizzes.json and topics.json on startup
-async function loadQuizData() {
-  try {
-    const [quizRes, topicRes] = await Promise.all([
-      fetch('quizzes.json'),
-      fetch('topics.json').catch(() => null)
-    ]);
+    // Load both quizzes.json and topics.json on startup
+    async function loadQuizData() {
+      try {
+        const [quizRes, topicRes] = await Promise.all([
+          fetch('quizzes.json'),
+          fetch('topics.json').catch(() => null)
+        ]);
 
-    if (!quizRes.ok) throw new Error('quizzes.json not found');
-    const jsonPayload = await quizRes.json();
-    allData = jsonPayload.quizzes || [];
+        if (!quizRes.ok) throw new Error('quizzes.json not found');
+        const jsonPayload = await quizRes.json();
+        allData = jsonPayload.quizzes || [];
 
-    if (topicRes && topicRes.ok) {
-      topicsData = await topicRes.json();
-      renderTopicPills();
+        if (topicRes && topicRes.ok) {
+          topicsData = await topicRes.json();
+          renderTopicPills();
+          processTopicCloudData();
+        }
+
+        updateStats();
+      } catch (err) {
+        console.error('Failed to load quiz or topic data:', err);
+        document.getElementById('system-status').innerHTML = `<span class="w-2 h-2 rounded-full bg-red-400"></span> Error Loading Data`;
+        document.getElementById('system-status').className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20";
+      }
     }
 
-    updateStats();
-  } catch (err) {
-    console.error('Failed to load quiz or topic data:', err);
-  }
-}
+    // Process topics from topics.json into structured list for Study Hub
+    function processTopicCloudData() {
+      topicList = [];
+
+      for (const [category, topics] of Object.entries(topicsData)) {
+        topics.forEach(t => {
+          if (typeof t === 'string') {
+            // Simple string format fallback
+            topicList.push({ name: t, category: category });
+          } else if (typeof t === 'object' && t.name) {
+            // Full structured object format
+            topicList.push({
+              name: t.name,
+              category: category,
+              definition: t.definition,
+              key_facts: t.key_facts || [],
+              related_topics: t.related_topics || []
+            });
+          }
+        });
+      }
+
+      // Also gather any additional explicit topics attached to questions
+      allData.forEach(q => {
+        if (q.topic && !topicList.some(t => t.name.toLowerCase() === q.topic.toLowerCase())) {
+          topicList.push({ name: q.topic, category: q.category || 'General' });
+        }
+      });
+
+      renderTopicCloud(topicList);
+    }
+
+    // Render the interactive Topic Cloud
+    function renderTopicCloud(list) {
+      const container = document.getElementById('full-topic-cloud');
+      const countTag = document.getElementById('topic-count-tag');
+      container.innerHTML = '';
+      countTag.innerText = `${list.length} Topics`;
+
+      if (list.length === 0) {
+        container.innerHTML = `<span class="text-xs text-slate-500 py-4">No matching topics found.</span>`;
+        return;
+      }
+
+      list.forEach(item => {
+        const btn = document.createElement('button');
+        btn.className = 'text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-3.5 py-2 rounded-full transition border border-slate-700/80 shadow-sm flex items-center gap-1.5';
+        btn.innerHTML = `<span>${item.name}</span>`;
+        btn.onclick = () => openConceptModal(item.name);
+        container.appendChild(btn);
+      });
+    }
+
+    // Live search filter for topic cloud
+    function filterTopicCloud() {
+      const query = document.getElementById('topic-search-input').value.toLowerCase().trim();
+      const filtered = topicList.filter(t => t.name.toLowerCase().includes(query));
+      renderTopicCloud(filtered);
+    }
+
+    // Open "Good to Know" Concept Summary Modal
+    function openConceptModal(topicName) {
+      const modal = document.getElementById('concept-modal');
+      const titleEl = document.getElementById('modal-topic-title');
+      const badgeEl = document.getElementById('modal-category-badge');
+      const defEl = document.getElementById('modal-definition');
+      const factsList = document.getElementById('modal-key-facts');
+      const relatedContainer = document.getElementById('modal-related-topics');
+
+      // Find topic data object or fallback to quiz facts
+      const topicObj = topicList.find(t => t.name.toLowerCase() === topicName.toLowerCase()) || { name: topicName, category: 'General' };
+      const relatedQuestions = allData.filter(q => q.topic && q.topic.toLowerCase() === topicName.toLowerCase());
+
+      titleEl.innerText = topicObj.name;
+      badgeEl.innerText = topicObj.category || 'General';
+
+      // Set Definition
+      if (topicObj.definition) {
+        defEl.innerText = topicObj.definition;
+      } else if (relatedQuestions.length > 0) {
+        defEl.innerText = `${topicObj.name} is a key topic covered in ${relatedQuestions.length} competition tossup question(s).`;
+      } else {
+        defEl.innerText = `${topicObj.name} is a high-frequency academic competition topic.`;
+      }
+
+      // Populate Key Facts (Use explicit facts or build from questions)
+      factsList.innerHTML = '';
+      let facts = topicObj.key_facts || [];
+
+      if (facts.length === 0 && relatedQuestions.length > 0) {
+        relatedQuestions.forEach(q => {
+          facts.push(q.explanation || q.question);
+        });
+      }
+
+      if (facts.length === 0) {
+        facts = [`Study high-frequency clues and concepts associated with ${topicObj.name} for competition rounds.`];
+      }
+
+      facts.forEach(fact => {
+        const li = document.createElement('li');
+        li.innerText = fact;
+        factsList.appendChild(li);
+      });
+
+      // Related Topics
+      relatedContainer.innerHTML = '';
+      const related = topicObj.related_topics || [];
+
+      if (related.length > 0) {
+        document.getElementById('modal-related-section').classList.remove('hidden');
+        related.forEach(rel => {
+          const btn = document.createElement('button');
+          btn.className = 'text-xs bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-3 py-1 rounded-lg transition border border-slate-700';
+          btn.innerText = `+ ${rel}`;
+          btn.onclick = () => openConceptModal(rel);
+          relatedContainer.appendChild(btn);
+        });
+      } else {
+        document.getElementById('modal-related-section').classList.add('hidden');
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeConceptModal() {
+      document.getElementById('concept-modal').classList.add('hidden');
+    }
+
+    // Switch between Quizzes Tab and Study Hub Tab
+    function switchTab(tabName) {
+      const qView = document.getElementById('view-quizzes');
+      const sView = document.getElementById('view-study');
+      const qBtn = document.getElementById('tab-btn-quizzes');
+      const sBtn = document.getElementById('tab-btn-study');
+
+      if (tabName === 'quizzes') {
+        qView.classList.remove('hidden');
+        sView.classList.add('hidden');
+        qBtn.className = "px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition";
+        sBtn.className = "px-4 py-2 rounded-lg text-slate-400 hover:text-white transition";
+      } else {
+        qView.classList.add('hidden');
+        sView.classList.remove('hidden');
+        sBtn.className = "px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition";
+        qBtn.className = "px-4 py-2 rounded-lg text-slate-400 hover:text-white transition";
+      }
+    }
+
+    // Render topic pills dynamically inside category cards
+    function renderTopicPills() {
+      const geoContainer = document.getElementById('geo-topics');
+      const sciContainer = document.getElementById('sci-topics');
+
+      if (geoContainer && topicsData.Geography) {
+        geoContainer.innerHTML = topicsData.Geography.map(t => {
+          const name = typeof t === 'string' ? t : t.name;
+          return `<button onclick="filterByTopic('Geography', '${name}')" class="text-[11px] bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2.5 py-1 rounded-lg transition border border-slate-700">${name}</button>`;
+        }).join('');
+      }
+
+      if (sciContainer && topicsData.Science) {
+        sciContainer.innerHTML = topicsData.Science.map(t => {
+          const name = typeof t === 'string' ? t : t.name;
+          return `<button onclick="filterByTopic('Science', '${name}')" class="text-[11px] bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2.5 py-1 rounded-lg transition border border-slate-700">${name}</button>`;
+        }).join('');
+      }
+    }
+
+    // Filter by specific topic
+    function filterByTopic(category, topicName) {
+      if (allData.length === 0) {
+        alert("Quiz data is loading or missing. Please ensure quizzes.json is populated.");
+        return;
+      }
+
+      activeSet = allData.filter(q => 
+        q.category.toLowerCase().includes(category.toLowerCase()) && 
+        (q.topic ? q.topic.toLowerCase() === topicName.toLowerCase() : true)
+      );
+
+      if (activeSet.length === 0) {
+        alert(`No questions found specifically tagged with "${topicName}". Showing all ${category} questions instead.`);
+        activeSet = allData.filter(q => q.category.toLowerCase().includes(category.toLowerCase()));
+      }
+
+      isFlashcardMode = false;
+      currentIdx = 0;
+      document.getElementById('quiz-container').classList.remove('hidden');
+      document.getElementById('active-mode-tag').innerText = `${category.toUpperCase()} • ${topicName.toUpperCase()}`;
+      
+      renderCurrentQuestion();
+      document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
+    }
 
     function updateStats() {
       const geo = allData.filter(q => q.category.toLowerCase().includes('geography')).length;
@@ -199,7 +507,7 @@ async function loadQuizData() {
 
     function reloadQuizData() {
       loadQuizData();
-      alert('Quiz data refreshed!');
+      alert('Quiz and Topic data refreshed!');
     }
 
     function toggleAdminPanel() {
@@ -216,7 +524,6 @@ async function loadQuizData() {
 
       isFlashcardMode = (mode === 'flashcards');
       
-      // Filter questions by subject/mode
       activeSet = allData.filter(q => {
         const matchSub = q.category.toLowerCase().includes(subject.toLowerCase());
         if (mode === 'high-frequency') {
@@ -240,6 +547,14 @@ async function loadQuizData() {
       document.getElementById('question-counter').innerText = `Question ${currentIdx + 1} of ${activeSet.length}`;
       document.getElementById('question-text').innerText = q.question;
       
+      const topicTag = document.getElementById('question-topic-tag');
+      if (q.topic) {
+        topicTag.innerText = q.topic;
+        topicTag.classList.remove('hidden');
+      } else {
+        topicTag.classList.add('hidden');
+      }
+
       const grid = document.getElementById('options-grid');
       const expBox = document.getElementById('explanation-box');
       expBox.classList.add('hidden');
