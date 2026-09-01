@@ -166,21 +166,28 @@
     let currentIdx = 0;
     let isFlashcardMode = false;
 
-    // Fetch and initialize data on page load
-    async function loadQuizData() {
-      try {
-        const response = await fetch('quizzes.json');
-        if (!response.ok) throw new Error('quizzes.json not found');
-        const jsonPayload = await response.json();
-        
-        allData = jsonPayload.quizzes || [];
-        updateStats();
-      } catch (err) {
-        console.error('Failed to load quiz data:', err);
-        document.getElementById('system-status').innerHTML = `<span class="w-2 h-2 rounded-full bg-red-400"></span> Error Loading Data`;
-        document.getElementById('system-status').className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20";
-      }
+// Load both quizzes.json and topics.json on startup
+async function loadQuizData() {
+  try {
+    const [quizRes, topicRes] = await Promise.all([
+      fetch('quizzes.json'),
+      fetch('topics.json').catch(() => null)
+    ]);
+
+    if (!quizRes.ok) throw new Error('quizzes.json not found');
+    const jsonPayload = await quizRes.json();
+    allData = jsonPayload.quizzes || [];
+
+    if (topicRes && topicRes.ok) {
+      topicsData = await topicRes.json();
+      renderTopicPills();
     }
+
+    updateStats();
+  } catch (err) {
+    console.error('Failed to load quiz or topic data:', err);
+  }
+}
 
     function updateStats() {
       const geo = allData.filter(q => q.category.toLowerCase().includes('geography')).length;
