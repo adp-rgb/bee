@@ -312,7 +312,7 @@ async function loadQuizData() {
 
     if (!quizRes.ok) throw new Error('quizzes.json not found');
 
-    // Parse quiz response as raw text first to guard against Python string leaks
+    // Check raw text before parsing JSON to catch Python string errors
     const quizText = await quizRes.text();
     if (quizText.includes('time.strftime')) {
       throw new SyntaxError("quizzes.json contains unparsed Python code string 'time.strftime'");
@@ -321,7 +321,7 @@ async function loadQuizData() {
     const jsonPayload = JSON.parse(quizText);
     allData = jsonPayload.quizzes || [];
 
-    // Process topic taxonomy if available
+    // Process topics if present
     if (topicRes && topicRes.ok) {
       topicsData = await topicRes.json();
       renderTopicPills();
@@ -338,7 +338,6 @@ async function loadQuizData() {
     }
   }
 }
-
     function processTopicCloudData() {
       topicList = [];
 
