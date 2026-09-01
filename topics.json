@@ -1,47 +1,66 @@
-{
-  "Science": [
-    "Acceleration", "Acid", "acid rain", "Ada Lovelace", "Adenosine triphosphate", "adrenaline", "Alan Turing", "Albert Einstein", "Alexander Fleming", "Allergy", "Alloy", "Aluminum",
-    "Amazon", "amino acids", "amphibians", "Anaphase", "Andromeda Galaxy", "Antarctica", "Anthrax", "antibiotics", "antibodies", "ants", "Apollo Program", "approximation error",
-    "Aquifers", "Archimedes", "Archimedes of Syracuse", "argon", "Aristotle", "arsenic", "asbestos", "asteroids", "Asthma", "Atom", "ATP", "Avogadro's law", "Bacteria", "Basalt",
-    "Bases", "beaches", "Benzene", "Beryllium", "Big Bang", "Bile", "Black Holes", "Bluetooth", "Boiling", "Boron", "Bridges", "Bronze", "Brown Dwarfs", "Bunsen Burners", "caffeine",
-    "Calcium", "Calculus", "California", "Cambrian Period", "Capacitors", "Carbon", "Carbon dioxide", "Carbon Monoxide", "Carl Friedrich Gauss", "Carl Linnaeus", "Cartilage", "Catalysis",
-    "catalysts", "Cats", "caves", "Cell (biology)", "Cell nucleus", "Cell Wall", "Cellular respiration", "Cellulose", "central processing unit", "Cerebellum", "Ceres", "Charles Babbage",
-    "Charles Darwin", "Chemotherapy", "Chickenpox", "Chlorophyll", "Chloroplast", "Chordate", "Chromatography", "Chromosomes", "Circle", "Cirrus", "Climate", "Clownfish",
-    "Cnidaria", "Coal", "cobalt", "Comet", "comma", "Condensation", "cone", "conifers", "Continental crust", "cosmic microwave background radiation", "Covalent bond", "Crab Nebula",
-    "Cretaceous period", "Cretaceous-Paleogene extinction event", "crystals", "cube", "Cumulonimbus", "Cylinder", "Dams", "dark matter", "Darwin's finches", "Databases",
-    "Deforestation", "Density", "Desalination", "Deserts", "Diamond", "Diffusion", "distillation", "Dmitri Mendeleev", "DNA", "DNA replication", "DNA sequencing", "Doppler Effect",
-    "Down syndrome", "drag", "E. coli", "Earthquakes", "Edwin Hubble", "Electric Field", "Electrical Resistance", "Electronegativity", "Electronic Circuits", "electrons", "Elevators",
-    "endoplasmic reticulum", "Enrico Fermi", "Entropy", "Enzyme", "Epicenter", "equator", "erosion", "Escherichia coli", "Esophagus", "Estuary", "Euclid", "Eukaryote", "Eutrophication",
-    "Evaporation", "Event horizon", "Evolution", "Exoplanets", "eyes", "Factorial", "Feathers", "Feldspar", "ferns", "Fibonacci", "Fjords", "flasks", "floods", "fluorine", "Fog", "fracking",
-    "France", "Free Radicals", "Freezing", "Friction", "fruits", "Fullerene", "functions", "fungi", "Fungus", "Galaxy", "Galen", "Galileo Galilei", "Galápagos Islands", "gears", "Gene",
-    "General relativity", "genetic drift", "George Washington Carver", "Geysers", "glaciers", "Glass", "Glycolysis", "Gold", "Golden Ratio", "Golgi apparatus", "Gottfried Wilhelm Leibniz",
-    "Granite", "Graphene", "Graphite", "Gravity", "Great Pacific Garbage Patch", "Great Red Spot", "Greenhouse effect", "Gregor Mendel", "Gulf Stream", "gunpowder", "Gymnosperm",
-    "Halley's Comet", "halogens", "hard drive", "Heart", "Heart Transplant", "Helium", "Hemoglobin", "HIV", "HIV/AIDS", "HMS Beagle", "Holocene Epoch", "Homo", "Homo Erectus",
-    "Hooke's Law", "HTML", "Human brain", "Human digestive system", "Human Genome Project", "humidity", "Hurricanes", "Hydrogen", "Hydrogen bond", "Hydrogen Peroxide",
-    "Hydrothermal Vents", "Icebergs", "Ideal Gas law", "Igneous rock", "Inertia", "Insulin", "Internal Combustion Engines", "International Space Station", "Ionic bonding", "Ionic Bonds",
-    "Ionosphere", "Iron", "Irrational numbers", "Isaac Newton", "Islands", "Jane Goodall", "Japan", "Java", "Jet stream", "Johannes Kepler", "Jupiter", "Kilogram", "Kinetic energy",
-    "Kingdom", "lactose", "Lakes", "landfills", "Large Hadron Collider", "lasers", "lava", "law of conservation of energy", "lead", "Leaf", "Leonhard Euler", "leukemia", "Levers", "Lichen",
-    "lightning", "Linus Pauling", "Liquid-crystal display", "Lithium", "Lithosphere", "Liver", "Loops", "Louis Pasteur", "Lungs", "Lupus", "Malaria", "Mantle", "Marie Curie", "Mars", "Mass",
-    "Mass spectrometry", "Matrix", "Mean", "medicine", "Meiosis", "Melatonin", "Melting", "Mercury", "Mercury (element)", "Mesas", "Mesozoic", "Metamorphic rock", "Methane",
-    "Michael Faraday", "Microwave", "Mid-ocean ridge", "Milky Way", "mitochondria", "Mitochondrion", "Mitosis", "Mohs scale", "mold", "Molecule", "Momentum", "Moon", "moths",
-    "multiple sclerosis", "Mutations", "Natural selection", "Nebulae", "neon", "Neptune", "Nervous system", "neurons", "Neutron", "Neutron Stars", "Nicolaus Copernicus", "Niels Bohr",
-    "Nikola Tesla", "Nitrogen", "nuclear fission", "Nuclear Tests", "Nucleic acid double helix", "Nucleotide", "Obsidian", "Ocean current", "Oceanic crust", "Oceanic Trenches", "Octopus",
-    "Ohm's law", "oil spills", "Oort Cloud", "Organelle", "Orion", "Oxygen", "P waves", "Pangea", "Paper", "Paradoxes", "Parasitism", "Parkinson's Disease", "pasteurization", "Pea Plants",
-    "Peat", "Pendulum", "Penicillin", "Perfect Numbers", "Periodic table", "Permian extinction", "perpendicularity", "Petals", "pH", "Phloem", "Phosphorus", "Photoelectric effect",
-    "Photons", "Photosynthesis", "Pi", "pituitary gland", "plankton", "Plasma", "Plasma (physics)", "Pleiades", "Pluto", "Polaris", "Polymerase Chain Reaction", "Polymers", "Porifera",
-    "potassium", "Potential Energy", "Precambrian", "precipitation", "Pressure", "Prime Numbers", "Proton", "Pulleys", "Pumice", "Pythagorean theorem", "Python", "Quarks", "Quartz",
-    "Quasars", "Rabies", "Radiometric dating", "Radium", "Rainforests", "Recursion", "Red Blood Cells", "relativity", "René Descartes", "Republic of India", "Respiratory system", "retina",
-    "ribosomes", "Richard Feynman", "Richter scale", "rivers", "RNA", "Root", "Rosalind Franklin", "Sagittarius", "Saliva", "Samsung", "San Andreas Fault", "Sand Dunes", "Saturn",
-    "Schrödinger's cat", "Scientific Method", "seafloor", "Seafloor Spreading", "Second law of thermodynamics", "Sedimentary rock", "Seismographs", "Seismometers", "Shadow zone",
-    "Sharks", "Sickle cell disease", "Silicon", "Simple machine", "Sir Isaac Newton", "Skin", "Slate", "Smallpox", "smog", "snow", "Sodium", "soil", "Solar Eclipse", "solvents",
-    "Space Shuttles", "Speed of light", "Spheres", "Spinal cord", "spine", "spleen", "Standard Deviation", "Starch", "Steel", "Stephen Hawking", "sternum", "Stomach",
-    "Strong Nuclear Force", "Subduction", "Sublimation (phase transition)", "Submarines", "Sulfur", "Sun", "sundial", "Sunspots", "Supernova", "swamps", "taiga", "Tectonic plates",
-    "temperature", "Testosterone", "tetanus", "Thermodynamics", "Thomas Edison", "thyroid gland", "Titration", "Tornado", "Tornadoes", "tree bark", "Triassic", "Tropical forests",
-    "Troposphere", "tsunami", "Tuberculosis", "Tundra", "Tunnels", "Tycho Brahe", "University of California, Berkeley", "Uranium", "Uranus", "Ursa Major", "USB", "uterus", "vaccines",
-    "Vascular plant", "Velocity", "Venus", "Virus", "vitamin C", "volcanoes", "Voltage", "Water", "Water Vapor", "weak nuclear force", "Weather Fronts", "Werner Heisenberg",
-    "White Dwarf", "Wind", "Wind Tunnels", "Wind Turbines", "work", "Wormholes", "X-rays", "Xylem", "yeast", "Yuri Gagarin", "zinc"
-  ],
-  "Geography": [
-    "Amazon River", "Andes Mountains", "Atlantic Ocean", "Rainforests", "Mount Everest", "Pacific Ocean", "Sahara Desert", "Nile River", "Alps", "Ganges River"
-  ]
+import { GoogleGenAI, Type } from '@google/genai';
+import fs from 'fs';
+
+const ai = new GoogleGenAI(); // Uses GEMINI_API_KEY environment variable
+
+// 1. Read existing topic names
+const rawData = JSON.parse(fs.readFileSync('topics.json', 'utf8'));
+
+async function generateTopicDetails(topicName, category) {
+  const prompt = `Generate comprehensive academic competition study facts for the topic: "${topicName}" (${category}).
+Provide:
+1. A clear 1-2 sentence core definition.
+2. 6-10 bulleted key facts focused on high-frequency competition clues, equations, and principles.
+3. 3-5 closely related topics.`;
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: prompt,
+    config: {
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          name: { type: Type.STRING },
+          definition: { type: Type.STRING },
+          key_facts: {
+            type: Type.ARRAY,
+            items: { type: Type.STRING }
+          },
+          related_topics: {
+            type: Type.ARRAY,
+            items: { type: Type.STRING }
+          }
+        },
+        required: ['name', 'definition', 'key_facts', 'related_topics']
+      }
+    }
+  });
+
+  return JSON.parse(response.text);
 }
+
+async function buildFullTopicDatabase() {
+  const updatedTopics = { Science: [], Geography: [] };
+
+  for (const category of ['Science', 'Geography']) {
+    const list = rawData[category] || [];
+    for (const item of list) {
+      const topicName = typeof item === 'string' ? item : item.name;
+      console.log(`Processing [${category}]: ${topicName}...`);
+      
+      try {
+        const details = await generateTopicDetails(topicName, category);
+        updatedTopics[category].push(details);
+      } catch (err) {
+        console.error(`Failed to process ${topicName}:`, err);
+        updatedTopics[category].push({ name: topicName, category });
+      }
+    }
+  }
+
+  fs.writeFileSync('topics.json', JSON.stringify(updatedTopics, null, 2));
+  console.log('Successfully updated topics.json!');
+}
+
+buildFullTopicDatabase();
