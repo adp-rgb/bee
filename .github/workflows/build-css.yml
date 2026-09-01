@@ -1,0 +1,27 @@
+name: Build Tailwind CSS
+
+on:
+  push:
+    branches: [ "main" ] # or "master" depending on your default branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies & Build CSS
+        run: |
+          npm install -D tailwindcss
+          npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify
+
+      - name: Commit compiled CSS
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Automated Tailwind CSS build"
