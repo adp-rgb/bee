@@ -88,11 +88,11 @@
 
       <!-- Modal Footer Navigation -->
       <div class="sticky bottom-0 bg-slate-800 border-t border-slate-700 p-6 flex justify-between items-center gap-2">
-        <button onclick="prevTopic()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl text-sm font-bold transition-all">
+        <button id="btn-prev" onclick="prevTopic()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl text-sm font-bold transition-all">
           ← Previous
         </button>
         <span id="modal-topic-nav" class="text-xs font-bold text-slate-400 bg-slate-700 px-3 py-1 rounded-lg"></span>
-        <button onclick="nextTopic()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-xl text-sm font-bold transition-all">
+        <button id="btn-next" onclick="nextTopic()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-xl text-sm font-bold transition-all">
           Next →
         </button>
       </div>
@@ -148,6 +148,16 @@
       }
     };
 
+    // Helper to safely escape quotes for JS inline attributes
+    function escapeHtmlAttr(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/'/g, '&#39;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
     // Load Topics from JSON
     async function init() {
       try {
@@ -155,7 +165,6 @@
         if (!res.ok) throw new Error('Failed to load topics.json');
         const data = await res.json();
         
-        // Check if data is empty
         if (!data || Object.keys(data).length === 0) {
           allTopics = DEFAULT_TOPICS;
         } else {
@@ -166,7 +175,6 @@
         allTopics = DEFAULT_TOPICS;
       }
 
-      // Initialize
       renderTopicTags();
       searchTopics('');
     }
@@ -174,21 +182,24 @@
     // Render Quick Topic Tags
     function renderTopicTags() {
       const tagsContainer = document.getElementById('topic-tags');
-      const topics = Object.keys(allTopics).slice(0, 8); // Show first 8 topics as quick tags
+      const topics = Object.keys(allTopics).slice(0, 8);
       
       if (topics.length === 0) {
         tagsContainer.innerHTML = '<p class="text-xs text-slate-500">No topics available</p>';
         return;
       }
 
-      tagsContainer.innerHTML = topics.map(topic => `
-        <button 
-          onclick="filterByTopic('${topic}')" 
-          class="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded-full text-xs font-medium transition-all border border-slate-600 hover:border-amber-400"
-        >
-          ${topic}
-        </button>
-      `).join('');
+      tagsContainer.innerHTML = topics.map(topic => {
+        const safeTopic = escapeHtmlAttr(topic);
+        return `
+          <button 
+            onclick="filterByTopic('${safeTopic}')" 
+            class="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded-full text-xs font-medium transition-all border border-slate-600 hover:border-amber-400"
+          >
+            ${topic}
+          </button>
+        `;
+      }).join('');
     }
 
     // Search Topics
@@ -225,14 +236,15 @@
         return;
       }
 
-      container.innerHTML = filteredTopics.map((topic, idx) => {
+      container.innerHTML = filteredTopics.map(topic => {
         const data = allTopics[topic];
         const facts = Array.isArray(data.facts) ? data.facts : [];
         const summary = data.summary || 'No summary available';
+        const safeTopic = escapeHtmlAttr(topic);
         
         return `
           <div 
-            onclick="openTopicModal('${topic}')"
+            onclick="openTopicModal('${safeTopic}')"
             class="group bg-slate-800 border border-slate-700 rounded-2xl p-5 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-400/10 cursor-pointer transition-all shadow-md"
           >
             <h3 class="text-lg font-bold text-amber-400 mb-2 group-hover:text-amber-300 transition-all">${topic}</h3>
@@ -249,8 +261,10 @@
     // Open Topic Modal
     function openTopicModal(topic) {
       currentTopicsList = [...filteredTopics];
-      currentTopicIndex = currentTopicsList.indexOf(topic);
-      displayTopicDetail(topic);
+      const index = currentTopicsList.indexOf(topic);
+      currentTopicIndex = index >= 0 ? index : 0;
+      
+      displayTopicDetail(currentTopicsList[currentTopicIndex]);
       document.getElementById('topic-modal').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
@@ -263,6 +277,8 @@
 
     // Display Topic Detail in Modal
     function displayTopicDetail(topic) {
+      if (!topic || !allTopics[topic]) return;
+
       const data = allTopics[topic];
       const facts = Array.isArray(data.facts) ? data.facts : [];
       const relatedTopics = Array.isArray(data.related_topics) ? data.related_topics : [];
@@ -277,7 +293,7 @@
 
       // Facts
       const factsContainer = document.getElementById('modal-topic-facts');
-      factsContainer.innerHTML = facts.map((fact, idx) => `
+      factsContainer.innerHTML = facts.map(fact => `
         <li class="bg-slate-950 border border-slate-700 p-4 rounded-xl flex gap-3 items-start hover:border-amber-400/30 transition-all">
           <span class="text-amber-400 font-bold flex-shrink-0 text-lg">•</span>
           <span class="text-slate-300 text-sm leading-relaxed">${fact}</span>
@@ -288,41 +304,50 @@
       const relatedContainer = document.getElementById('modal-topic-related');
       if (relatedTopics.length > 0) {
         document.getElementById('related-topics-section').classList.remove('hidden');
-        relatedContainer.innerHTML = relatedTopics.map(relTopic => `
-          <button 
-            onclick="closeTopicModal(); setTimeout(() => filterByTopic('${relTopic}'), 100)"
-            class="bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/50 hover:border-emerald-400 text-emerald-300 px-4 py-2 rounded-full text-xs font-medium transition-all"
-          >
-            ${relTopic}
-          </button>
-        `).join('');
+        relatedContainer.innerHTML = relatedTopics.map(relTopic => {
+          const safeRelTopic = escapeHtmlAttr(relTopic);
+          return `
+            <button 
+              onclick="closeTopicModal(); setTimeout(() => filterByTopic('${safeRelTopic}'), 100)"
+              class="bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/50 hover:border-emerald-400 text-emerald-300 px-4 py-2 rounded-full text-xs font-medium transition-all"
+            >
+              ${relTopic}
+            </button>
+          `;
+        }).join('');
       } else {
         document.getElementById('related-topics-section').classList.add('hidden');
       }
 
-      // Navigation
+      // Navigation counter
       const nav = `${currentTopicIndex + 1} / ${currentTopicsList.length}`;
       document.getElementById('modal-topic-nav').innerText = nav;
 
-      // Update button states
-      document.querySelectorAll('[onclick*="prevTopic"]')[0].disabled = (currentTopicIndex === 0);
-      document.querySelectorAll('[onclick*="nextTopic"]')[0].disabled = (currentTopicIndex === currentTopicsList.length - 1);
+      // Button state & styles
+      const prevBtn = document.getElementById('btn-prev');
+      const nextBtn = document.getElementById('btn-next');
+
+      prevBtn.disabled = (currentTopicIndex <= 0);
+      prevBtn.classList.toggle('opacity-50', prevBtn.disabled);
+      prevBtn.classList.toggle('cursor-not-allowed', prevBtn.disabled);
+
+      nextBtn.disabled = (currentTopicIndex >= currentTopicsList.length - 1);
+      nextBtn.classList.toggle('opacity-50', nextBtn.disabled);
+      nextBtn.classList.toggle('cursor-not-allowed', nextBtn.disabled);
     }
 
     // Navigation Functions
     function prevTopic() {
       if (currentTopicIndex > 0) {
         currentTopicIndex--;
-        const topic = currentTopicsList[currentTopicIndex];
-        displayTopicDetail(topic);
+        displayTopicDetail(currentTopicsList[currentTopicIndex]);
       }
     }
 
     function nextTopic() {
       if (currentTopicIndex < currentTopicsList.length - 1) {
         currentTopicIndex++;
-        const topic = currentTopicsList[currentTopicIndex];
-        displayTopicDetail(topic);
+        displayTopicDetail(currentTopicsList[currentTopicIndex]);
       }
     }
 
@@ -338,10 +363,17 @@
       }
     });
 
-    // Close modal on Escape key
+    // Keyboard controls for modal
     document.addEventListener('keydown', (e) => {
+      const isModalOpen = !document.getElementById('topic-modal').classList.contains('hidden');
+      if (!isModalOpen) return;
+
       if (e.key === 'Escape') {
         closeTopicModal();
+      } else if (e.key === 'ArrowLeft') {
+        prevTopic();
+      } else if (e.key === 'ArrowRight') {
+        nextTopic();
       }
     });
 
