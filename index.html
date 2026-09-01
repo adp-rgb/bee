@@ -646,7 +646,48 @@
     function closeQuiz() {
       document.getElementById('quiz-container').classList.add('hidden');
     }
+function openConceptModal(topicName) {
+  const modal = document.getElementById('concept-modal');
+  const titleEl = document.getElementById('modal-topic-title');
+  const badgeEl = document.getElementById('modal-category-badge');
+  const defEl = document.getElementById('modal-definition');
+  const factsList = document.getElementById('modal-key-facts');
+  const relatedContainer = document.getElementById('modal-related-topics');
 
+  // Find matching topic object
+  const topicObj = topicList.find(t => t.name.toLowerCase() === topicName.toLowerCase()) || { name: topicName, category: 'General' };
+
+  titleEl.innerText = topicObj.name;
+  badgeEl.innerText = topicObj.category || 'General';
+  defEl.innerText = topicObj.definition || `${topicObj.name} is a key topic covered in competition tossup questions.`;
+
+  // Render Key Facts
+  factsList.innerHTML = '';
+  const facts = topicObj.key_facts || [`Study high-frequency clues associated with ${topicObj.name}.`];
+  facts.forEach(fact => {
+    const li = document.createElement('li');
+    li.innerText = fact;
+    factsList.appendChild(li);
+  });
+
+  // Render Related Topics
+  relatedContainer.innerHTML = '';
+  const related = topicObj.related_topics || [];
+  if (related.length > 0) {
+    document.getElementById('modal-related-section').classList.remove('hidden');
+    related.forEach(rel => {
+      const btn = document.createElement('button');
+      btn.className = 'text-xs bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2.5 py-1 rounded-lg transition border border-slate-700';
+      btn.innerText = `+ ${rel}`;
+      btn.onclick = () => openConceptModal(rel);
+      relatedContainer.appendChild(btn);
+    });
+  } else {
+    document.getElementById('modal-related-section').classList.add('hidden');
+  }
+
+  modal.classList.remove('hidden');
+}
     loadQuizData();
   </script>
 </body>
