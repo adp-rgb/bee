@@ -46,30 +46,26 @@ def build_knowledge_base():
     topic_list = sorted(list(extracted_topics))
     print(f"Generating knowledge base for {len(topic_list)} topics...")
 
-    topics_db = {}
+# build_topics.py
+topics_db = {
+    "Geography": [],
+    "Science": []
+}
 
-    for topic in topic_list:
-        print(f"Generating details for: {topic}...")
-        prompt = f"""
-        You are an expert academic bee curriculum developer.
-        Generate educational facts for the competition topic: "{topic}".
+for topic in topic_list:
+    # Determine category or default based on topic
+    category = "Geography" if any(w in topic.lower() for w in ["capital", "river", "mountain", "country", "city"]) else "Science"
+    
+    topics_db[category].append({
+        "name": topic,
+        "definition": topic_data.get("summary", ""),
+        "key_facts": topic_data.get("facts", []),
+        "related_topics": topic_data.get("related_topics", [])
+    })
 
-        Provide:
-        1. A clear, 1-2 sentence overview definition.
-        2. 8-10 key competition facts (formulas, historical context, specific clues, and principles).
-        3. 3-5 closely related academic topics.
-
-        Return STRICT JSON matching this schema:
-        {{
-          "topic": "{topic}",
-          "summary": "1-2 sentence definition",
-          "facts": [
-            "Fact 1...",
-            "Fact 2...",
-            "Fact 3..."
-          ],
-          "related_topics": ["Related Topic 1", "Related Topic 2", "Related Topic 3"]
-        }}
+with open("topics.json", "w", encoding="utf-8") as f:
+    json.dump(topics_db, f, indent=2, ensure_ascii=False)
+        
         """
 
         try:
