@@ -22,7 +22,13 @@ def download_fresh_pdfs():
     data_dir = Path("data")
     data_dir.mkdir(parents=True, exist_ok=True)
 
+# Consolidated list of unique resource locations
     resources = [
+        {
+            "url": "https://iacompetitionsasia.com/resources/",
+            "name": "IAC Asia Resources",
+            "keywords": ["science", "geography", "bee", "competition", "question", "practice", "guide", "facts"]
+        },
         {
             "url": "https://www.internationalgeographybee.com/asia/resources/",
             "name": "International Geography Bee - Asia",
@@ -37,6 +43,11 @@ def download_fresh_pdfs():
             "url": "https://www.internationalgeographybee.com/europe/resources/",
             "name": "International Geography Bee - Europe",
             "keywords": ["geography", "bee", "competition", "past", "question"]
+        },
+        {
+            "url": "https://www.iacompetitions.com/ems-national-science-bee-past-questions/",
+            "name": "IAC EMS National Science Bee Past Questions",
+            "keywords": ["science", "bee", "past", "question", "national", "ems", "finals"]
         }
     ]
 
@@ -44,7 +55,7 @@ def download_fresh_pdfs():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
 
-    all_pdf_links = []
+all_pdf_links = []
     downloaded_count = 0
 
     for resource in resources:
@@ -85,7 +96,9 @@ def download_fresh_pdfs():
         print(f"   ✓ Found {len(pdf_links)} PDF resources")
         all_pdf_links.extend(pdf_links)
 
-    print(f"\n📥 Total PDF resources found: {len(all_pdf_links)}")
+    # De-duplicate links across all scrapers
+    all_pdf_links = list(set(all_pdf_links))
+    print(f"\n📥 Total unique PDF resources found: {len(all_pdf_links)}")
 
     for pdf_url in all_pdf_links:
         try:
