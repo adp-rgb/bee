@@ -1,1 +1,27 @@
-{}
+{
+  "Geography": [
+    {
+      "name": "Amazon River",
+      "definition": "The Amazon River in South America is the largest river by discharge volume of water in the world.",
+      "key_facts": [
+        "It flows through Peru, Colombia, and Brazil before emptying into the Atlantic Ocean.",
+        "It carries more water than the next seven largest rivers combined.",
+        "It lacks any bridges crossing its main stem due to its immense width and surrounding rainforest terrain."
+      ],
+      "related_topics": ["Andes Mountains", "Atlantic Ocean", "Rainforests"]
+    }
+  ],
+  "Science": [
+    {
+      "name": "Acceleration",
+      "definition": "Acceleration is the rate at which an object's velocity changes over time. It is a vector quantity measured in m/s².",
+      "key_facts": [
+        "Calculated using the average acceleration formula a = Δv / Δt.",
+        "Newton's Second Law connects force and acceleration: F = ma.",
+        "On Earth near the surface, standard gravitational acceleration is approximately 9.8 m/s².",
+        "Jerk is defined as the rate of change of acceleration with respect to time (j = da/dt)."
+      ],
+      "related_topics": ["Velocity", "Newton's Laws of Motion", "Kinematics"]
+    }
+  ]
+}
