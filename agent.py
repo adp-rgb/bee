@@ -1,14 +1,14 @@
-import os
 import json
+import os
 import time
 from pathlib import Path
-import requests
 from bs4 import BeautifulSoup
 import chromadb
-from pypdf import PdfReader
 from google import genai
 from google.genai import types
-from google.genai.errors import ServerError, APIError
+from google.genai.errors import APIError, ServerError
+from pypdf import PdfReader
+import requests
 
 
 def load_rules():
@@ -22,7 +22,10 @@ def load_rules():
 def load_topics():
     topics_path = Path("topics.json")
     if not topics_path.exists():
-        return {"Geography": ["General Geography"], "Science": ["General Science"]}
+        return {
+            "Geography": ["General Geography"],
+            "Science": ["General Science"],
+        }
     with open(topics_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -32,37 +35,66 @@ def download_fresh_pdfs():
     data_dir = Path("data")
     data_dir.mkdir(parents=True, exist_ok=True)
 
-    # Consolidated list of unique resource locations
     resources = [
         {
             "url": "https://iacompetitionsasia.com/resources/",
             "name": "IAC Asia Resources",
-            "keywords": ["science", "geography", "bee", "competition", "question", "practice", "guide", "facts"]
+            "keywords": [
+                "science",
+                "geography",
+                "bee",
+                "competition",
+                "question",
+                "practice",
+                "guide",
+                "facts",
+            ],
         },
         {
             "url": "https://www.internationalgeographybee.com/asia/resources/",
             "name": "International Geography Bee - Asia",
-            "keywords": ["geography", "bee", "competition", "past", "question"]
+            "keywords": ["geography", "bee", "competition", "past", "question"],
         },
         {
             "url": "https://www.iacompetitions.com/resources/",
             "name": "IAC Competitions Resources",
-            "keywords": ["science", "geography", "bee", "competition", "question", "practice"]
+            "keywords": [
+                "science",
+                "geography",
+                "bee",
+                "competition",
+                "question",
+                "practice",
+            ],
         },
         {
             "url": "https://www.internationalgeographybee.com/europe/resources/",
             "name": "International Geography Bee - Europe",
-            "keywords": ["geography", "bee", "competition", "past", "question"]
+            "keywords": ["geography", "bee", "competition", "past", "question"],
         },
         {
-            "url": "https://www.iacompetitions.com/ems-national-science-bee-past-questions/",
+            "url": (
+                "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
+            ),
             "name": "IAC EMS National Science Bee Past Questions",
-            "keywords": ["science", "bee", "past", "question", "national", "ems", "finals"]
-        }
+            "keywords": [
+                "science",
+                "bee",
+                "past",
+                "question",
+                "national",
+                "ems",
+                "finals",
+            ],
+        },
     ]
 
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        )
     }
 
     all_pdf_links = []
@@ -71,35 +103,42 @@ def download_fresh_pdfs():
     for resource in resources:
         print(f"\n📍 Scraping {resource['name']}...")
         print(f"   URL: {resource['url']}")
-        
+
         try:
-            response = requests.get(resource['url'], headers=headers, timeout=15)
+            response = requests.get(
+                resource["url"], headers=headers, timeout=15
+            )
             response.raise_for_status()
+            time.sleep(2)  # Pause to respect rate limits during scraping
         except Exception as e:
             print(f"   ❌ Failed to reach {resource['name']}: {e}")
             continue
 
         soup = BeautifulSoup(response.text, "html.parser")
         pdf_links = []
-        
+
         for a_tag in soup.find_all("a", href=True):
             href = a_tag["href"]
             text = a_tag.get_text().lower()
-            
+
             is_pdf = href.lower().endswith(".pdf")
-            has_keywords = any(kw in text for kw in resource['keywords'])
-            
-            if is_pdf or (has_keywords and ("pdf" in href.lower() or "download" in text)):
+            has_keywords = any(kw in text for kw in resource["keywords"])
+
+            if is_pdf or (
+                has_keywords and ("pdf" in href.lower() or "download" in text)
+            ):
                 if not href.startswith("http"):
-                    href = requests.compat.urljoin(resource['url'], href)
+                    href = requests.compat.urljoin(resource["url"], href)
                 pdf_links.append(href)
-        
-        for div in soup.find_all("div", class_=["resource", "document", "material", "content"]):
+
+        for div in soup.find_all(
+            "div", class_=["resource", "document", "material", "content"]
+        ):
             for link in div.find_all("a", href=True):
                 href = link["href"]
                 if href.lower().endswith(".pdf") or "download" in href.lower():
                     if not href.startswith("http"):
-                        href = requests.compat.urljoin(resource['url'], href)
+                        href = requests.compat.urljoin(resource["url"], href)
                     pdf_links.append(href)
 
         pdf_links = list(set(pdf_links))
@@ -114,8 +153,10 @@ def download_fresh_pdfs():
         try:
             filename = pdf_url.split("/")[-1].split("?")[0]
             if not filename or len(filename) < 3:
-                filename = f"resource_{len(list(data_dir.glob('*.pdf')))}.pdf"
-            
+                filename = (
+                    f"resource_{len(list(data_dir.glob('*.pdf')))}.pdf"
+                )
+
             file_path = data_dir / filename
 
             if file_path.exists():
@@ -123,36 +164,60 @@ def download_fresh_pdfs():
                 continue
 
             print(f"   ⬇️  Downloading: {filename}...")
-            pdf_res = requests.get(pdf_url, headers=headers, timeout=30)
-            pdf_res.raise_for_status()
-            
+
+            # Retry mechanism for 429 Too Many Requests
+            max_retries = 3
+            for attempt in range(max_retries):
+                pdf_res = requests.get(pdf_url, headers=headers, timeout=30)
+                if pdf_res.status_code == 429:
+                    wait = (attempt + 1) * 10
+                    print(
+                        f"   ⏱️  Rate limited (429). Waiting {wait}s before retry..."
+                    )
+                    time.sleep(wait)
+                    continue
+                pdf_res.raise_for_status()
+                break
+
             with open(file_path, "wb") as f:
                 f.write(pdf_res.content)
-            
+
             downloaded_count += 1
             print(f"      ✓ Saved: {filename}")
-            
+
+            # 3-second delay between file downloads to prevent 429 errors
+            time.sleep(3)
+
         except Exception as e:
             print(f"   ❌ Failed to download {pdf_url}: {e}")
             continue
 
-    print(f"\n✅ Successfully downloaded {downloaded_count} new PDF resources!")
+    print(
+        f"\n✅ Successfully downloaded {downloaded_count} new PDF resources!"
+    )
     return downloaded_count
+
 
 def build_vector_store():
     """Build vector store from downloaded Science Bee and Geography Bee materials."""
     chroma_client = chromadb.Client()
-    collection = chroma_client.get_or_create_collection(name="bee_competition_resources")
-    
+    collection = chroma_client.get_or_create_collection(
+        name="bee_competition_resources"
+    )
+
     data_dir = Path("data")
     all_files = list(data_dir.glob("*.pdf")) + list(data_dir.glob("*.txt"))
-    
+
     if len(all_files) == 0:
-        print("⚠️  No PDF files found in data/ directory. Using fallback retrieval.")
+        print(
+            "⚠️  No PDF files found in data/ directory. Using fallback retrieval."
+        )
         return collection
-    
-    print(f"\n🗂️  Indexing {len(all_files)} competition resources into vector database...")
-    
+
+    print(
+        f"\n🗂️  Indexing {len(all_files)} competition resources into vector database..."
+    )
+
     doc_id = 0
     for file_path in all_files:
         text = ""
@@ -168,7 +233,9 @@ def build_vector_store():
                 continue
         elif file_path.suffix == ".txt":
             try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                with open(
+                    file_path, "r", encoding="utf-8", errors="ignore"
+                ) as f:
                     text = f.read()
             except Exception as e:
                 print(f"   ⚠️  Skipping corrupted TXT {file_path.name}: {e}")
@@ -178,33 +245,44 @@ def build_vector_store():
             print(f"   ⊘ Skipping {file_path.name} (insufficient content)")
             continue
 
-        chunks = [text[i:i+1000] for i in range(0, len(text), 1000) if len(text[i:i+1000]) > 100]
-        
+        chunks = [
+            text[i : i + 1000]
+            for i in range(0, len(text), 1000)
+            if len(text[i : i + 1000]) > 100
+        ]
+
         for chunk in chunks:
             try:
                 collection.add(
                     documents=[chunk],
                     metadatas=[{"source": file_path.name}],
-                    ids=[f"doc_{doc_id}"]
+                    ids=[f"doc_{doc_id}"],
                 )
                 doc_id += 1
             except Exception as e:
-                print(f"   ⚠️  Error adding chunk from {file_path.name}: {e}")
+                print(
+                    f"   ⚠️  Error adding chunk from {file_path.name}: {e}"
+                )
                 continue
-        
+
         print(f"   ✓ Indexed {file_path.name} ({len(chunks)} chunks)")
-            
-    print(f"✅ Successfully indexed {doc_id} text chunks from competition resources!")
+
+    print(
+        f"✅ Successfully indexed {doc_id} text chunks from competition resources!"
+    )
     return collection
 
 
-def generate_with_retry(client, prompt_text, 
-                        primary_model='gemini-2.5-flash',
-                        fallback_model='gemini-1.5-flash',
-                        max_retries=5):
+def generate_with_retry(
+    client,
+    prompt_text,
+    primary_model="gemini-2.5-flash",
+    fallback_model="gemini-1.5-flash",
+    max_retries=5,
+):
     """Generate content with retry logic for API failures."""
     models_to_try = [primary_model, fallback_model]
-    
+
     for model_name in models_to_try:
         for attempt in range(1, max_retries + 1):
             try:
@@ -213,25 +291,31 @@ def generate_with_retry(client, prompt_text,
                     contents=prompt_text,
                     config=types.GenerateContentConfig(
                         response_mime_type="application/json",
-                        max_output_tokens=8192
-                    )
+                        max_output_tokens=8192,
+                    ),
                 )
                 return response
             except (ServerError, APIError) as e:
                 if "503" in str(e) or "UNAVAILABLE" in str(e):
                     wait_time = attempt * 5
-                    print(f"   ⏱️  High demand detected. Retrying in {wait_time}s (Attempt {attempt}/{max_retries})...")
+                    print(
+                        f"   ⏱️  High demand detected. Retrying in {wait_time}s (Attempt {attempt}/{max_retries})..."
+                    )
                     time.sleep(wait_time)
                 else:
                     raise e
         print(f"   Switching to fallback model...")
 
-    raise RuntimeError("Failed to generate content after exhausting model retries.")
+    raise RuntimeError(
+        "Failed to generate content after exhausting model retries."
+    )
 
 
 def run_ai_agent():
     """Main agent function: Scrape, Index, and Generate Science/Geography Bee Quizzes."""
-    api_key = (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
+    api_key = (
+        os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or ""
+    ).strip()
     if not api_key:
         raise ValueError("GEMINI_API_KEY environment variable is missing.")
 
@@ -245,14 +329,14 @@ def run_ai_agent():
     print("📥 STEP 1: Downloading Science & Geography Bee Resources")
     print("-" * 60)
     download_fresh_pdfs()
-    
+
     print("\n🗂️  STEP 2: Building Vector Database")
     print("-" * 60)
     collection = build_vector_store()
 
     print("\n🔍 STEP 3: Retrieving Competition Context")
     print("-" * 60)
-    
+
     total_requested = rules.get("questions_per_round", 30)
     batch_size = 10
     num_batches = (total_requested + batch_size - 1) // batch_size
@@ -261,37 +345,50 @@ def run_ai_agent():
         "geography bee tossup pyramidal question clues",
         "science bee competition question format",
         "geography bee past competition questions",
-        "science competition practice questions"
+        "science competition practice questions",
     ]
-    
+
     all_retrieved_context = []
     for query in queries:
         try:
             query_results = collection.query(
-                query_texts=[query],
-                n_results=5
+                query_texts=[query], n_results=5
             )
             if query_results["documents"] and query_results["documents"][0]:
                 all_retrieved_context.extend(query_results["documents"][0])
         except Exception as e:
             print(f"   ⚠️  Query failed for '{query}': {e}")
-    
-    retrieved_context = "\n---\n".join(all_retrieved_context[:10]) if all_retrieved_context else ""
-    
-    if not retrieved_context:
-        print("   ⚠️  No competition materials found. Using template-based generation.")
-        retrieved_context = "Using official Science Bee and Geography Bee format guidelines."
-    else:
-        print(f"   ✓ Retrieved {len(all_retrieved_context)} relevant context passages")
 
-    print(f"\n🤖 STEP 4: Generating {total_requested} Pyramidal Tossup Questions")
+    retrieved_context = (
+        "\n---\n".join(all_retrieved_context[:10])
+        if all_retrieved_context
+        else ""
+    )
+
+    if not retrieved_context:
+        print(
+            "   ⚠️  No competition materials found. Using template-based generation."
+        )
+        retrieved_context = (
+            "Using official Science Bee and Geography Bee format guidelines."
+        )
+    else:
+        print(
+            f"   ✓ Retrieved {len(all_retrieved_context)} relevant context passages"
+        )
+
+    print(
+        f"\n🤖 STEP 4: Generating {total_requested} Pyramidal Tossup Questions"
+    )
     print("-" * 60)
 
     all_quizzes = []
 
     for batch_num in range(num_batches):
         current_count = min(batch_size, total_requested - len(all_quizzes))
-        print(f"\n   Batch {batch_num + 1}/{num_batches}: Generating {current_count} questions...")
+        print(
+            f"\n   Batch {batch_num + 1}/{num_batches}: Generating {current_count} questions..."
+        )
 
         prompt_text = f"""
 You are an official item writer for Science Bee and Geography Bee competitions.
@@ -348,7 +445,9 @@ IMPORTANT:
             response = generate_with_retry(client, prompt_text)
             batch_data = json.loads(response.text)
             all_quizzes.extend(batch_data)
-            print(f"   ✓ Generated {len(batch_data)} questions successfully")
+            print(
+                f"   ✓ Generated {len(batch_data)} questions successfully"
+            )
             time.sleep(1)
         except json.JSONDecodeError as e:
             print(f"   ❌ JSON parsing error: {e}")
@@ -360,7 +459,7 @@ IMPORTANT:
 
     print(f"\n💾 STEP 5: Saving Quiz Data")
     print("-" * 60)
-    
+
     for idx, q in enumerate(all_quizzes, start=1):
         q["id"] = idx
 
@@ -368,9 +467,13 @@ IMPORTANT:
     output_payload = {
         "rules_summary": {
             "total_questions": len(all_quizzes),
-            "max_correct_per_player": scoring_rules.get("max_correct_per_player", 6),
-            "early_penalty": scoring_rules.get("early_incorrect_penalty", -1),
-            "bonus_table": scoring_rules.get("bonus_structure", [])
+            "max_correct_per_player": scoring_rules.get(
+                "max_correct_per_player", 6
+            ),
+            "early_penalty": scoring_rules.get(
+                "early_incorrect_penalty", -1
+            ),
+            "bonus_table": scoring_rules.get("bonus_structure", []),
         },
         "quizzes": all_quizzes,
         "metadata": {
@@ -381,19 +484,27 @@ IMPORTANT:
                 "https://www.internationalgeographybee.com/asia/resources/",
                 "https://www.iacompetitions.com/resources/",
                 "https://www.internationalgeographybee.com/europe/resources/",
-                "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
-            ]
-        }
+                (
+                    "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
+                ),
+            ],
+        },
     }
 
     with open("quizzes.json", "w", encoding="utf-8") as f:
         json.dump(output_payload, f, indent=2, ensure_ascii=False)
 
-    geo_count = len([q for q in all_quizzes if 'Geography' in q.get('category', '')])
-    sci_count = len([q for q in all_quizzes if 'Science' in q.get('category', '')])
-    
+    geo_count = len(
+        [q for q in all_quizzes if "Geography" in q.get("category", "")]
+    )
+    sci_count = len(
+        [q for q in all_quizzes if "Science" in q.get("category", "")]
+    )
+
     print("\n" + "=" * 60)
-    print(f"✅ SUCCESS! Generated {len(all_quizzes)} pyramidal tossup questions")
+    print(
+        f"✅ SUCCESS! Generated {len(all_quizzes)} pyramidal tossup questions"
+    )
     print(f"📄 Saved to: quizzes.json")
     print(f"📊 Categories: {geo_count} Geography, {sci_count} Science")
     print("=" * 60)
