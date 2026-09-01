@@ -183,8 +183,14 @@ def build_vector_store():
             
     print(f"✅ Successfully indexed {doc_id} text chunks from competition resources!")
     return collection
+import time
+time.sleep(2)  # 2-second delay between requests
 
-def generate_with_retry(client, prompt_text, primary_model='gemini-2.5-flash', fallback_model='gemini-1.5-flash', max_retries=5):
+def generate_with_retry(client, prompt_text, 
+                       primary_model='gemini-3.6-flash',
+                       fallback_model='gemini-1.5-flash',
+                       max_retries=5):
+                           
     """Generate content with retry logic for API failures."""
     models_to_try = [primary_model, fallback_model]
     
