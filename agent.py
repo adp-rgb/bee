@@ -22,7 +22,6 @@ def download_fresh_pdfs():
     data_dir = Path("data")
     data_dir.mkdir(parents=True, exist_ok=True)
 
-    # Resources to scrape
     resources = [
         {
             "url": "https://www.internationalgeographybee.com/asia/resources/",
@@ -60,16 +59,12 @@ def download_fresh_pdfs():
             continue
 
         soup = BeautifulSoup(response.text, "html.parser")
-        
-        # Find all links (both PDFs and potential document links)
         pdf_links = []
         
-        # Method 1: Direct PDF links
         for a_tag in soup.find_all("a", href=True):
             href = a_tag["href"]
             text = a_tag.get_text().lower()
             
-            # Check if it's a PDF or contains keywords
             is_pdf = href.lower().endswith(".pdf")
             has_keywords = any(kw in text for kw in resource['keywords'])
             
@@ -78,7 +73,6 @@ def download_fresh_pdfs():
                     href = requests.compat.urljoin(resource['url'], href)
                 pdf_links.append(href)
         
-        # Method 2: Look for document containers and extract links
         for div in soup.find_all("div", class_=["resource", "document", "material", "content"]):
             for link in div.find_all("a", href=True):
                 href = link["href"]
@@ -87,14 +81,12 @@ def download_fresh_pdfs():
                         href = requests.compat.urljoin(resource['url'], href)
                     pdf_links.append(href)
 
-        # Deduplicate
         pdf_links = list(set(pdf_links))
         print(f"   ✓ Found {len(pdf_links)} PDF resources")
         all_pdf_links.extend(pdf_links)
 
     print(f"\n📥 Total PDF resources found: {len(all_pdf_links)}")
 
-    # Download all collected PDFs
     for pdf_url in all_pdf_links:
         try:
             filename = pdf_url.split("/")[-1].split("?")[0]
@@ -103,7 +95,6 @@ def download_fresh_pdfs():
             
             file_path = data_dir / filename
 
-            # Skip if already exists
             if file_path.exists():
                 print(f"   ⊘ Already downloaded: {filename}")
                 continue
@@ -164,7 +155,6 @@ def build_vector_store():
             print(f"   ⊘ Skipping {file_path.name} (insufficient content)")
             continue
 
-        # Split into chunks
         chunks = [text[i:i+1000] for i in range(0, len(text), 1000) if len(text[i:i+1000]) > 100]
         
         for chunk in chunks:
@@ -183,14 +173,11 @@ def build_vector_store():
             
     print(f"✅ Successfully indexed {doc_id} text chunks from competition resources!")
     return collection
-import time
-time.sleep(2)  # 2-second delay between requests
 
 def generate_with_retry(client, prompt_text, 
                        primary_model='gemini-3.6-flash',
-                       fallback_model='gemini-1.5-flash',
+                       fallback_model='gemini-2.5-flash',
                        max_retries=5):
-                           
     """Generate content with retry logic for API failures."""
     models_to_try = [primary_model, fallback_model]
     
@@ -229,17 +216,14 @@ def run_ai_agent():
     client = genai.Client(api_key=api_key)
     rules = load_rules()
 
-    # Step 1: Scrape and download fresh PDFs from official resources
     print("📥 STEP 1: Downloading Science & Geography Bee Resources")
     print("-" * 60)
     download_fresh_pdfs()
     
-    # Step 2: Build local vector database from downloaded PDFs
     print("\n🗂️  STEP 2: Building Vector Database")
     print("-" * 60)
     collection = build_vector_store()
 
-    # Step 3: Query relevant context for questions
     print("\n🔍 STEP 3: Retrieving Competition Context")
     print("-" * 60)
     
@@ -247,7 +231,6 @@ def run_ai_agent():
     batch_size = 10
     num_batches = (total_requested + batch_size - 1) // batch_size
 
-    # Multiple query strategies
     queries = [
         "geography bee tossup pyramidal question clues",
         "science bee competition question format",
@@ -275,7 +258,6 @@ def run_ai_agent():
     else:
         print(f"   ✓ Retrieved {len(all_retrieved_context)} relevant context passages")
 
-    # Step 4: Generate questions in batches
     print(f"\n🤖 STEP 4: Generating {total_requested} Pyramidal Tossup Questions")
     print("-" * 60)
 
@@ -335,6 +317,7 @@ IMPORTANT:
             batch_data = json.loads(response.text)
             all_quizzes.extend(batch_data)
             print(f"   ✓ Generated {len(batch_data)} questions successfully")
+            time.sleep(1) # Protect against API rate limits between batch calls
         except json.JSONDecodeError as e:
             print(f"   ❌ JSON parsing error: {e}")
             print(f"   Response preview: {response.text[:200]}")
@@ -343,11 +326,9 @@ IMPORTANT:
             print(f"   ❌ Generation failed: {e}")
             continue
 
-    # Step 5: Finalize and save
     print(f"\n💾 STEP 5: Saving Quiz Data")
     print("-" * 60)
     
-    # Renumber questions
     for idx, q in enumerate(all_quizzes, start=1):
         q["id"] = idx
 
@@ -374,7 +355,6 @@ IMPORTANT:
     with open("quizzes.json", "w", encoding="utf-8") as f:
         json.dump(output_payload, f, indent=2, ensure_ascii=False)
 
-    # Calculate category counts - FIX: Use separate variables
     geo_count = len([q for q in all_quizzes if 'Geography' in q.get('category', '')])
     sci_count = len([q for q in all_quizzes if 'Science' in q.get('category', '')])
     
