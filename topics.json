@@ -1,1 +1,62 @@
-{}
+{
+  "Geography": [
+    {
+      "name": "Velocity",
+      "definition": "Study key facts and clues regarding Velocity.",
+      "key_facts": [
+        "High-frequency quiz bee concept: Velocity"
+      ],
+      "related_topics": []
+    }
+  ],
+  "Science": [
+    {
+      "name": "Acceleration",
+      "definition": "Study key facts and clues regarding Acceleration.",
+      "key_facts": [
+        "High-frequency quiz bee concept: Acceleration"
+      ],
+      "related_topics": []
+    },
+    {
+      "name": "Cell Nucleus",
+      "definition": "Study key facts and clues regarding Cell Nucleus.",
+      "key_facts": [
+        "High-frequency quiz bee concept: Cell Nucleus"
+      ],
+      "related_topics": []
+    },
+    {
+      "name": "Gravitational Force",
+      "definition": "Study key facts and clues regarding Gravitational Force.",
+      "key_facts": [
+        "High-frequency quiz bee concept: Gravitational Force"
+      ],
+      "related_topics": []
+    },
+    {
+      "name": "Newton's Laws",
+      "definition": "Study key facts and clues regarding Newton's Laws.",
+      "key_facts": [
+        "High-frequency quiz bee concept: Newton's Laws"
+      ],
+      "related_topics": []
+    },
+    {
+      "name": "Photosynthesis",
+      "definition": "Study key facts and clues regarding Photosynthesis.",
+      "key_facts": [
+        "High-frequency quiz bee concept: Photosynthesis"
+      ],
+      "related_topics": []
+    },
+    {
+      "name": "Tectonic Plates",
+      "definition": "Study key facts and clues regarding Tectonic Plates.",
+      "key_facts": [
+        "High-frequency quiz bee concept: Tectonic Plates"
+      ],
+      "related_topics": []
+    }
+  ]
+}
