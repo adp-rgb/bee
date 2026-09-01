@@ -203,6 +203,47 @@ def generate_with_retry(client, prompt_text,
         print(f"   Switching to fallback model...")
 
     raise RuntimeError("Failed to generate content after exhausting model retries.")
+# Load topics file alongside rules
+def load_topics():
+    topics_path = Path("topics.json")
+    if not topics_path.exists():
+        return {"Geography": ["General Geography"], "Science": ["General Science"]}
+    with open(topics_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+def run_ai_agent():
+    # ... previous initialization setup ...
+    
+    rules = load_rules()
+    topics_data = load_topics()
+
+    # Pass topics as strict metadata constraints in the prompt
+    prompt_text = f"""
+You are an official item writer for Science Bee and Geography Bee competitions.
+
+TAXONOMY & TOPICS:
+{json.dumps(topics_data, indent=2)}
+
+RULES:
+- Competition: {rules.get('competition_name', 'Science & Geography Bee')}
+- Format: Pyramidal Tossup with 3-4 progressive clues.
+- Assign each question a specific "topic" strictly matching one of the topics listed in the TAXONOMY JSON above.
+
+GENERATE EXACTLY {current_count} pyramidal tossup questions.
+
+Output STRICT JSON array matching this format:
+[
+  {{
+    "id": 1,
+    "category": "Geography",
+    "topic": "World Capitals & Urban Centers",
+    "question": "Clue 1: ... Clue 2: ... For the point, name...",
+    "options": ["Answer A", "Answer B", "Answer C", "Answer D"],
+    "answer": 0,
+    "explanation": "Explanation here."
+  }}
+]
+
 
 def run_ai_agent():
     """Main agent function: Scrape, Index, and Generate Science/Geography Bee Quizzes."""
