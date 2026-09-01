@@ -10,6 +10,7 @@ from google import genai
 from google.genai import types
 from google.genai.errors import ServerError, APIError
 
+
 def load_rules():
     rules_path = Path("rules.json")
     if not rules_path.exists():
@@ -17,12 +18,20 @@ def load_rules():
     with open(rules_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
+
+def load_topics():
+    topics_path = Path("topics.json")
+    if not topics_path.exists():
+        return {"Geography": ["General Geography"], "Science": ["General Science"]}
+    with open(topics_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
 def download_fresh_pdfs():
     """Scrapes multiple resources for Science Bee and Geography Bee materials."""
     data_dir = Path("data")
     data_dir.mkdir(parents=True, exist_ok=True)
 
-# Consolidated list of unique resource locations
     resources = [
         {
             "url": "https://iacompetitionsasia.com/resources/",
@@ -55,7 +64,7 @@ def download_fresh_pdfs():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
 
-all_pdf_links = []
+    all_pdf_links = []
     downloaded_count = 0
 
     for resource in resources:
@@ -96,7 +105,6 @@ all_pdf_links = []
         print(f"   ✓ Found {len(pdf_links)} PDF resources")
         all_pdf_links.extend(pdf_links)
 
-    # De-duplicate links across all scrapers
     all_pdf_links = list(set(all_pdf_links))
     print(f"\n📥 Total unique PDF resources found: {len(all_pdf_links)}")
 
@@ -128,6 +136,7 @@ all_pdf_links = []
 
     print(f"\n✅ Successfully downloaded {downloaded_count} new PDF resources!")
     return downloaded_count
+
 
 def build_vector_store():
     """Build vector store from downloaded Science Bee and Geography Bee materials."""
@@ -187,10 +196,11 @@ def build_vector_store():
     print(f"✅ Successfully indexed {doc_id} text chunks from competition resources!")
     return collection
 
+
 def generate_with_retry(client, prompt_text, 
-                       primary_model='gemini-3.6-flash',
-                       fallback_model='gemini-2.5-flash',
-                       max_retries=5):
+                        primary_model='gemini-2.5-flash',
+                        fallback_model='gemini-1.5-flash',
+                        max_retries=5):
     """Generate content with retry logic for API failures."""
     models_to_try = [primary_model, fallback_model]
     
@@ -216,46 +226,6 @@ def generate_with_retry(client, prompt_text,
         print(f"   Switching to fallback model...")
 
     raise RuntimeError("Failed to generate content after exhausting model retries.")
-# Load topics file alongside rules
-def load_topics():
-    topics_path = Path("topics.json")
-    if not topics_path.exists():
-        return {"Geography": ["General Geography"], "Science": ["General Science"]}
-    with open(topics_path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-def run_ai_agent():
-    # ... previous initialization setup ...
-    
-    rules = load_rules()
-    topics_data = load_topics()
-
-    # Pass topics as strict metadata constraints in the prompt
-    prompt_text = f"""
-You are an official item writer for Science Bee and Geography Bee competitions.
-
-TAXONOMY & TOPICS:
-{json.dumps(topics_data, indent=2)}
-
-RULES:
-- Competition: {rules.get('competition_name', 'Science & Geography Bee')}
-- Format: Pyramidal Tossup with 3-4 progressive clues.
-- Assign each question a specific "topic" strictly matching one of the topics listed in the TAXONOMY JSON above.
-
-GENERATE EXACTLY {current_count} pyramidal tossup questions.
-
-Output STRICT JSON array matching this format:
-[
-  {{
-    "id": 1,
-    "category": "Geography",
-    "topic": "World Capitals & Urban Centers",
-    "question": "Clue 1: ... Clue 2: ... For the point, name...",
-    "options": ["Answer A", "Answer B", "Answer C", "Answer D"],
-    "answer": 0,
-    "explanation": "Explanation here."
-  }}
-]
 
 
 def run_ai_agent():
@@ -269,6 +239,7 @@ def run_ai_agent():
 
     client = genai.Client(api_key=api_key)
     rules = load_rules()
+    topics_data = load_topics()
 
     print("📥 STEP 1: Downloading Science & Geography Bee Resources")
     print("-" * 60)
@@ -323,18 +294,22 @@ def run_ai_agent():
 
         prompt_text = f"""
 You are an official item writer for Science Bee and Geography Bee competitions.
-Your task is to create pyramidal tossup questions using the provided competition materials.
+Your task is to create pyramidal tossup questions using the provided competition materials and topic taxonomy.
 
 REFERENCE MATERIALS FROM OFFICIAL SOURCES:
 {retrieved_context}
 
+TAXONOMY & TOPICS:
+{json.dumps(topics_data, indent=2)}
+
 RULES:
 - Competition: {rules.get('competition_name', 'Science & Geography Bee')}
 - Question Structure: {rules.get('question_structure', 'Pyramidal Tossup')}
-- Format: Each question has 3-4 clues progressing from obscure/specific to obvious/general
-- Final clue must end with "For the point, name..." or similar format
-- Content: Focus on factual, verifiable information from academic sources
-- Category: Alternate between GEOGRAPHY and SCIENCE topics
+- Format: Each question has 3-4 clues progressing from obscure/specific to obvious/general.
+- Final clue must end with "For the point, name..." or similar format.
+- Content: Focus on factual, verifiable information from academic sources.
+- Category: Alternate between GEOGRAPHY and SCIENCE topics.
+- Assign each question a "topic" string strictly matching one from the TAXONOMY JSON above for that category.
 
 GENERATE EXACTLY {current_count} pyramidal tossup questions.
 
@@ -343,6 +318,7 @@ Output STRICT JSON array matching this format (NO OTHER TEXT):
   {{
     "id": 1,
     "category": "Geography",
+    "topic": "World Capitals & Urban Centers",
     "question": "Clue 1: [obscure reference]... Clue 2: [medium difficulty]... Clue 3: [accessible]... For the point, name...",
     "options": ["Answer A", "Answer B", "Answer C", "Answer D"],
     "answer": 0,
@@ -351,6 +327,7 @@ Output STRICT JSON array matching this format (NO OTHER TEXT):
   {{
     "id": 2,
     "category": "Science",
+    "topic": "Physics & Energy",
     "question": "Clue 1: [specific fact]... Clue 2: [related concept]... Clue 3: [common knowledge]... For the point, name...",
     "options": ["Option A", "Option B", "Option C", "Option D"],
     "answer": 1,
@@ -371,7 +348,7 @@ IMPORTANT:
             batch_data = json.loads(response.text)
             all_quizzes.extend(batch_data)
             print(f"   ✓ Generated {len(batch_data)} questions successfully")
-            time.sleep(1) # Protect against API rate limits between batch calls
+            time.sleep(1)
         except json.JSONDecodeError as e:
             print(f"   ❌ JSON parsing error: {e}")
             print(f"   Response preview: {response.text[:200]}")
@@ -395,17 +372,17 @@ IMPORTANT:
             "bonus_table": scoring_rules.get("bonus_structure", [])
         },
         "quizzes": all_quizzes,
-"metadata": {
-    "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": str(time.strftime("%Y-%m-%d %H:%M:%S")),
-    "resources": [
-        "https://iacompetitionsasia.com/resources/",
-        "https://www.internationalgeographybee.com/asia/resources/",
-        "https://www.iacompetitions.com/resources/",
-        "https://www.internationalgeographybee.com/europe/resources/",
-        "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
-    ]
-}
+        "metadata": {
+            "source": "Science Bee & Geography Bee Official Resources",
+            "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "resources": [
+                "https://iacompetitionsasia.com/resources/",
+                "https://www.internationalgeographybee.com/asia/resources/",
+                "https://www.iacompetitions.com/resources/",
+                "https://www.internationalgeographybee.com/europe/resources/",
+                "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
+            ]
+        }
     }
 
     with open("quizzes.json", "w", encoding="utf-8") as f:
@@ -419,6 +396,7 @@ IMPORTANT:
     print(f"📄 Saved to: quizzes.json")
     print(f"📊 Categories: {geo_count} Geography, {sci_count} Science")
     print("=" * 60)
+
 
 if __name__ == "__main__":
     run_ai_agent()
