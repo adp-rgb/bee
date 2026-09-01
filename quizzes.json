@@ -1,6 +1,6 @@
 {
   "rules_summary": {
-    "total_questions": 0,
+    "total_questions": 30,
     "max_correct_per_player": 6,
     "early_penalty": -1,
     "bonus_table": [
@@ -89,10 +89,401 @@
       }
     ]
   },
-  "quizzes": [],
+  "quizzes": [
+    {
+      "id": 1,
+      "category": "Geography",
+      "question": "This body of water contains the island of Olkhon, which features the sacred Crag of the Shaman revered by local Buryat populations. It receives inflow from over three hundred rivers including the Selenga, but its sole outlet is the Angara River. For the point, name this ancient Siberian lake that is both the deepest lake in the world and holds the largest volume of freshwater.",
+      "options": [
+        "Lake Baikal",
+        "Lake Tanganyika",
+        "Lake Superior",
+        "Lake Malawi"
+      ],
+      "answer": 0,
+      "explanation": "Lake Baikal is located in southern Siberia, Russia. It is the world's deepest lake (1,642 meters) and the largest freshwater lake by volume, containing about 20% of the world's unfrozen surface fresh water."
+    },
+    {
+      "id": 2,
+      "category": "Science",
+      "question": "The inner membrane of this structure contains high levels of cardiolipin and forms invaginations regulated by the MICOS protein complex. It generates a proton gradient across its membrane to power the enzyme ATP synthase during oxidative phosphorylation. For the point, name this double-membraned organelle commonly known as the powerhouse of the cell.",
+      "options": [
+        "Ribosome",
+        "Mitochondrion",
+        "Golgi apparatus",
+        "Endoplasmic reticulum"
+      ],
+      "answer": 1,
+      "explanation": "Mitochondria generate most of the chemical energy (ATP) needed to power the cell's biochemical reactions through cellular respiration, earning them the moniker 'powerhouse of the cell'."
+    },
+    {
+      "id": 3,
+      "category": "Geography",
+      "question": "This river flows through Lake Constance before tumbling over a famous waterfall near Neuhausen in northern Switzerland. It flows past the Lorelei rock in its scenic middle gorge and forms part of the international border between France and Germany. For the point, name this major European river that passes through Cologne and empties into the North Sea at Rotterdam.",
+      "options": [
+        "Danube River",
+        "Elbe River",
+        "Rhine River",
+        "Rhone River"
+      ],
+      "answer": 2,
+      "explanation": "The Rhine is one of the major European rivers, originating in the Swiss Alps, forming borders between European nations, flowing through Germany, and terminating in the Netherlands at the North Sea."
+    },
+    {
+      "id": 4,
+      "category": "Science",
+      "question": "Cooling dilute gases of bosons to near this temperature creates a state of matter exhibiting macroscopic quantum phenomena. According to the third law of thermodynamics, the entropy of a pure crystalline substance approaches zero as it reaches this theoretical limit. For the point, name this lowest possible temperature, equal to zero Kelvins or minus 273.15 degrees Celsius.",
+      "options": [
+        "Curie point",
+        "Triple point",
+        "Absolute zero",
+        "Critical temperature"
+      ],
+      "answer": 2,
+      "explanation": "Absolute zero is the lowest limit of the thermodynamic temperature scale, at which the enthalpy and entropy of a cooled ideal gas reach their minimum values (0 Kelvin)."
+    },
+    {
+      "id": 5,
+      "category": "Geography",
+      "question": "The Valle de la Luna and the ALMA radio telescope array are located in this hyperarid plateau region. It lies in a rain shadow formed by the Andes Mountains to the east and is affected by the cold Humboldt Current along the coast. For the point, name this desert in northern Chile, widely considered the driest non-polar desert in the world.",
+      "options": [
+        "Gobi Desert",
+        "Atacama Desert",
+        "Kalahari Desert",
+        "Mojave Desert"
+      ],
+      "answer": 1,
+      "explanation": "The Atacama Desert in northern Chile is the driest non-polar desert in the world due to a primary rain shadow and cold ocean current effects, receiving less than 1 millimeter of precipitation per year in some areas."
+    },
+    {
+      "id": 6,
+      "category": "Science",
+      "question": "The light-independent phase of this metabolic pathway relies on the enzyme RuBisCO to fix carbon dioxide during the Calvin cycle. In plants, the light-dependent reactions occur within thylakoid membranes, where photolysis splits water to yield molecular oxygen. For the point, name this biological process by which autotrophs convert sunlight, water, and carbon dioxide into glucose.",
+      "options": [
+        "Cellular respiration",
+        "Photosynthesis",
+        "Fermentation",
+        "Transpiration"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis is the process used by plants and other organisms to convert light energy into chemical energy stored in carbohydrates like glucose."
+    },
+    {
+      "id": 7,
+      "category": "Geography",
+      "question": "The Tsingy de Bemaraha Strict Nature Reserve in this country features sharp, jagged karst limestone formations known as 'tsingy.' Separated from the African continent by the Mozambique Channel, its unique evolutionary history allowed for high biodiversity including endemic baobab trees. For the point, name this large island nation off the southeast coast of Africa with capital at Antananarivo, famous for its native lemurs.",
+      "options": [
+        "Sri Lanka",
+        "Mauritius",
+        "Madagascar",
+        "Seychelles"
+      ],
+      "answer": 2,
+      "explanation": "Madagascar is the world's fourth-largest island, located in the Indian Ocean off the coast of East Africa. Over 90% of its wildlife is found nowhere else on Earth."
+    },
+    {
+      "id": 8,
+      "category": "Science",
+      "question": "Type Ia [one-A] examples of these astronomical phenomena occur in binary systems when a white dwarf accretes excess mass and exceeds the Chandrasekhar limit. Core-collapse varieties occur when massive stars exhaust their nuclear fuel, resulting in a sudden collapse and massive ejection of matter. For the point, name these powerful stellar explosions that can briefly outshine entire galaxies.",
+      "options": [
+        "Nebula",
+        "Supernova",
+        "Pulsar",
+        "Red giant"
+      ],
+      "answer": 1,
+      "explanation": "A supernova is a powerful and luminous explosion of a star that occurs during the last evolutionary stages of a massive star or when a white dwarf is triggered into runaway nuclear fusion."
+    },
+    {
+      "id": 9,
+      "category": "Geography",
+      "question": "The narrow Phillips Channel within this waterway creates a major maritime choke point susceptible to historical and modern piracy. It connects the Andaman Sea in the Indian Ocean to the South China Sea in the Pacific Ocean while separating the Malay Peninsula from Sumatra. For the point, name this vital commercial shipping strait named for a historic port city in Malaysia.",
+      "options": [
+        "Strait of Hormuz",
+        "Sunda Strait",
+        "Strait of Malacca",
+        "Bering Strait"
+      ],
+      "answer": 2,
+      "explanation": "The Strait of Malacca is a narrow stretch of water between the Malay Peninsula and the Indonesian island of Sumatra, serving as one of the most important shipping lanes in the world."
+    },
+    {
+      "id": 10,
+      "category": "Science",
+      "question": "The mechanisms driving this unified geological model include mantle convection currents, slab pull at subduction zones, and ridge push at mid-ocean ridges. It successfully synthesizes Alfred Wegener's early concept of continental drift with evidence of seafloor spreading. For the point, name this scientific theory describing the motion of large lithospheric plates across Earth's mantle.",
+      "options": [
+        "Continental drift theory",
+        "Plate tectonics",
+        "Seafloor spreading",
+        "Isostasy"
+      ],
+      "answer": 1,
+      "explanation": "Plate tectonics is the scientific theory explaining the movement of Earth's lithosphere, which is divided into large rigid plates that glide over the asthenosphere."
+    },
+    {
+      "id": 11,
+      "category": "Geography",
+      "question": "This body of water contains the island of Olkhon and receives water from over 300 rivers, including the Selenga, but has only one outlet in the Angara River. It contains nearly 20 percent of the world's unfrozen surface freshwater and is home to the endemic nerpa seal species. For the point, name this deepest and oldest lake in the world, located in southern Siberia.",
+      "options": [
+        "Lake Baikal",
+        "Lake Tanganyika",
+        "Lake Superior",
+        "Lake Victoria"
+      ],
+      "answer": 0,
+      "explanation": "Lake Baikal in southern Russia is the world's deepest and oldest freshwater lake, holding about 20% of Earth's unfrozen surface fresh water."
+    },
+    {
+      "id": 12,
+      "category": "Science",
+      "question": "The light-dependent reactions of this process occur within the thylakoid membranes where photosystems I and II generate ATP and NADPH. Ribulose-1,5-bisphosphate carboxylase-oxygenase, or RuBisCO, catalyzes the fixation step of its light-independent Calvin cycle. For the point, name this biochemical pathway used by plants and algae to convert light energy into chemical energy.",
+      "options": [
+        "Cellular Respiration",
+        "Photosynthesis",
+        "Fermentation",
+        "Glycolysis"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis is the process by which autotrophic organisms convert solar light energy into organic chemical energy using chloroplasts."
+    },
+    {
+      "id": 13,
+      "category": "Geography",
+      "question": "This river forms part of the border between France and Germany before flowing past cities like Cologne and Düsseldorf in the industrial Ruhr region. It originates at Lake Toma in the Swiss Alps near the Oberalp Pass and empties into the North Sea at Rotterdam. For the point, name this major European river that flows through Switzerland, Germany, and the Netherlands.",
+      "options": [
+        "Danube River",
+        "Elbe River",
+        "Rhine River",
+        "Rhône River"
+      ],
+      "answer": 2,
+      "explanation": "The Rhine River originates in the Swiss Alps and flows north through Germany and the Netherlands into the North Sea."
+    },
+    {
+      "id": 14,
+      "category": "Science",
+      "question": "The inner membrane of this organelle folds into structures called cristae, which enclose a fluid-filled cavity known as the matrix where the citric acid cycle takes place. It contains its own circular DNA genome that is inherited almost exclusively maternally in humans. For the point, name this cellular organelle commonly nicknamed the 'powerhouse of the cell'.",
+      "options": [
+        "Endoplasmic Reticulum",
+        "Golgi Apparatus",
+        "Lysosome",
+        "Mitochondrion"
+      ],
+      "answer": 3,
+      "explanation": "Mitochondria generate most of the cell's ATP supply through oxidative phosphorylation and cellular respiration."
+    },
+    {
+      "id": 15,
+      "category": "Geography",
+      "question": "This hyper-arid region is bordered on the west by the Chilean Coast Range and on the east by the Andes mountains, creating a double rain shadow effect. The Very Large Telescope operated by the European Southern Observatory is located at Cerro Paranal within this desert due to its extremely dry, clear skies. For the point, name this desert located in northern Chile, widely considered the driest non-polar desert in the world.",
+      "options": [
+        "Atacama Desert",
+        "Gobi Desert",
+        "Mojave Desert",
+        "Kalahari Desert"
+      ],
+      "answer": 0,
+      "explanation": "The Atacama Desert in northern Chile is renowned as the driest non-polar desert on Earth."
+    },
+    {
+      "id": 16,
+      "category": "Science",
+      "question": "This phenomenon causes a change in frequency or wavelength of a wave for an observer moving relative to its source. It explains the redshift observed in astronomy when distant galaxies recede, as well as the pitch shift heard as an ambulance siren approaches and moves away. For the point, name this physical effect named after an Austrian physicist.",
+      "options": [
+        "Photoelectric Effect",
+        "Doppler Effect",
+        "Cerenkov Effect",
+        "Compton Effect"
+      ],
+      "answer": 1,
+      "explanation": "The Doppler effect describes the apparent change in wave frequency resulting from relative motion between the wave source and an observer."
+    },
+    {
+      "id": 17,
+      "category": "Geography",
+      "question": "This island nation's highest peak is Maromokotro, located in the Tsaratanana Massif near its northern tip. Separated from mainland Africa by the Mozambique Channel, it is home to unique endemic wildlife such as fossas and ring-tailed lemurs. For the point, name this large island country located in the Indian Ocean off the southeastern coast of Africa.",
+      "options": [
+        "Sri Lanka",
+        "Mauritius",
+        "Madagascar",
+        "Seychelles"
+      ],
+      "answer": 2,
+      "explanation": "Madagascar is an island country located off the southeastern coast of Africa, famous for its unique biodiverse flora and fauna."
+    },
+    {
+      "id": 18,
+      "category": "Science",
+      "question": "This fundamental force is mediated by gluons and binds quarks together into hadrons like protons and neutrons. Operating only at subatomic scales of roughly 1 femtometer, it overcomes electromagnetic repulsion to keep atomic nuclei intact. For the point, name this fundamental interaction that is the strongest of the four fundamental forces in physics.",
+      "options": [
+        "Electromagnetic Force",
+        "Weak Interaction",
+        "Gravitational Force",
+        "Strong Interaction"
+      ],
+      "answer": 3,
+      "explanation": "The strong interaction (or strong nuclear force) binds quarks together to form protons and neutrons and holds atomic nuclei together."
+    },
+    {
+      "id": 19,
+      "category": "Geography",
+      "question": "This narrow waterway connects the Andaman Sea to the South China Sea and separates the Malay Peninsula from the Indonesian island of Sumatra. As a major maritime choke point, it sees nearly a quarter of the world's traded oil and commercial goods pass near Singapore annually. For the point, name this strategic strait situated between Malaysia and Indonesia.",
+      "options": [
+        "Strait of Malacca",
+        "Strait of Hormuz",
+        "Sunda Strait",
+        "Bering Strait"
+      ],
+      "answer": 0,
+      "explanation": "The Strait of Malacca is a crucial shipping channel between the Malay Peninsula and the Indonesian island of Sumatra."
+    },
+    {
+      "id": 20,
+      "category": "Science",
+      "question": "This scientist predicted the existence of elements like eka-silicon and eka-boron before they were discovered as germanium and scandium. In 1869, he published a table arranging the known chemical elements by increasing atomic mass and grouping them by recurring properties. For the point, name this Russian chemist known as the principal creator of the periodic table.",
+      "options": [
+        "Antoine Lavoisier",
+        "Dmitri Mendeleev",
+        "John Dalton",
+        "Niels Bohr"
+      ],
+      "answer": 1,
+      "explanation": "Dmitri Mendeleev formulated the Periodic Law and created the first widely recognized periodic table of elements."
+    },
+    {
+      "id": 21,
+      "category": "Geography",
+      "question": "This body of water contains Olkhon Island and receives input from over 300 rivers, including the Selenga River. Situated in southern Siberia, this rift lake contains roughly 20 percent of the world's unfrozen surface fresh water. For the point, name this deepest and oldest lake in the world, located in Russia.",
+      "options": [
+        "Lake Baikal",
+        "Lake Superior",
+        "Lake Tanganyika",
+        "Lake Victoria"
+      ],
+      "answer": 0,
+      "explanation": "Lake Baikal in Siberia, Russia, is the world's deepest lake and holds the largest volume of fresh surface water on Earth."
+    },
+    {
+      "id": 22,
+      "category": "Science",
+      "question": "MFN1 and MFN2 proteins mediate the outer membrane fusion of this organelle, while OPA1 regulates its inner cristae morphology. Possessing its own circular DNA inherited maternally, it hosts the citric acid cycle and the electron transport chain required for ATP production. For the point, name this cellular organelle commonly nicknamed the powerhouse of the cell.",
+      "options": [
+        "Endoplasmic reticulum",
+        "Mitochondria",
+        "Golgi apparatus",
+        "Lysosome"
+      ],
+      "answer": 1,
+      "explanation": "Mitochondria generate cellular energy through ATP production via oxidative phosphorylation and contain their own distinct mitochondrial DNA."
+    },
+    {
+      "id": 23,
+      "category": "Geography",
+      "question": "The Avenue of the Baobabs is located near Morondava on this island, which is separated from the mainland by the Mozambique Channel. Famous for its endemic biodiversity, including lemurs and the predator known as the fossa, its capital city is Antananarivo. For the point, name this large island nation located off the southeastern coast of Africa.",
+      "options": [
+        "Sri Lanka",
+        "Madagascar",
+        "Socotra",
+        "Mauritius"
+      ],
+      "answer": 1,
+      "explanation": "Madagascar is the world's fourth-largest island, located in the Indian Ocean off Africa's eastern coast, known for unique endemic wildlife."
+    },
+    {
+      "id": 24,
+      "category": "Science",
+      "question": "During this process's light-independent stage, the enzyme RuBisCO fixes carbon dioxide in the Calvin cycle occurring within the stroma. Thylakoid membranes host photosystems I and II to split water molecules, releasing oxygen as a byproduct. For the point, name this biological process used by plants and algae to convert light energy into chemical energy.",
+      "options": [
+        "Cellular respiration",
+        "Fermentation",
+        "Photosynthesis",
+        "Transpiration"
+      ],
+      "answer": 2,
+      "explanation": "Photosynthesis is the process by which plants and photoautotrophs convert light energy into chemical energy stored in glucose molecules."
+    },
+    {
+      "id": 25,
+      "category": "Geography",
+      "question": "The ALMA radio telescope array is situated on the Chajnantor Plateau in this hyperarid region bounded by the Chilean Coast Range and the Andes. Receiving less than 1 millimeter of rain annually in places like Valle de la Luna, it is considered the driest non-polar desert on Earth. For the point, name this South American desert located primarily in northern Chile.",
+      "options": [
+        "Gobi Desert",
+        "Atacama Desert",
+        "Mojave Desert",
+        "Kalahari Desert"
+      ],
+      "answer": 1,
+      "explanation": "The Atacama Desert in northern Chile is recognized as the driest non-polar desert in the world due to rain shadow effects from the Andes."
+    },
+    {
+      "id": 26,
+      "category": "Science",
+      "question": "Type Ia versions of these astronomical events occur when a carbon-oxygen white dwarf accretes enough matter from a companion star to exceed the Chandrasekhar limit. Core-collapse types leave behind neutron stars or black holes while dispersing heavy elements into the surrounding space. For the point, name these extremely energetic stellar explosions.",
+      "options": [
+        "Nebula",
+        "Supernova",
+        "Pulsar",
+        "Red giant"
+      ],
+      "answer": 1,
+      "explanation": "A supernova is a catastrophic stellar explosion marking the end of a star's life cycle, synthesizing heavy elements into the cosmos."
+    },
+    {
+      "id": 27,
+      "category": "Geography",
+      "question": "Originating in the Black Forest of Germany at the confluence of the Brigach and Breg rivers, this waterway empties into the Black Sea via a vast delta in Romania. It flows through or forms the border of ten countries and passes four national capitals: Vienna, Bratislava, Budapest, and Belgrade. For the point, name this second-longest river in Europe.",
+      "options": [
+        "Rhine River",
+        "Danube River",
+        "Elbe River",
+        "Volga River"
+      ],
+      "answer": 1,
+      "explanation": "The Danube is Europe's second-longest river after the Volga, flowing east across Central and Eastern Europe to the Black Sea."
+    },
+    {
+      "id": 28,
+      "category": "Science",
+      "question": "The Haber-Bosch process industrializes the synthesis of ammonia by combining hydrogen with a diatomic gas of this element under intense pressure. Soil-dwelling Rhizobium bacteria inside legume root nodules fix this element, which comprises roughly 78 percent of Earth's atmosphere by volume. For the point, name this element with atomic number 7 and symbol N.",
+      "options": [
+        "Oxygen",
+        "Nitrogen",
+        "Argon",
+        "Carbon"
+      ],
+      "answer": 1,
+      "explanation": "Nitrogen makes up approximately 78% of Earth's atmosphere as diatomic N2 and is essential for nucleic acids and proteins."
+    },
+    {
+      "id": 29,
+      "category": "Geography",
+      "question": "The narrow Phillips Channel forms a strategic shipping bottleneck near the southern exit of this maritime corridor between the Malay Peninsula and the island of Sumatra. Facilitating the passage of roughly a quarter of global sea-traded goods, it connects the Indian Ocean directly to the South China Sea. For the point, name this major Asian strait named for a historic Malaysian port city.",
+      "options": [
+        "Strait of Hormuz",
+        "Strait of Gibraltar",
+        "Strait of Malacca",
+        "Bering Strait"
+      ],
+      "answer": 2,
+      "explanation": "The Strait of Malacca is one of the world's most critical maritime shipping chokepoints, located between Sumatra and Peninsular Malaysia."
+    },
+    {
+      "id": 30,
+      "category": "Science",
+      "question": "The movement of features along the San Andreas Fault is explained by the transform boundary category of this scientific theory, which superseded continental drift. Driven by convection currents in the underlying asthenosphere, it accounts for seafloor spreading and mountain building along convergent boundaries. For the point, name this geological theory describing the large-scale movement of Earth's lithospheric plates.",
+      "options": [
+        "Continental drift",
+        "Plate tectonics",
+        "Isostasy",
+        "Seafloor spreading"
+      ],
+      "answer": 1,
+      "explanation": "Plate tectonics is the unifying geological theory explaining the structure, movement, and interaction of Earth's lithospheric plates."
+    }
+  ],
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-01 12:32:48",
+    "generated_at": "2026-09-01 12:44:53",
     "resources": [
       "https://www.internationalgeographybee.com/asia/resources/",
       "https://www.iacompetitions.com/resources/",
