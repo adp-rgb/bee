@@ -2,7 +2,7 @@ name: AI Geography & Science Bee Agent
 
 on:
   schedule:
-  - cron: '0 0 * * *' # Runs every day at midnight UTC
+    - cron: '0 0 * * *' # Runs every day at midnight UTC
   workflow_dispatch: # Allows manual trigger anytime from GitHub UI
 
 jobs:
@@ -13,12 +13,12 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Fetch full history to avoid conflicts
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -27,16 +27,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run AI Research Agent
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python agent.py
-
+      # Step 1: Update knowledge base taxonomy first
       - name: Generate Knowledge Base
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python build_topics.py
 
+      # Step 2: Generate quizzes based on updated topics.json
+      - name: Run AI Research Agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python agent.py
+
+      # Step 3: Commit updated topics.json and quizzes.json back to repo
       - name: Commit and Push updated files
         run: |
           git config --local user.email "action@github.com"
