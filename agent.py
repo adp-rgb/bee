@@ -23,8 +23,8 @@ def load_topics():
     topics_path = Path("topics.json")
     if not topics_path.exists():
         return {
-            "Geography": ["General Geography"],
-            "Science": ["General Science"],
+            "Geography": [{"name": "World Capitals & Urban Centers"}],
+            "Science": [{"name": "Velocity"}],
         }
     with open(topics_path, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -37,7 +37,7 @@ def download_fresh_pdfs():
 
     resources = [
         {
-            "url": "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
+            "url": "https://iacompetitionsasia.com/resources/",
             "name": "IAC Asia Resources",
             "keywords": [
                 "science",
@@ -51,12 +51,12 @@ def download_fresh_pdfs():
             ],
         },
         {
-            "url": "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
+            "url": "https://www.internationalgeographybee.com/asia/resources/",
             "name": "International Geography Bee - Asia",
             "keywords": ["geography", "bee", "competition", "past", "question"],
         },
         {
-            "url": "[https://www.iacompetitions.com/resources/](https://www.iacompetitions.com/resources/)",
+            "url": "https://www.iacompetitions.com/resources/",
             "name": "IAC Competitions Resources",
             "keywords": [
                 "science",
@@ -68,13 +68,13 @@ def download_fresh_pdfs():
             ],
         },
         {
-            "url": "[https://www.internationalgeographybee.com/europe/resources/](https://www.internationalgeographybee.com/europe/resources/)",
+            "url": "https://www.internationalgeographybee.com/europe/resources/",
             "name": "International Geography Bee - Europe",
             "keywords": ["geography", "bee", "competition", "past", "question"],
         },
         {
             "url": (
-                "[https://www.iacompetitions.com/ems-national-science-bee-past-questions/](https://www.iacompetitions.com/ems-national-science-bee-past-questions/)"
+                "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
             ),
             "name": "IAC EMS National Science Bee Past Questions",
             "keywords": [
@@ -109,7 +109,7 @@ def download_fresh_pdfs():
                 resource["url"], headers=headers, timeout=15
             )
             response.raise_for_status()
-            time.sleep(2)
+            time.sleep(1)
         except Exception as e:
             print(f"   ❌ Failed to reach {resource['name']}: {e}")
             continue
@@ -130,16 +130,6 @@ def download_fresh_pdfs():
                 if not href.startswith("http"):
                     href = requests.compat.urljoin(resource["url"], href)
                 pdf_links.append(href)
-
-        for div in soup.find_all(
-            "div", class_=["resource", "document", "material", "content"]
-        ):
-            for link in div.find_all("a", href=True):
-                href = link["href"]
-                if href.lower().endswith(".pdf") or "download" in href.lower():
-                    if not href.startswith("http"):
-                        href = requests.compat.urljoin(resource["url"], href)
-                    pdf_links.append(href)
 
         pdf_links = list(set(pdf_links))
         print(f"   ✓ Found {len(pdf_links)} PDF resources")
@@ -168,9 +158,9 @@ def download_fresh_pdfs():
             for attempt in range(max_retries):
                 pdf_res = requests.get(pdf_url, headers=headers, timeout=30)
                 if pdf_res.status_code == 429:
-                    wait = (attempt + 1) * 10
+                    wait = (attempt + 1) * 5
                     print(
-                        f"   ⏱️  Rate limited (429). Waiting {wait}s before retry..."
+                        f"   ⏱️ Rate limited (429). Waiting {wait}s before retry..."
                     )
                     time.sleep(wait)
                     continue
@@ -182,7 +172,7 @@ def download_fresh_pdfs():
 
             downloaded_count += 1
             print(f"      ✓ Saved: {filename}")
-            time.sleep(3)
+            time.sleep(2)
 
         except Exception as e:
             print(f"   ❌ Failed to download {pdf_url}: {e}")
@@ -206,12 +196,12 @@ def build_vector_store():
 
     if len(all_files) == 0:
         print(
-            "⚠️  No PDF files found in data/ directory. Using fallback retrieval."
+            "⚠️ No PDF files found in data/ directory. Using fallback retrieval."
         )
         return collection
 
     print(
-        f"\n🗂️  Indexing {len(all_files)} competition resources into vector database..."
+        f"\n🗂️ Indexing {len(all_files)} competition resources into vector database..."
     )
 
     doc_id = 0
@@ -225,7 +215,7 @@ def build_vector_store():
                     if extracted:
                         text += extracted + "\n"
             except Exception as e:
-                print(f"   ⚠️  Skipping corrupted PDF {file_path.name}: {e}")
+                print(f"   ⚠️ Skipping corrupted PDF {file_path.name}: {e}")
                 continue
         elif file_path.suffix == ".txt":
             try:
@@ -234,7 +224,7 @@ def build_vector_store():
                 ) as f:
                     text = f.read()
             except Exception as e:
-                print(f"   ⚠️  Skipping corrupted TXT {file_path.name}: {e}")
+                print(f"   ⚠️ Skipping corrupted TXT {file_path.name}: {e}")
                 continue
 
         if len(text.strip()) < 100:
@@ -257,7 +247,7 @@ def build_vector_store():
                 doc_id += 1
             except Exception as e:
                 print(
-                    f"   ⚠️  Error adding chunk from {file_path.name}: {e}"
+                    f"   ⚠️ Error adding chunk from {file_path.name}: {e}"
                 )
                 continue
 
@@ -292,15 +282,15 @@ def generate_with_retry(
                 )
                 return response
             except (ServerError, APIError) as e:
-                if "503" in str(e) or "UNAVAILABLE" in str(e):
+                if "503" in str(e) or "UNAVAILABLE" in str(e) or "429" in str(e):
                     wait_time = attempt * 5
                     print(
-                        f"   ⏱️  High demand detected. Retrying in {wait_time}s (Attempt {attempt}/{max_retries})..."
+                        f"   ⏱️ High demand detected. Retrying in {wait_time}s (Attempt {attempt}/{max_retries})..."
                     )
                     time.sleep(wait_time)
                 else:
                     raise e
-        print(f"   Switching to fallback model...")
+        print("   Switching to fallback model...")
 
     raise RuntimeError(
         "Failed to generate content after exhausting model retries."
@@ -326,7 +316,7 @@ def run_ai_agent():
     print("-" * 60)
     download_fresh_pdfs()
 
-    print("\n🗂️  STEP 2: Building Vector Database")
+    print("\n🗂️ STEP 2: Building Vector Database")
     print("-" * 60)
     collection = build_vector_store()
 
@@ -353,22 +343,15 @@ def run_ai_agent():
             if query_results["documents"] and query_results["documents"][0]:
                 all_retrieved_context.extend(query_results["documents"][0])
         except Exception as e:
-            print(f"   ⚠️  Query failed for '{query}': {e}")
+            print(f"   ⚠️ Query failed for '{query}': {e}")
 
     retrieved_context = (
         "\n---\n".join(all_retrieved_context[:10])
         if all_retrieved_context
-        else ""
+        else "Using official Science Bee and Geography Bee format guidelines."
     )
 
-    if not retrieved_context:
-        print(
-            "   ⚠️  No competition materials found. Using template-based generation."
-        )
-        retrieved_context = (
-            "Using official Science Bee and Geography Bee format guidelines."
-        )
-    else:
+    if all_retrieved_context:
         print(
             f"   ✓ Retrieved {len(all_retrieved_context)} relevant context passages"
         )
@@ -403,7 +386,7 @@ RULES:
 - Final clue must end with "For the point, name..." or similar format.
 - Content: Focus on factual, verifiable information from academic sources.
 - Category: Alternate between GEOGRAPHY and SCIENCE topics.
-- Assign each question a "topic" string strictly matching one from the TAXONOMY JSON above for that category.
+- Assign each question a "topic" string strictly matching an actual topic name from the TAXONOMY JSON above (e.g. "World Capitals & Urban Centers", "Velocity", "Acceleration", "Photosynthesis", etc.).
 
 GENERATE EXACTLY {current_count} pyramidal tossup questions.
 
@@ -421,7 +404,7 @@ Output STRICT JSON array matching this format (NO OTHER TEXT):
   {{
     "id": 2,
     "category": "Science",
-    "topic": "Physics & Energy",
+    "topic": "Velocity",
     "question": "Clue 1: [specific fact]... Clue 2: [related concept]... Clue 3: [common knowledge]... For the point, name...",
     "options": ["Option A", "Option B", "Option C", "Option D"],
     "answer": 1,
@@ -440,9 +423,6 @@ IMPORTANT:
         try:
             response = generate_with_retry(client, prompt_text)
             
-            # -------------------------------------------------------------
-            # FIX: Clean markdown block wrappers prior to JSON loading
-            # -------------------------------------------------------------
             raw_text = response.text.strip()
             if raw_text.startswith("```"):
                 lines = raw_text.splitlines()
@@ -460,18 +440,14 @@ IMPORTANT:
             time.sleep(1)
         except json.JSONDecodeError as e:
             print(f"   ❌ JSON parsing error: {e}")
-            print(f"   Response preview: {response.text[:200]}")
             continue
         except Exception as e:
             print(f"   ❌ Generation failed: {e}")
             continue
 
-    print(f"\n💾 STEP 5: Saving Quiz Data")
+    print("\n💾 STEP 5: Saving Quiz Data")
     print("-" * 60)
 
-    # -------------------------------------------------------------
-    # FIX: Safety check to avoid writing empty data
-    # -------------------------------------------------------------
     if not all_quizzes:
         print("❌ CRITICAL ERROR: 0 questions generated. 'quizzes.json' will not be overwritten.")
         return
@@ -496,13 +472,11 @@ IMPORTANT:
             "source": "Science Bee & Geography Bee Official Resources",
             "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
             "resources": [
-                "https://iacompetitionsasia.com/resources/",
-                "https://www.internationalgeographybee.com/asia/resources/",
-                "https://www.iacompetitions.com/resources/",
-                "https://www.internationalgeographybee.com/europe/resources/",
-                (
-                    "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
-                ),
+                "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
+                "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
+                "[https://www.iacompetitions.com/resources/](https://www.iacompetitions.com/resources/)",
+                "[https://www.internationalgeographybee.com/europe/resources/](https://www.internationalgeographybee.com/europe/resources/)",
+                "[https://www.iacompetitions.com/ems-national-science-bee-past-questions/](https://www.iacompetitions.com/ems-national-science-bee-past-questions/)",
             ],
         },
     }
@@ -519,12 +493,4 @@ IMPORTANT:
 
     print("\n" + "=" * 60)
     print(
-        f"✅ SUCCESS! Generated {len(all_quizzes)} pyramidal tossup questions"
-    )
-    print(f"📄 Saved to: quizzes.json")
-    print(f"📊 Categories: {geo_count} Geography, {sci_count} Science")
-    print("=" * 60)
-
-
-if __name__ == "__main__":
-    run_ai_agent()
+        f"✅ SUCCESS! Generated {len(all_quizzes)} pyramidal toss
