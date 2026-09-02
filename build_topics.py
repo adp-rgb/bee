@@ -18,17 +18,17 @@ def build_knowledge_base():
     # 1. Gather all unique topics/answers from extracted question files
     extracted_topics = set()
 
-    # Check extracted_questions.json (from parsed packets)
+    # Check extracted_questions.json
     packet_data_path = Path("extracted_questions.json")
     if packet_data_path.exists():
         with open(packet_data_path, "r", encoding="utf-8") as f:
             items = json.load(f)
             for item in items:
                 ans = item.get("answer", "").strip()
-                if ans and len(ans) < 50:  # filter out super long text answers
+                if ans and len(ans) < 50:
                     extracted_topics.add(ans)
 
-    # Check quizzes.json if available
+    # Check quizzes.json
     quizzes_path = Path("quizzes.json")
     if quizzes_path.exists():
         with open(quizzes_path, "r", encoding="utf-8") as f:
@@ -49,6 +49,9 @@ def build_knowledge_base():
             "Cell Nucleus",
             "Velocity",
             "Newton's Laws",
+            "Amazon River",
+            "Mount Everest",
+            "Tokyo",
         }
 
     topic_list = sorted(list(extracted_topics))
@@ -59,16 +62,23 @@ def build_knowledge_base():
     # 2. Query Gemini API for each topic to generate study facts
     for topic in topic_list:
         prompt = f"""
-        Provide detailed study guide data for the academic topic: "{topic}".
+        Provide detailed study guide data for the academic competition topic: "{topic}".
+        
+        Task:
+        1. Classify category as strictly either "Geography" or "Science".
+        2. Write a clear summary/definition.
+        3. Provide 3-4 distinct high-frequency competition key facts.
+        4. List 2-3 related topics.
+
         Respond ONLY with a JSON object matching this schema:
         {{
-            "summary": "A 1-2 sentence definition or overview of {topic}.",
-            "facts": ["Fact 1", "Fact 2", "Fact 3"],
+            "category": "Geography" or "Science",
+            "summary": "A 2-sentence explanation/definition of {topic}.",
+            "facts": ["Specific Fact 1", "Specific Fact 2", "Specific Fact 3"],
             "related_topics": ["Related Topic 1", "Related Topic 2"]
         }}
         """
 
-        topic_data = {}
         try:
             response = client.models.generate_content(
                 model="gemini-2.5-flash",
@@ -77,45 +87,37 @@ def build_knowledge_base():
                     response_mime_type="application/json"
                 ),
             )
-            topic_data = json.loads(response.text)
-            time.sleep(1)  # Rate-limit protection
-        except Exception as e:
-            print(f"Error processing {topic}: {e}")
-            topic_data = {
-                "summary": f"Study key facts and clues regarding {topic}.",
-                "facts": [f"High-frequency quiz bee concept: {topic}"],
-                "related_topics": [],
-            }
 
-        # Categorize topic into Geography vs. Science
-        category = (
-            "Geography"
-            if any(
-                w in topic.lower()
-                for w in [
-                    "capital",
-                    "river",
-                    "mountain",
-                    "country",
-                    "city",
-                    "ocean",
-                    "lake",
-                    "sea",
-                    "island",
-                    "strait",
-                ]
+            # Clean potential Markdown formatting block wrappers
+            raw_text = response.text.strip()
+            if raw_text.startswith("```"):
+                lines = raw_text.splitlines()
+                if lines[0].startswith("```"):
+                    lines = lines[1:]
+                if lines and lines[-1].startswith("```"):
+                    lines = lines[:-1]
+                raw_text = "\n".join(lines).strip()
+
+            topic_data = json.loads(raw_text)
+
+            category = topic_data.get("category", "Science")
+            if category not in ["Geography", "Science"]:
+                category = "Science"
+
+            topics_db[category].append(
+                {
+                    "name": topic,
+                    "definition": topic_data.get("summary", f"Overview of {topic}."),
+                    "key_facts": topic_data.get("facts", []),
+                    "related_topics": topic_data.get("related_topics", []),
+                }
             )
-            else "Science"
-        )
 
-        topics_db[category].append(
-            {
-                "name": topic,
-                "definition": topic_data.get("summary", ""),
-                "key_facts": topic_data.get("facts", []),
-                "related_topics": topic_data.get("related_topics", []),
-            }
-        )
+            print(f"   ✓ Generated study guide for: {topic} [{category}]")
+            time.sleep(1)  # Rate-limit protection
+
+        except Exception as e:
+            print(f"   ❌ Error processing {topic}: {e}")
 
     # 3. Save knowledge base output
     with open("topics.json", "w", encoding="utf-8") as f:
@@ -123,7 +125,7 @@ def build_knowledge_base():
 
     total_count = len(topics_db["Geography"]) + len(topics_db["Science"])
     print(
-        f"Successfully generated topics.json with {total_count} items across Geography and Science!"
+        f"\n✅ Successfully generated topics.json with {total_count} unique items across Geography and Science!"
     )
 
 
