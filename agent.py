@@ -37,7 +37,7 @@ def download_fresh_pdfs():
 
     resources = [
         {
-            "url": "https://iacompetitionsasia.com/resources/",
+            "url": "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
             "name": "IAC Asia Resources",
             "keywords": [
                 "science",
@@ -51,12 +51,12 @@ def download_fresh_pdfs():
             ],
         },
         {
-            "url": "https://www.internationalgeographybee.com/asia/resources/",
+            "url": "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
             "name": "International Geography Bee - Asia",
             "keywords": ["geography", "bee", "competition", "past", "question"],
         },
         {
-            "url": "https://www.iacompetitions.com/resources/",
+            "url": "[https://www.iacompetitions.com/resources/](https://www.iacompetitions.com/resources/)",
             "name": "IAC Competitions Resources",
             "keywords": [
                 "science",
@@ -68,13 +68,13 @@ def download_fresh_pdfs():
             ],
         },
         {
-            "url": "https://www.internationalgeographybee.com/europe/resources/",
+            "url": "[https://www.internationalgeographybee.com/europe/resources/](https://www.internationalgeographybee.com/europe/resources/)",
             "name": "International Geography Bee - Europe",
             "keywords": ["geography", "bee", "competition", "past", "question"],
         },
         {
             "url": (
-                "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
+                "[https://www.iacompetitions.com/ems-national-science-bee-past-questions/](https://www.iacompetitions.com/ems-national-science-bee-past-questions/)"
             ),
             "name": "IAC EMS National Science Bee Past Questions",
             "keywords": [
@@ -109,7 +109,7 @@ def download_fresh_pdfs():
                 resource["url"], headers=headers, timeout=15
             )
             response.raise_for_status()
-            time.sleep(2)  # Pause to respect rate limits during scraping
+            time.sleep(2)
         except Exception as e:
             print(f"   ❌ Failed to reach {resource['name']}: {e}")
             continue
@@ -145,7 +145,6 @@ def download_fresh_pdfs():
         print(f"   ✓ Found {len(pdf_links)} PDF resources")
         all_pdf_links.extend(pdf_links)
 
-    # De-duplicate links across all scrapers
     all_pdf_links = list(set(all_pdf_links))
     print(f"\n📥 Total unique PDF resources found: {len(all_pdf_links)}")
 
@@ -165,7 +164,6 @@ def download_fresh_pdfs():
 
             print(f"   ⬇️  Downloading: {filename}...")
 
-            # Retry mechanism for 429 Too Many Requests
             max_retries = 3
             for attempt in range(max_retries):
                 pdf_res = requests.get(pdf_url, headers=headers, timeout=30)
@@ -184,8 +182,6 @@ def download_fresh_pdfs():
 
             downloaded_count += 1
             print(f"      ✓ Saved: {filename}")
-
-            # 3-second delay between file downloads to prevent 429 errors
             time.sleep(3)
 
         except Exception as e:
@@ -443,7 +439,20 @@ IMPORTANT:
 
         try:
             response = generate_with_retry(client, prompt_text)
-            batch_data = json.loads(response.text)
+            
+            # -------------------------------------------------------------
+            # FIX: Clean markdown block wrappers prior to JSON loading
+            # -------------------------------------------------------------
+            raw_text = response.text.strip()
+            if raw_text.startswith("```"):
+                lines = raw_text.splitlines()
+                if lines[0].startswith("```"):
+                    lines = lines[1:]
+                if lines and lines[-1].startswith("```"):
+                    lines = lines[:-1]
+                raw_text = "\n".join(lines).strip()
+
+            batch_data = json.loads(raw_text)
             all_quizzes.extend(batch_data)
             print(
                 f"   ✓ Generated {len(batch_data)} questions successfully"
@@ -459,6 +468,13 @@ IMPORTANT:
 
     print(f"\n💾 STEP 5: Saving Quiz Data")
     print("-" * 60)
+
+    # -------------------------------------------------------------
+    # FIX: Safety check to avoid writing empty data
+    # -------------------------------------------------------------
+    if not all_quizzes:
+        print("❌ CRITICAL ERROR: 0 questions generated. 'quizzes.json' will not be overwritten.")
+        return
 
     for idx, q in enumerate(all_quizzes, start=1):
         q["id"] = idx
