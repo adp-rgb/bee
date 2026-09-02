@@ -1,5 +1,5 @@
-beautifulsoup4
-pypdf
-chromadb
-google-genai
-requests
+google-genai>=0.1.1
+chromadb>=0.4.0
+pypdf>=3.0.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
