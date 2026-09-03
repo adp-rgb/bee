@@ -262,7 +262,7 @@ def build_vector_store():
 def generate_with_retry(
     client,
     prompt_text,
-    primary_model="gemini-1.5-flash",
+    primary_model="gemini-3.6-flash",
     fallback_model="gemini-1.5-pro",
     max_retries=5,
 ):
