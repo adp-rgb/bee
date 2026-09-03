@@ -79,14 +79,14 @@ def build_knowledge_base():
         }}
         """
 
-  try:
-    response = client.models.generate_content(
-        model="gemini-1.5-flash",
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json"
-        ),
-    )
+        try:
+            response = client.models.generate_content(
+                model="gemini-1.5-flash",
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json"
+                ),
+            )
 
             # Clean potential Markdown formatting block wrappers
             raw_text = response.text.strip()
@@ -107,7 +107,9 @@ def build_knowledge_base():
             topics_db[category].append(
                 {
                     "name": topic,
-                    "definition": topic_data.get("summary", f"Overview of {topic}."),
+                    "definition": topic_data.get(
+                        "summary", f"Overview of {topic}."
+                    ),
                     "key_facts": topic_data.get("facts", []),
                     "related_topics": topic_data.get("related_topics", []),
                 }
