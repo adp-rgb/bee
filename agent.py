@@ -493,4 +493,12 @@ IMPORTANT:
 
     print("\n" + "=" * 60)
     print(
-        f"✅ SUCCESS! Generated {len(all_quizzes)} pyramidal toss
+        f"✅ SUCCESS! Generated {len(all_quizzes)} pyramidal tossup questions"
+    )
+    print("📄 Saved to: quizzes.json")
+    print(f"📊 Categories: {geo_count} Geography, {sci_count} Science")
+    print("=" * 60)
+
+
+if __name__ == "__main__":
+    run_ai_agent()
