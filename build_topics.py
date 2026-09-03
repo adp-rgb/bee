@@ -81,7 +81,7 @@ def build_knowledge_base():
 
         try:
             response = client.models.generate_content(
-                model="models/gemini-3.6-flash",
+                model="gemini-3.6-flash",
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json"
