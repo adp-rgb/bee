@@ -79,14 +79,14 @@ def build_knowledge_base():
         }}
         """
 
-        try:
-            response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json"
-                ),
-            )
+  try:
+    response = client.models.generate_content(
+        model="gemini-1.5-flash",
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json"
+        ),
+    )
 
             # Clean potential Markdown formatting block wrappers
             raw_text = response.text.strip()
