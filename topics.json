@@ -1,60 +1,30 @@
 {
   "Geography": [
     {
-      "name": "Amazon River",
-      "definition": "The Amazon River in South America is the world's largest river by discharge volume of water and is widely considered the second-longest river overall. Originating high in the Peruvian Andes, it flows eastward across northern Brazil before emptying into the Atlantic Ocean.",
-      "key_facts": [
-        "It accounts for approximately 20% of the world's total river discharge into the ocean, carrying more water than the next seven largest rivers combined.",
-        "Despite its massive scale, no bridges cross the main stem of the Amazon River due to its extreme width, seasonal flood patterns, and surrounding dense rainforest.",
-        "Near Manaus, Brazil, the 'Meeting of Waters' occurs where the dark, acidic Rio Negro and the sandy Solimões River flow side by side for several miles without immediately mixing.",
-        "Its primary headwater source is traditionally traced to glacial streams on Nevado Mismi in the Peruvian Andes."
-      ],
-      "related_topics": [
-        "Amazon Rainforest",
-        "Rio Negro",
-        "River Basin Hydrology"
-      ]
-    },
-    {
       "name": "Mount Everest",
-      "definition": "Mount Everest is Earth's highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas along the border between Nepal and China. Standing at an officially recognized height of 8,848.86 meters (29,031.7 feet), its extreme altitude and climate make it one of the most challenging mountaineering destinations in the world.",
+      "definition": "Mount Everest, located in the Mahalangur Himal sub-range of the Himalayas, is Earth's highest mountain above sea level with an officially recognized peak elevation of 8,848.86 meters (29,031.7 feet). Straddling the international border between Nepal and China, it is known locally as Sagarmatha in Nepal and Chomolungma in Tibet.",
       "key_facts": [
-        "Known as Sagarmatha in Nepal and Chomolungma in Tibet, the mountain was named in English after Sir George Everest, a British Surveyor General of India.",
-        "Sir Edmund Hillary of New Zealand and Sherpa Tenzing Norgay made the first officially confirmed ascent of Mount Everest on May 29, 1953.",
-        "The region above 8,000 meters (26,247 feet) on Everest is known as the 'Death Zone' due to extremely low oxygen levels and severe atmospheric pressure.",
-        "Everest continues to grow at a rate of roughly 4 millimeters per year due to the ongoing tectonic collision between the Indian and Eurasian plates."
+        "Sir Edmund Hillary of New Zealand and Tenzing Norgay, a Sherpa climber from Nepal, became the first people confirmed to reach the summit on May 29, 1953.",
+        "The mountain was named after Sir George Everest, a former Surveyor General of India, although Indian mathematician Radhanath Sikdar was the first to calculate its position as the world's highest peak in 1852.",
+        "The region above approximately 8,000 meters (26,000 feet) on the mountain is known as the 'Death Zone,' where atmospheric pressure drops significantly and human life cannot be sustained without supplemental oxygen over extended periods.",
+        "Formed by the collision of the Indian and Eurasian tectonic plates, Mount Everest continues to rise at a rate of roughly 4 millimeters per year due to ongoing geological uplift."
       ],
       "related_topics": [
         "Himalayas",
-        "Plate Tectonics",
-        "K2"
-      ]
-    },
-    {
-      "name": "Tokyo",
-      "definition": "Tokyo is the capital and most populous metropolis of Japan, situated at the head of Tokyo Bay on the eastern coast of Honshu island. As the core of the Greater Tokyo Area, it stands as the world's most populous metropolitan area and serves as Japan's political, economic, and cultural center.",
-      "key_facts": [
-        "Originally a small fishing village named Edo, the city was renamed Tokyo (meaning 'Eastern Capital') in 1868 when Emperor Meiji moved the imperial seat there from Kyoto.",
-        "The administrative structure of Tokyo is unique, comprising 23 Special Wards that function as autonomous cities, as well as western municipalities and distant island chains such as the Izu and Ogasawara Islands.",
-        "Situated on the Kanto Plain, Tokyo lies near a complex triple junction of tectonic plates (Pacific, Philippine Sea, and Eurasian), making it highly susceptible to major earthquakes such as the 1923 Great Kanto Earthquake.",
-        "The Greater Tokyo Area, which includes major surrounding cities like Yokohama and Kawasaki, hosts a population exceeding 37 million people, making it the world's largest urban economy."
-      ],
-      "related_topics": [
-        "Kanto Plain",
-        "Edo Period",
-        "Honshu Island"
+        "K2",
+        "Plate Tectonics"
       ]
     }
   ],
   "Science": [
     {
       "name": "Acceleration",
-      "definition": "Acceleration is defined as the rate of change of velocity of an object with respect to time. As a vector quantity, it possesses both magnitude and direction, occurring whenever an object changes its speed, direction of motion, or both.",
+      "definition": "Acceleration is defined as the rate of change of an object's velocity with respect to time, making it a vector quantity that accounts for changes in both speed and direction. In the International System of Units (SI), it is measured in meters per second squared (m/s²).",
       "key_facts": [
-        "In SI units, acceleration is measured in meters per second squared (m/s²).",
-        "According to Newton's Second Law of Motion, acceleration is directly proportional to net force and inversely proportional to mass (F = ma).",
-        "Centripetal acceleration acts on an object moving in a circular path, directed toward the center of curvature and calculated as v²/r.",
-        "Standard acceleration due to Earth's gravity at sea level is approximately 9.81 m/s²."
+        "According to Newton's Second Law of Motion, acceleration is directly proportional to the net force acting on an object and inversely proportional to its mass (F = ma).",
+        "Centripetal acceleration describes the acceleration directed toward the center of a circular path, calculated using the formula a_c = v² / r.",
+        "The slope of a velocity-versus-time graph represents the object's acceleration, whereas the area under the curve represents displacement.",
+        "Standard gravitational acceleration at Earth's surface is represented by 'g' and equals approximately 9.81 m/s²."
       ],
       "related_topics": [
         "Velocity",
@@ -64,47 +34,46 @@
     },
     {
       "name": "Gravitational Force",
-      "definition": "Gravitational force is the universal fundamental interaction that causes all matter with mass or energy to be attracted to one another. It is mathematically described by Newton's Law of Universal Gravitation at classical scales and as the curvature of spacetime in Einstein's General Theory of Relativity.",
+      "definition": "Gravitational force is a fundamental attractive interaction that exists between any two masses in the universe, directly proportional to the product of their masses and inversely proportional to the square of the distance between them. Formulated classically by Sir Isaac Newton and later reinterpreted by Albert Einstein as the curvature of spacetime, it governs planetary orbits, ocean tides, and large-scale cosmic structure.",
       "key_facts": [
-        "Newton's Law of Universal Gravitation states that force is directly proportional to the product of two masses and inversely proportional to the square of the distance between them (F = G * m1 * m2 / r^2).",
-        "The gravitational constant (G) has an approximate value of 6.674 x 10^-11 N m^2/kg^2, first measured experimentally by Henry Cavendish in 1798.",
-        "On Earth's surface, the average acceleration due to gravity (g) is approximately 9.81 m/s^2, though it varies slightly depending on latitude, altitude, and local geology.",
-        "General Relativity explains gravity not as a traditional mechanical force, but as objects following straight paths (geodesics) through spacetime curved by mass and energy."
+        "Newton's Law of Universal Gravitation states that force equals G multiplied by the product of two masses divided by the square of the distance between them, where G is the universal gravitational constant (approximately 6.674 x 10^-11 N·m²/kg²).",
+        "Albert Einstein's Theory of General Relativity redefines gravity not as a mechanical force, but as a consequence of mass and energy warping the four-dimensional fabric of spacetime.",
+        "Gravity is the weakest of the four fundamental forces of nature, yet it dictates macroscopic phenomena because it is strictly attractive and has an infinite range.",
+        "The standard acceleration due to Earth's gravity at sea level is approximately 9.80665 m/s², though local variations occur due to altitude, latitude, and geological mass anomalies."
       ],
       "related_topics": [
         "General Relativity",
         "Kepler's Laws of Planetary Motion",
-        "Fundamental Interactions"
+        "Tidal Forces"
       ]
     },
     {
       "name": "Newton's Laws",
-      "definition": "Newton's Laws of Motion are three fundamental principles formulated by Sir Isaac Newton in 1687 that describe the relationship between a body and the forces acting upon it. They lay the groundwork for classical mechanics by explaining how objects remain at rest, accelerate under an external force, and exert equal and opposite forces on one another.",
+      "definition": "Formulated by Sir Isaac Newton in 1687, Newton's Laws of Motion describe the relationship between the movement of an object and the forces acting upon it. These three fundamental principles form the cornerstone of classical mechanics, explaining concepts of inertia, force-driven acceleration, and action-reaction pairs.",
       "key_facts": [
-        "The First Law, also known as the Law of Inertia, states that an object will remain at rest or in uniform motion unless acted upon by a net external force.",
-        "The Second Law mathematically defines force as the rate of change of momentum, simplified to the product of mass and acceleration (F = ma).",
-        "The Third Law states that for every action force, there is an equal and opposite reaction force acting simultaneously on different bodies.",
-        "These principles were first compiled and published in Sir Isaac Newton's seminal 1687 work, 'Philosophiæ Naturalis Principia Mathematica'."
+        "The First Law, or the Law of Inertia, states that an object remains at rest or in uniform linear motion unless acted upon by a net external force.",
+        "The Second Law defines force as the rate of change of momentum over time, traditionally expressed by the equation F = ma.",
+        "The Third Law asserts that whenever one object exerts a force on another, the second object exerts an equal and opposite force on the first.",
+        "All three laws were first published together in Newton's landmark treatise, Philosophiæ Naturalis Principia Mathematica."
       ],
       "related_topics": [
         "Classical Mechanics",
-        "Conservation of Momentum",
-        "Newton's Law of Universal Gravitation"
+        "Law of Universal Gravitation",
+        "Conservation of Momentum"
       ]
     },
     {
       "name": "Photosynthesis",
-      "definition": "Photosynthesis is the biological process by which autotrophic organisms convert light energy, water, and carbon dioxide into chemical energy stored in glucose while releasing oxygen as a byproduct. Occurring primarily within the chloroplasts of plant cells, it consists of light-dependent reactions that generate ATP and NADPH and light-independent reactions that fix carbon.",
+      "definition": "Photosynthesis is the biological process by which autotrophic organisms convert light energy, water, and carbon dioxide into chemical energy stored in glucose while releasing oxygen as a byproduct. It occurs primarily within the chloroplasts of plant cells and consists of light-dependent reactions and the light-independent Calvin cycle.",
       "key_facts": [
-        "The light-dependent reactions take place in the thylakoid membranes, utilizing Photosystems II and I to produce ATP and NADPH via non-cyclic photophosphorylation.",
-        "RuBisCO is the primary enzyme responsible for carbon fixation in the Calvin cycle and is considered the most abundant enzyme on Earth.",
-        "C4 and CAM plants have evolved specialized spatial or temporal adaptations using PEP carboxylase to minimize photorespiration in hot or arid environments.",
-        "Oxygen gas released during photosynthesis originates entirely from the photolysis (splitting) of water molecules rather than from carbon dioxide."
+        "The light-dependent reactions occur in the thylakoid membranes, utilizing Photosystems II and I to generate ATP and NADPH via an electron transport chain while splitting water into oxygen through photolysis.",
+        "RuBisCO (Ribulose-1,5-bisphosphate carboxylase-oxygenase) is the key enzyme that catalyzes carbon fixation in the Calvin cycle and is considered the most abundant protein on Earth.",
+        "C4 and CAM plants utilize specialized anatomical and biochemical adaptations to minimize photorespiration by spatially or temporally separating initial carbon fixation from the Calvin cycle."
       ],
       "related_topics": [
         "Cellular Respiration",
         "Calvin Cycle",
-        "Chloroplast Anatomy"
+        "Chloroplast Structure and Function"
       ]
     }
   ]

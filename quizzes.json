@@ -1,6 +1,6 @@
 {
   "rules_summary": {
-    "total_questions": 30,
+    "total_questions": 20,
     "max_correct_per_player": 6,
     "early_penalty": -1,
     "bonus_table": [
@@ -93,22 +93,22 @@
     {
       "id": 1,
       "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Its primary headwater source is traditionally traced to glacial streams on Nevado Mismi in the Peruvian Andes, and near Manaus, its dark acidic Rio Negro meets the Solimões River without immediately mixing. Carrying more water than the next seven largest rivers combined, no bridges cross its main stem due to its extreme width and surrounding dense rainforest. For the point, name this world's largest river by discharge volume, which flows through Brazil.",
+      "topic": "Mount Everest",
+      "question": "Indian mathematician Radhanath Sikdar first calculated the position of this geographical feature as the world's highest peak in 1852. Known as Sagarmatha in Nepal and Chomolungma in Tibet, its dangerous upper region above 8,000 meters is designated as the Death Zone. First summiting on May 29, 1953, Sir Edmund Hillary and Tenzing Norgay were the first confirmed people to reach its peak. For the point, name this highest mountain on Earth, located in the Himalayas.",
       "options": [
-        "Amazon River",
-        "Nile River",
-        "Congo River",
-        "Mississippi River"
+        "Mount Everest",
+        "K2",
+        "Kangchenjunga",
+        "Lhotse"
       ],
       "answer": 0,
-      "explanation": "The Amazon River originates on Nevado Mismi in Peru, features the 'Meeting of Waters' near Manaus, has no bridges crossing its main stem, and holds the largest river discharge volume in the world."
+      "explanation": "Mount Everest, located in the Himalayas on the border of Nepal and China, was first identified as Earth's highest peak by Radhanath Sikdar and first summitted by Edmund Hillary and Tenzing Norgay in 1953."
     },
     {
       "id": 2,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "The centripetal form of this vector quantity is directed toward the center of curvature and is calculated as velocity squared divided by radius. According to Newton's Second Law of Motion, this property is directly proportional to net force and inversely proportional to an object's mass. For the point, name this rate of change of velocity over time, measured in SI units of meters per second squared.",
+      "question": "The centripetal form of this vector quantity is directed toward the center of a circular path and equals velocity squared divided by radius. On a velocity-versus-time graph, the slope of the curve represents this value, while the area under the curve gives displacement. Measured in meters per second squared, it is defined by Newton's Second Law as force divided by mass. For the point, name this rate of change of an object's velocity over time.",
       "options": [
         "Velocity",
         "Acceleration",
@@ -116,97 +116,13 @@
         "Jerk"
       ],
       "answer": 1,
-      "explanation": "Acceleration is a vector quantity defined as the rate of change of velocity, measured in m/s², and related to force and mass via Newton's Second Law (F = ma)."
+      "explanation": "Acceleration is the rate of change of velocity with respect to time, measured in m/s², and represents the slope on a velocity-vs-time graph."
     },
     {
       "id": 3,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Known in Tibet as Chomolungma and in Nepal as Sagarmatha, the region above 8,000 meters on this peak is referred to as the 'Death Zone' due to extremely low atmospheric pressure. It continues to grow at roughly four millimeters per year as the Indian and Eurasian tectonic plates collide, and it was first officially scaled by Sir Edmund Hillary and Tenzing Norgay in 1953. For the point, name this highest mountain above sea level on Earth.",
-      "options": [
-        "K2",
-        "Kangchenjunga",
-        "Mount Everest",
-        "Lhotse"
-      ],
-      "answer": 2,
-      "explanation": "Mount Everest is Earth's highest peak at 8,848.86 meters, known as Sagarmatha and Chomolungma, located in the Himalayas."
-    },
-    {
-      "id": 4,
-      "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "The proportionality constant for this interaction was first measured experimentally in 1798 using a torsion balance by Henry Cavendish. In General Relativity, it is modeled not as a mechanical force but as geodesics following spacetime curved by mass and energy, while classical physics states it drops off with the square of distance. For the point, name this fundamental force that accelerates objects toward Earth's surface at roughly 9.81 meters per second squared.",
-      "options": [
-        "Electromagnetic Force",
-        "Weak Nuclear Force",
-        "Strong Nuclear Force",
-        "Gravitational Force"
-      ],
-      "answer": 3,
-      "explanation": "Gravitational force attracts mass and energy, governed by Newton's law of gravitation (measured by Cavendish) and described as spacetime curvature in Einstein's General Relativity."
-    },
-    {
-      "id": 5,
-      "category": "Geography",
-      "topic": "Tokyo",
-      "question": "This city's administrative structure includes 23 Special Wards as well as western municipalities and distant island chains such as the Izu and Ogasawara Islands located on the Kanto Plain. Formerly a small fishing village named Edo, it was renamed in 1868 when Emperor Meiji relocated the imperial seat from Kyoto. For the point, name this capital of Japan, the most populous metropolitan area in the world.",
-      "options": [
-        "Osaka",
-        "Tokyo",
-        "Kyoto",
-        "Yokohama"
-      ],
-      "answer": 1,
-      "explanation": "Tokyo, originally named Edo, became Japan's capital in 1868 and comprises 23 Special Wards on the Kanto Plain."
-    },
-    {
-      "id": 6,
-      "category": "Science",
-      "topic": "Newton's Laws",
-      "question": "The third of these statements notes that action and reaction forces act simultaneously on different bodies, while the second defines force as the rate of change of momentum. First compiled in the 1687 treatise Philosophiæ Naturalis Principia Mathematica, their first principle is also known as the Law of Inertia. For the point, name these three fundamental principles of classical mechanics formulated by an English physicist.",
-      "options": [
-        "Kepler's Laws",
-        "Newton's Laws",
-        "Maxwell's Equations",
-        "Thermodynamic Laws"
-      ],
-      "answer": 1,
-      "explanation": "Sir Isaac Newton formulated the three fundamental laws of motion published in the Principia Mathematica in 1687."
-    },
-    {
-      "id": 7,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Accounting for approximately 20 percent of total global river discharge into the ocean, this body of water forms a famous confluence with the sandy Solimões River. Flowing eastward across northern Brazil to empty into the Atlantic Ocean, its immense volume and surrounding dense jungle prevent any bridge from spanning it. For the point, name this massive South American river.",
-      "options": [
-        "Amazon River",
-        "Orinoco River",
-        "Paraná River",
-        "Magdalena River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River accounts for 20% of global ocean discharge from rivers and flows across South America to the Atlantic."
-    },
-    {
-      "id": 8,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "C4 and CAM plants minimize photorespiration in hot environments during this process by utilizing PEP carboxylase prior to carbon fixation. Its light-dependent stage takes place in thylakoid membranes where water molecules undergo photolysis to release oxygen gas. For the point, name this biological process where autotrophs convert light energy, carbon dioxide, and water into glucose.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Fermentation",
-        "Glycolysis"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis is the process in plants and autotrophs that converts light energy, water, and CO2 into glucose and oxygen."
-    },
-    {
-      "id": 9,
-      "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Located in the Mahalangur Himal sub-range along the border between Nepal and China, this mountain was named in English after a British Surveyor General of India. It sits at an officially recognized altitude of 8,848.86 meters and experiences extreme tectonic uplifting due to colliding continental plates. For the point, name this summit, the highest peak in the Himalayas.",
+      "question": "Rising roughly 4 millimeters per year due to tectonic uplift, this peak is situated in the Mahalangur Himal sub-range of the Himalayas. Named after a former Surveyor General of India, its summit elevation was officially measured at 8,848.86 meters above sea level. It sits directly on the international border between Nepal and China. For the point, name this mountain, the highest peak in the world.",
       "options": [
         "Annapurna",
         "Makalu",
@@ -214,69 +130,13 @@
         "Cho Oyu"
       ],
       "answer": 2,
-      "explanation": "Mount Everest is located in the Mahalangur Himal sub-range of the Himalayas along the Nepal-China border."
+      "explanation": "Mount Everest continues to rise due to the collision of the Indian and Eurasian tectonic plates and holds the highest peak elevation above sea level at 8,848.86 meters."
     },
     {
-      "id": 10,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "The Calvin cycle during this process uses the enzyme RuBisCO, considered the most abundant enzyme on Earth, to fix inorganic carbon. Taking place within the chloroplasts of plant cells, its non-cyclic photophosphorylation generates ATP and NADPH. For the point, name this chemical process by which plants make their own food using sunlight.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Transpiration",
-        "Nitrogen Fixation"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis uses RuBisCO in the Calvin cycle within chloroplasts to fix carbon into organic molecules using solar energy."
-    },
-    {
-      "id": 11,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Its primary headwater source is traditionally traced to glacial streams on Nevado Mismi in the Peruvian Andes. Near Manaus, Brazil, the 'Meeting of Waters' occurs where the dark, acidic Rio Negro and the sandy Solimões River flow side by side without immediately mixing. Accounting for approximately 20 percent of the world's total river discharge into the ocean, no bridges cross the main stem of this rainforest waterway. For the point, name this largest river in South America by discharge volume.",
-      "options": [
-        "Amazon River",
-        "Nile River",
-        "Congo River",
-        "Mississippi River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River originates in the Peruvian Andes near Nevado Mismi, features the 'Meeting of Waters' with the Rio Negro, and is the world's largest river by discharge volume with no bridges crossing its main stem."
-    },
-    {
-      "id": 12,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "Centripetal forms of this quantity act on an object moving in a circular path and are calculated as velocity squared divided by radius. According to Newton's Second Law of Motion, this vector quantity is directly proportional to net force and inversely proportional to mass. On Earth's surface, the standard value for this rate of change due to gravity is roughly 9.81 meters per second squared. For the point, name this rate of change of velocity with respect to time.",
-      "options": [
-        "Velocity",
-        "Acceleration",
-        "Momentum",
-        "Jerk"
-      ],
-      "answer": 1,
-      "explanation": "Acceleration is a vector quantity defined as the rate of change of velocity over time. It is measured in meters per second squared and is related to net force via F = ma."
-    },
-    {
-      "id": 13,
-      "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Known as Sagarmatha in Nepal and Chomolungma in Tibet, this mountain continues to grow at roughly 4 millimeters per year due to tectonic plate collisions. Above 8,000 meters, climbers enter a hazardous region known as the 'Death Zone' due to extremely low atmospheric pressure and thin air. First officially summited on May 29, 1953, by Sir Edmund Hillary and Sherpa Tenzing Norgay, it stands in the Himalayas along the Nepal-China border. For the point, name this peak that is the highest mountain above sea level.",
-      "options": [
-        "K2",
-        "Kangchenjunga",
-        "Mount Everest",
-        "Lhotse"
-      ],
-      "answer": 2,
-      "explanation": "Mount Everest (Sagarmatha/Chomolungma) is the world's highest peak above sea level, located in the Himalayas and first scaled by Hillary and Norgay in 1953."
-    },
-    {
-      "id": 14,
+      "id": 4,
       "category": "Science",
       "topic": "Gravitational Force",
-      "question": "The universal constant governing this interaction, denoted G, was first experimentally determined by Henry Cavendish in 1798 using a torsion balance. Einstein's General Theory of Relativity describes this phenomenon not as a traditional mechanical force, but as the movement of mass along geodesics in curved spacetime. Its magnitude between two objects is directly proportional to the product of their masses and inversely proportional to the square of the distance between them. For the point, name this fundamental force that attracts objects with mass toward each other.",
+      "question": "Albert Einstein's Theory of General Relativity redefines this interaction as a consequence of mass warping the four-dimensional fabric of spacetime. Despite being the weakest of the four fundamental interactions, it dictates large-scale cosmic structure and ocean tides because it is purely attractive and has an infinite range. Its classical magnitude is proportional to the product of two masses divided by the square of the distance between them. For the point, name this attractive force that causes objects to accelerate toward Earth at roughly 9.81 m/s².",
       "options": [
         "Electromagnetic Force",
         "Strong Nuclear Force",
@@ -284,27 +144,27 @@
         "Weak Nuclear Force"
       ],
       "answer": 2,
-      "explanation": "Gravitational force is governed by Newton's inverse-square law, constant G measured by Cavendish, and explained as spacetime curvature in General Relativity."
+      "explanation": "Gravitational force is the fundamental attractive interaction between masses governed classically by Newton's inverse-square law and relativistically by general relativity."
     },
     {
-      "id": 15,
+      "id": 5,
       "category": "Geography",
-      "topic": "Tokyo",
-      "question": "Situated on the Kanto Plain, this city lies near a complex triple junction of tectonic plates, contributing to major seismic events such as a catastrophic 1923 earthquake. Originally a small fishing village named Edo, it was renamed in 1868 when Emperor Meiji moved the imperial seat here from Kyoto. Consisting of 23 Special Wards alongside western municipalities and distant island chains, its broader metropolitan area holds over 37 million people. For the point, name this capital city of Japan.",
+      "topic": "Mount Everest",
+      "question": "Climbers attempting the Southeast Ridge route on this mountain must traverse the hazardous Khumbu Icefall and pass through the South Col. Situated in the Mahalangur Himal, its high altitude forces climbers in the Death Zone to use supplemental oxygen due to extremely low atmospheric pressure. It was first successfully ascended in May 1953 by Sherpa climber Tenzing Norgay and New Zealander Edmund Hillary. For the point, name this famous Himalayan mountain on the Nepal-China border.",
       "options": [
-        "Osaka",
-        "Tokyo",
-        "Kyoto",
-        "Yokohama"
+        "Mount Everest",
+        "K2",
+        "Mont Blanc",
+        "Kilimanjaro"
       ],
-      "answer": 1,
-      "explanation": "Tokyo, formerly known as Edo, is located on the Kanto Plain and serves as the capital and most populous urban area of Japan."
+      "answer": 0,
+      "explanation": "Mount Everest features famous climbing locations such as the Khumbu Icefall and South Col, and its upper region requires supplemental oxygen due to low pressure."
     },
     {
-      "id": 16,
+      "id": 6,
       "category": "Science",
       "topic": "Newton's Laws",
-      "question": "First published in the 1687 treatise Philosophiae Naturalis Principia Mathematica, these three physical principles form the bedrock of classical mechanics. The first principle introduces the concept of inertia, while the second defines net force as mass times acceleration. The third principle famously asserts that for every action, there is an equal and opposite reaction. For the point, name these fundamental laws of motion named after an English physicist.",
+      "question": "First published together in the 1687 landmark treatise Philosophiæ Naturalis Principia Mathematica, these three principles form the cornerstone of classical mechanics. The first of these principles is also known as the Law of Inertia, while the third asserts that every action force has an equal and opposite reaction. The second principle defines net force as equal to mass times acceleration. For the point, name these three fundamental physical laws formulated by an English scientist.",
       "options": [
         "Kepler's Laws",
         "Newton's Laws",
@@ -312,139 +172,83 @@
         "Laws of Thermodynamics"
       ],
       "answer": 1,
-      "explanation": "Newton's Laws of Motion were compiled in his 1687 Principia and outline inertia, F = ma, and equal and opposite reaction forces."
+      "explanation": "Newton's Laws of Motion were published in the Principia Mathematica in 1687 and establish fundamental classical relationships involving inertia, acceleration (F=ma), and action-reaction pairs."
     },
     {
-      "id": 17,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Carrying more water than the next seven largest rivers combined, this vast body of water lacks any main-stem bridges due to its extreme width and seasonal flooding. Its upper stretches in Brazil are commonly called the Solimões before meeting the dark waters of the Rio Negro. Originating high in the Peruvian Andes, it flows eastward across South America into the Atlantic Ocean. For the point, name this South American river with the world's largest drainage basin.",
-      "options": [
-        "Orinoco River",
-        "Paraná River",
-        "Magdalena River",
-        "Amazon River"
-      ],
-      "answer": 3,
-      "explanation": "The Amazon River flows eastward from Peru through Brazil to the Atlantic, carrying roughly 20% of global river runoff without any bridges spanning its main channel."
-    },
-    {
-      "id": 18,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "C4 and CAM plants avoid photorespiration in hot environments by using PEP carboxylase to fix carbon prior to entry into the Calvin cycle. During its light-dependent reactions, photolysis splits water molecules within the thylakoid membrane to generate ATP, NADPH, and oxygen gas. The carbon fixation phase relies heavily on RuBisCO, often considered the most abundant enzyme on Earth. For the point, name this biological process in which plants convert light energy into chemical energy stored in glucose.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Fermentation",
-        "Glycolysis"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis takes place in plant chloroplasts, utilizing light reactions and the Calvin cycle (featuring RuBisCO) to transform carbon dioxide and water into glucose and oxygen."
-    },
-    {
-      "id": 19,
+      "id": 7,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Located in the Mahalangur Himal sub-range along the border of Nepal and China, this peak was named in English after a British Surveyor General of India. Climbers traversing its South Col route must pass features like the Khumbu Icefall and the Hillary Step before reaching its highest ridge. Officially measured at 8,848.86 meters in elevation, it is recognized as the world's highest peak. For the point, name this famous Himalayan mountain.",
-      "options": [
-        "Mount Everest",
-        "Mount Kilimanjaro",
-        "Mount McKinley",
-        "Mount Fuji"
-      ],
-      "answer": 0,
-      "explanation": "Mount Everest stands at 8,848.86 meters along the Nepal-China border in the Himalayas and is Earth's highest peak."
-    },
-    {
-      "id": 20,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "Because it is a vector quantity, a change in direction alone at constant speed still produces a non-zero value for this variable. It appears as the variable 'a' in the kinematic equation v equals u plus a t, as well as in the net force equation F equals m a. Expressed in SI units of meters per second squared, it measures the rate of change of an object's velocity. For the point, name this physical concept.",
-      "options": [
-        "Speed",
-        "Displacement",
-        "Acceleration",
-        "Work"
-      ],
-      "answer": 2,
-      "explanation": "Acceleration is the vector quantity representing velocity change over time, measured in m/s² and related to force by Newton's Second Law."
-    },
-    {
-      "id": 21,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "The primary headwater source of this body of water was traditionally traced to glacial streams on Nevado Mismi in the Peruvian Andes. Near Manaus, Brazil, its dark Rio Negro and sandy Solimões River flow side by side at the 'Meeting of Waters' without immediately mixing. For the point, name this massive South American river, the world's largest by discharge volume.",
-      "options": [
-        "Amazon River",
-        "Nile River",
-        "Orinoco River",
-        "Paraná River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River originates in the Peruvian Andes near Nevado Mismi and features the 'Meeting of Waters' near Manaus, serving as the largest river by discharge volume in the world."
-    },
-    {
-      "id": 22,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "Directed toward the center of curvature in circular motion, the centripetal form of this quantity is calculated as velocity squared divided by radius. According to Newton's Second Law of Motion, this vector quantity is inversely proportional to mass and directly proportional to net force. For the point, name this rate of change of velocity, measured in SI units of meters per second squared.",
-      "options": [
-        "Velocity",
-        "Acceleration",
-        "Momentum",
-        "Displacement"
-      ],
-      "answer": 1,
-      "explanation": "Acceleration is the vector quantity representing the rate of change of velocity over time. It is measured in m/s² and related to force and mass via Newton's Second Law (F = ma)."
-    },
-    {
-      "id": 23,
-      "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Known as Chomolungma in Tibet and Sagarmatha in Nepal, the region above 8,000 meters on this mountain is referred to as the 'Death Zone' due to extremely low oxygen levels. First officially summited in 1953 by Sir Edmund Hillary and Sherpa Tenzing Norgay, it continues to grow roughly 4 millimeters per year due to tectonic activity. For the point, name this Himalayan mountain that stands as the highest peak above sea level on Earth.",
+      "question": "During the Great Trigonometrical Survey, this geographical feature was designated as Peak XV before being renamed in honor of a British Surveyor General of India. Known locally in Nepal as Sagarmatha, it is located in the Mahalangur Himal sub-range of the Himalayas. Sir Edmund Hillary and Tenzing Norgay made the first confirmed ascent of this peak in 1953. For the point, name this highest peak above sea level on Earth.",
       "options": [
         "K2",
-        "Kangchenjunga",
         "Mount Everest",
-        "Lhotse"
+        "Dhaulagiri",
+        "Nanga Parbat"
+      ],
+      "answer": 1,
+      "explanation": "Formerly designated Peak XV, Mount Everest was renamed after Sir George Everest, former Surveyor General of India, and is known as Sagarmatha in Nepal."
+    },
+    {
+      "id": 8,
+      "category": "Science",
+      "topic": "Photosynthesis",
+      "question": "C4 and CAM plants utilize specialized structural adaptations to minimize photorespiration during this metabolic process, which fixes carbon using the enzyme RuBisCO. Its light-dependent reactions occur in the thylakoid membranes of chloroplasts, generating ATP and NADPH while photolysis splits water into oxygen. This biological process allows autotrophs to convert solar light energy, carbon dioxide, and water into chemical energy stored as glucose. For the point, name this process by which green plants produce oxygen.",
+      "options": [
+        "Cellular Respiration",
+        "Fermentation",
+        "Photosynthesis",
+        "Transpiration"
       ],
       "answer": 2,
-      "explanation": "Mount Everest (Sagarmatha/Chomolungma) is Earth's highest mountain above sea level, first summited by Hillary and Norgay in 1953."
+      "explanation": "Photosynthesis occurs in plant chloroplasts, utilizing light reactions in thylakoids and carbon fixation via RuBisCO in the Calvin cycle to yield glucose and oxygen."
     },
     {
-      "id": 24,
+      "id": 9,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "The ongoing collision of the Indian and Eurasian tectonic plates causes this mountain peak to grow approximately 4 millimeters higher each year. Straddling the international border of Nepal and the Tibetan region of China, its upper regions above 8,000 meters suffer from atmospheric pressure too low to sustain human life without oxygen assistance. It was first summited in 1953 by Tenzing Norgay and Edmund Hillary. For the point, name this Himalayan mountain that stands at 8,848.86 meters.",
+      "options": [
+        "Mount McKinley",
+        "Mount Everest",
+        "K2",
+        "Mount Elbrus"
+      ],
+      "answer": 1,
+      "explanation": "Mount Everest's height of 8,848.86 meters is maintained and uplifted by tectonic activity between the Indian and Eurasian plates."
+    },
+    {
+      "id": 10,
       "category": "Science",
       "topic": "Gravitational Force",
-      "question": "The constant associated with this interaction was first experimentally measured in 1798 by Henry Cavendish using a torsion balance. General Relativity describes this phenomenon not as a standard mechanical force, but as objects following geodesics through curved spacetime. For the point, name this universal fundamental interaction that attracts bodies with mass to one another, causing objects on Earth to accelerate downward at approximately 9.81 meters per second squared.",
+      "question": "Local variations in this force occur across Earth's surface due to differences in altitude, latitude, and sub-surface geological mass distribution. Its universal constant, denoted by a capital G, is approximately 6.674 times 10 to the power of negative 11 N·m²/kg². Classically formulated by Sir Isaac Newton, this attractive interaction governs planetary orbits and creates ocean tides. For the point, name this fundamental force responsible for weight, which causes unsupported objects to fall toward Earth.",
       "options": [
-        "Electromagnetic Force",
-        "Strong Nuclear Force",
-        "Weak Nuclear Force",
-        "Gravitational Force"
+        "Centripetal Force",
+        "Frictional Force",
+        "Gravitational Force",
+        "Tension Force"
       ],
-      "answer": 3,
-      "explanation": "Gravitational force is the fundamental interaction describing mutual attraction between masses. Its gravitational constant G was measured by Cavendish, and it is described by Newton's law and Einstein's General Relativity."
+      "answer": 2,
+      "explanation": "Gravitational force is determined by Newton's constant G, causing objects to have weight and fall toward Earth while also driving orbital mechanics and ocean tides."
     },
     {
-      "id": 25,
+      "id": 11,
       "category": "Geography",
-      "topic": "Tokyo",
-      "question": "Situated on the Kanto Plain near a complex triple junction of tectonic plates, this city was heavily damaged by a major earthquake in 1923. Originally a small fishing village named Edo, its present-day administrative structure comprises 23 Special Wards as well as distant island chains like the Izu and Ogasawara Islands. For the point, name this most populous metropolitan area in the world, the capital city of Japan.",
+      "topic": "Mount Everest",
+      "question": "Indian mathematician Radhanath Sikdar was the first to calculate the position and height of this geographical feature in 1852. Located in the Mahalangur Himal sub-range, it is known locally as Sagarmatha in Nepal and Chomolungma in Tibet, and its upper zone above 8,000 meters is famously called the Death Zone. Sir Edmund Hillary and Tenzing Norgay became the first confirmed people to reach its summit in 1953. For the point, name this highest mountain peak on Earth above sea level.",
       "options": [
-        "Tokyo",
-        "Kyoto",
-        "Osaka",
-        "Yokohama"
+        "Mount Everest",
+        "K2",
+        "Kangchenjunga",
+        "Lhotse"
       ],
       "answer": 0,
-      "explanation": "Tokyo (formerly Edo) sits on the Kanto Plain in Japan, features 23 Special Wards, and is the center of the world's most populous metropolitan area."
+      "explanation": "Radhanath Sikdar first calculated the height of Mount Everest in 1852. Known as Sagarmatha and Chomolungma, it features the Death Zone above 8,000 meters and was first summitted by Edmund Hillary and Tenzing Norgay in 1953."
     },
     {
-      "id": 26,
+      "id": 12,
       "category": "Science",
       "topic": "Newton's Laws",
-      "question": "The third of these statements notes that action and reaction forces act simultaneously on different bodies with equal magnitude and opposite direction. First compiled in the 1687 treatise Philosophiae Naturalis Principia Mathematica, the first of these statements is also known as the Law of Inertia. For the point, name these three fundamental physical principles formulated by an English scientist that describe how forces affect an object's motion.",
+      "question": "The first publication detailing these three fundamental principles appeared in the 1687 landmark treatise Philosophiae Naturalis Principia Mathematica. The first of these principles introduces the concept of inertia, while the third states that every action produces an equal and opposite reaction. The second principle defines force as mass times acceleration, traditionally written as F equals m a. For the point, name these three fundamental laws of physical mechanics formulated by an English scientist.",
       "options": [
         "Kepler's Laws",
         "Newton's Laws",
@@ -452,68 +256,124 @@
         "Thermodynamic Laws"
       ],
       "answer": 1,
-      "explanation": "Newton's Laws of Motion describe inertia, force (F=ma), and action-reaction pairs, laying the foundations for classical mechanics in the Principia Mathematica."
+      "explanation": "Newton's Laws of Motion were published in the Principia Mathematica in 1687 and lay the groundwork for classical mechanics through concepts of inertia, F=ma, and action-reaction pairs."
     },
     {
-      "id": 27,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Carrying more water than the next seven largest rivers combined, no bridges cross the main stem of this waterway due to its extreme width and surrounding dense rainforest. This river accounts for roughly 20 percent of total global river discharge into the ocean as it flows eastward through northern South America. For the point, name this river that flows through Brazil, widely recognized as the second-longest river in the world.",
-      "options": [
-        "Congo River",
-        "Mississippi River",
-        "Amazon River",
-        "Mekong River"
-      ],
-      "answer": 2,
-      "explanation": "The Amazon River has no bridges spanning its main stem and accounts for approximately 20% of global river ocean discharge."
-    },
-    {
-      "id": 28,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "Oxygen gas released during this metabolic process originates entirely from the photolysis of water molecules within light-dependent reactions. Carbon fixation during its light-independent reactions relies heavily on the enzyme RuBisCO within the Calvin cycle. For the point, name this primary biological process by which plants and algae convert light energy, carbon dioxide, and water into chemical energy in the form of glucose.",
-      "options": [
-        "Cellular Respiration",
-        "Fermentation",
-        "Transpiration",
-        "Photosynthesis"
-      ],
-      "answer": 3,
-      "explanation": "Photosynthesis involves light-dependent photolysis of water and the Calvin cycle (using RuBisCO) to transform solar energy, water, and CO2 into glucose and oxygen."
-    },
-    {
-      "id": 29,
+      "id": 13,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Named in English after a British Surveyor General of India, this physical feature is situated in the Mahalangur Himal sub-range on the border between Nepal and China. Standing at an officially recognized altitude of 8,848.86 meters, its extreme climate requires climbers to use supplemental oxygen in the Death Zone. For the point, name this peak in the Himalayas, the tallest mountain on Earth above sea level.",
+      "question": "Rising roughly 4 millimeters each year due to the ongoing collision of the Indian and Eurasian tectonic plates, this landform was named after a former Surveyor General of India. Climbers ascending its standard route must navigate treacherous hazards such as the Khumbu Icefall while managing the risks of severe atmospheric pressure drop. Straddling the international border between Nepal and China, its peak reaches an official elevation of over 8,848 meters. For the point, name this peak located in the Himalayas, the tallest mountain in the world.",
       "options": [
-        "Mount Everest",
         "Mount Kilimanjaro",
         "Denali",
-        "Mount Aconcagua"
+        "Mount Everest",
+        "Mont Blanc"
       ],
-      "answer": 0,
-      "explanation": "Mount Everest is located in the Mahalangur Himal on the Nepal-China border, named after Sir George Everest, and stands at 8,848.86 meters tall."
+      "answer": 2,
+      "explanation": "Named after Sir George Everest, Mount Everest continues to rise due to the Indian and Eurasian tectonic plate collision and straddles the border of Nepal and China in the Himalayas."
     },
     {
-      "id": 30,
+      "id": 14,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "In single-variable calculus, this physical concept is mathematically defined as the second time derivative of position or the first time derivative of velocity. On Earth's surface at sea level, standard gravity imparts an approximate value of 9.81 meters per second squared for this quantity on free-falling bodies. For the point, name this vector quantity that measures any change in an object's speed or direction.",
+      "question": "Centripetal forms of this physical quantity describe motion directed toward the center of a circular path using the formula v squared over r. Represented as the slope on a velocity-versus-time graph, it is a vector quantity measured in meters per second squared in the SI system. Standard Earth surface values for this quantity due to gravity are represented by the symbol g and equal approximately 9.81 meters per second squared. For the point, name this physics term defined as the rate of change of velocity over time.",
       "options": [
         "Velocity",
-        "Acceleration",
-        "Work",
-        "Jerk"
+        "Momentum",
+        "Displacement",
+        "Acceleration"
+      ],
+      "answer": 3,
+      "explanation": "Acceleration measures the rate of change of velocity with respect to time, has SI units of m/s², and represents the slope of a velocity-time graph."
+    },
+    {
+      "id": 15,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "The region above 8,000 meters on this mountain is known as the Death Zone because human life cannot be sustained there over extended periods without supplemental oxygen. Located in the Mahalangur Himal sub-range, it was first successfully summitted on May 29, 1953. A Sherpa climber from Nepal named Tenzing Norgay reached its summit alongside a climber from New Zealand. For the point, name this mountain whose top was reached by Sir Edmund Hillary.",
+      "options": [
+        "Mount Everest",
+        "K2",
+        "Mount Annapurna",
+        "Mount Makalu"
+      ],
+      "answer": 0,
+      "explanation": "Mount Everest's upper extreme altitude is known as the Death Zone. On May 29, 1953, Sir Edmund Hillary and Sherpa Tenzing Norgay completed the first confirmed successful summit ascent."
+    },
+    {
+      "id": 16,
+      "category": "Science",
+      "topic": "Photosynthesis",
+      "question": "Specialized C4 and CAM plants utilize anatomical adaptations to minimize photorespiration by separating initial carbon fixation from the rest of this biological pathway. Its light-dependent stage takes place in thylakoid membranes, where photolysis splits water to produce oxygen while generating ATP and NADPH. The light-independent Calvin cycle relies on the abundant enzyme RuBisCO to process carbon dioxide into glucose. For the point, name this process used by autotrophs to convert light energy into chemical energy.",
+      "options": [
+        "Cellular Respiration",
+        "Photosynthesis",
+        "Fermentation",
+        "Glycolysis"
       ],
       "answer": 1,
-      "explanation": "Acceleration is the second time derivative of position (or first derivative of velocity). On Earth, gravitational acceleration is roughly 9.81 m/s²."
+      "explanation": "Photosynthesis consists of thylakoid light-dependent reactions and the Calvin cycle, utilizing RuBisCO to fix carbon dioxide and create chemical energy from light."
+    },
+    {
+      "id": 17,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "The surveyor Radhanath Sikdar initially identified this geographic feature as Peak XV before it was renamed after a British Surveyor General. Formed by tectonic plate uplift in the Himalayas, its international border divides the Autonomous Region of Tibet from Nepal's Sagarmatha National Park. It is officially recognized as the highest point above sea level on Earth at an altitude of 29,031 feet. For the point, name this famous mountain on the border of Nepal and China.",
+      "options": [
+        "K2",
+        "Mount Fuji",
+        "Mount Everest",
+        "Aconcagua"
+      ],
+      "answer": 2,
+      "explanation": "Originally designated Peak XV, Mount Everest sits on the border of Nepal and Tibet (China) in Sagarmatha National Park and stands as the highest point on Earth."
+    },
+    {
+      "id": 18,
+      "category": "Science",
+      "topic": "Gravitational Force",
+      "question": "Albert Einstein's Theory of General Relativity reinterprets this fundamental interaction not as a mechanical force, but as a consequence of mass warping the fabric of four-dimensional spacetime. Formulated classically by Isaac Newton, its magnitude is directly proportional to the product of two masses and inversely proportional to the square of the distance between them. Although it is the weakest of the four fundamental forces, it governs planetary orbits and ocean tides. For the point, name this force that gives weight to physical objects and pulls them toward Earth.",
+      "options": [
+        "Electromagnetic Force",
+        "Strong Nuclear Force",
+        "Weak Nuclear Force",
+        "Gravitational Force"
+      ],
+      "answer": 3,
+      "explanation": "Gravitational force is modeled classically by Newton's inverse-square law and relativistically by Einstein's spacetime curvature, driving planetary orbits and surface gravity."
+    },
+    {
+      "id": 19,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "In Tibet, this natural landmark is known as Chomolungma, meaning Goddess Mother of the World, while in Nepal it is called Sagarmatha. Climbers attempting to reach its peak usually pass through the South Col or North Ridge routes after departing from Base Camp. Sir Edmund Hillary and Tenzing Norgay were the first verified adventurers to stand atop its highest point in 1953. For the point, name this Asian mountain that stands as the world's highest peak.",
+      "options": [
+        "Mount Everest",
+        "K2",
+        "Mount Logan",
+        "Matterhorn"
+      ],
+      "answer": 0,
+      "explanation": "Mount Everest is called Chomolungma in Tibet and Sagarmatha in Nepal. Its primary climbing routes pass through South Col and North Ridge from Base Camp."
+    },
+    {
+      "id": 20,
+      "category": "Science",
+      "topic": "Newton's Laws",
+      "question": "The second of these principles states that net force equals mass times acceleration, which can also be expressed as the rate of change of momentum over time. The first principle dictates that an object in motion will remain in motion unless acted upon by a net external force. The third principle asserts that whenever one object exerts a force on another, the second object exerts an equal and opposite force on the first. For the point, name these three physical laws named after the English author of Philosophiae Naturalis Principia Mathematica.",
+      "options": [
+        "Kepler's Laws",
+        "Newton's Laws",
+        "Hooke's Laws",
+        "Boyle's Laws"
+      ],
+      "answer": 1,
+      "explanation": "Sir Isaac Newton formulated these three laws of motion, which govern inertia, net force with acceleration (F=ma), and action-reaction pairs."
     }
   ],
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-03 14:12:53",
+    "generated_at": "2026-09-04 01:50:07",
     "resources": [
       "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
       "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
