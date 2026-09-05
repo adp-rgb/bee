@@ -1,6 +1,6 @@
 {
   "rules_summary": {
-    "total_questions": 20,
+    "total_questions": 30,
     "max_correct_per_player": 6,
     "early_penalty": -1,
     "bonus_table": [
@@ -94,147 +94,147 @@
       "id": 1,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Indian mathematician Radhanath Sikdar first calculated the position of this geographical feature as the world's highest peak in 1852. Known as Sagarmatha in Nepal and Chomolungma in Tibet, its dangerous upper region above 8,000 meters is designated as the Death Zone. First summiting on May 29, 1953, Sir Edmund Hillary and Tenzing Norgay were the first confirmed people to reach its peak. For the point, name this highest mountain on Earth, located in the Himalayas.",
+      "question": "In Nepal, this mountain is known locally as Sagarmatha, meaning 'Forehead of the Sky,' while in Tibet it is called Chomolungma. Formed by the ongoing tectonic collision of the Indian and Eurasian plates, its region above 8,000 meters is famously designated as the 'Death Zone.' First officially summited in 1953 by Sir Edmund Hillary and Tenzing Norgay, it stands as the highest mountain on Earth. For the point, name this peak in the Himalayas.",
       "options": [
-        "Mount Everest",
         "K2",
-        "Kangchenjunga",
-        "Lhotse"
+        "Mount Everest",
+        "Lhotse",
+        "Makalu"
       ],
-      "answer": 0,
-      "explanation": "Mount Everest, located in the Himalayas on the border of Nepal and China, was first identified as Earth's highest peak by Radhanath Sikdar and first summitted by Edmund Hillary and Tenzing Norgay in 1953."
+      "answer": 1,
+      "explanation": "Mount Everest, known as Sagarmatha in Nepal and Chomolungma in Tibet, is Earth's highest mountain above sea level, located in the Himalayas."
     },
     {
       "id": 2,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "The centripetal form of this vector quantity is directed toward the center of a circular path and equals velocity squared divided by radius. On a velocity-versus-time graph, the slope of the curve represents this value, while the area under the curve gives displacement. Measured in meters per second squared, it is defined by Newton's Second Law as force divided by mass. For the point, name this rate of change of an object's velocity over time.",
+      "question": "Centripetal forms of this vector quantity direct an object toward the center of a circular path and are calculated as velocity squared divided by radius. According to Newton's Second Law of Motion, this property is directly proportional to the net force applied to an object and inversely proportional to its mass. Near Earth's surface, its standard value due to gravity is approximately 9.81 meters per second squared. For the point, name this rate of change of velocity with respect to time.",
       "options": [
         "Velocity",
-        "Acceleration",
         "Momentum",
+        "Acceleration",
         "Jerk"
       ],
-      "answer": 1,
-      "explanation": "Acceleration is the rate of change of velocity with respect to time, measured in m/s², and represents the slope on a velocity-vs-time graph."
+      "answer": 2,
+      "explanation": "Acceleration is defined as the rate of change of an object's velocity over time, measured in meters per second squared (m/s²)."
     },
     {
       "id": 3,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Rising roughly 4 millimeters per year due to tectonic uplift, this peak is situated in the Mahalangur Himal sub-range of the Himalayas. Named after a former Surveyor General of India, its summit elevation was officially measured at 8,848.86 meters above sea level. It sits directly on the international border between Nepal and China. For the point, name this mountain, the highest peak in the world.",
+      "question": "In 1865, the Royal Geographical Society officially named this peak after British surveyor-general Sir George Everest following a recommendation by Andrew Waugh. Situated in the Mahalangur Himal sub-range, it straddles the international border between Nepal and the Tibet Autonomous Region of China. Rising to an officially recognized elevation of 8,848.86 meters, it is celebrated as the highest point on Earth. For the point, name this Himalayan mountain.",
       "options": [
-        "Annapurna",
-        "Makalu",
         "Mount Everest",
+        "Kangchenjunga",
+        "Annapurna",
         "Cho Oyu"
       ],
-      "answer": 2,
-      "explanation": "Mount Everest continues to rise due to the collision of the Indian and Eurasian tectonic plates and holds the highest peak elevation above sea level at 8,848.86 meters."
+      "answer": 0,
+      "explanation": "Named after Sir George Everest in 1865, Mount Everest reaches an elevation of 8,848.86 meters on the Nepal-Tibet border."
     },
     {
       "id": 4,
       "category": "Science",
       "topic": "Gravitational Force",
-      "question": "Albert Einstein's Theory of General Relativity redefines this interaction as a consequence of mass warping the four-dimensional fabric of spacetime. Despite being the weakest of the four fundamental interactions, it dictates large-scale cosmic structure and ocean tides because it is purely attractive and has an infinite range. Its classical magnitude is proportional to the product of two masses divided by the square of the distance between them. For the point, name this attractive force that causes objects to accelerate toward Earth at roughly 9.81 m/s².",
+      "question": "Einstein's Equivalence Principle states that standing on a massive body experiencing this fundamental interaction is indistinguishable from being in a uniformly accelerating frame of reference. Newton described this interaction using an inverse-square law involving a constant approximately equal to 6.674 times 10 to the negative 11th power. Although it is the weakest of the four fundamental forces, it dominates at astronomical scales because it is strictly attractive and operates over infinite distances. For the point, name this force that pulls objects toward Earth.",
       "options": [
-        "Electromagnetic Force",
         "Strong Nuclear Force",
+        "Electromagnetic Force",
         "Gravitational Force",
         "Weak Nuclear Force"
       ],
       "answer": 2,
-      "explanation": "Gravitational force is the fundamental attractive interaction between masses governed classically by Newton's inverse-square law and relativistically by general relativity."
+      "explanation": "Gravitational force is an attractive fundamental interaction calculated classically by Newton's law of universal gravitation and explained modernly by General Relativity."
     },
     {
       "id": 5,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Climbers attempting the Southeast Ridge route on this mountain must traverse the hazardous Khumbu Icefall and pass through the South Col. Situated in the Mahalangur Himal, its high altitude forces climbers in the Death Zone to use supplemental oxygen due to extremely low atmospheric pressure. It was first successfully ascended in May 1953 by Sherpa climber Tenzing Norgay and New Zealander Edmund Hillary. For the point, name this famous Himalayan mountain on the Nepal-China border.",
+      "question": "Mountaineers attempting to reach this peak must navigate extreme risks in the 'Death Zone,' where atmospheric pressure drops significantly and oxygen levels are dangerously low. The Tibetan name for this peak translates to 'Mother Goddess of the World,' honoring its spiritual significance along the Himalayan range. Climbed successfully for the first time in May 1953 by Tenzing Norgay and Edmund Hillary, it is the tallest of the Seven Summits. For the point, name this highest mountain above sea level.",
       "options": [
+        "Denali",
+        "Mount Kilimanjaro",
         "Mount Everest",
-        "K2",
-        "Mont Blanc",
-        "Kilimanjaro"
+        "Elbrus"
       ],
-      "answer": 0,
-      "explanation": "Mount Everest features famous climbing locations such as the Khumbu Icefall and South Col, and its upper region requires supplemental oxygen due to low pressure."
+      "answer": 2,
+      "explanation": "Mount Everest's high altitude zone is known as the Death Zone, and its Tibetan name is Chomolungma ('Mother Goddess of the World')."
     },
     {
       "id": 6,
       "category": "Science",
-      "topic": "Newton's Laws",
-      "question": "First published together in the 1687 landmark treatise Philosophiæ Naturalis Principia Mathematica, these three principles form the cornerstone of classical mechanics. The first of these principles is also known as the Law of Inertia, while the third asserts that every action force has an equal and opposite reaction. The second principle defines net force as equal to mass times acceleration. For the point, name these three fundamental physical laws formulated by an English scientist.",
+      "topic": "Acceleration",
+      "question": "In calculus, taking the second derivative of position with respect to time yields this physical vector quantity. It is measured in SI units of meters per second squared and occurs whenever an object changes its speed, direction of motion, or both. In the equation F = ma derived from Newton's second law, this quantity is represented by the variable lower-case a. For the point, name this physical quantity representing how rapidly velocity changes.",
       "options": [
-        "Kepler's Laws",
-        "Newton's Laws",
-        "Maxwell's Equations",
-        "Laws of Thermodynamics"
+        "Speed",
+        "Acceleration",
+        "Displacement",
+        "Force"
       ],
       "answer": 1,
-      "explanation": "Newton's Laws of Motion were published in the Principia Mathematica in 1687 and establish fundamental classical relationships involving inertia, acceleration (F=ma), and action-reaction pairs."
+      "explanation": "Acceleration is represented by 'a' in Newton's formula F = ma and measures the rate of change of velocity."
     },
     {
       "id": 7,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "During the Great Trigonometrical Survey, this geographical feature was designated as Peak XV before being renamed in honor of a British Surveyor General of India. Known locally in Nepal as Sagarmatha, it is located in the Mahalangur Himal sub-range of the Himalayas. Sir Edmund Hillary and Tenzing Norgay made the first confirmed ascent of this peak in 1953. For the point, name this highest peak above sea level on Earth.",
+      "question": "The tectonic collision that built this landmark involves the Indian Plate actively pushing against and subducting under the Eurasian Plate. Surveyors Andrew Waugh and Sir George Everest played key roles in establishing its position and height during the Great Trigonometrical Survey of India. Located in the Mahalangur Himal range on the border between Nepal and China, it reaches 29,031.7 feet in height. For the point, name this world-famous mountain peak.",
       "options": [
-        "K2",
         "Mount Everest",
-        "Dhaulagiri",
-        "Nanga Parbat"
+        "K2",
+        "Mont Blanc",
+        "Matterhorn"
       ],
-      "answer": 1,
-      "explanation": "Formerly designated Peak XV, Mount Everest was renamed after Sir George Everest, former Surveyor General of India, and is known as Sagarmatha in Nepal."
+      "answer": 0,
+      "explanation": "Mount Everest was measured during the Great Trigonometrical Survey of India and was formed via the tectonic collision of the Indian and Eurasian plates."
     },
     {
       "id": 8,
       "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "C4 and CAM plants utilize specialized structural adaptations to minimize photorespiration during this metabolic process, which fixes carbon using the enzyme RuBisCO. Its light-dependent reactions occur in the thylakoid membranes of chloroplasts, generating ATP and NADPH while photolysis splits water into oxygen. This biological process allows autotrophs to convert solar light energy, carbon dioxide, and water into chemical energy stored as glucose. For the point, name this process by which green plants produce oxygen.",
+      "topic": "Gravitational Force",
+      "question": "Modern physics describes this phenomenon not as a direct mechanical pull, but as the curvature of spacetime caused by mass and energy. It acts across infinite distances, is strictly attractive, and causes free-falling objects near Earth to accelerate at 9.81 meters per second squared when air resistance is absent. Formulated by Sir Isaac Newton in his Principia, it dictates planetary orbits around the Sun. For the point, name this attractive force between any two objects with mass.",
       "options": [
-        "Cellular Respiration",
-        "Fermentation",
-        "Photosynthesis",
-        "Transpiration"
+        "Friction",
+        "Gravitational Force",
+        "Tension",
+        "Centrifugal Force"
       ],
-      "answer": 2,
-      "explanation": "Photosynthesis occurs in plant chloroplasts, utilizing light reactions in thylakoids and carbon fixation via RuBisCO in the Calvin cycle to yield glucose and oxygen."
+      "answer": 1,
+      "explanation": "Gravitational force is modernly described by general relativity as spacetime curvature and classically by Newton's inverse-square law."
     },
     {
       "id": 9,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "The ongoing collision of the Indian and Eurasian tectonic plates causes this mountain peak to grow approximately 4 millimeters higher each year. Straddling the international border of Nepal and the Tibetan region of China, its upper regions above 8,000 meters suffer from atmospheric pressure too low to sustain human life without oxygen assistance. It was first summited in 1953 by Tenzing Norgay and Edmund Hillary. For the point, name this Himalayan mountain that stands at 8,848.86 meters.",
+      "question": "Known in Nepalese as Sagarmatha, this geographical feature forms part of the border between Nepal and the Tibet Autonomous Region. Standard climbing routes up this mountain include the South Col from Nepal and the North Ridge from Tibet. Reaching an official elevation of over 29,000 feet, it was first successfully scaled in 1953 by Edmund Hillary and Tenzing Norgay. For the point, name this tallest peak in the world.",
       "options": [
-        "Mount McKinley",
+        "Lhotse",
+        "Broad Peak",
         "Mount Everest",
-        "K2",
-        "Mount Elbrus"
+        "Gasherbrum I"
       ],
-      "answer": 1,
-      "explanation": "Mount Everest's height of 8,848.86 meters is maintained and uplifted by tectonic activity between the Indian and Eurasian plates."
+      "answer": 2,
+      "explanation": "Mount Everest features climbing routes like the South Col and North Ridge and is the world's tallest peak above sea level."
     },
     {
       "id": 10,
       "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Local variations in this force occur across Earth's surface due to differences in altitude, latitude, and sub-surface geological mass distribution. Its universal constant, denoted by a capital G, is approximately 6.674 times 10 to the power of negative 11 N·m²/kg². Classically formulated by Sir Isaac Newton, this attractive interaction governs planetary orbits and creates ocean tides. For the point, name this fundamental force responsible for weight, which causes unsupported objects to fall toward Earth.",
+      "topic": "Acceleration",
+      "question": "For an object in uniform circular motion, this quantity is directed inward toward the center of curvature and is termed centripetal. Because it is a vector quantity, an object moving in a circle at constant speed still experiences this change due to continuous redirection. Denoted by units of distance divided by time squared, it is zero for objects moving at a constant velocity in a straight line. For the point, name this rate of change of velocity.",
       "options": [
-        "Centripetal Force",
-        "Frictional Force",
-        "Gravitational Force",
-        "Tension Force"
+        "Momentum",
+        "Acceleration",
+        "Work",
+        "Power"
       ],
-      "answer": 2,
-      "explanation": "Gravitational force is determined by Newton's constant G, causing objects to have weight and fall toward Earth while also driving orbital mechanics and ocean tides."
+      "answer": 1,
+      "explanation": "Centripetal acceleration changes the direction of velocity in circular motion even if speed remains constant."
     },
     {
       "id": 11,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Indian mathematician Radhanath Sikdar was the first to calculate the position and height of this geographical feature in 1852. Located in the Mahalangur Himal sub-range, it is known locally as Sagarmatha in Nepal and Chomolungma in Tibet, and its upper zone above 8,000 meters is famously called the Death Zone. Sir Edmund Hillary and Tenzing Norgay became the first confirmed people to reach its summit in 1953. For the point, name this highest mountain peak on Earth above sea level.",
+      "question": "Recommended for its modern name in 1865 by British Surveyor General Andrew Waugh, this peak lies in the Mahalangur Himal sub-range formed by the collision of the Indian and Eurasian plates. In Tibet it is known as Chomolungma, while in Nepal it is called Sagarmatha, and mountaineers crossing above 8,000 meters enter its treacherous 'Death Zone.' For the point, name this highest mountain above sea level on Earth, first officially summitted in 1953 by Sir Edmund Hillary and Tenzing Norgay.",
       "options": [
         "Mount Everest",
         "K2",
@@ -242,97 +242,41 @@
         "Lhotse"
       ],
       "answer": 0,
-      "explanation": "Radhanath Sikdar first calculated the height of Mount Everest in 1852. Known as Sagarmatha and Chomolungma, it features the Death Zone above 8,000 meters and was first summitted by Edmund Hillary and Tenzing Norgay in 1953."
+      "explanation": "Mount Everest is Earth's highest mountain above sea level at 8,848.86 meters. It is known as Sagarmatha in Nepal, Chomolungma in Tibet, and was named after Sir George Everest by Andrew Waugh."
     },
     {
       "id": 12,
       "category": "Science",
-      "topic": "Newton's Laws",
-      "question": "The first publication detailing these three fundamental principles appeared in the 1687 landmark treatise Philosophiae Naturalis Principia Mathematica. The first of these principles introduces the concept of inertia, while the third states that every action produces an equal and opposite reaction. The second principle defines force as mass times acceleration, traditionally written as F equals m a. For the point, name these three fundamental laws of physical mechanics formulated by an English scientist.",
+      "topic": "Acceleration",
+      "question": "Calculated as velocity squared divided by radius in circular motion to describe centripetal behavior, this vector quantity is measured in standard SI units of meters per second squared. According to Newton's Second Law of Motion, this value is directly proportional to the net force applied to an object and inversely proportional to its mass. For the point, name this physical quantity defined as the rate of change of an object's velocity over time.",
       "options": [
-        "Kepler's Laws",
-        "Newton's Laws",
-        "Maxwell's Equations",
-        "Thermodynamic Laws"
+        "Velocity",
+        "Acceleration",
+        "Momentum",
+        "Displacement"
       ],
       "answer": 1,
-      "explanation": "Newton's Laws of Motion were published in the Principia Mathematica in 1687 and lay the groundwork for classical mechanics through concepts of inertia, F=ma, and action-reaction pairs."
+      "explanation": "Acceleration is the vector quantity measuring the rate of change of velocity with respect to time, expressed in m/s² and related to force by F = ma."
     },
     {
       "id": 13,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Rising roughly 4 millimeters each year due to the ongoing collision of the Indian and Eurasian tectonic plates, this landform was named after a former Surveyor General of India. Climbers ascending its standard route must navigate treacherous hazards such as the Khumbu Icefall while managing the risks of severe atmospheric pressure drop. Straddling the international border between Nepal and China, its peak reaches an official elevation of over 8,848 meters. For the point, name this peak located in the Himalayas, the tallest mountain in the world.",
+      "question": "Situated along the international border between Nepal and the Tibet Autonomous Region of China, this geological feature reaches an officially recognized height of 8,848.86 meters. The Royal Geographical Society named this peak after British surveyor Sir George Everest in 1865. For the point, name this Himalayan peak that was famously climbed to its summit for the first time on May 29, 1953.",
       "options": [
-        "Mount Kilimanjaro",
-        "Denali",
+        "Makalu",
+        "Annapurna",
         "Mount Everest",
-        "Mont Blanc"
+        "Mount Kilimanjaro"
       ],
       "answer": 2,
-      "explanation": "Named after Sir George Everest, Mount Everest continues to rise due to the Indian and Eurasian tectonic plate collision and straddles the border of Nepal and China in the Himalayas."
+      "explanation": "Mount Everest lies on the border of Nepal and China/Tibet and was first summitted on May 29, 1953, by Edmund Hillary and Tenzing Norgay."
     },
     {
       "id": 14,
       "category": "Science",
-      "topic": "Acceleration",
-      "question": "Centripetal forms of this physical quantity describe motion directed toward the center of a circular path using the formula v squared over r. Represented as the slope on a velocity-versus-time graph, it is a vector quantity measured in meters per second squared in the SI system. Standard Earth surface values for this quantity due to gravity are represented by the symbol g and equal approximately 9.81 meters per second squared. For the point, name this physics term defined as the rate of change of velocity over time.",
-      "options": [
-        "Velocity",
-        "Momentum",
-        "Displacement",
-        "Acceleration"
-      ],
-      "answer": 3,
-      "explanation": "Acceleration measures the rate of change of velocity with respect to time, has SI units of m/s², and represents the slope of a velocity-time graph."
-    },
-    {
-      "id": 15,
-      "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "The region above 8,000 meters on this mountain is known as the Death Zone because human life cannot be sustained there over extended periods without supplemental oxygen. Located in the Mahalangur Himal sub-range, it was first successfully summitted on May 29, 1953. A Sherpa climber from Nepal named Tenzing Norgay reached its summit alongside a climber from New Zealand. For the point, name this mountain whose top was reached by Sir Edmund Hillary.",
-      "options": [
-        "Mount Everest",
-        "K2",
-        "Mount Annapurna",
-        "Mount Makalu"
-      ],
-      "answer": 0,
-      "explanation": "Mount Everest's upper extreme altitude is known as the Death Zone. On May 29, 1953, Sir Edmund Hillary and Sherpa Tenzing Norgay completed the first confirmed successful summit ascent."
-    },
-    {
-      "id": 16,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "Specialized C4 and CAM plants utilize anatomical adaptations to minimize photorespiration by separating initial carbon fixation from the rest of this biological pathway. Its light-dependent stage takes place in thylakoid membranes, where photolysis splits water to produce oxygen while generating ATP and NADPH. The light-independent Calvin cycle relies on the abundant enzyme RuBisCO to process carbon dioxide into glucose. For the point, name this process used by autotrophs to convert light energy into chemical energy.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Fermentation",
-        "Glycolysis"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis consists of thylakoid light-dependent reactions and the Calvin cycle, utilizing RuBisCO to fix carbon dioxide and create chemical energy from light."
-    },
-    {
-      "id": 17,
-      "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "The surveyor Radhanath Sikdar initially identified this geographic feature as Peak XV before it was renamed after a British Surveyor General. Formed by tectonic plate uplift in the Himalayas, its international border divides the Autonomous Region of Tibet from Nepal's Sagarmatha National Park. It is officially recognized as the highest point above sea level on Earth at an altitude of 29,031 feet. For the point, name this famous mountain on the border of Nepal and China.",
-      "options": [
-        "K2",
-        "Mount Fuji",
-        "Mount Everest",
-        "Aconcagua"
-      ],
-      "answer": 2,
-      "explanation": "Originally designated Peak XV, Mount Everest sits on the border of Nepal and Tibet (China) in Sagarmatha National Park and stands as the highest point on Earth."
-    },
-    {
-      "id": 18,
-      "category": "Science",
       "topic": "Gravitational Force",
-      "question": "Albert Einstein's Theory of General Relativity reinterprets this fundamental interaction not as a mechanical force, but as a consequence of mass warping the fabric of four-dimensional spacetime. Formulated classically by Isaac Newton, its magnitude is directly proportional to the product of two masses and inversely proportional to the square of the distance between them. Although it is the weakest of the four fundamental forces, it governs planetary orbits and ocean tides. For the point, name this force that gives weight to physical objects and pulls them toward Earth.",
+      "question": "Einstein's Equivalence Principle states that the effects of this force in a static frame are indistinguishable from a pseudo-force in a uniformly accelerating reference frame. Described classically by an inverse-square law involving a constant approximately equal to 6.674 times 10 to the power of negative 11, it is the weakest of the four fundamental interactions. For the point, name this universal attractive force acting between any two masses.",
       "options": [
         "Electromagnetic Force",
         "Strong Nuclear Force",
@@ -340,40 +284,236 @@
         "Gravitational Force"
       ],
       "answer": 3,
-      "explanation": "Gravitational force is modeled classically by Newton's inverse-square law and relativistically by Einstein's spacetime curvature, driving planetary orbits and surface gravity."
+      "explanation": "Gravitational force is described by Newton's law of universal gravitation and Einstein's General Relativity, acting as an attractive interaction between masses."
+    },
+    {
+      "id": 15,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "Climbers attempting to reach this mountain's summit must endure extreme oxygen deprivation above 8,000 meters in a region designated as the 'Death Zone.' Native Nepalese refer to this mountain as Sagarmatha, meaning 'Forehead of the Sky,' while its English name honors a former Surveyor General of India. For the point, name this tallest mountain in the world.",
+      "options": [
+        "Mount Everest",
+        "Denali",
+        "Mount Blanc",
+        "K2"
+      ],
+      "answer": 0,
+      "explanation": "The region above 8,000 meters on Mount Everest is called the Death Zone due to low oxygen levels. Its Nepalese name is Sagarmatha."
+    },
+    {
+      "id": 16,
+      "category": "Science",
+      "topic": "Acceleration",
+      "question": "For objects moving in a circular path at constant speed, the centripetal form of this quantity points continuously toward the center of curvature. Near Earth's surface, free-falling objects in a vacuum experience a standard constant value of this quantity equal to approximately 9.81 meters per second squared. For the point, name this kinematic quantity that measures how quickly velocity changes.",
+      "options": [
+        "Jerk",
+        "Acceleration",
+        "Speed",
+        "Work"
+      ],
+      "answer": 1,
+      "explanation": "Standard free-fall acceleration near Earth's surface is approximately 9.81 m/s², representing the change in velocity per second."
+    },
+    {
+      "id": 17,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "Formed by the ongoing tectonic collision of the Indian and Eurasian plates, this mountain's Tibetan name translates to 'Mother Goddess of the World.' Surveyed by Andrew Waugh, who proposed naming it after his predecessor, this mountain rises to over 29,000 feet above sea level in the Himalayas. For the point, name this legendary mountain that stands as the world's highest peak.",
+      "options": [
+        "Mount Fuji",
+        "K2",
+        "Mount Everest",
+        "Mount Elbrus"
+      ],
+      "answer": 2,
+      "explanation": "In Tibet, Mount Everest is called Chomolungma ('Mother Goddess of the World'). It was formed by the collision of the Indian and Eurasian tectonic plates."
+    },
+    {
+      "id": 18,
+      "category": "Science",
+      "topic": "Gravitational Force",
+      "question": "Modern physics models this phenomenon not as a simple action-at-a-distance, but as the curvature of spacetime caused by mass and energy in General Relativity. Sir Isaac Newton formulated a law for this interaction showing that it varies inversely with the square of the distance between two bodies. For the point, name this attractive force that holds planets in orbit around the Sun.",
+      "options": [
+        "Gravitational Force",
+        "Frictional Force",
+        "Tension Force",
+        "Normal Force"
+      ],
+      "answer": 0,
+      "explanation": "Gravitational force is modernly described by Einstein's General Relativity as the curvature of spacetime caused by mass and energy."
     },
     {
       "id": 19,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "In Tibet, this natural landmark is known as Chomolungma, meaning Goddess Mother of the World, while in Nepal it is called Sagarmatha. Climbers attempting to reach its peak usually pass through the South Col or North Ridge routes after departing from Base Camp. Sir Edmund Hillary and Tenzing Norgay were the first verified adventurers to stand atop its highest point in 1953. For the point, name this Asian mountain that stands as the world's highest peak.",
+      "question": "New Zealander Sir Edmund Hillary and Sherpa mountaineer Tenzing Norgay achieved world fame on May 29, 1953, by reaching the summit of this peak. Located in the Mahalangur Himal range, it is the highest of the Seven Summits. For the point, name this massive mountain situated on the border of Nepal and China.",
       "options": [
-        "Mount Everest",
         "K2",
-        "Mount Logan",
-        "Matterhorn"
+        "Mount Everest",
+        "Matterhorn",
+        "Pikes Peak"
       ],
-      "answer": 0,
-      "explanation": "Mount Everest is called Chomolungma in Tibet and Sagarmatha in Nepal. Its primary climbing routes pass through South Col and North Ridge from Base Camp."
+      "answer": 1,
+      "explanation": "Sir Edmund Hillary and Tenzing Norgay made the first officially confirmed ascent of Mount Everest on May 29, 1953."
     },
     {
       "id": 20,
       "category": "Science",
-      "topic": "Newton's Laws",
-      "question": "The second of these principles states that net force equals mass times acceleration, which can also be expressed as the rate of change of momentum over time. The first principle dictates that an object in motion will remain in motion unless acted upon by a net external force. The third principle asserts that whenever one object exerts a force on another, the second object exerts an equal and opposite force on the first. For the point, name these three physical laws named after the English author of Philosophiae Naturalis Principia Mathematica.",
+      "topic": "Acceleration",
+      "question": "In the fundamental physics equation net force equals mass times this quantity, it is represented by the symbol a and is inversely proportional to mass for a given force. Because it requires both a magnitude and a direction to describe changes in speed or orientation, it is classified as a vector quantity. For the point, name this physical concept that describes how fast an object speeds up or changes direction.",
       "options": [
-        "Kepler's Laws",
-        "Newton's Laws",
-        "Hooke's Laws",
-        "Boyle's Laws"
+        "Distance",
+        "Mass",
+        "Acceleration",
+        "Energy"
+      ],
+      "answer": 2,
+      "explanation": "Acceleration is the 'a' in Newton's second law equation F = ma, defined as the rate of change of velocity."
+    },
+    {
+      "id": 21,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "This geographic feature's local name in Tibet translates to 'Mother Goddess of the World', while in Nepal it is known as Sagarmatha. It was formed by the ongoing tectonic collision between the Indian and Eurasian plates, and its region above 8,000 meters is famously known as the 'Death Zone' due to severe hypobaric hypoxia. For the point, name this highest mountain above sea level on Earth, first summitted by Sir Edmund Hillary and Tenzing Norgay.",
+      "options": [
+        "K2",
+        "Mount Everest",
+        "Kangchenjunga",
+        "Makalu"
       ],
       "answer": 1,
-      "explanation": "Sir Isaac Newton formulated these three laws of motion, which govern inertia, net force with acceleration (F=ma), and action-reaction pairs."
+      "explanation": "Mount Everest is known as Chomolungma in Tibet and Sagarmatha in Nepal. It was formed by tectonic collision, features the Death Zone above 8,000 meters, and was first officially climbed by Edmund Hillary and Tenzing Norgay in 1953."
+    },
+    {
+      "id": 22,
+      "category": "Science",
+      "topic": "Acceleration",
+      "question": "For an object undergoing uniform circular motion, the centripetal form of this vector quantity points continuously toward the center of the path and is calculated as speed squared divided by radius. According to Newton's Second Law of Motion, it is directly proportional to net force and inversely proportional to mass. Expressed in the SI unit of meters per second squared, for the point, name this rate of change of velocity with respect to time.",
+      "options": [
+        "Velocity",
+        "Acceleration",
+        "Momentum",
+        "Displacement"
+      ],
+      "answer": 1,
+      "explanation": "Acceleration is defined as the rate of change of velocity per unit time. Centripetal acceleration equals v²/r, Newton's second law relates it via F = ma, and its SI unit is m/s²."
+    },
+    {
+      "id": 23,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "This landmark was surveyed during the Great Trigonometrical Survey and officially named in 1865 by the Royal Geographical Society upon the recommendation of Andrew Waugh. Located along the border between Nepal and the Tibet Autonomous Region of China, it stands at an officially recognized elevation of 8,848.86 meters. For the point, name this Himalayan peak named after a British Surveyor General.",
+      "options": [
+        "Mount Everest",
+        "Mount Kilimanjaro",
+        "Mount Denali",
+        "Mount Elbrus"
+      ],
+      "answer": 0,
+      "explanation": "Andrew Waugh recommended naming the peak Mount Everest in 1865 in honor of his predecessor Sir George Everest. It is located on the Nepal-Tibet border and rises to 8,848.86 meters."
+    },
+    {
+      "id": 24,
+      "category": "Science",
+      "topic": "Gravitational Force",
+      "question": "Einstein's Equivalence Principle states that local experiences of this interaction are indistinguishable from being in a uniformly accelerating reference frame. Described classically as an attractive interaction operating over infinite distances with a constant equal to roughly 6.674 times 10 to the negative 11th power SI units, it causes free-falling objects near Earth to accelerate at 9.81 meters per second squared. For the point, name this weakest of the fundamental forces that acts between any two masses.",
+      "options": [
+        "Electromagnetic Force",
+        "Strong Nuclear Force",
+        "Weak Nuclear Force",
+        "Gravitational Force"
+      ],
+      "answer": 3,
+      "explanation": "Gravitational force is calculated via Newton's law using the universal gravitational constant G, satisfies Einstein's Equivalence Principle, and produces a standard acceleration of 9.81 m/s² on Earth."
+    },
+    {
+      "id": 25,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "Extreme atmospheric conditions above 8,000 meters on this physical feature create the hyper-hazardous 'Death Zone' where human survival without supplemental oxygen is severely limited. It forms part of the Mahalangur Himal sub-range in the Himalayas and belongs to the Seven Summits as the tallest peak on Earth. For the point, name this mountain that was first successfully climbed on May 29, 1953.",
+      "options": [
+        "Annapurna",
+        "Mount Everest",
+        "Lhotse",
+        "Cho Oyu"
+      ],
+      "answer": 1,
+      "explanation": "Mount Everest is situated in the Mahalangur Himal sub-range, contains the Death Zone above 8,000 meters, is part of the Seven Summits, and was first climbed on May 29, 1953."
+    },
+    {
+      "id": 26,
+      "category": "Science",
+      "topic": "Acceleration",
+      "question": "Near the surface of Earth, the standard value for a specific type of this quantity caused by gravity is approximately 9.81 meters per second squared. It occurs whenever an object changes its speed, direction of motion, or both, as it is a vector quantity describing velocity changes over time. Expressed mathematically as net force divided by mass, for the point, name this physical concept.",
+      "options": [
+        "Impulse",
+        "Jerk",
+        "Acceleration",
+        "Work"
+      ],
+      "answer": 2,
+      "explanation": "Acceleration is a vector quantity representing the change in velocity over time. Near Earth's surface, gravitational acceleration is approximately 9.81 m/s², and Newton's second law defines it as a = F/m."
+    },
+    {
+      "id": 27,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "Tenzing Norgay and Sir Edmund Hillary achieved international fame in May 1953 after becoming the first mountaineers confirmed to reach the summit of this giant landform. It lies along the boundary between the Tibet Autonomous Region of China and Nepal, where it is locally called Sagarmatha. For the point, name this highest peak on Earth.",
+      "options": [
+        "Mount Everest",
+        "K2",
+        "Mont Blanc",
+        "Mount McKinley"
+      ],
+      "answer": 0,
+      "explanation": "Sir Edmund Hillary and Sherpa Tenzing Norgay made the first confirmed ascent of Mount Everest on May 29, 1953. In Nepal, the peak is called Sagarmatha."
+    },
+    {
+      "id": 28,
+      "category": "Science",
+      "topic": "Gravitational Force",
+      "question": "In modern physics, Einstein's General Theory of Relativity describes this phenomenon as the curvature of spacetime resulting from the presence of mass and energy. Classically calculated using the formula F equals G times m one m two over r squared, it is the dominant force at astronomical scales because it is strictly attractive and operates across infinite distances. For the point, name this fundamental force responsible for keeping planets in orbit around the Sun.",
+      "options": [
+        "Centripetal Force",
+        "Gravitational Force",
+        "Friction",
+        "Tension"
+      ],
+      "answer": 1,
+      "explanation": "Gravitational force is modernly understood through General Relativity as spacetime curvature caused by mass and energy, and classically modeled by Newton's law of universal gravitation."
+    },
+    {
+      "id": 29,
+      "category": "Geography",
+      "topic": "Mount Everest",
+      "question": "Andrew Waugh recommended naming this geographical feature after his predecessor, Sir George Everest, despite the British surveyor's own reservations. Located in the Himalayan range, it reaches an elevation of over 29,000 feet, making it the highest of the Seven Summits. For the point, name this world-famous mountain.",
+      "options": [
+        "K2",
+        "Kangchenjunga",
+        "Mount Everest",
+        "Manaslu"
+      ],
+      "answer": 2,
+      "explanation": "Sir George Everest was the namesake recommended by Andrew Waugh in 1865 for the mountain, which stands as the highest peak among the Seven Summits."
+    },
+    {
+      "id": 30,
+      "category": "Science",
+      "topic": "Acceleration",
+      "question": "The formula a equals v squared divided by r calculates the centripetal variety of this physical quantity for an object moving in a circular path. Measured in SI units of meters per second squared, it equals zero for any body traveling at constant speed in a straight line. For the point, name this vector quantity defined as the rate of change of velocity.",
+      "options": [
+        "Speed",
+        "Acceleration",
+        "Force",
+        "Power"
+      ],
+      "answer": 1,
+      "explanation": "Acceleration is the rate of change of velocity over time. Its centripetal formula is a = v²/r, its unit is m/s², and it is zero when moving at constant velocity in a straight line."
     }
   ],
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-04 01:50:07",
+    "generated_at": "2026-09-05 01:48:17",
     "resources": [
       "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
       "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",

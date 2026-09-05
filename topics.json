@@ -2,29 +2,29 @@
   "Geography": [
     {
       "name": "Mount Everest",
-      "definition": "Mount Everest, located in the Mahalangur Himal sub-range of the Himalayas, is Earth's highest mountain above sea level with an officially recognized peak elevation of 8,848.86 meters (29,031.7 feet). Straddling the international border between Nepal and China, it is known locally as Sagarmatha in Nepal and Chomolungma in Tibet.",
+      "definition": "Mount Everest is Earth's highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas along the border between Nepal and the Tibet Autonomous Region of China. Rising to an officially recognized elevation of 8,848.86 meters (29,031.7 feet), it was formed by the ongoing tectonic collision of the Indian and Eurasian plates.",
       "key_facts": [
-        "Sir Edmund Hillary of New Zealand and Tenzing Norgay, a Sherpa climber from Nepal, became the first people confirmed to reach the summit on May 29, 1953.",
-        "The mountain was named after Sir George Everest, a former Surveyor General of India, although Indian mathematician Radhanath Sikdar was the first to calculate its position as the world's highest peak in 1852.",
-        "The region above approximately 8,000 meters (26,000 feet) on the mountain is known as the 'Death Zone,' where atmospheric pressure drops significantly and human life cannot be sustained without supplemental oxygen over extended periods.",
-        "Formed by the collision of the Indian and Eurasian tectonic plates, Mount Everest continues to rise at a rate of roughly 4 millimeters per year due to ongoing geological uplift."
+        "In Nepal, the mountain is known as Sagarmatha ('Forehead of the Sky'), while in Tibet, it is referred to as Chomolungma ('Mother Goddess of the World').",
+        "Sir Edmund Hillary of New Zealand and Sherpa mountaineer Tenzing Norgay made the first officially confirmed ascent of Everest on May 29, 1953.",
+        "The peak was designated as Mount Everest in 1865 by the Royal Geographical Society upon the recommendation of Andrew Waugh, who named it after his predecessor, Sir George Everest.",
+        "The area above 8,000 meters (26,247 feet) on the mountain is known as the 'Death Zone' due to extremely low oxygen levels and high atmospheric pressure risks."
       ],
       "related_topics": [
-        "Himalayas",
-        "K2",
-        "Plate Tectonics"
+        "Seven Summits",
+        "Plate Tectonics and Orogeny",
+        "K2"
       ]
     }
   ],
   "Science": [
     {
       "name": "Acceleration",
-      "definition": "Acceleration is defined as the rate of change of an object's velocity with respect to time, making it a vector quantity that accounts for changes in both speed and direction. In the International System of Units (SI), it is measured in meters per second squared (m/s²).",
+      "definition": "Acceleration is defined as the rate of change of an object's velocity with respect to time. As a vector quantity, it has both magnitude and direction, occurring whenever an object changes its speed, its direction of motion, or both.",
       "key_facts": [
+        "In the International System of Units (SI), acceleration is measured in meters per second squared (m/s²).",
         "According to Newton's Second Law of Motion, acceleration is directly proportional to the net force acting on an object and inversely proportional to its mass (F = ma).",
-        "Centripetal acceleration describes the acceleration directed toward the center of a circular path, calculated using the formula a_c = v² / r.",
-        "The slope of a velocity-versus-time graph represents the object's acceleration, whereas the area under the curve represents displacement.",
-        "Standard gravitational acceleration at Earth's surface is represented by 'g' and equals approximately 9.81 m/s²."
+        "Centripetal acceleration directs an object toward the center of a circular path and is calculated using the formula a = v²/r.",
+        "The standard acceleration due to gravity near the surface of Earth is approximately 9.81 m/s²."
       ],
       "related_topics": [
         "Velocity",
@@ -34,46 +34,17 @@
     },
     {
       "name": "Gravitational Force",
-      "definition": "Gravitational force is a fundamental attractive interaction that exists between any two masses in the universe, directly proportional to the product of their masses and inversely proportional to the square of the distance between them. Formulated classically by Sir Isaac Newton and later reinterpreted by Albert Einstein as the curvature of spacetime, it governs planetary orbits, ocean tides, and large-scale cosmic structure.",
+      "definition": "Gravitational force is a fundamental attractive interaction that acts between any two objects with mass in the universe. Classically described by Newton's Law of Universal Gravitation, it is modernly understood through Einstein's General Theory of Relativity as the curvature of spacetime caused by mass and energy.",
       "key_facts": [
-        "Newton's Law of Universal Gravitation states that force equals G multiplied by the product of two masses divided by the square of the distance between them, where G is the universal gravitational constant (approximately 6.674 x 10^-11 N·m²/kg²).",
-        "Albert Einstein's Theory of General Relativity redefines gravity not as a mechanical force, but as a consequence of mass and energy warping the four-dimensional fabric of spacetime.",
-        "Gravity is the weakest of the four fundamental forces of nature, yet it dictates macroscopic phenomena because it is strictly attractive and has an infinite range.",
-        "The standard acceleration due to Earth's gravity at sea level is approximately 9.80665 m/s², though local variations occur due to altitude, latitude, and geological mass anomalies."
+        "Newton's Law of Universal Gravitation calculates gravitational force using the formula F = G(m1*m2)/r^2, where G is the universal gravitational constant approximately equal to 6.674 × 10^-11 N·m²/kg².",
+        "Gravitational force is the weakest of the four fundamental forces of nature, but it dominates at astronomical scales because it operates over infinite distances and is strictly attractive.",
+        "Einstein's Equivalence Principle states that the gravitational force experienced locally while standing on a massive body is indistinguishable from the pseudo-force experienced in a uniformly accelerating frame of reference.",
+        "On Earth, gravitational force produces a standard surface acceleration (g) of approximately 9.81 m/s², which accelerates all free-falling objects equally regardless of their mass when air resistance is absent."
       ],
       "related_topics": [
         "General Relativity",
         "Kepler's Laws of Planetary Motion",
-        "Tidal Forces"
-      ]
-    },
-    {
-      "name": "Newton's Laws",
-      "definition": "Formulated by Sir Isaac Newton in 1687, Newton's Laws of Motion describe the relationship between the movement of an object and the forces acting upon it. These three fundamental principles form the cornerstone of classical mechanics, explaining concepts of inertia, force-driven acceleration, and action-reaction pairs.",
-      "key_facts": [
-        "The First Law, or the Law of Inertia, states that an object remains at rest or in uniform linear motion unless acted upon by a net external force.",
-        "The Second Law defines force as the rate of change of momentum over time, traditionally expressed by the equation F = ma.",
-        "The Third Law asserts that whenever one object exerts a force on another, the second object exerts an equal and opposite force on the first.",
-        "All three laws were first published together in Newton's landmark treatise, Philosophiæ Naturalis Principia Mathematica."
-      ],
-      "related_topics": [
-        "Classical Mechanics",
-        "Law of Universal Gravitation",
-        "Conservation of Momentum"
-      ]
-    },
-    {
-      "name": "Photosynthesis",
-      "definition": "Photosynthesis is the biological process by which autotrophic organisms convert light energy, water, and carbon dioxide into chemical energy stored in glucose while releasing oxygen as a byproduct. It occurs primarily within the chloroplasts of plant cells and consists of light-dependent reactions and the light-independent Calvin cycle.",
-      "key_facts": [
-        "The light-dependent reactions occur in the thylakoid membranes, utilizing Photosystems II and I to generate ATP and NADPH via an electron transport chain while splitting water into oxygen through photolysis.",
-        "RuBisCO (Ribulose-1,5-bisphosphate carboxylase-oxygenase) is the key enzyme that catalyzes carbon fixation in the Calvin cycle and is considered the most abundant protein on Earth.",
-        "C4 and CAM plants utilize specialized anatomical and biochemical adaptations to minimize photorespiration by spatially or temporally separating initial carbon fixation from the Calvin cycle."
-      ],
-      "related_topics": [
-        "Cellular Respiration",
-        "Calvin Cycle",
-        "Chloroplast Structure and Function"
+        "Escape Velocity"
       ]
     }
   ]
