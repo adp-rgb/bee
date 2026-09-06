@@ -93,162 +93,162 @@
     {
       "id": 1,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "In Nepal, this mountain is known locally as Sagarmatha, meaning 'Forehead of the Sky,' while in Tibet it is called Chomolungma. Formed by the ongoing tectonic collision of the Indian and Eurasian plates, its region above 8,000 meters is famously designated as the 'Death Zone.' First officially summited in 1953 by Sir Edmund Hillary and Tenzing Norgay, it stands as the highest mountain on Earth. For the point, name this peak in the Himalayas.",
+      "topic": "Amazon River",
+      "question": "A powerful tidal bore known as the pororoca creates waves up to 13 feet high that travel up to 50 miles upstream along this body of water during full and new moons. Though recent studies point to the Mantaro River as its ultimate source, its primary source was traditionally identified as Nevado Mismi in the Peruvian Andes. Accounting for roughly 20 percent of total global river discharge, this river surprisingly has no bridges crossing its main stem. For the point, name this massive South American river, the largest in the world by discharge volume.",
       "options": [
-        "K2",
-        "Mount Everest",
-        "Lhotse",
-        "Makalu"
+        "Amazon River",
+        "Nile River",
+        "Orinoco River",
+        "Paraná River"
       ],
-      "answer": 1,
-      "explanation": "Mount Everest, known as Sagarmatha in Nepal and Chomolungma in Tibet, is Earth's highest mountain above sea level, located in the Himalayas."
+      "answer": 0,
+      "explanation": "The Amazon River features the pororoca tidal bore, originates in the Andes, has no bridges along its main stem, and holds the world's highest discharge volume."
     },
     {
       "id": 2,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "Centripetal forms of this vector quantity direct an object toward the center of a circular path and are calculated as velocity squared divided by radius. According to Newton's Second Law of Motion, this property is directly proportional to the net force applied to an object and inversely proportional to its mass. Near Earth's surface, its standard value due to gravity is approximately 9.81 meters per second squared. For the point, name this rate of change of velocity with respect to time.",
+      "question": "The time rate of change of this physical quantity itself is known in physics as 'jerk.' In uniform circular motion, its centripetal form maintains an object's trajectory by pointing directly toward the center of curvature with a magnitude equal to velocity squared divided by the radius. Defined as the second derivative of position with respect to time, it is directly proportional to net force according to Newton's Second Law. For the point, name this vector quantity that describes the rate of change of velocity over time.",
       "options": [
         "Velocity",
-        "Momentum",
         "Acceleration",
-        "Jerk"
+        "Momentum",
+        "Displacement"
       ],
-      "answer": 2,
-      "explanation": "Acceleration is defined as the rate of change of an object's velocity over time, measured in meters per second squared (m/s²)."
+      "answer": 1,
+      "explanation": "Acceleration is defined as the rate of change of velocity over time; its derivative with respect to time is jerk, and it is related to force by Newton's Second Law (F = ma)."
     },
     {
       "id": 3,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "In 1865, the Royal Geographical Society officially named this peak after British surveyor-general Sir George Everest following a recommendation by Andrew Waugh. Situated in the Mahalangur Himal sub-range, it straddles the international border between Nepal and the Tibet Autonomous Region of China. Rising to an officially recognized elevation of 8,848.86 meters, it is celebrated as the highest point on Earth. For the point, name this Himalayan mountain.",
+      "question": "The summit of this physical feature continues to rise at a rate of approximately 4 millimeters per year due to the ongoing collision of the Indian and Eurasian tectonic plates. Climbers attempting to reach its summit must traverse the hazardous 'Death Zone' above 8,000 meters, where atmospheric pressure drops significantly and oxygen levels are insufficient to sustain human life long-term. First officially summited in 1953 by Edmund Hillary and Tenzing Norgay, it is known locally as Sagarmatha in Nepal and Chomolungma in Tibet. For the point, name this peak in the Himalayas, the highest mountain above sea level on Earth.",
       "options": [
-        "Mount Everest",
+        "K2",
         "Kangchenjunga",
-        "Annapurna",
-        "Cho Oyu"
+        "Mount Everest",
+        "Lhotse"
       ],
-      "answer": 0,
-      "explanation": "Named after Sir George Everest in 1865, Mount Everest reaches an elevation of 8,848.86 meters on the Nepal-Tibet border."
+      "answer": 2,
+      "explanation": "Mount Everest is Earth's highest peak above sea level at 8,848.86 meters, located on the border between Nepal and Tibet in the Himalayas."
     },
     {
       "id": 4,
       "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Einstein's Equivalence Principle states that standing on a massive body experiencing this fundamental interaction is indistinguishable from being in a uniformly accelerating frame of reference. Newton described this interaction using an inverse-square law involving a constant approximately equal to 6.674 times 10 to the negative 11th power. Although it is the weakest of the four fundamental forces, it dominates at astronomical scales because it is strictly attractive and operates over infinite distances. For the point, name this force that pulls objects toward Earth.",
+      "topic": "Cell Nucleus",
+      "question": "The interior of this cellular structure is supported by a fibrous network composed of intermediate filament proteins called lamins, known as the nuclear lamina. Its outer lipid bilayer is perforated by complex pores that regulate macromolecular transport, and it contains a dense sub-structure called the nucleolus responsible for transcribing ribosomal RNA. Containing DNA complexed with histone proteins to form chromatin, it acts as the primary command center of eukaryotic cells. For the point, name this double-membrane-bound organelle that houses genomic DNA.",
       "options": [
-        "Strong Nuclear Force",
-        "Electromagnetic Force",
-        "Gravitational Force",
-        "Weak Nuclear Force"
+        "Mitochondrion",
+        "Cell Nucleus",
+        "Endoplasmic Reticulum",
+        "Golgi Apparatus"
       ],
-      "answer": 2,
-      "explanation": "Gravitational force is an attractive fundamental interaction calculated classically by Newton's law of universal gravitation and explained modernly by General Relativity."
+      "answer": 1,
+      "explanation": "The cell nucleus is the double-membrane organelle that houses genomic DNA, contains the nucleolus, and regulates eukaryotic cellular activity."
     },
     {
       "id": 5,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Mountaineers attempting to reach this peak must navigate extreme risks in the 'Death Zone,' where atmospheric pressure drops significantly and oxygen levels are dangerously low. The Tibetan name for this peak translates to 'Mother Goddess of the World,' honoring its spiritual significance along the Himalayan range. Climbed successfully for the first time in May 1953 by Tenzing Norgay and Edmund Hillary, it is the tallest of the Seven Summits. For the point, name this highest mountain above sea level.",
+      "topic": "Amazon River",
+      "question": "Its vast drainage basin covers roughly 40 percent of the South American continent and traverses the world's largest tropical rainforest. Extreme seasonal flooding and sparse surrounding infrastructure mean that not a single bridge spans its main stem from its origin in the Andes to its Atlantic delta. It carries more water into the ocean than the next seven largest rivers combined, making up approximately one-fifth of global river discharge. For the point, name this immense South American river second in length only to the Nile.",
       "options": [
-        "Denali",
-        "Mount Kilimanjaro",
-        "Mount Everest",
-        "Elbrus"
+        "Congo River",
+        "Mississippi River",
+        "Amazon River",
+        "Mekong River"
       ],
       "answer": 2,
-      "explanation": "Mount Everest's high altitude zone is known as the Death Zone, and its Tibetan name is Chomolungma ('Mother Goddess of the World')."
+      "explanation": "The Amazon River basin covers 40% of South America, flows through the Amazon Rainforest into the Atlantic, and accounts for ~20% of global river discharge."
     },
     {
       "id": 6,
       "category": "Science",
-      "topic": "Acceleration",
-      "question": "In calculus, taking the second derivative of position with respect to time yields this physical vector quantity. It is measured in SI units of meters per second squared and occurs whenever an object changes its speed, direction of motion, or both. In the equation F = ma derived from Newton's second law, this quantity is represented by the variable lower-case a. For the point, name this physical quantity representing how rapidly velocity changes.",
+      "topic": "Gravitational Force",
+      "question": "In 1915, Albert Einstein redefined this phenomenon not as a traditional force, but as a geometric consequence of mass and energy warping the fabric of spacetime. Its universal constant, denoted by a capital G, is approximately 6.674 times 10 to the negative 11th power in SI units. Differential interactions from this force between the Earth, Moon, and Sun are directly responsible for ocean tides. For the point, name this fundamental attractive interaction that acts between any two objects with mass, giving Earth's surface an acceleration of 9.81 meters per second squared.",
       "options": [
-        "Speed",
-        "Acceleration",
-        "Displacement",
-        "Force"
+        "Electromagnetic Force",
+        "Gravitational Force",
+        "Strong Nuclear Force",
+        "Weak Nuclear Force"
       ],
       "answer": 1,
-      "explanation": "Acceleration is represented by 'a' in Newton's formula F = ma and measures the rate of change of velocity."
+      "explanation": "Gravitational force is the fundamental attractive force between masses, governed by Newton's Law of Universal Gravitation and Einstein's General Relativity."
     },
     {
       "id": 7,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "The tectonic collision that built this landmark involves the Indian Plate actively pushing against and subducting under the Eurasian Plate. Surveyors Andrew Waugh and Sir George Everest played key roles in establishing its position and height during the Great Trigonometrical Survey of India. Located in the Mahalangur Himal range on the border between Nepal and China, it reaches 29,031.7 feet in height. For the point, name this world-famous mountain peak.",
+      "question": "In 1865, the Royal Geographical Society officially named this peak after a former Surveyor General of India, Sir George Everest. Located in the Mahalangur Himal sub-range, it straddles the border between Nepal and the Tibet Autonomous Region of China at an elevation of over 29,000 feet. Climbers must navigate the dangerous Khumbu Icefall and South Col before entering the Death Zone near its summit. For the point, name this highest mountain peak on Earth.",
       "options": [
         "Mount Everest",
-        "K2",
-        "Mont Blanc",
-        "Matterhorn"
+        "Denali",
+        "Mount Kilimanjaro",
+        "Mount Elbrus"
       ],
       "answer": 0,
-      "explanation": "Mount Everest was measured during the Great Trigonometrical Survey of India and was formed via the tectonic collision of the Indian and Eurasian plates."
+      "explanation": "Mount Everest was named after Sir George Everest in 1865 and is the highest point on Earth, situated in the Mahalangur Himal range."
     },
     {
       "id": 8,
       "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Modern physics describes this phenomenon not as a direct mechanical pull, but as the curvature of spacetime caused by mass and energy. It acts across infinite distances, is strictly attractive, and causes free-falling objects near Earth to accelerate at 9.81 meters per second squared when air resistance is absent. Formulated by Sir Isaac Newton in his Principia, it dictates planetary orbits around the Sun. For the point, name this attractive force between any two objects with mass.",
+      "topic": "Newton's Laws",
+      "question": "These three fundamental principles were first published in 1687 within the groundbreaking treatise Philosophiae Naturalis Principia Mathematica. The first of these principles is commonly called the Law of Inertia, while the third states that whenever one body exerts a force on a second body, an equal and opposite force is exerted in return. The second principle mathematically defines force as the time rate of change of momentum, expressed as F equals m a. For the point, identify these classical mechanics laws named for an English scientist.",
       "options": [
-        "Friction",
-        "Gravitational Force",
-        "Tension",
-        "Centrifugal Force"
+        "Kepler's Laws",
+        "Newton's Laws",
+        "Maxwell's Equations",
+        "Thermodynamic Laws"
       ],
       "answer": 1,
-      "explanation": "Gravitational force is modernly described by general relativity as spacetime curvature and classically by Newton's inverse-square law."
+      "explanation": "Newton's Laws of Motion form the basis of classical mechanics, outlining inertia, F=ma, and equal-and-opposite reaction forces."
     },
     {
       "id": 9,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Known in Nepalese as Sagarmatha, this geographical feature forms part of the border between Nepal and the Tibet Autonomous Region. Standard climbing routes up this mountain include the South Col from Nepal and the North Ridge from Tibet. Reaching an official elevation of over 29,000 feet, it was first successfully scaled in 1953 by Edmund Hillary and Tenzing Norgay. For the point, name this tallest peak in the world.",
+      "topic": "Amazon River",
+      "question": "The pororoca is a powerful tidal bore that creates 13-foot-high waves traveling up to 50 miles upstream along this river during full and new moons. Originating high in the Peruvian Andes, this river flows across Peru and Brazil before emptying into the Atlantic Ocean without a single bridge across its main channel. It drains the world's largest tropical rainforest and accounts for roughly 20 percent of all river discharge worldwide. For the point, name this largest river by water volume in the world, located in South America.",
       "options": [
-        "Lhotse",
-        "Broad Peak",
-        "Mount Everest",
-        "Gasherbrum I"
+        "Rio Grande",
+        "Amazon River",
+        "Orinoco River",
+        "Magdalena River"
       ],
-      "answer": 2,
-      "explanation": "Mount Everest features climbing routes like the South Col and North Ridge and is the world's tallest peak above sea level."
+      "answer": 1,
+      "explanation": "The Amazon River flows across South America, experiences the pororoca tidal bore, and discharges more water into the ocean than any other river."
     },
     {
       "id": 10,
       "category": "Science",
-      "topic": "Acceleration",
-      "question": "For an object in uniform circular motion, this quantity is directed inward toward the center of curvature and is termed centripetal. Because it is a vector quantity, an object moving in a circle at constant speed still experiences this change due to continuous redirection. Denoted by units of distance divided by time squared, it is zero for objects moving at a constant velocity in a straight line. For the point, name this rate of change of velocity.",
+      "topic": "Cell Nucleus",
+      "question": "Within this structure, DNA is wrapped around histone proteins to form chromatin, which condenses into visible chromosomes during cell division. It is enclosed by a nuclear envelope consisting of an inner and outer lipid bilayer separated by the perinuclear space. Containing a prominent sub-region called the nucleolus that synthesizes ribosomal subunits, it acts as the primary control center of eukaryotic cellular function. For the point, name this membrane-bound organelle often referred to as the command center or brain of the cell.",
       "options": [
-        "Momentum",
-        "Acceleration",
-        "Work",
-        "Power"
+        "Ribosome",
+        "Lysosome",
+        "Cell Nucleus",
+        "Chloroplast"
       ],
-      "answer": 1,
-      "explanation": "Centripetal acceleration changes the direction of velocity in circular motion even if speed remains constant."
+      "answer": 2,
+      "explanation": "The cell nucleus contains DNA packaged into chromatin by histones, houses the nucleolus, and directs eukaryotic cellular metabolism and reproduction."
     },
     {
       "id": 11,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Recommended for its modern name in 1865 by British Surveyor General Andrew Waugh, this peak lies in the Mahalangur Himal sub-range formed by the collision of the Indian and Eurasian plates. In Tibet it is known as Chomolungma, while in Nepal it is called Sagarmatha, and mountaineers crossing above 8,000 meters enter its treacherous 'Death Zone.' For the point, name this highest mountain above sea level on Earth, first officially summitted in 1953 by Sir Edmund Hillary and Tenzing Norgay.",
+      "topic": "Amazon River",
+      "question": "A powerful tidal bore called the pororoca creates waves up to 13 feet high that travel 50 miles upstream along this body of water during full and new moons. Although its traditional source is Nevado Mismi in the Peruvian Andes, recent studies suggest the Mantaro River as its ultimate source, and notably, no bridges cross its main stem due to severe seasonal flooding. Draining roughly 40 percent of South America, it accounts for approximately 20 percent of global river discharge into the oceans. For the point, name this largest river in the world by discharge volume.",
       "options": [
-        "Mount Everest",
-        "K2",
-        "Kangchenjunga",
-        "Lhotse"
+        "Amazon River",
+        "Nile River",
+        "Mississippi River",
+        "Yangtze River"
       ],
       "answer": 0,
-      "explanation": "Mount Everest is Earth's highest mountain above sea level at 8,848.86 meters. It is known as Sagarmatha in Nepal, Chomolungma in Tibet, and was named after Sir George Everest by Andrew Waugh."
+      "explanation": "The Amazon River is the largest river by discharge volume, featuring no bridges across its main stem, experiencing the pororoca tidal bore, and draining about 40 percent of South America."
     },
     {
       "id": 12,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "Calculated as velocity squared divided by radius in circular motion to describe centripetal behavior, this vector quantity is measured in standard SI units of meters per second squared. According to Newton's Second Law of Motion, this value is directly proportional to the net force applied to an object and inversely proportional to its mass. For the point, name this physical quantity defined as the rate of change of an object's velocity over time.",
+      "question": "The time rate of change of this physical quantity itself is known in physics as jerk, while its centripetal form maintains circular motion by pointing directly toward the center of curvature. In calculus, this vector quantity is defined as the first derivative of velocity with respect to time and the second derivative of position with respect to time. Under Earth's standard gravity, free-falling objects experience it at approximately 9.81 meters per second squared in the absence of air resistance. For the point, name this rate of change of velocity of an object.",
       "options": [
         "Velocity",
         "Acceleration",
@@ -256,139 +256,139 @@
         "Displacement"
       ],
       "answer": 1,
-      "explanation": "Acceleration is the vector quantity measuring the rate of change of velocity with respect to time, expressed in m/s² and related to force by F = ma."
+      "explanation": "Acceleration is a vector quantity defined as the rate of change of velocity with respect to time. Its derivative is jerk, and standard gravity on Earth causes free-fall acceleration of about 9.81 m/s²."
     },
     {
       "id": 13,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Situated along the international border between Nepal and the Tibet Autonomous Region of China, this geological feature reaches an officially recognized height of 8,848.86 meters. The Royal Geographical Society named this peak after British surveyor Sir George Everest in 1865. For the point, name this Himalayan peak that was famously climbed to its summit for the first time on May 29, 1953.",
+      "question": "Continual collision between the Indian and Eurasian tectonic plates causes this geographical feature to grow approximately 4 millimeters higher each year. First confirmed to be summited in 1953 by Edmund Hillary and Tenzing Norgay, climbers attempting it must traverse the Death Zone above 8,000 meters where atmospheric pressure is severely diminished. Known locally as Sagarmatha in Nepal and Chomolungma in Tibet, it was named in 1865 after a former Surveyor General of India. For the point, name this highest mountain above sea level on Earth.",
       "options": [
-        "Makalu",
-        "Annapurna",
+        "K2",
+        "Kangchenjunga",
         "Mount Everest",
-        "Mount Kilimanjaro"
+        "Lhotse"
       ],
       "answer": 2,
-      "explanation": "Mount Everest lies on the border of Nepal and China/Tibet and was first summitted on May 29, 1953, by Edmund Hillary and Tenzing Norgay."
+      "explanation": "Mount Everest is Earth's highest peak at 8,848.86 meters, situated in the Himalayas on the border of Nepal and Tibet, and was first summited by Hillary and Norgay in 1953."
     },
     {
       "id": 14,
       "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Einstein's Equivalence Principle states that the effects of this force in a static frame are indistinguishable from a pseudo-force in a uniformly accelerating reference frame. Described classically by an inverse-square law involving a constant approximately equal to 6.674 times 10 to the power of negative 11, it is the weakest of the four fundamental interactions. For the point, name this universal attractive force acting between any two masses.",
+      "topic": "Cell Nucleus",
+      "question": "The fibrous network supporting the interior of this organelle is called the nuclear lamina, which consists of intermediate filament proteins known as lamins. Within this organelle, ribosomal RNA is transcribed inside a dense sub-structure called the nucleolus, while genomic DNA is complexed with histone proteins to form chromatin. Surrounded by a double-membrane lipid bilayer perforated by nuclear pore complexes, it serves as the primary command center of eukaryotic cells. For the point, name this organelle that houses an organism's genomic DNA.",
       "options": [
-        "Electromagnetic Force",
-        "Strong Nuclear Force",
-        "Weak Nuclear Force",
-        "Gravitational Force"
+        "Mitochondrion",
+        "Endoplasmic Reticulum",
+        "Golgi Apparatus",
+        "Cell Nucleus"
       ],
       "answer": 3,
-      "explanation": "Gravitational force is described by Newton's law of universal gravitation and Einstein's General Relativity, acting as an attractive interaction between masses."
+      "explanation": "The cell nucleus is a double-membrane organelle in eukaryotic cells containing genomic DNA, chromatin, the nuclear lamina, and the nucleolus."
     },
     {
       "id": 15,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Climbers attempting to reach this mountain's summit must endure extreme oxygen deprivation above 8,000 meters in a region designated as the 'Death Zone.' Native Nepalese refer to this mountain as Sagarmatha, meaning 'Forehead of the Sky,' while its English name honors a former Surveyor General of India. For the point, name this tallest mountain in the world.",
+      "topic": "Amazon River",
+      "question": "Traversed by zero bridges across its entire main stem, this river's discharge accounts for roughly one-fifth of all river water entering the world's oceans. Its primary source was traditionally identified as Nevado Mismi in Peru, and during full and new moons, it experiences a dramatic tidal bore known as the pororoca. Flowing across South America through the world's largest tropical rainforest, it empties into the Atlantic Ocean. For the point, name this massive river that drains roughly 40 percent of the South American continent.",
       "options": [
-        "Mount Everest",
-        "Denali",
-        "Mount Blanc",
-        "K2"
+        "Orinoco River",
+        "Amazon River",
+        "Parana River",
+        "Magdalena River"
       ],
-      "answer": 0,
-      "explanation": "The region above 8,000 meters on Mount Everest is called the Death Zone due to low oxygen levels. Its Nepalese name is Sagarmatha."
+      "answer": 1,
+      "explanation": "The Amazon River traverses South America's tropical rainforest, discharging roughly 20 percent of global river flow into the Atlantic Ocean without a single bridge across its main stem."
     },
     {
       "id": 16,
       "category": "Science",
-      "topic": "Acceleration",
-      "question": "For objects moving in a circular path at constant speed, the centripetal form of this quantity points continuously toward the center of curvature. Near Earth's surface, free-falling objects in a vacuum experience a standard constant value of this quantity equal to approximately 9.81 meters per second squared. For the point, name this kinematic quantity that measures how quickly velocity changes.",
+      "topic": "Gravitational Force",
+      "question": "In 1915, Albert Einstein redefined this phenomenon not as a traditional force, but as a geometric consequence of mass and energy warping the fabric of spacetime. Its universal constant G is approximately 6.674 times 10 to the negative 11th power, and differential variations in its strength across Earth's surface caused by the Moon and Sun create ocean tides. Sir Isaac Newton formulated a law stating that this attractive interaction is inversely proportional to the square of the distance between two masses. For the point, name this fundamental interaction that pulls objects with mass toward one another.",
       "options": [
-        "Jerk",
-        "Acceleration",
-        "Speed",
-        "Work"
+        "Gravitational Force",
+        "Electromagnetic Force",
+        "Strong Nuclear Force",
+        "Weak Nuclear Force"
       ],
-      "answer": 1,
-      "explanation": "Standard free-fall acceleration near Earth's surface is approximately 9.81 m/s², representing the change in velocity per second."
+      "answer": 0,
+      "explanation": "Gravitational force is an attractive interaction between masses governed by Newton's Law of Universal Gravitation and Einstein's General Theory of Relativity."
     },
     {
       "id": 17,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Formed by the ongoing tectonic collision of the Indian and Eurasian plates, this mountain's Tibetan name translates to 'Mother Goddess of the World.' Surveyed by Andrew Waugh, who proposed naming it after his predecessor, this mountain rises to over 29,000 feet above sea level in the Himalayas. For the point, name this legendary mountain that stands as the world's highest peak.",
+      "question": "Located in the Mahalangur Himal sub-range of the Himalayas, this peak was officially named in 1865 by the Royal Geographical Society. Near its summit, atmospheric pressure drops dramatically in an area above 8,000 meters known to mountaineers as the Death Zone. Straddling the international border between Nepal and the Tibet Autonomous Region of China, it reaches an elevation of 8,848.86 meters. For the point, name this highest mountain peak in the world.",
       "options": [
-        "Mount Fuji",
-        "K2",
+        "Mount Kilimanjaro",
+        "Mount Denali",
         "Mount Everest",
         "Mount Elbrus"
       ],
       "answer": 2,
-      "explanation": "In Tibet, Mount Everest is called Chomolungma ('Mother Goddess of the World'). It was formed by the collision of the Indian and Eurasian tectonic plates."
+      "explanation": "Mount Everest is located in the Mahalangur Himal sub-range of the Himalayas on the Nepal-China border and is the highest peak on Earth."
     },
     {
       "id": 18,
       "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Modern physics models this phenomenon not as a simple action-at-a-distance, but as the curvature of spacetime caused by mass and energy in General Relativity. Sir Isaac Newton formulated a law for this interaction showing that it varies inversely with the square of the distance between two bodies. For the point, name this attractive force that holds planets in orbit around the Sun.",
+      "topic": "Newton's Laws",
+      "question": "These core physical principles were first published in 1687 in the groundbreaking work Philosophiae Naturalis Principia Mathematica. The second of these principles defines force as the time rate of change of momentum, commonly expressed as net force equals mass times acceleration, while the third states that every action has an equal and opposite reaction. The first of these principles is also known as the Law of Inertia. For the point, identify these three foundational laws of classical mechanics formulated by Sir Isaac Newton.",
       "options": [
-        "Gravitational Force",
-        "Frictional Force",
-        "Tension Force",
-        "Normal Force"
+        "Kepler's Laws",
+        "Newton's Laws",
+        "Maxwell's Equations",
+        "Thermodynamic Laws"
       ],
-      "answer": 0,
-      "explanation": "Gravitational force is modernly described by Einstein's General Relativity as the curvature of spacetime caused by mass and energy."
+      "answer": 1,
+      "explanation": "Newton's Laws of Motion consist of three principles (Inertia, F=ma, Action-Reaction) published in the Principia Mathematica in 1687."
     },
     {
       "id": 19,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "New Zealander Sir Edmund Hillary and Sherpa mountaineer Tenzing Norgay achieved world fame on May 29, 1953, by reaching the summit of this peak. Located in the Mahalangur Himal range, it is the highest of the Seven Summits. For the point, name this massive mountain situated on the border of Nepal and China.",
+      "topic": "Amazon River",
+      "question": "Surrounding infrastructure is so sparse and seasonal flooding so extreme along this river that not a single bridge spans its entire main stem. The Mantaro River and Nevado Mismi in the Peruvian Andes feed into this body of water, which periodically generates massive tidal waves up to 13 feet high known as pororoca. Draining the world's largest tropical rainforest, it empties into the Atlantic Ocean. For the point, name this second-longest river in the world, located in South America.",
       "options": [
-        "K2",
-        "Mount Everest",
-        "Matterhorn",
-        "Pikes Peak"
+        "Congo River",
+        "Mekong River",
+        "Amazon River",
+        "Danube River"
       ],
-      "answer": 1,
-      "explanation": "Sir Edmund Hillary and Tenzing Norgay made the first officially confirmed ascent of Mount Everest on May 29, 1953."
+      "answer": 2,
+      "explanation": "The Amazon River flows through South America, fed by Andean tributaries, and holds the title of largest river by volume while lacking any main-stem bridges."
     },
     {
       "id": 20,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "In the fundamental physics equation net force equals mass times this quantity, it is represented by the symbol a and is inversely proportional to mass for a given force. Because it requires both a magnitude and a direction to describe changes in speed or orientation, it is classified as a vector quantity. For the point, name this physical concept that describes how fast an object speeds up or changes direction.",
+      "question": "According to Newton's Second Law of Motion, this vector quantity is directly proportional to net force and inversely proportional to the mass of an object. Its derivative with respect to time is called jerk, and its centripetal form keeps objects moving along a curved path by pointing toward the center of curvature. Measured in standard SI units of meters per second squared, it describes how rapidly an object alters its speed or direction. For the point, name this rate of change of velocity.",
       "options": [
-        "Distance",
-        "Mass",
+        "Speed",
         "Acceleration",
+        "Work",
         "Energy"
       ],
-      "answer": 2,
-      "explanation": "Acceleration is the 'a' in Newton's second law equation F = ma, defined as the rate of change of velocity."
+      "answer": 1,
+      "explanation": "Acceleration measures the rate of change of velocity over time, expressed in units of m/s², and relates to force and mass through F = ma."
     },
     {
       "id": 21,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "This geographic feature's local name in Tibet translates to 'Mother Goddess of the World', while in Nepal it is known as Sagarmatha. It was formed by the ongoing tectonic collision between the Indian and Eurasian plates, and its region above 8,000 meters is famously known as the 'Death Zone' due to severe hypobaric hypoxia. For the point, name this highest mountain above sea level on Earth, first summitted by Sir Edmund Hillary and Tenzing Norgay.",
+      "topic": "Amazon River",
+      "question": "A powerful tidal bore known as the pororoca creates waves up to 13 feet high that travel up to 50 miles upstream on this body of water during full and new moons. Although recent studies suggest the Mantaro River as its ultimate source, its primary source was traditionally identified as Nevado Mismi in the Peruvian Andes. Accounting for approximately 20 percent of total global river discharge, this river features no bridges across its main stem. For the point, name this world's largest river by discharge volume, located in South America.",
       "options": [
-        "K2",
-        "Mount Everest",
-        "Kangchenjunga",
-        "Makalu"
+        "Amazon River",
+        "Nile River",
+        "Mississippi River",
+        "Congo River"
       ],
-      "answer": 1,
-      "explanation": "Mount Everest is known as Chomolungma in Tibet and Sagarmatha in Nepal. It was formed by tectonic collision, features the Death Zone above 8,000 meters, and was first officially climbed by Edmund Hillary and Tenzing Norgay in 1953."
+      "answer": 0,
+      "explanation": "The Amazon River is the world's largest river by discharge volume, accounts for ~20% of global river flow, features the pororoca tidal bore, and has no bridges crossing its main stem."
     },
     {
       "id": 22,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "For an object undergoing uniform circular motion, the centripetal form of this vector quantity points continuously toward the center of the path and is calculated as speed squared divided by radius. According to Newton's Second Law of Motion, it is directly proportional to net force and inversely proportional to mass. Expressed in the SI unit of meters per second squared, for the point, name this rate of change of velocity with respect to time.",
+      "question": "In physics, the time rate of change of this vector quantity itself is known as jerk. Maintaining an object's circular path requires a centripetal form of this quantity, which points toward the center of curvature with a magnitude equal to velocity squared divided by radius. Standard gravity on Earth causes free-falling objects to experience this vector quantity at approximately 9.81 meters per second squared. For the point, name this physical quantity defined as the rate of change of velocity with respect to time.",
       "options": [
         "Velocity",
         "Acceleration",
@@ -396,124 +396,124 @@
         "Displacement"
       ],
       "answer": 1,
-      "explanation": "Acceleration is defined as the rate of change of velocity per unit time. Centripetal acceleration equals v²/r, Newton's second law relates it via F = ma, and its SI unit is m/s²."
+      "explanation": "Acceleration is defined as the rate of change of velocity over time. Centripetal acceleration maintains circular motion, and standard gravitational acceleration on Earth is approximately 9.81 m/s²."
     },
     {
       "id": 23,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "This landmark was surveyed during the Great Trigonometrical Survey and officially named in 1865 by the Royal Geographical Society upon the recommendation of Andrew Waugh. Located along the border between Nepal and the Tibet Autonomous Region of China, it stands at an officially recognized elevation of 8,848.86 meters. For the point, name this Himalayan peak named after a British Surveyor General.",
+      "question": "The summit of this physical landmark continues to rise at approximately 4 millimeters per year due to the ongoing collision of the Indian and Eurasian tectonic plates. Climbers ascending this peak must traverse the 'Death Zone' above 8,000 meters, and its first officially confirmed summit ascent was achieved in 1953 by Sir Edmund Hillary and Tenzing Norgay. Known locally as Sagarmatha in Nepal and Chomolungma in Tibet, For the point, name this highest mountain above sea level on Earth.",
       "options": [
+        "K2",
+        "Kangchenjunga",
         "Mount Everest",
-        "Mount Kilimanjaro",
-        "Mount Denali",
-        "Mount Elbrus"
+        "Lhotse"
       ],
-      "answer": 0,
-      "explanation": "Andrew Waugh recommended naming the peak Mount Everest in 1865 in honor of his predecessor Sir George Everest. It is located on the Nepal-Tibet border and rises to 8,848.86 meters."
+      "answer": 2,
+      "explanation": "Mount Everest is Earth's highest peak above sea level (8,848.86 m), first summited by Edmund Hillary and Tenzing Norgay in 1953."
     },
     {
       "id": 24,
       "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Einstein's Equivalence Principle states that local experiences of this interaction are indistinguishable from being in a uniformly accelerating reference frame. Described classically as an attractive interaction operating over infinite distances with a constant equal to roughly 6.674 times 10 to the negative 11th power SI units, it causes free-falling objects near Earth to accelerate at 9.81 meters per second squared. For the point, name this weakest of the fundamental forces that acts between any two masses.",
+      "topic": "Cell Nucleus",
+      "question": "The interior of this cellular structure is supported by the nuclear lamina, a fibrous network composed of intermediate filament proteins called lamins. Within this organelle, a dense non-membrane-bound region transcribes ribosomal RNA and assembles ribosome subunits. Surrounded by a double lipid bilayer perforated by nuclear pore complexes, it houses the cell's genomic DNA complexed with histone proteins. For the point, name this organelle that serves as the command center of eukaryotic cells.",
       "options": [
-        "Electromagnetic Force",
-        "Strong Nuclear Force",
-        "Weak Nuclear Force",
-        "Gravitational Force"
+        "Mitochondrion",
+        "Endoplasmic Reticulum",
+        "Golgi Apparatus",
+        "Cell Nucleus"
       ],
       "answer": 3,
-      "explanation": "Gravitational force is calculated via Newton's law using the universal gravitational constant G, satisfies Einstein's Equivalence Principle, and produces a standard acceleration of 9.81 m/s² on Earth."
+      "explanation": "The cell nucleus is a double-membrane-bound organelle housing genomic DNA and containing the nucleolus, serving as the main control center of eukaryotic cells."
     },
     {
       "id": 25,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Extreme atmospheric conditions above 8,000 meters on this physical feature create the hyper-hazardous 'Death Zone' where human survival without supplemental oxygen is severely limited. It forms part of the Mahalangur Himal sub-range in the Himalayas and belongs to the Seven Summits as the tallest peak on Earth. For the point, name this mountain that was first successfully climbed on May 29, 1953.",
+      "topic": "Amazon River",
+      "question": "Traversing a river basin that drains roughly 40 percent of the South American continent, this river empties directly into the Atlantic Ocean. Its surrounding region lacks permanent bridges across its main stem primarily due to extreme seasonal flooding and sparse surrounding infrastructure. Originating in the Peruvian Andes, it flows through the world's largest tropical rainforest. For the point, name this massive South American river, traditionally considered the second-longest river in the world.",
       "options": [
-        "Annapurna",
-        "Mount Everest",
-        "Lhotse",
-        "Cho Oyu"
+        "Amazon River",
+        "Orinoco River",
+        "Paraná River",
+        "Magdalena River"
       ],
-      "answer": 1,
-      "explanation": "Mount Everest is situated in the Mahalangur Himal sub-range, contains the Death Zone above 8,000 meters, is part of the Seven Summits, and was first climbed on May 29, 1953."
+      "answer": 0,
+      "explanation": "The Amazon River drains roughly 40% of South America, flows through the Amazon Rainforest into the Atlantic Ocean, and is traditionally considered the second-longest river."
     },
     {
       "id": 26,
       "category": "Science",
-      "topic": "Acceleration",
-      "question": "Near the surface of Earth, the standard value for a specific type of this quantity caused by gravity is approximately 9.81 meters per second squared. It occurs whenever an object changes its speed, direction of motion, or both, as it is a vector quantity describing velocity changes over time. Expressed mathematically as net force divided by mass, for the point, name this physical concept.",
+      "topic": "Gravitational Force",
+      "question": "Albert Einstein's General Theory of Relativity redefined this phenomenon as a geometric consequence of mass and energy warping the fabric of spacetime rather than a traditional force. Formulated mathematically by Sir Isaac Newton in 1687, its strength between two masses is inversely proportional to the square of the distance between their centers. Responsible for ocean tides through differential interactions between Earth, the Moon, and the Sun, For the point, name this fundamental attractive force between any two objects with mass.",
       "options": [
-        "Impulse",
-        "Jerk",
-        "Acceleration",
-        "Work"
+        "Electromagnetic Force",
+        "Gravitational Force",
+        "Strong Nuclear Force",
+        "Weak Nuclear Force"
       ],
-      "answer": 2,
-      "explanation": "Acceleration is a vector quantity representing the change in velocity over time. Near Earth's surface, gravitational acceleration is approximately 9.81 m/s², and Newton's second law defines it as a = F/m."
+      "answer": 1,
+      "explanation": "Gravitational force is the attractive interaction between masses defined by Newton's Law of Universal Gravitation and Einstein's General Relativity."
     },
     {
       "id": 27,
       "category": "Geography",
       "topic": "Mount Everest",
-      "question": "Tenzing Norgay and Sir Edmund Hillary achieved international fame in May 1953 after becoming the first mountaineers confirmed to reach the summit of this giant landform. It lies along the boundary between the Tibet Autonomous Region of China and Nepal, where it is locally called Sagarmatha. For the point, name this highest peak on Earth.",
+      "question": "Located in the Mahalangur Himal sub-range of the Himalayas, this mountain straddles the border between Nepal and the Tibet Autonomous Region of China. In 1865, the Royal Geographical Society officially assigned its modern name in honor of a former Surveyor General of India, overriding local designations. Mountaineers seeking to reach its summit of over 29,000 feet must navigate hazards such as the Khumbu Icefall. For the point, name this peak that is officially the highest mountain on Earth.",
       "options": [
+        "Mount Kilimanjaro",
+        "Mount Denali",
         "Mount Everest",
-        "K2",
-        "Mont Blanc",
-        "Mount McKinley"
+        "Mount Elbrus"
       ],
-      "answer": 0,
-      "explanation": "Sir Edmund Hillary and Sherpa Tenzing Norgay made the first confirmed ascent of Mount Everest on May 29, 1953. In Nepal, the peak is called Sagarmatha."
+      "answer": 2,
+      "explanation": "Mount Everest lies in the Mahalangur Himal sub-range of the Himalayas between Nepal and Tibet and was named after Sir George Everest in 1865."
     },
     {
       "id": 28,
       "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "In modern physics, Einstein's General Theory of Relativity describes this phenomenon as the curvature of spacetime resulting from the presence of mass and energy. Classically calculated using the formula F equals G times m one m two over r squared, it is the dominant force at astronomical scales because it is strictly attractive and operates across infinite distances. For the point, name this fundamental force responsible for keeping planets in orbit around the Sun.",
+      "topic": "Newton's Laws",
+      "question": "These physical principles were first published in the 1687 foundational treatise Philosophiae Naturalis Principia Mathematica. The first of these principles is also known as the Law of Inertia, while the third states that whenever one body exerts a force on a second, the second exerts an equal and opposite force. The second principle mathematically defines force as mass times acceleration. For the point, name these three foundational principles of classical mechanics formulated by Sir Isaac Newton.",
       "options": [
-        "Centripetal Force",
-        "Gravitational Force",
-        "Friction",
-        "Tension"
+        "Kepler's Laws",
+        "Maxwell's Equations",
+        "Newton's Laws",
+        "Thermodynamic Laws"
       ],
-      "answer": 1,
-      "explanation": "Gravitational force is modernly understood through General Relativity as spacetime curvature caused by mass and energy, and classically modeled by Newton's law of universal gravitation."
+      "answer": 2,
+      "explanation": "Newton's Laws of Motion are three fundamental laws published in the Principia in 1687 that form the backbone of classical mechanics."
     },
     {
       "id": 29,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Andrew Waugh recommended naming this geographical feature after his predecessor, Sir George Everest, despite the British surveyor's own reservations. Located in the Himalayan range, it reaches an elevation of over 29,000 feet, making it the highest of the Seven Summits. For the point, name this world-famous mountain.",
+      "topic": "Amazon River",
+      "question": "During full and new moons, a famous tidal bore called the pororoca creates waves up to 13 feet high on this body of water. Draining the world's largest tropical rainforest, this river contributes roughly 20 percent of all global river discharge entering the world's oceans. Its main stem flows past major settlements like Iquitos and Manaus without being crossed by a single bridge. For the point, name this massive river that flows through South America.",
       "options": [
-        "K2",
-        "Kangchenjunga",
-        "Mount Everest",
-        "Manaslu"
+        "Amazon River",
+        "Rio de la Plata",
+        "São Francisco River",
+        "Tocantins River"
       ],
-      "answer": 2,
-      "explanation": "Sir George Everest was the namesake recommended by Andrew Waugh in 1865 for the mountain, which stands as the highest peak among the Seven Summits."
+      "answer": 0,
+      "explanation": "The Amazon River flows past Manaus and Iquitos, generates the pororoca tidal bore, and accounts for ~20% of global ocean discharge from rivers."
     },
     {
       "id": 30,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "The formula a equals v squared divided by r calculates the centripetal variety of this physical quantity for an object moving in a circular path. Measured in SI units of meters per second squared, it equals zero for any body traveling at constant speed in a straight line. For the point, name this vector quantity defined as the rate of change of velocity.",
+      "question": "In calculus, this quantity represents both the second derivative of position with respect to time and the first derivative of velocity. According to Newton's Second Law of Motion, this vector quantity is directly proportional to net force and inversely proportional to mass, commonly written as force divided by mass. On Earth's surface, free fall produces a standard value for it of roughly 9.81 meters per second squared. For the point, name this rate of change of velocity.",
       "options": [
         "Speed",
         "Acceleration",
-        "Force",
+        "Work",
         "Power"
       ],
       "answer": 1,
-      "explanation": "Acceleration is the rate of change of velocity over time. Its centripetal formula is a = v²/r, its unit is m/s², and it is zero when moving at constant velocity in a straight line."
+      "explanation": "Acceleration is the time derivative of velocity (a = dv/dt) and equals F/m according to Newton's Second Law of Motion."
     }
   ],
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-05 01:48:17",
+    "generated_at": "2026-09-06 01:42:16",
     "resources": [
       "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
       "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
