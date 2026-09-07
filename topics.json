@@ -2,94 +2,78 @@
   "Geography": [
     {
       "name": "Amazon River",
-      "definition": "The Amazon River is the world's largest river by discharge volume of water and is traditionally considered the second-longest river, flowing across South America into the Atlantic Ocean. Traversing the world's largest tropical rainforest, its river basin drains roughly 40 percent of the South American continent.",
+      "definition": "The Amazon River is the world's largest river by discharge volume of water and the second longest river after the Nile. Flowing across northern South America from the Peruvian Andes to the Atlantic Ocean, its immense basin drains roughly 40 percent of the continent.",
       "key_facts": [
-        "It accounts for approximately 20 percent of the total global river discharge into the world's oceans.",
-        "The river features no bridges across its entire main stem, primarily due to extreme seasonal flooding and sparse surrounding infrastructure.",
-        "Its primary source is traditionally identified as Nevado Mismi in the Peruvian Andes, though recent studies suggest the Mantaro River as its ultimate source.",
-        "A powerful tidal bore known as the pororoca creates waves up to 13 feet high that travel up to 50 miles upstream during full and new moons."
+        "Accounts for roughly 20 percent of the global river discharge into the oceans, carrying more water than the next seven largest rivers combined.",
+        "The 'Meeting of Waters' near Manaus is a famous confluence where the dark Rio Negro and the pale Solimões River flow side by side for miles without immediately mixing.",
+        "Despite its immense size, no bridges span the main stem of the Amazon River, largely due to its extreme seasonal flooding, shifting channels, and sparse surrounding population.",
+        "Its traditional source was long identified as Nevado Mismi in the Peruvian Andes, though recent geographical studies propose the Mantaro River as a more distant source."
       ],
       "related_topics": [
         "Amazon Rainforest",
-        "Andes Mountains",
-        "Drainage Basin"
-      ]
-    },
-    {
-      "name": "Mount Everest",
-      "definition": "Mount Everest, located in the Mahalangur Himal sub-range of the Himalayas, is Earth's highest mountain above sea level at an elevation of 8,848.86 meters (29,031.7 feet). Straddling the border between Nepal and the Tibet Autonomous Region of China, it attracts hundreds of climbers annually who attempt to reach its summit despite severe environmental hazards.",
-      "key_facts": [
-        "In 1865, the Royal Geographical Society officially named the peak after Sir George Everest, a former Surveyor General of India, though its local names include Sagarmatha in Nepal and Chomolungma in Tibet.",
-        "Sir Edmund Hillary of New Zealand and Tenzing Norgay, a Sherpa mountaineer of Nepal, achieved the first officially confirmed summit ascent on May 29, 1953.",
-        "Climbers ascending the peak must traverse the 'Death Zone' above 8,000 meters (26,247 feet), where atmospheric pressure drops significantly and oxygen levels are insufficient to sustain human life long-term.",
-        "The summit continues to rise at a rate of approximately 4 millimeters per year due to the ongoing collision of the Indian and Eurasian tectonic plates."
-      ],
-      "related_topics": [
-        "Himalayas",
-        "K2",
-        "Plate Tectonics"
+        "Rio Negro",
+        "Andes Mountains"
       ]
     }
   ],
   "Science": [
     {
       "name": "Acceleration",
-      "definition": "Acceleration is defined as the rate of change of velocity of an object with respect to time, making it a vector quantity with both magnitude and direction. According to Newton's Second Law of Motion, the acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.",
+      "definition": "Acceleration is defined as the rate of change of an object's velocity with respect to time. As a vector quantity, it accounts for changes in both the speed and direction of motion.",
       "key_facts": [
-        "In calculus, acceleration is the first derivative of velocity with respect to time and the second derivative of position with respect to time.",
-        "Centripetal acceleration maintains an object's circular motion, pointing directly toward the center of curvature with a magnitude of velocity squared divided by the radius.",
-        "Standard gravity on Earth's surface causes free-falling objects to accelerate at approximately 9.81 meters per second squared in the absence of air resistance.",
-        "The time rate of change of acceleration itself is known in physics as 'jerk'."
+        "In the International System of Units (SI), acceleration is measured in meters per second squared (m/s²).",
+        "According to Newton's Second Law of Motion, the net force acting on an object is equal to its mass multiplied by its acceleration (F = ma).",
+        "Centripetal acceleration acts on an object moving in a circular path, constantly pointing toward the center of curvature with a magnitude of v²/r.",
+        "The rate of change of acceleration with respect to time is a vector quantity known as jerk."
       ],
       "related_topics": [
+        "Velocity",
         "Newton's Laws of Motion",
-        "Kinematics",
-        "Velocity"
+        "Kinematics"
       ]
     },
     {
       "name": "Cell Nucleus",
-      "definition": "The cell nucleus is a double-membrane-bound organelle found in eukaryotic cells that houses the organism's genomic DNA. It serves as the command center of the cell, directing activities such as growth, metabolism, protein synthesis, and cellular reproduction.",
+      "definition": "The cell nucleus is a membrane-bound organelle found in eukaryotic cells that contains the vast majority of the cell's genetic material. It serves as the primary command center, regulating gene expression, DNA replication, and cellular growth.",
       "key_facts": [
-        "The nuclear envelope consists of an inner and outer lipid bilayer membrane separated by the perinuclear space and is perforated by nuclear pore complexes that regulate macromolecular transport.",
-        "The nucleolus is a dense, non-membrane-bound sub-structure within the nucleus responsible for transcribing ribosomal RNA (rRNA) and assembling ribosome subunits.",
-        "The interior of the nucleus is supported by the nuclear lamina, a fibrous network composed of intermediate filament proteins called lamins.",
-        "Within the nucleus, DNA is complexed with histone proteins to form chromatin, which condenses into visible chromosomes during cell division."
+        "The nucleus is enclosed by a double-membrane structure called the nuclear envelope, which contains nuclear pore complexes that strictly regulate molecular transport.",
+        "Inside the nucleus is the nucleolus, a dense, membrane-less region primarily responsible for synthesizing ribosomal RNA (rRNA) and assembling ribosome subunits.",
+        "Structural support and regulation of chromatin organization in the nucleus are provided by the nuclear lamina, a fibrous network made of lamin intermediate filaments."
       ],
       "related_topics": [
-        "Eukaryotic Cell Structure",
-        "Chromatin and Histones",
-        "Ribosome Biogenesis"
+        "Eukaryotic Organelles",
+        "Chromatin and Chromosomes",
+        "Protein Synthesis"
       ]
     },
     {
       "name": "Gravitational Force",
-      "definition": "Gravitational force is a fundamental attractive interaction that acts between any two objects with mass, pulling them toward each other. It governs the large-scale structure of the universe, keeping planets in orbit around stars and giving weight to physical objects on Earth.",
+      "definition": "Gravitational force is a fundamental attractive interaction that acts between any two masses in the universe, proportional to their masses and inversely proportional to the square of the distance between them. It is described classically by Newton's Law of Universal Gravitation and more accurately by Einstein's theory of General Relativity as the curvature of spacetime.",
       "key_facts": [
-        "Formulated by Sir Isaac Newton in 1687, the Law of Universal Gravitation states that the gravitational force between two masses is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centers.",
-        "Albert Einstein's General Theory of Relativity (1915) redefined gravity not as a traditional force, but as a geometric consequence of mass and energy warping the fabric of spacetime.",
-        "The universal gravitational constant (G) is approximately 6.674 × 10⁻¹¹ N·m²/kg², whereas the standard acceleration due to gravity on Earth's surface (g) is approximately 9.81 m/s².",
-        "Gravitational interactions between the Earth, Moon, and Sun create differential forces across Earth's surface, which are directly responsible for ocean tides."
+        "Newton's Law of Universal Gravitation states that force is directly proportional to the product of two masses and inversely proportional to the square of the distance between them, governed by the gravitational constant G (6.674 × 10^-11 N m²/kg²).",
+        "Gravitational force is the weakest of the four fundamental forces in physics, yet it dominates at astronomical scales because it is always attractive and has an infinite range.",
+        "Einstein's General Theory of Relativity explains gravity as the curvature of four-dimensional spacetime caused by mass and energy, rather than a traditional action-at-a-distance force.",
+        "Tidal forces result from the gradient in gravitational pull exerted across an extended object, causing phenomena like Earth's ocean tides and tidal locking."
       ],
       "related_topics": [
         "General Relativity",
-        "Orbital Mechanics",
-        "Kepler's Laws of Planetary Motion"
+        "Kepler's Laws of Planetary Motion",
+        "Escape Velocity"
       ]
     },
     {
       "name": "Newton's Laws",
-      "definition": "Newton's Laws of Motion are three fundamental principles that describe the relationship between a body and the forces acting upon it. Formulated by Sir Isaac Newton in 1687, these laws form the core foundation of classical mechanics.",
+      "definition": "Newton's Laws of Motion are three fundamental physical principles formulated by Sir Isaac Newton that describe the relationship between the motion of an object and the forces acting upon it. Published in 1687, these principles serve as the foundation for classical mechanics and explain how objects respond to static and dynamic forces.",
       "key_facts": [
         "The First Law, or Law of Inertia, states that an object will remain at rest or move at a constant velocity unless acted upon by a net external force.",
-        "The Second Law mathematically defines force as the time rate of change of momentum, commonly expressed as F = ma.",
-        "The Third Law asserts that whenever one body exerts a force on a second body, the second body simultaneously exerts an equal and opposite force on the first.",
-        "These laws were first published in Newton's groundbreaking work, Philosophiae Naturalis Principia Mathematica, in 1687."
+        "The Second Law establishes the mathematical relationship where net force equals mass times acceleration (F = ma), demonstrating that acceleration is directly proportional to force and inversely proportional to mass.",
+        "The Third Law states that whenever one object exerts a force on a second object, the second object exerts an equal and opposite force on the first.",
+        "Newton published these laws in his seminal 1687 treatise, 'Philosophiæ Naturalis Principia Mathematica'."
       ],
       "related_topics": [
         "Classical Mechanics",
-        "Kepler's Laws of Planetary Motion",
-        "Conservation of Momentum"
+        "Conservation of Momentum",
+        "Newton's Law of Universal Gravitation"
       ]
     }
   ]

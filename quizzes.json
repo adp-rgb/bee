@@ -94,147 +94,7 @@
       "id": 1,
       "category": "Geography",
       "topic": "Amazon River",
-      "question": "A powerful tidal bore known as the pororoca creates waves up to 13 feet high that travel up to 50 miles upstream along this body of water during full and new moons. Though recent studies point to the Mantaro River as its ultimate source, its primary source was traditionally identified as Nevado Mismi in the Peruvian Andes. Accounting for roughly 20 percent of total global river discharge, this river surprisingly has no bridges crossing its main stem. For the point, name this massive South American river, the largest in the world by discharge volume.",
-      "options": [
-        "Amazon River",
-        "Nile River",
-        "Orinoco River",
-        "Paraná River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River features the pororoca tidal bore, originates in the Andes, has no bridges along its main stem, and holds the world's highest discharge volume."
-    },
-    {
-      "id": 2,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "The time rate of change of this physical quantity itself is known in physics as 'jerk.' In uniform circular motion, its centripetal form maintains an object's trajectory by pointing directly toward the center of curvature with a magnitude equal to velocity squared divided by the radius. Defined as the second derivative of position with respect to time, it is directly proportional to net force according to Newton's Second Law. For the point, name this vector quantity that describes the rate of change of velocity over time.",
-      "options": [
-        "Velocity",
-        "Acceleration",
-        "Momentum",
-        "Displacement"
-      ],
-      "answer": 1,
-      "explanation": "Acceleration is defined as the rate of change of velocity over time; its derivative with respect to time is jerk, and it is related to force by Newton's Second Law (F = ma)."
-    },
-    {
-      "id": 3,
-      "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "The summit of this physical feature continues to rise at a rate of approximately 4 millimeters per year due to the ongoing collision of the Indian and Eurasian tectonic plates. Climbers attempting to reach its summit must traverse the hazardous 'Death Zone' above 8,000 meters, where atmospheric pressure drops significantly and oxygen levels are insufficient to sustain human life long-term. First officially summited in 1953 by Edmund Hillary and Tenzing Norgay, it is known locally as Sagarmatha in Nepal and Chomolungma in Tibet. For the point, name this peak in the Himalayas, the highest mountain above sea level on Earth.",
-      "options": [
-        "K2",
-        "Kangchenjunga",
-        "Mount Everest",
-        "Lhotse"
-      ],
-      "answer": 2,
-      "explanation": "Mount Everest is Earth's highest peak above sea level at 8,848.86 meters, located on the border between Nepal and Tibet in the Himalayas."
-    },
-    {
-      "id": 4,
-      "category": "Science",
-      "topic": "Cell Nucleus",
-      "question": "The interior of this cellular structure is supported by a fibrous network composed of intermediate filament proteins called lamins, known as the nuclear lamina. Its outer lipid bilayer is perforated by complex pores that regulate macromolecular transport, and it contains a dense sub-structure called the nucleolus responsible for transcribing ribosomal RNA. Containing DNA complexed with histone proteins to form chromatin, it acts as the primary command center of eukaryotic cells. For the point, name this double-membrane-bound organelle that houses genomic DNA.",
-      "options": [
-        "Mitochondrion",
-        "Cell Nucleus",
-        "Endoplasmic Reticulum",
-        "Golgi Apparatus"
-      ],
-      "answer": 1,
-      "explanation": "The cell nucleus is the double-membrane organelle that houses genomic DNA, contains the nucleolus, and regulates eukaryotic cellular activity."
-    },
-    {
-      "id": 5,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Its vast drainage basin covers roughly 40 percent of the South American continent and traverses the world's largest tropical rainforest. Extreme seasonal flooding and sparse surrounding infrastructure mean that not a single bridge spans its main stem from its origin in the Andes to its Atlantic delta. It carries more water into the ocean than the next seven largest rivers combined, making up approximately one-fifth of global river discharge. For the point, name this immense South American river second in length only to the Nile.",
-      "options": [
-        "Congo River",
-        "Mississippi River",
-        "Amazon River",
-        "Mekong River"
-      ],
-      "answer": 2,
-      "explanation": "The Amazon River basin covers 40% of South America, flows through the Amazon Rainforest into the Atlantic, and accounts for ~20% of global river discharge."
-    },
-    {
-      "id": 6,
-      "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "In 1915, Albert Einstein redefined this phenomenon not as a traditional force, but as a geometric consequence of mass and energy warping the fabric of spacetime. Its universal constant, denoted by a capital G, is approximately 6.674 times 10 to the negative 11th power in SI units. Differential interactions from this force between the Earth, Moon, and Sun are directly responsible for ocean tides. For the point, name this fundamental attractive interaction that acts between any two objects with mass, giving Earth's surface an acceleration of 9.81 meters per second squared.",
-      "options": [
-        "Electromagnetic Force",
-        "Gravitational Force",
-        "Strong Nuclear Force",
-        "Weak Nuclear Force"
-      ],
-      "answer": 1,
-      "explanation": "Gravitational force is the fundamental attractive force between masses, governed by Newton's Law of Universal Gravitation and Einstein's General Relativity."
-    },
-    {
-      "id": 7,
-      "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "In 1865, the Royal Geographical Society officially named this peak after a former Surveyor General of India, Sir George Everest. Located in the Mahalangur Himal sub-range, it straddles the border between Nepal and the Tibet Autonomous Region of China at an elevation of over 29,000 feet. Climbers must navigate the dangerous Khumbu Icefall and South Col before entering the Death Zone near its summit. For the point, name this highest mountain peak on Earth.",
-      "options": [
-        "Mount Everest",
-        "Denali",
-        "Mount Kilimanjaro",
-        "Mount Elbrus"
-      ],
-      "answer": 0,
-      "explanation": "Mount Everest was named after Sir George Everest in 1865 and is the highest point on Earth, situated in the Mahalangur Himal range."
-    },
-    {
-      "id": 8,
-      "category": "Science",
-      "topic": "Newton's Laws",
-      "question": "These three fundamental principles were first published in 1687 within the groundbreaking treatise Philosophiae Naturalis Principia Mathematica. The first of these principles is commonly called the Law of Inertia, while the third states that whenever one body exerts a force on a second body, an equal and opposite force is exerted in return. The second principle mathematically defines force as the time rate of change of momentum, expressed as F equals m a. For the point, identify these classical mechanics laws named for an English scientist.",
-      "options": [
-        "Kepler's Laws",
-        "Newton's Laws",
-        "Maxwell's Equations",
-        "Thermodynamic Laws"
-      ],
-      "answer": 1,
-      "explanation": "Newton's Laws of Motion form the basis of classical mechanics, outlining inertia, F=ma, and equal-and-opposite reaction forces."
-    },
-    {
-      "id": 9,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "The pororoca is a powerful tidal bore that creates 13-foot-high waves traveling up to 50 miles upstream along this river during full and new moons. Originating high in the Peruvian Andes, this river flows across Peru and Brazil before emptying into the Atlantic Ocean without a single bridge across its main channel. It drains the world's largest tropical rainforest and accounts for roughly 20 percent of all river discharge worldwide. For the point, name this largest river by water volume in the world, located in South America.",
-      "options": [
-        "Rio Grande",
-        "Amazon River",
-        "Orinoco River",
-        "Magdalena River"
-      ],
-      "answer": 1,
-      "explanation": "The Amazon River flows across South America, experiences the pororoca tidal bore, and discharges more water into the ocean than any other river."
-    },
-    {
-      "id": 10,
-      "category": "Science",
-      "topic": "Cell Nucleus",
-      "question": "Within this structure, DNA is wrapped around histone proteins to form chromatin, which condenses into visible chromosomes during cell division. It is enclosed by a nuclear envelope consisting of an inner and outer lipid bilayer separated by the perinuclear space. Containing a prominent sub-region called the nucleolus that synthesizes ribosomal subunits, it acts as the primary control center of eukaryotic cellular function. For the point, name this membrane-bound organelle often referred to as the command center or brain of the cell.",
-      "options": [
-        "Ribosome",
-        "Lysosome",
-        "Cell Nucleus",
-        "Chloroplast"
-      ],
-      "answer": 2,
-      "explanation": "The cell nucleus contains DNA packaged into chromatin by histones, houses the nucleolus, and directs eukaryotic cellular metabolism and reproduction."
-    },
-    {
-      "id": 11,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "A powerful tidal bore called the pororoca creates waves up to 13 feet high that travel 50 miles upstream along this body of water during full and new moons. Although its traditional source is Nevado Mismi in the Peruvian Andes, recent studies suggest the Mantaro River as its ultimate source, and notably, no bridges cross its main stem due to severe seasonal flooding. Draining roughly 40 percent of South America, it accounts for approximately 20 percent of global river discharge into the oceans. For the point, name this largest river in the world by discharge volume.",
+      "question": "Recent geographical studies propose the Mantaro River as a more distant source for this body of water, challenging its traditional origin at Nevado Mismi in the Peruvian Andes. Near Manaus, its dark tributary Rio Negro flows alongside the pale Solimões River for miles without mixing at the famous Meeting of Waters. No bridges span the main stem of this immense waterway due to extreme seasonal flooding and shifting channels across northern South America. For the point, name this largest river in the world by discharge volume.",
       "options": [
         "Amazon River",
         "Nile River",
@@ -242,13 +102,153 @@
         "Yangtze River"
       ],
       "answer": 0,
-      "explanation": "The Amazon River is the largest river by discharge volume, featuring no bridges across its main stem, experiencing the pororoca tidal bore, and draining about 40 percent of South America."
+      "explanation": "The Amazon River originates in the Peruvian Andes (traditionally Nevado Mismi, with Mantaro proposed), features the Meeting of Waters near Manaus, and has no bridges spanning its main stem."
+    },
+    {
+      "id": 2,
+      "category": "Science",
+      "topic": "Acceleration",
+      "question": "The rate of change of this physical quantity with respect to time is represented by a vector quantity known as jerk. Moving in a circular path produces a centripetal form of this quantity pointing directly toward the center of curvature with a magnitude of v squared over r. According to Newton's Second Law of Motion, multiplying mass by this vector quantity yields the net force acting on an object, measured in meters per second squared. For the point, name this rate of change of velocity.",
+      "options": [
+        "Velocity",
+        "Acceleration",
+        "Momentum",
+        "Jerk"
+      ],
+      "answer": 1,
+      "explanation": "Acceleration is the rate of change of velocity over time, measured in m/s², and relates to force via F = ma."
+    },
+    {
+      "id": 3,
+      "category": "Geography",
+      "topic": "Amazon River",
+      "question": "Carrying more water than the next seven largest rivers combined, this hydrological system accounts for roughly twenty percent of global river discharge into the oceans. Its immense basin covers approximately forty percent of the South American continent as it flows east from Peru toward the Atlantic Ocean. The Rio Negro meets the Solimões River near Manaus to form a major portion of this river, which lacks any bridges across its main stem. For the point, name this massive South American river.",
+      "options": [
+        "Orinoco River",
+        "Paraná River",
+        "Amazon River",
+        "Magdalena River"
+      ],
+      "answer": 2,
+      "explanation": "The Amazon River accounts for roughly 20 percent of global river discharge and drains approximately 40 percent of South America."
+    },
+    {
+      "id": 4,
+      "category": "Science",
+      "topic": "Cell Nucleus",
+      "question": "A fibrous network made of lamin intermediate filaments called the nuclear lamina provides structural support and regulates chromatin organization inside this organelle. Transport into and out of this organelle is strictly regulated by large protein assemblies called nuclear pore complexes embedded within its double membrane envelope. A dense region within it called the nucleolus synthesizes ribosomal RNA and assembles ribosome subunits inside eukaryotic cells. For the point, name this organelle that contains the cell's genetic material.",
+      "options": [
+        "Mitochondrion",
+        "Endoplasmic Reticulum",
+        "Golgi Apparatus",
+        "Cell Nucleus"
+      ],
+      "answer": 3,
+      "explanation": "The cell nucleus is enclosed by a double membrane containing nuclear pore complexes, houses the nucleolus and nuclear lamina, and stores genetic material."
+    },
+    {
+      "id": 5,
+      "category": "Geography",
+      "topic": "Amazon River",
+      "question": "Extreme seasonal flooding and shifting channels are among the reasons why no bridges span the main stem of this river despite its vast length. Its traditional source was long identified as Nevado Mismi in the Peruvian Andes before the Mantaro River was proposed as a more distant source. Discharging into the Atlantic Ocean, this river drains roughly forty percent of South America and features a dark and pale confluence known as the Meeting of Waters. For the point, name this second-longest river in the world.",
+      "options": [
+        "Amazon River",
+        "Congo River",
+        "Mekong River",
+        "Volga River"
+      ],
+      "answer": 0,
+      "explanation": "The Amazon River flows into the Atlantic Ocean and is characterized by a lack of bridges, its Peruvian Andean sources, and the Meeting of Waters."
+    },
+    {
+      "id": 6,
+      "category": "Science",
+      "topic": "Gravitational Force",
+      "question": "Tidal locking and ocean tides are caused by gradients in this interaction, which is governed by a universal constant denoted by capital G equal to 6.674 times 10 to the negative eleventh. Einstein's General Theory of Relativity describes this phenomenon as the curvature of four-dimensional spacetime caused by mass and energy rather than an action-at-a-distance force. Although it is the weakest of the four fundamental forces, it dominates astronomical scales because it is always attractive and has an infinite range. For the point, name this force that attracts two masses toward each other.",
+      "options": [
+        "Electromagnetic Force",
+        "Gravitational Force",
+        "Strong Nuclear Force",
+        "Weak Nuclear Force"
+      ],
+      "answer": 1,
+      "explanation": "Gravitational force is modeled classically by Newton's Law of Universal Gravitation and relativistically by general relativity as spacetime curvature."
+    },
+    {
+      "id": 7,
+      "category": "Geography",
+      "topic": "Amazon River",
+      "question": "Near the city of Manaus, two distinct streams of this river system flow side by side for miles without immediately mixing due to differences in temperature, speed, and density. Draining roughly forty percent of South America, this river carries approximately twenty percent of the world's total river flow into the ocean. Rising in the Peruvian Andes and flowing into the Atlantic Ocean, it is surrounded by the world's largest tropical rainforest. For the point, name this river that is the largest by discharge volume.",
+      "options": [
+        "Nile River",
+        "Congo River",
+        "Amazon River",
+        "Danube River"
+      ],
+      "answer": 2,
+      "explanation": "The Amazon River flows through the Amazon Rainforest from the Andes to the Atlantic, carrying 20% of global river discharge."
+    },
+    {
+      "id": 8,
+      "category": "Science",
+      "topic": "Newton's Laws",
+      "question": "First published in the 1687 treatise Philosophiæ Naturalis Principia Mathematica, these principles describe how dynamic and static forces affect physical bodies. The third of these principles states that whenever one body exerts a force on another, the second body exerts an equal and opposite force on the first. The first of these principles is known as the Law of Inertia, while the second mathematically defines net force as mass times acceleration. For the point, name this set of three physical principles formulated by an English mathematician.",
+      "options": [
+        "Kepler's Laws",
+        "Newton's Laws",
+        "Thermodynamic Laws",
+        "Maxwell's Equations"
+      ],
+      "answer": 1,
+      "explanation": "Newton's Laws of Motion were published in 1687 in the Principia Mathematica and establish inertia, F=ma, and equal/opposite action-reaction."
+    },
+    {
+      "id": 9,
+      "category": "Geography",
+      "topic": "Amazon River",
+      "question": "Recent hydrological research suggests the Mantaro River as a candidate source for this massive river, located farther than the traditional source at Nevado Mismi. The Rio Negro, one of its primary tributaries, meets the Solimões River at a famous confluence near Manaus in Brazil. Traversing northern South America to the Atlantic, it carries more water than the next seven largest rivers combined. For the point, name this South American river.",
+      "options": [
+        "Amazon River",
+        "Paraná River",
+        "Orinoco River",
+        "São Francisco River"
+      ],
+      "answer": 0,
+      "explanation": "The Amazon River is fed by the Rio Negro and Solimões confluence near Manaus and carries more water than the next seven largest rivers combined."
+    },
+    {
+      "id": 10,
+      "category": "Science",
+      "topic": "Cell Nucleus",
+      "question": "The nuclear lamina, composed of lamin intermediate filaments, maintains the structural integrity of this double-membrane organelle. Molecular transport into its interior is governed by nuclear pore complexes, and its prominent dense region, the nucleolus, assembles ribosomal subunits. Acting as the main control center of eukaryotic cells, it stores chromosomes and regulates gene expression and DNA replication. For the point, name this central cell organelle.",
+      "options": [
+        "Lysosome",
+        "Vacuole",
+        "Cell Nucleus",
+        "Ribosome"
+      ],
+      "answer": 2,
+      "explanation": "The cell nucleus serves as the eukaryotic cell's command center, containing chromatin/chromosomes, the nucleolus, and nuclear pores."
+    },
+    {
+      "id": 11,
+      "category": "Geography",
+      "topic": "Amazon River",
+      "question": "Recent geographical studies propose the Mantaro River as a more distant headwater source for this waterway rather than its traditional source at Nevado Mismi. Near Manaus, its dark Rio Negro tributary meets the pale Solimões River at a famous confluence where they flow side by side without immediately mixing. Carrying roughly 20 percent of global river discharge into the ocean, no bridges cross its main channel. For the point, name this largest river in the world by discharge volume.",
+      "options": [
+        "Amazon River",
+        "Nile River",
+        "Mississippi River",
+        "Yangtze River"
+      ],
+      "answer": 0,
+      "explanation": "The Amazon River carries 20% of global river discharge, features the Meeting of Waters near Manaus, has no bridges crossing its main stem, and originates in the Peruvian Andes."
     },
     {
       "id": 12,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "The time rate of change of this physical quantity itself is known in physics as jerk, while its centripetal form maintains circular motion by pointing directly toward the center of curvature. In calculus, this vector quantity is defined as the first derivative of velocity with respect to time and the second derivative of position with respect to time. Under Earth's standard gravity, free-falling objects experience it at approximately 9.81 meters per second squared in the absence of air resistance. For the point, name this rate of change of velocity of an object.",
+      "question": "The rate of change of this vector quantity with respect to time is known as jerk. In uniform circular motion, its centripetal component constantly points toward the center of curvature with a magnitude equal to velocity squared divided by radius. According to Newton's Second Law, multiplying mass by this quantity yields the net force acting on an object. For the point, name this rate of change of velocity, measured in meters per second squared.",
       "options": [
         "Velocity",
         "Acceleration",
@@ -256,139 +256,139 @@
         "Displacement"
       ],
       "answer": 1,
-      "explanation": "Acceleration is a vector quantity defined as the rate of change of velocity with respect to time. Its derivative is jerk, and standard gravity on Earth causes free-fall acceleration of about 9.81 m/s²."
+      "explanation": "Acceleration is defined as the rate of change of velocity over time, measured in m/s², and forms the basis of Newton's second law (F = ma)."
     },
     {
       "id": 13,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Continual collision between the Indian and Eurasian tectonic plates causes this geographical feature to grow approximately 4 millimeters higher each year. First confirmed to be summited in 1953 by Edmund Hillary and Tenzing Norgay, climbers attempting it must traverse the Death Zone above 8,000 meters where atmospheric pressure is severely diminished. Known locally as Sagarmatha in Nepal and Chomolungma in Tibet, it was named in 1865 after a former Surveyor General of India. For the point, name this highest mountain above sea level on Earth.",
+      "topic": "Amazon River",
+      "question": "This river's massive basin drains roughly 40 percent of South America, stretching across Peru, Colombia, and Brazil. Extreme seasonal flooding and shifting river channels are primary reasons why no bridges span its main stem. It carries more water than the next seven largest rivers combined before emptying into the Atlantic Ocean. For the point, name this second-longest river in the world.",
       "options": [
-        "K2",
-        "Kangchenjunga",
-        "Mount Everest",
-        "Lhotse"
+        "Orinoco River",
+        "Paraná River",
+        "Amazon River",
+        "Magdalena River"
       ],
       "answer": 2,
-      "explanation": "Mount Everest is Earth's highest peak at 8,848.86 meters, situated in the Himalayas on the border of Nepal and Tibet, and was first summited by Hillary and Norgay in 1953."
+      "explanation": "The Amazon River basin covers about 40% of South America, carries immense water volume, and lacks any bridges spanning its main stem."
     },
     {
       "id": 14,
       "category": "Science",
       "topic": "Cell Nucleus",
-      "question": "The fibrous network supporting the interior of this organelle is called the nuclear lamina, which consists of intermediate filament proteins known as lamins. Within this organelle, ribosomal RNA is transcribed inside a dense sub-structure called the nucleolus, while genomic DNA is complexed with histone proteins to form chromatin. Surrounded by a double-membrane lipid bilayer perforated by nuclear pore complexes, it serves as the primary command center of eukaryotic cells. For the point, name this organelle that houses an organism's genomic DNA.",
+      "question": "Structural support and chromatin organization in this structure are provided by a fibrous intermediate filament network called the nuclear lamina. It contains a dense, membrane-less region called the nucleolus that synthesizes ribosomal RNA and assembles ribosome subunits. Enclosed by a double membrane with pore complexes, it serves as the primary storage site for a cell's DNA. For the point, name this organelle that acts as the command center of eukaryotic cells.",
       "options": [
         "Mitochondrion",
-        "Endoplasmic Reticulum",
         "Golgi Apparatus",
+        "Endoplasmic Reticulum",
         "Cell Nucleus"
       ],
       "answer": 3,
-      "explanation": "The cell nucleus is a double-membrane organelle in eukaryotic cells containing genomic DNA, chromatin, the nuclear lamina, and the nucleolus."
+      "explanation": "The cell nucleus is a double-membrane-bound organelle housing genetic material (DNA), containing the nucleolus, and supported by the nuclear lamina."
     },
     {
       "id": 15,
       "category": "Geography",
       "topic": "Amazon River",
-      "question": "Traversed by zero bridges across its entire main stem, this river's discharge accounts for roughly one-fifth of all river water entering the world's oceans. Its primary source was traditionally identified as Nevado Mismi in Peru, and during full and new moons, it experiences a dramatic tidal bore known as the pororoca. Flowing across South America through the world's largest tropical rainforest, it empties into the Atlantic Ocean. For the point, name this massive river that drains roughly 40 percent of the South American continent.",
+      "question": "Flowing past ports such as Iquitos and Santarém, this river's upper portion in Brazil is locally referred to as the Solimões before joining the Rio Negro. Its immense discharge of fresh water lowers the salinity of the Atlantic Ocean for hundreds of miles beyond its mouth. Draining the world's largest tropical rainforest, it carries more water than any other river on Earth. For the point, name this major South American river.",
       "options": [
-        "Orinoco River",
         "Amazon River",
-        "Parana River",
-        "Magdalena River"
+        "Congo River",
+        "Mekong River",
+        "Danube River"
       ],
-      "answer": 1,
-      "explanation": "The Amazon River traverses South America's tropical rainforest, discharging roughly 20 percent of global river flow into the Atlantic Ocean without a single bridge across its main stem."
+      "answer": 0,
+      "explanation": "The Amazon River flows through Iquitos and Santarém, includes the Solimões stretch, and drains the world's largest tropical rainforest."
     },
     {
       "id": 16,
       "category": "Science",
       "topic": "Gravitational Force",
-      "question": "In 1915, Albert Einstein redefined this phenomenon not as a traditional force, but as a geometric consequence of mass and energy warping the fabric of spacetime. Its universal constant G is approximately 6.674 times 10 to the negative 11th power, and differential variations in its strength across Earth's surface caused by the Moon and Sun create ocean tides. Sir Isaac Newton formulated a law stating that this attractive interaction is inversely proportional to the square of the distance between two masses. For the point, name this fundamental interaction that pulls objects with mass toward one another.",
+      "question": "Gradients in this interaction across an extended mass lead to tidal forces that cause tidal locking and ocean tides. Although it is the weakest of the four fundamental interactions, it dominates at astronomical scales because it is always attractive and has an infinite range. It is governed by a universal constant G equal to approximately 6.674 times 10 to the negative 11th power. For the point, name this attractive force between masses described by Isaac Newton.",
       "options": [
-        "Gravitational Force",
         "Electromagnetic Force",
+        "Gravitational Force",
         "Strong Nuclear Force",
         "Weak Nuclear Force"
       ],
-      "answer": 0,
-      "explanation": "Gravitational force is an attractive interaction between masses governed by Newton's Law of Universal Gravitation and Einstein's General Theory of Relativity."
+      "answer": 1,
+      "explanation": "Gravitational force is the weakest fundamental interaction, described by Newton's law of universal gravitation using the constant G, and is responsible for astronomical phenomena like tides."
     },
     {
       "id": 17,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Located in the Mahalangur Himal sub-range of the Himalayas, this peak was officially named in 1865 by the Royal Geographical Society. Near its summit, atmospheric pressure drops dramatically in an area above 8,000 meters known to mountaineers as the Death Zone. Straddling the international border between Nepal and the Tibet Autonomous Region of China, it reaches an elevation of 8,848.86 meters. For the point, name this highest mountain peak in the world.",
+      "topic": "Amazon River",
+      "question": "Major tributaries feeding this vast river system include the Madeira, the Tapajós, and the dark-watered Rio Negro. Originating high in the Peruvian Andes, its immense water volume accounts for about one-fifth of all global river flow into the ocean. It spans over 4,000 miles across northern South America without a single bridge crossing its main channel. For the point, name this river named after a legendary race of female warriors.",
       "options": [
-        "Mount Kilimanjaro",
-        "Mount Denali",
-        "Mount Everest",
-        "Mount Elbrus"
+        "Paraná River",
+        "Orinoco River",
+        "Amazon River",
+        "São Francisco River"
       ],
       "answer": 2,
-      "explanation": "Mount Everest is located in the Mahalangur Himal sub-range of the Himalayas on the Nepal-China border and is the highest peak on Earth."
+      "explanation": "The Amazon River is fed by tributaries like the Madeira and Rio Negro, originates in the Peruvian Andes, and contributes ~20% of global river discharge."
     },
     {
       "id": 18,
       "category": "Science",
       "topic": "Newton's Laws",
-      "question": "These core physical principles were first published in 1687 in the groundbreaking work Philosophiae Naturalis Principia Mathematica. The second of these principles defines force as the time rate of change of momentum, commonly expressed as net force equals mass times acceleration, while the third states that every action has an equal and opposite reaction. The first of these principles is also known as the Law of Inertia. For the point, identify these three foundational laws of classical mechanics formulated by Sir Isaac Newton.",
+      "question": "These three physical principles were first published in the 1687 landmark treatise Philosophiae Naturalis Principia Mathematica. The first of these principles is known as the Law of Inertia, which states that an object remains at constant velocity unless acted upon by a net force. The third principle states that every action has an equal and opposite reaction. For the point, name these fundamental laws of motion formulated by an English scientist.",
       "options": [
         "Kepler's Laws",
         "Newton's Laws",
         "Maxwell's Equations",
-        "Thermodynamic Laws"
+        "Laws of Thermodynamics"
       ],
       "answer": 1,
-      "explanation": "Newton's Laws of Motion consist of three principles (Inertia, F=ma, Action-Reaction) published in the Principia Mathematica in 1687."
+      "explanation": "Newton's Laws of Motion, published in the Principia in 1687, include inertia, F=ma, and equal-and-opposite reaction forces."
     },
     {
       "id": 19,
       "category": "Geography",
       "topic": "Amazon River",
-      "question": "Surrounding infrastructure is so sparse and seasonal flooding so extreme along this river that not a single bridge spans its entire main stem. The Mantaro River and Nevado Mismi in the Peruvian Andes feed into this body of water, which periodically generates massive tidal waves up to 13 feet high known as pororoca. Draining the world's largest tropical rainforest, it empties into the Atlantic Ocean. For the point, name this second-longest river in the world, located in South America.",
+      "question": "The Meeting of Waters near Manaus is a famous tourist spot where two distinct tributaries of this river flow side by side for miles without mixing. Its traditional source was long identified at Nevado Mismi before recent research pointed toward the Mantaro River. Draining roughly 40 percent of South America, it empties into the Atlantic Ocean along the northern coast of Brazil. For the point, name this largest river in South America.",
       "options": [
+        "Nile River",
         "Congo River",
-        "Mekong River",
-        "Amazon River",
-        "Danube River"
+        "Mississippi River",
+        "Amazon River"
       ],
-      "answer": 2,
-      "explanation": "The Amazon River flows through South America, fed by Andean tributaries, and holds the title of largest river by volume while lacking any main-stem bridges."
+      "answer": 3,
+      "explanation": "The Amazon River features the Meeting of Waters near Manaus, drains 40% of South America, and empties into the Atlantic Ocean along Brazil's coast."
     },
     {
       "id": 20,
       "category": "Science",
-      "topic": "Acceleration",
-      "question": "According to Newton's Second Law of Motion, this vector quantity is directly proportional to net force and inversely proportional to the mass of an object. Its derivative with respect to time is called jerk, and its centripetal form keeps objects moving along a curved path by pointing toward the center of curvature. Measured in standard SI units of meters per second squared, it describes how rapidly an object alters its speed or direction. For the point, name this rate of change of velocity.",
+      "topic": "Gravitational Force",
+      "question": "Einstein's General Theory of Relativity explains this phenomenon as the curvature of four-dimensional spacetime caused by mass and energy. Classically, its magnitude is directly proportional to the product of two masses and inversely proportional to the square of the distance between them. It determines planetary orbits, escape velocity, and the acceleration of falling bodies on Earth. For the point, name this fundamental force that holds planets in orbit around the Sun.",
       "options": [
-        "Speed",
-        "Acceleration",
-        "Work",
-        "Energy"
+        "Gravitational Force",
+        "Centripetal Force",
+        "Frictional Force",
+        "Magnetic Force"
       ],
-      "answer": 1,
-      "explanation": "Acceleration measures the rate of change of velocity over time, expressed in units of m/s², and relates to force and mass through F = ma."
+      "answer": 0,
+      "explanation": "Gravitational force is modeled by Newton's inverse-square law and explained by Einstein's General Relativity as spacetime curvature due to mass and energy."
     },
     {
       "id": 21,
       "category": "Geography",
       "topic": "Amazon River",
-      "question": "A powerful tidal bore known as the pororoca creates waves up to 13 feet high that travel up to 50 miles upstream on this body of water during full and new moons. Although recent studies suggest the Mantaro River as its ultimate source, its primary source was traditionally identified as Nevado Mismi in the Peruvian Andes. Accounting for approximately 20 percent of total global river discharge, this river features no bridges across its main stem. For the point, name this world's largest river by discharge volume, located in South America.",
+      "question": "Clue 1: Recent geographical studies have proposed the Mantaro River as a more distant source than its traditional origin at Nevado Mismi in the Peruvian Andes. Clue 2: Near Manaus, its dark Rio Negro tributary meets the pale Solimões River to form the Meeting of Waters, where they flow side by side without mixing. Clue 3: Carrying roughly 20 percent of global river discharge into the ocean, no bridges cross its main stem due to severe seasonal flooding. For the point, name this largest river in the world by discharge volume, located in South America.",
       "options": [
         "Amazon River",
         "Nile River",
-        "Mississippi River",
-        "Congo River"
+        "Orinoco River",
+        "Paraná River"
       ],
       "answer": 0,
-      "explanation": "The Amazon River is the world's largest river by discharge volume, accounts for ~20% of global river flow, features the pororoca tidal bore, and has no bridges crossing its main stem."
+      "explanation": "The Amazon River originates in the Peruvian Andes (traditionally Nevado Mismi, recently proposed as Mantaro River), features the Meeting of Waters near Manaus, has no bridges across its main stem, and accounts for ~20% of global river discharge."
     },
     {
       "id": 22,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "In physics, the time rate of change of this vector quantity itself is known as jerk. Maintaining an object's circular path requires a centripetal form of this quantity, which points toward the center of curvature with a magnitude equal to velocity squared divided by radius. Standard gravity on Earth causes free-falling objects to experience this vector quantity at approximately 9.81 meters per second squared. For the point, name this physical quantity defined as the rate of change of velocity with respect to time.",
+      "question": "Clue 1: The rate of change of this vector quantity with respect to time is known as jerk, and its centripetal form points toward the center of curvature with magnitude v squared over r. Clue 2: In the International System of Units, this physical quantity is measured in meters per second squared. Clue 3: According to Newton's Second Law of Motion, multiplying an object's mass by this vector quantity yields the net force acting on it. For the point, name this rate of change of velocity with respect to time.",
       "options": [
         "Velocity",
         "Acceleration",
@@ -396,124 +396,124 @@
         "Displacement"
       ],
       "answer": 1,
-      "explanation": "Acceleration is defined as the rate of change of velocity over time. Centripetal acceleration maintains circular motion, and standard gravitational acceleration on Earth is approximately 9.81 m/s²."
+      "explanation": "Acceleration is defined as the rate of change of velocity over time, measured in m/s², related to force via F = ma, and its time derivative is jerk."
     },
     {
       "id": 23,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "The summit of this physical landmark continues to rise at approximately 4 millimeters per year due to the ongoing collision of the Indian and Eurasian tectonic plates. Climbers ascending this peak must traverse the 'Death Zone' above 8,000 meters, and its first officially confirmed summit ascent was achieved in 1953 by Sir Edmund Hillary and Tenzing Norgay. Known locally as Sagarmatha in Nepal and Chomolungma in Tibet, For the point, name this highest mountain above sea level on Earth.",
+      "topic": "Amazon River",
+      "question": "Clue 1: This river's basin drains roughly 40 percent of the South American continent and receives flow from major tributaries like the Rio Negro. Clue 2: A famous natural confluence along its path near Manaus is known as the Meeting of Waters, where dark and pale rivers flow alongside each other. Clue 3: Carrying more water than the next seven largest rivers combined, it empties into the Atlantic Ocean. For the point, name this second-longest river in the world, surrounded by a massive namesake rainforest.",
       "options": [
-        "K2",
-        "Kangchenjunga",
-        "Mount Everest",
-        "Lhotse"
+        "Orinoco River",
+        "Amazon River",
+        "Magdalena River",
+        "São Francisco River"
       ],
-      "answer": 2,
-      "explanation": "Mount Everest is Earth's highest peak above sea level (8,848.86 m), first summited by Edmund Hillary and Tenzing Norgay in 1953."
+      "answer": 1,
+      "explanation": "The Amazon River basin covers roughly 40% of South America, features the Meeting of Waters confluence near Manaus, and flows through the Amazon Rainforest into the Atlantic."
     },
     {
       "id": 24,
       "category": "Science",
       "topic": "Cell Nucleus",
-      "question": "The interior of this cellular structure is supported by the nuclear lamina, a fibrous network composed of intermediate filament proteins called lamins. Within this organelle, a dense non-membrane-bound region transcribes ribosomal RNA and assembles ribosome subunits. Surrounded by a double lipid bilayer perforated by nuclear pore complexes, it houses the cell's genomic DNA complexed with histone proteins. For the point, name this organelle that serves as the command center of eukaryotic cells.",
+      "question": "Clue 1: Structural support and regulation of chromatin organization within this structure are provided by a fibrous intermediate filament network known as the nuclear lamina. Clue 2: It contains a dense, membrane-less region called the nucleolus, which synthesizes ribosomal RNA and assembles ribosome subunits. Clue 3: Enclosed by a double-membrane structure with pore complexes, it serves as the main command center containing most of a eukaryotic cell's DNA. For the point, name this organelle that houses genetic material.",
       "options": [
         "Mitochondrion",
         "Endoplasmic Reticulum",
-        "Golgi Apparatus",
-        "Cell Nucleus"
+        "Cell Nucleus",
+        "Golgi Apparatus"
       ],
-      "answer": 3,
-      "explanation": "The cell nucleus is a double-membrane-bound organelle housing genomic DNA and containing the nucleolus, serving as the main control center of eukaryotic cells."
+      "answer": 2,
+      "explanation": "The cell nucleus is bounded by a nuclear envelope, contains the nuclear lamina and nucleolus, and houses the cell's genetic material."
     },
     {
       "id": 25,
       "category": "Geography",
       "topic": "Amazon River",
-      "question": "Traversing a river basin that drains roughly 40 percent of the South American continent, this river empties directly into the Atlantic Ocean. Its surrounding region lacks permanent bridges across its main stem primarily due to extreme seasonal flooding and sparse surrounding infrastructure. Originating in the Peruvian Andes, it flows through the world's largest tropical rainforest. For the point, name this massive South American river, traditionally considered the second-longest river in the world.",
+      "question": "Clue 1: Despite its vast size and economic importance, not a single bridge spans the main stem of this river due to seasonal flooding and shifting riverbeds. Clue 2: Recent geographical studies have debated whether its headwaters lie at Nevado Mismi or along the Mantaro River in Peru. Clue 3: It is responsible for approximately one-fifth of the total discharge of all rivers on Earth into the oceans. For the point, name this vast South American river.",
       "options": [
-        "Amazon River",
-        "Orinoco River",
         "Paraná River",
-        "Magdalena River"
+        "Congo River",
+        "Amazon River",
+        "Mekong River"
       ],
-      "answer": 0,
-      "explanation": "The Amazon River drains roughly 40% of South America, flows through the Amazon Rainforest into the Atlantic Ocean, and is traditionally considered the second-longest river."
+      "answer": 2,
+      "explanation": "No bridges cross the main stem of the Amazon River, which accounts for about 20% (one-fifth) of total global river discharge into the oceans."
     },
     {
       "id": 26,
       "category": "Science",
       "topic": "Gravitational Force",
-      "question": "Albert Einstein's General Theory of Relativity redefined this phenomenon as a geometric consequence of mass and energy warping the fabric of spacetime rather than a traditional force. Formulated mathematically by Sir Isaac Newton in 1687, its strength between two masses is inversely proportional to the square of the distance between their centers. Responsible for ocean tides through differential interactions between Earth, the Moon, and the Sun, For the point, name this fundamental attractive force between any two objects with mass.",
+      "question": "Clue 1: Oceans on Earth experience tides because of gradients in this interaction, which is governed by a constant of roughly 6.674 times 10 to the negative 11th power. Clue 2: Albert Einstein's General Theory of Relativity explained this phenomenon as the curvature of four-dimensional spacetime caused by mass and energy. Clue 3: Described classically by Isaac Newton's inverse-square law, it is the fundamental attractive interaction between any two physical masses. For the point, name this weakest fundamental force in physics.",
       "options": [
-        "Electromagnetic Force",
         "Gravitational Force",
+        "Electromagnetic Force",
         "Strong Nuclear Force",
         "Weak Nuclear Force"
       ],
-      "answer": 1,
-      "explanation": "Gravitational force is the attractive interaction between masses defined by Newton's Law of Universal Gravitation and Einstein's General Relativity."
+      "answer": 0,
+      "explanation": "Gravitational force is governed classically by Newton's law of universal gravitation and relativistically by Einstein's General Relativity, causing ocean tides and attraction between masses."
     },
     {
       "id": 27,
       "category": "Geography",
-      "topic": "Mount Everest",
-      "question": "Located in the Mahalangur Himal sub-range of the Himalayas, this mountain straddles the border between Nepal and the Tibet Autonomous Region of China. In 1865, the Royal Geographical Society officially assigned its modern name in honor of a former Surveyor General of India, overriding local designations. Mountaineers seeking to reach its summit of over 29,000 feet must navigate hazards such as the Khumbu Icefall. For the point, name this peak that is officially the highest mountain on Earth.",
+      "topic": "Amazon River",
+      "question": "Clue 1: Near the Brazilian city of Manaus, the dark Rio Negro flows alongside the light-colored Solimões River without immediately mixing along the course of this river system. Clue 2: Originating high in the Peruvian Andes, this river flows eastward across northern South America to empty into the Atlantic Ocean. Clue 3: It carries more water than any other river on Earth, discharging more than the next seven largest rivers combined. For the point, name this massive river that flows through Brazil and Peru.",
       "options": [
-        "Mount Kilimanjaro",
-        "Mount Denali",
-        "Mount Everest",
-        "Mount Elbrus"
+        "Amazon River",
+        "Mississippi River",
+        "Yangtze River",
+        "Volga River"
       ],
-      "answer": 2,
-      "explanation": "Mount Everest lies in the Mahalangur Himal sub-range of the Himalayas between Nepal and Tibet and was named after Sir George Everest in 1865."
+      "answer": 0,
+      "explanation": "The Amazon River originates in the Peruvian Andes, flows past Manaus in Brazil, and has the greatest water discharge of any river on Earth."
     },
     {
       "id": 28,
       "category": "Science",
       "topic": "Newton's Laws",
-      "question": "These physical principles were first published in the 1687 foundational treatise Philosophiae Naturalis Principia Mathematica. The first of these principles is also known as the Law of Inertia, while the third states that whenever one body exerts a force on a second, the second exerts an equal and opposite force. The second principle mathematically defines force as mass times acceleration. For the point, name these three foundational principles of classical mechanics formulated by Sir Isaac Newton.",
+      "question": "Clue 1: These physical principles were first outlined in the 1687 treatise Philosophiae Naturalis Principia Mathematica. Clue 2: The third of these principles states that for every action, there is an equal and opposite reaction. Clue 3: The first of these principles is the Law of Inertia, while the second states that net force equals mass times acceleration, or F equals m a. For the point, name this set of three fundamental laws of motion named for an English scientist.",
       "options": [
         "Kepler's Laws",
-        "Maxwell's Equations",
         "Newton's Laws",
+        "Maxwell's Equations",
         "Thermodynamic Laws"
       ],
-      "answer": 2,
-      "explanation": "Newton's Laws of Motion are three fundamental laws published in the Principia in 1687 that form the backbone of classical mechanics."
+      "answer": 1,
+      "explanation": "Newton's Laws of Motion were published in the Principia in 1687 and comprise the Law of Inertia, F = ma, and action-reaction."
     },
     {
       "id": 29,
       "category": "Geography",
       "topic": "Amazon River",
-      "question": "During full and new moons, a famous tidal bore called the pororoca creates waves up to 13 feet high on this body of water. Draining the world's largest tropical rainforest, this river contributes roughly 20 percent of all global river discharge entering the world's oceans. Its main stem flows past major settlements like Iquitos and Manaus without being crossed by a single bridge. For the point, name this massive river that flows through South America.",
+      "question": "Clue 1: Studies proposing the Mantaro River as a headwater source challenge the long-held belief that this river originates at Nevado Mismi in Peru. Clue 2: It drains a basin covering approximately 40 percent of South America, including vast stretches of tropical rainforest. Clue 3: It is generally recognized as the second-longest river in the world after the Nile and the largest river by volume. For the point, name this major South American river.",
       "options": [
+        "Nile River",
         "Amazon River",
-        "Rio de la Plata",
-        "São Francisco River",
-        "Tocantins River"
+        "Zambezi River",
+        "Danube River"
       ],
-      "answer": 0,
-      "explanation": "The Amazon River flows past Manaus and Iquitos, generates the pororoca tidal bore, and accounts for ~20% of global ocean discharge from rivers."
+      "answer": 1,
+      "explanation": "The Amazon River's headwater debate involves the Mantaro River and Nevado Mismi; it drains ~40% of South America as the world's largest river by discharge volume."
     },
     {
       "id": 30,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "In calculus, this quantity represents both the second derivative of position with respect to time and the first derivative of velocity. According to Newton's Second Law of Motion, this vector quantity is directly proportional to net force and inversely proportional to mass, commonly written as force divided by mass. On Earth's surface, free fall produces a standard value for it of roughly 9.81 meters per second squared. For the point, name this rate of change of velocity.",
+      "question": "Clue 1: The rate of change of this vector quantity over time is called jerk, and for an object moving in a circle, its centripetal form equals v squared over r. Clue 2: Under free fall near Earth's surface in a vacuum, this quantity for any object is approximately 9.8 meters per second squared. Clue 3: Newton's Second Law describes how this quantity is equal to net force divided by mass. For the point, name this physical quantity defined as the change in velocity over time.",
       "options": [
         "Speed",
-        "Acceleration",
         "Work",
-        "Power"
+        "Acceleration",
+        "Force"
       ],
-      "answer": 1,
-      "explanation": "Acceleration is the time derivative of velocity (a = dv/dt) and equals F/m according to Newton's Second Law of Motion."
+      "answer": 2,
+      "explanation": "Acceleration is the change in velocity over time, equal to ~9.8 m/s² in free fall near Earth's surface, and equal to force divided by mass (a = F/m)."
     }
   ],
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-06 01:42:16",
+    "generated_at": "2026-09-07 01:40:03",
     "resources": [
       "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
       "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
