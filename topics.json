@@ -2,79 +2,18 @@
   "Geography": [
     {
       "name": "Amazon River",
-      "definition": "The Amazon River is the world's largest river by discharge volume of water and the second longest river after the Nile. Flowing across northern South America from the Peruvian Andes to the Atlantic Ocean, its immense basin drains roughly 40 percent of the continent.",
+      "definition": "The Amazon River in South America is the world's largest river by discharge volume of water and is widely considered the second-longest river system. Flowing primarily through Peru and Brazil into the Atlantic Ocean, its vast basin supports the planet's largest tropical rainforest.",
       "key_facts": [
-        "Accounts for roughly 20 percent of the global river discharge into the oceans, carrying more water than the next seven largest rivers combined.",
-        "The 'Meeting of Waters' near Manaus is a famous confluence where the dark Rio Negro and the pale Solimões River flow side by side for miles without immediately mixing.",
-        "Despite its immense size, no bridges span the main stem of the Amazon River, largely due to its extreme seasonal flooding, shifting channels, and sparse surrounding population.",
-        "Its traditional source was long identified as Nevado Mismi in the Peruvian Andes, though recent geographical studies propose the Mantaro River as a more distant source."
+        "It accounts for approximately 20% of the world's total river discharge into the oceans.",
+        "The traditionally accepted source of the Amazon River is high in the Peruvian Andes at Nevado Mismi.",
+        "There are no bridges built across the main stem of the Amazon River due to its extreme width, seasonal flooding, and dense surrounding rainforest."
       ],
       "related_topics": [
         "Amazon Rainforest",
-        "Rio Negro",
-        "Andes Mountains"
+        "Nile River",
+        "River Delta"
       ]
     }
   ],
-  "Science": [
-    {
-      "name": "Acceleration",
-      "definition": "Acceleration is defined as the rate of change of an object's velocity with respect to time. As a vector quantity, it accounts for changes in both the speed and direction of motion.",
-      "key_facts": [
-        "In the International System of Units (SI), acceleration is measured in meters per second squared (m/s²).",
-        "According to Newton's Second Law of Motion, the net force acting on an object is equal to its mass multiplied by its acceleration (F = ma).",
-        "Centripetal acceleration acts on an object moving in a circular path, constantly pointing toward the center of curvature with a magnitude of v²/r.",
-        "The rate of change of acceleration with respect to time is a vector quantity known as jerk."
-      ],
-      "related_topics": [
-        "Velocity",
-        "Newton's Laws of Motion",
-        "Kinematics"
-      ]
-    },
-    {
-      "name": "Cell Nucleus",
-      "definition": "The cell nucleus is a membrane-bound organelle found in eukaryotic cells that contains the vast majority of the cell's genetic material. It serves as the primary command center, regulating gene expression, DNA replication, and cellular growth.",
-      "key_facts": [
-        "The nucleus is enclosed by a double-membrane structure called the nuclear envelope, which contains nuclear pore complexes that strictly regulate molecular transport.",
-        "Inside the nucleus is the nucleolus, a dense, membrane-less region primarily responsible for synthesizing ribosomal RNA (rRNA) and assembling ribosome subunits.",
-        "Structural support and regulation of chromatin organization in the nucleus are provided by the nuclear lamina, a fibrous network made of lamin intermediate filaments."
-      ],
-      "related_topics": [
-        "Eukaryotic Organelles",
-        "Chromatin and Chromosomes",
-        "Protein Synthesis"
-      ]
-    },
-    {
-      "name": "Gravitational Force",
-      "definition": "Gravitational force is a fundamental attractive interaction that acts between any two masses in the universe, proportional to their masses and inversely proportional to the square of the distance between them. It is described classically by Newton's Law of Universal Gravitation and more accurately by Einstein's theory of General Relativity as the curvature of spacetime.",
-      "key_facts": [
-        "Newton's Law of Universal Gravitation states that force is directly proportional to the product of two masses and inversely proportional to the square of the distance between them, governed by the gravitational constant G (6.674 × 10^-11 N m²/kg²).",
-        "Gravitational force is the weakest of the four fundamental forces in physics, yet it dominates at astronomical scales because it is always attractive and has an infinite range.",
-        "Einstein's General Theory of Relativity explains gravity as the curvature of four-dimensional spacetime caused by mass and energy, rather than a traditional action-at-a-distance force.",
-        "Tidal forces result from the gradient in gravitational pull exerted across an extended object, causing phenomena like Earth's ocean tides and tidal locking."
-      ],
-      "related_topics": [
-        "General Relativity",
-        "Kepler's Laws of Planetary Motion",
-        "Escape Velocity"
-      ]
-    },
-    {
-      "name": "Newton's Laws",
-      "definition": "Newton's Laws of Motion are three fundamental physical principles formulated by Sir Isaac Newton that describe the relationship between the motion of an object and the forces acting upon it. Published in 1687, these principles serve as the foundation for classical mechanics and explain how objects respond to static and dynamic forces.",
-      "key_facts": [
-        "The First Law, or Law of Inertia, states that an object will remain at rest or move at a constant velocity unless acted upon by a net external force.",
-        "The Second Law establishes the mathematical relationship where net force equals mass times acceleration (F = ma), demonstrating that acceleration is directly proportional to force and inversely proportional to mass.",
-        "The Third Law states that whenever one object exerts a force on a second object, the second object exerts an equal and opposite force on the first.",
-        "Newton published these laws in his seminal 1687 treatise, 'Philosophiæ Naturalis Principia Mathematica'."
-      ],
-      "related_topics": [
-        "Classical Mechanics",
-        "Conservation of Momentum",
-        "Newton's Law of Universal Gravitation"
-      ]
-    }
-  ]
+  "Science": []
 }

@@ -94,287 +94,7 @@
       "id": 1,
       "category": "Geography",
       "topic": "Amazon River",
-      "question": "Recent geographical studies propose the Mantaro River as a more distant source for this body of water, challenging its traditional origin at Nevado Mismi in the Peruvian Andes. Near Manaus, its dark tributary Rio Negro flows alongside the pale Solimões River for miles without mixing at the famous Meeting of Waters. No bridges span the main stem of this immense waterway due to extreme seasonal flooding and shifting channels across northern South America. For the point, name this largest river in the world by discharge volume.",
-      "options": [
-        "Amazon River",
-        "Nile River",
-        "Mississippi River",
-        "Yangtze River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River originates in the Peruvian Andes (traditionally Nevado Mismi, with Mantaro proposed), features the Meeting of Waters near Manaus, and has no bridges spanning its main stem."
-    },
-    {
-      "id": 2,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "The rate of change of this physical quantity with respect to time is represented by a vector quantity known as jerk. Moving in a circular path produces a centripetal form of this quantity pointing directly toward the center of curvature with a magnitude of v squared over r. According to Newton's Second Law of Motion, multiplying mass by this vector quantity yields the net force acting on an object, measured in meters per second squared. For the point, name this rate of change of velocity.",
-      "options": [
-        "Velocity",
-        "Acceleration",
-        "Momentum",
-        "Jerk"
-      ],
-      "answer": 1,
-      "explanation": "Acceleration is the rate of change of velocity over time, measured in m/s², and relates to force via F = ma."
-    },
-    {
-      "id": 3,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Carrying more water than the next seven largest rivers combined, this hydrological system accounts for roughly twenty percent of global river discharge into the oceans. Its immense basin covers approximately forty percent of the South American continent as it flows east from Peru toward the Atlantic Ocean. The Rio Negro meets the Solimões River near Manaus to form a major portion of this river, which lacks any bridges across its main stem. For the point, name this massive South American river.",
-      "options": [
-        "Orinoco River",
-        "Paraná River",
-        "Amazon River",
-        "Magdalena River"
-      ],
-      "answer": 2,
-      "explanation": "The Amazon River accounts for roughly 20 percent of global river discharge and drains approximately 40 percent of South America."
-    },
-    {
-      "id": 4,
-      "category": "Science",
-      "topic": "Cell Nucleus",
-      "question": "A fibrous network made of lamin intermediate filaments called the nuclear lamina provides structural support and regulates chromatin organization inside this organelle. Transport into and out of this organelle is strictly regulated by large protein assemblies called nuclear pore complexes embedded within its double membrane envelope. A dense region within it called the nucleolus synthesizes ribosomal RNA and assembles ribosome subunits inside eukaryotic cells. For the point, name this organelle that contains the cell's genetic material.",
-      "options": [
-        "Mitochondrion",
-        "Endoplasmic Reticulum",
-        "Golgi Apparatus",
-        "Cell Nucleus"
-      ],
-      "answer": 3,
-      "explanation": "The cell nucleus is enclosed by a double membrane containing nuclear pore complexes, houses the nucleolus and nuclear lamina, and stores genetic material."
-    },
-    {
-      "id": 5,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Extreme seasonal flooding and shifting channels are among the reasons why no bridges span the main stem of this river despite its vast length. Its traditional source was long identified as Nevado Mismi in the Peruvian Andes before the Mantaro River was proposed as a more distant source. Discharging into the Atlantic Ocean, this river drains roughly forty percent of South America and features a dark and pale confluence known as the Meeting of Waters. For the point, name this second-longest river in the world.",
-      "options": [
-        "Amazon River",
-        "Congo River",
-        "Mekong River",
-        "Volga River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River flows into the Atlantic Ocean and is characterized by a lack of bridges, its Peruvian Andean sources, and the Meeting of Waters."
-    },
-    {
-      "id": 6,
-      "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Tidal locking and ocean tides are caused by gradients in this interaction, which is governed by a universal constant denoted by capital G equal to 6.674 times 10 to the negative eleventh. Einstein's General Theory of Relativity describes this phenomenon as the curvature of four-dimensional spacetime caused by mass and energy rather than an action-at-a-distance force. Although it is the weakest of the four fundamental forces, it dominates astronomical scales because it is always attractive and has an infinite range. For the point, name this force that attracts two masses toward each other.",
-      "options": [
-        "Electromagnetic Force",
-        "Gravitational Force",
-        "Strong Nuclear Force",
-        "Weak Nuclear Force"
-      ],
-      "answer": 1,
-      "explanation": "Gravitational force is modeled classically by Newton's Law of Universal Gravitation and relativistically by general relativity as spacetime curvature."
-    },
-    {
-      "id": 7,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Near the city of Manaus, two distinct streams of this river system flow side by side for miles without immediately mixing due to differences in temperature, speed, and density. Draining roughly forty percent of South America, this river carries approximately twenty percent of the world's total river flow into the ocean. Rising in the Peruvian Andes and flowing into the Atlantic Ocean, it is surrounded by the world's largest tropical rainforest. For the point, name this river that is the largest by discharge volume.",
-      "options": [
-        "Nile River",
-        "Congo River",
-        "Amazon River",
-        "Danube River"
-      ],
-      "answer": 2,
-      "explanation": "The Amazon River flows through the Amazon Rainforest from the Andes to the Atlantic, carrying 20% of global river discharge."
-    },
-    {
-      "id": 8,
-      "category": "Science",
-      "topic": "Newton's Laws",
-      "question": "First published in the 1687 treatise Philosophiæ Naturalis Principia Mathematica, these principles describe how dynamic and static forces affect physical bodies. The third of these principles states that whenever one body exerts a force on another, the second body exerts an equal and opposite force on the first. The first of these principles is known as the Law of Inertia, while the second mathematically defines net force as mass times acceleration. For the point, name this set of three physical principles formulated by an English mathematician.",
-      "options": [
-        "Kepler's Laws",
-        "Newton's Laws",
-        "Thermodynamic Laws",
-        "Maxwell's Equations"
-      ],
-      "answer": 1,
-      "explanation": "Newton's Laws of Motion were published in 1687 in the Principia Mathematica and establish inertia, F=ma, and equal/opposite action-reaction."
-    },
-    {
-      "id": 9,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Recent hydrological research suggests the Mantaro River as a candidate source for this massive river, located farther than the traditional source at Nevado Mismi. The Rio Negro, one of its primary tributaries, meets the Solimões River at a famous confluence near Manaus in Brazil. Traversing northern South America to the Atlantic, it carries more water than the next seven largest rivers combined. For the point, name this South American river.",
-      "options": [
-        "Amazon River",
-        "Paraná River",
-        "Orinoco River",
-        "São Francisco River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River is fed by the Rio Negro and Solimões confluence near Manaus and carries more water than the next seven largest rivers combined."
-    },
-    {
-      "id": 10,
-      "category": "Science",
-      "topic": "Cell Nucleus",
-      "question": "The nuclear lamina, composed of lamin intermediate filaments, maintains the structural integrity of this double-membrane organelle. Molecular transport into its interior is governed by nuclear pore complexes, and its prominent dense region, the nucleolus, assembles ribosomal subunits. Acting as the main control center of eukaryotic cells, it stores chromosomes and regulates gene expression and DNA replication. For the point, name this central cell organelle.",
-      "options": [
-        "Lysosome",
-        "Vacuole",
-        "Cell Nucleus",
-        "Ribosome"
-      ],
-      "answer": 2,
-      "explanation": "The cell nucleus serves as the eukaryotic cell's command center, containing chromatin/chromosomes, the nucleolus, and nuclear pores."
-    },
-    {
-      "id": 11,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Recent geographical studies propose the Mantaro River as a more distant headwater source for this waterway rather than its traditional source at Nevado Mismi. Near Manaus, its dark Rio Negro tributary meets the pale Solimões River at a famous confluence where they flow side by side without immediately mixing. Carrying roughly 20 percent of global river discharge into the ocean, no bridges cross its main channel. For the point, name this largest river in the world by discharge volume.",
-      "options": [
-        "Amazon River",
-        "Nile River",
-        "Mississippi River",
-        "Yangtze River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River carries 20% of global river discharge, features the Meeting of Waters near Manaus, has no bridges crossing its main stem, and originates in the Peruvian Andes."
-    },
-    {
-      "id": 12,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "The rate of change of this vector quantity with respect to time is known as jerk. In uniform circular motion, its centripetal component constantly points toward the center of curvature with a magnitude equal to velocity squared divided by radius. According to Newton's Second Law, multiplying mass by this quantity yields the net force acting on an object. For the point, name this rate of change of velocity, measured in meters per second squared.",
-      "options": [
-        "Velocity",
-        "Acceleration",
-        "Momentum",
-        "Displacement"
-      ],
-      "answer": 1,
-      "explanation": "Acceleration is defined as the rate of change of velocity over time, measured in m/s², and forms the basis of Newton's second law (F = ma)."
-    },
-    {
-      "id": 13,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "This river's massive basin drains roughly 40 percent of South America, stretching across Peru, Colombia, and Brazil. Extreme seasonal flooding and shifting river channels are primary reasons why no bridges span its main stem. It carries more water than the next seven largest rivers combined before emptying into the Atlantic Ocean. For the point, name this second-longest river in the world.",
-      "options": [
-        "Orinoco River",
-        "Paraná River",
-        "Amazon River",
-        "Magdalena River"
-      ],
-      "answer": 2,
-      "explanation": "The Amazon River basin covers about 40% of South America, carries immense water volume, and lacks any bridges spanning its main stem."
-    },
-    {
-      "id": 14,
-      "category": "Science",
-      "topic": "Cell Nucleus",
-      "question": "Structural support and chromatin organization in this structure are provided by a fibrous intermediate filament network called the nuclear lamina. It contains a dense, membrane-less region called the nucleolus that synthesizes ribosomal RNA and assembles ribosome subunits. Enclosed by a double membrane with pore complexes, it serves as the primary storage site for a cell's DNA. For the point, name this organelle that acts as the command center of eukaryotic cells.",
-      "options": [
-        "Mitochondrion",
-        "Golgi Apparatus",
-        "Endoplasmic Reticulum",
-        "Cell Nucleus"
-      ],
-      "answer": 3,
-      "explanation": "The cell nucleus is a double-membrane-bound organelle housing genetic material (DNA), containing the nucleolus, and supported by the nuclear lamina."
-    },
-    {
-      "id": 15,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Flowing past ports such as Iquitos and Santarém, this river's upper portion in Brazil is locally referred to as the Solimões before joining the Rio Negro. Its immense discharge of fresh water lowers the salinity of the Atlantic Ocean for hundreds of miles beyond its mouth. Draining the world's largest tropical rainforest, it carries more water than any other river on Earth. For the point, name this major South American river.",
-      "options": [
-        "Amazon River",
-        "Congo River",
-        "Mekong River",
-        "Danube River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River flows through Iquitos and Santarém, includes the Solimões stretch, and drains the world's largest tropical rainforest."
-    },
-    {
-      "id": 16,
-      "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Gradients in this interaction across an extended mass lead to tidal forces that cause tidal locking and ocean tides. Although it is the weakest of the four fundamental interactions, it dominates at astronomical scales because it is always attractive and has an infinite range. It is governed by a universal constant G equal to approximately 6.674 times 10 to the negative 11th power. For the point, name this attractive force between masses described by Isaac Newton.",
-      "options": [
-        "Electromagnetic Force",
-        "Gravitational Force",
-        "Strong Nuclear Force",
-        "Weak Nuclear Force"
-      ],
-      "answer": 1,
-      "explanation": "Gravitational force is the weakest fundamental interaction, described by Newton's law of universal gravitation using the constant G, and is responsible for astronomical phenomena like tides."
-    },
-    {
-      "id": 17,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Major tributaries feeding this vast river system include the Madeira, the Tapajós, and the dark-watered Rio Negro. Originating high in the Peruvian Andes, its immense water volume accounts for about one-fifth of all global river flow into the ocean. It spans over 4,000 miles across northern South America without a single bridge crossing its main channel. For the point, name this river named after a legendary race of female warriors.",
-      "options": [
-        "Paraná River",
-        "Orinoco River",
-        "Amazon River",
-        "São Francisco River"
-      ],
-      "answer": 2,
-      "explanation": "The Amazon River is fed by tributaries like the Madeira and Rio Negro, originates in the Peruvian Andes, and contributes ~20% of global river discharge."
-    },
-    {
-      "id": 18,
-      "category": "Science",
-      "topic": "Newton's Laws",
-      "question": "These three physical principles were first published in the 1687 landmark treatise Philosophiae Naturalis Principia Mathematica. The first of these principles is known as the Law of Inertia, which states that an object remains at constant velocity unless acted upon by a net force. The third principle states that every action has an equal and opposite reaction. For the point, name these fundamental laws of motion formulated by an English scientist.",
-      "options": [
-        "Kepler's Laws",
-        "Newton's Laws",
-        "Maxwell's Equations",
-        "Laws of Thermodynamics"
-      ],
-      "answer": 1,
-      "explanation": "Newton's Laws of Motion, published in the Principia in 1687, include inertia, F=ma, and equal-and-opposite reaction forces."
-    },
-    {
-      "id": 19,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "The Meeting of Waters near Manaus is a famous tourist spot where two distinct tributaries of this river flow side by side for miles without mixing. Its traditional source was long identified at Nevado Mismi before recent research pointed toward the Mantaro River. Draining roughly 40 percent of South America, it empties into the Atlantic Ocean along the northern coast of Brazil. For the point, name this largest river in South America.",
-      "options": [
-        "Nile River",
-        "Congo River",
-        "Mississippi River",
-        "Amazon River"
-      ],
-      "answer": 3,
-      "explanation": "The Amazon River features the Meeting of Waters near Manaus, drains 40% of South America, and empties into the Atlantic Ocean along Brazil's coast."
-    },
-    {
-      "id": 20,
-      "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Einstein's General Theory of Relativity explains this phenomenon as the curvature of four-dimensional spacetime caused by mass and energy. Classically, its magnitude is directly proportional to the product of two masses and inversely proportional to the square of the distance between them. It determines planetary orbits, escape velocity, and the acceleration of falling bodies on Earth. For the point, name this fundamental force that holds planets in orbit around the Sun.",
-      "options": [
-        "Gravitational Force",
-        "Centripetal Force",
-        "Frictional Force",
-        "Magnetic Force"
-      ],
-      "answer": 0,
-      "explanation": "Gravitational force is modeled by Newton's inverse-square law and explained by Einstein's General Relativity as spacetime curvature due to mass and energy."
-    },
-    {
-      "id": 21,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Clue 1: Recent geographical studies have proposed the Mantaro River as a more distant source than its traditional origin at Nevado Mismi in the Peruvian Andes. Clue 2: Near Manaus, its dark Rio Negro tributary meets the pale Solimões River to form the Meeting of Waters, where they flow side by side without mixing. Clue 3: Carrying roughly 20 percent of global river discharge into the ocean, no bridges cross its main stem due to severe seasonal flooding. For the point, name this largest river in the world by discharge volume, located in South America.",
+      "question": "The traditionally accepted source of this river was determined to be high in the Peruvian Andes at Nevado Mismi. Despite its immense width and length, no bridges span its main stem due to its seasonal flooding and dense surrounding rainforest. Carrying roughly twenty percent of the world's total river discharge into the oceans, it is the largest river by discharge volume on Earth. For the point, name this South American river that flows through Brazil into the Atlantic.",
       "options": [
         "Amazon River",
         "Nile River",
@@ -382,138 +102,418 @@
         "Paraná River"
       ],
       "answer": 0,
-      "explanation": "The Amazon River originates in the Peruvian Andes (traditionally Nevado Mismi, recently proposed as Mantaro River), features the Meeting of Waters near Manaus, has no bridges across its main stem, and accounts for ~20% of global river discharge."
+      "explanation": "The Amazon River originates at Nevado Mismi in Peru, has no bridges across its main stem, and accounts for approximately 20% of global river discharge into oceans."
     },
     {
-      "id": 22,
+      "id": 2,
+      "category": "Science",
+      "topic": "Velocity",
+      "question": "In calculus-based kinematics, the derivative of this quantity with respect to time yields acceleration. Unlike speed, this measurement is a vector quantity, meaning it accounts for both magnitude and directional movement. For the point, name this physical quantity defined as the rate of change of an object's position.",
+      "options": [
+        "Acceleration",
+        "Velocity",
+        "Displacement",
+        "Momentum"
+      ],
+      "answer": 1,
+      "explanation": "Velocity is a vector quantity that represents the speed of an object in a specific direction and is the time derivative of position."
+    },
+    {
+      "id": 3,
+      "category": "Geography",
+      "topic": "Amazon Rainforest",
+      "question": "Home to more than one-tenth of all known species on Earth, this ecoregion covers a basin that spans nine South American countries including Peru and Colombia. Cattle ranching and illegal logging in the Brazilian state of Mato Grosso have led to extensive deforestation throughout this region. For the point, name this vast tropical rainforest surrounding the largest river system in South America.",
+      "options": [
+        "Congo Rainforest",
+        "Amazon Rainforest",
+        "Daintree Rainforest",
+        "Valdivian Rainforest"
+      ],
+      "answer": 1,
+      "explanation": "The Amazon Rainforest surrounds the Amazon River basin and spans nine South American nations, representing the world's largest tropical rainforest."
+    },
+    {
+      "id": 4,
+      "category": "Science",
+      "topic": "Photosynthesis",
+      "question": "The light-dependent reactions of this pathway take place within thylakoid membranes where chlorophyll absorbs photons. The Calvin cycle subsequently converts carbon dioxide into glucose inside the surrounding stroma. For the point, name this biochemical process used by plants to convert solar light energy into chemical energy.",
+      "options": [
+        "Cellular Respiration",
+        "Photosynthesis",
+        "Fermentation",
+        "Transpiration"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis occurs in plant chloroplasts, utilizing light energy, water, and carbon dioxide to produce oxygen and sugars."
+    },
+    {
+      "id": 5,
+      "category": "Geography",
+      "topic": "Nile River",
+      "question": "Its primary tributaries, the Blue and White branches, converge near the city of Khartoum before flowing north toward the Mediterranean Sea. Historically depositing fertile black silt during its annual inundation, this river supported ancient agricultural civilizations along its banks. For the point, name this major northeastern African river traditionally considered the longest river in the world.",
+      "options": [
+        "Congo River",
+        "Niger River",
+        "Nile River",
+        "Zambezi River"
+      ],
+      "answer": 2,
+      "explanation": "The Nile River flows northward through northeastern Africa, formed by the meeting of the White Nile and Blue Nile at Khartoum."
+    },
+    {
+      "id": 6,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "Clue 1: The rate of change of this vector quantity with respect to time is known as jerk, and its centripetal form points toward the center of curvature with magnitude v squared over r. Clue 2: In the International System of Units, this physical quantity is measured in meters per second squared. Clue 3: According to Newton's Second Law of Motion, multiplying an object's mass by this vector quantity yields the net force acting on it. For the point, name this rate of change of velocity with respect to time.",
+      "question": "According to Newton's second law of motion, force equals mass multiplied by this physical vector. Measured in SI units of meters per second squared, it can describe changes in direction as well as speed. For the point, name this physical quantity defined as the rate of change of velocity over time.",
       "options": [
         "Velocity",
         "Acceleration",
+        "Jerk",
+        "Momentum"
+      ],
+      "answer": 1,
+      "explanation": "Acceleration is the time derivative of velocity, measured in meters per second squared (m/s²), and is related to force by F = ma."
+    },
+    {
+      "id": 7,
+      "category": "Geography",
+      "topic": "River Delta",
+      "question": "The Okavango is a famous inland example of this geographical feature that empties into a desert basin rather than an ocean. Formed at the mouth of a river where slow-moving water deposits accumulated sediment, notable examples include the Arcuate and Bird's-foot types. For the point, name this wetland landform often named after a triangular Greek letter.",
+      "options": [
+        "Estuary",
+        "Fjord",
+        "River Delta",
+        "Alluvial Fan"
+      ],
+      "answer": 2,
+      "explanation": "A river delta forms at the mouth of a river where sediment is deposited as the river enters slow-moving or standing water, resembling the Greek letter Delta."
+    },
+    {
+      "id": 8,
+      "category": "Science",
+      "topic": "Speed of Light",
+      "question": "Danish astronomer Ole Rømer provided the first quantitative estimate of this universal constant in 1676 by observing the eclipses of Jupiter's moon Io. Denoted by the letter c in equations such as Einstein's mass-energy equivalence, it is approximately 300,000 kilometers per second. For the point, name this maximum speed at which all electromagnetic waves travel in a vacuum.",
+      "options": [
+        "Speed of Sound",
+        "Speed of Light",
+        "Escape Velocity",
+        "Terminal Velocity"
+      ],
+      "answer": 1,
+      "explanation": "The speed of light in a vacuum (c) is a universal physical constant equal to exactly 299,792,458 meters per second."
+    },
+    {
+      "id": 9,
+      "category": "Geography",
+      "topic": "World Capitals & Urban Centers",
+      "question": "Located near the mouth of the Tagus River, this city was heavily damaged by a catastrophic earthquake and tsunami in 1755. Its historical landmarks include the Jerónimos Monastery and the iconic Belém Tower. For the point, name this westernmost capital city of continental Europe, the capital of Portugal.",
+      "options": [
+        "Madrid",
+        "Lisbon",
+        "Porto",
+        "Seville"
+      ],
+      "answer": 1,
+      "explanation": "Lisbon is the capital of Portugal, situated along the Tagus River, famous for its historic Belém district and recovery from the 1755 earthquake."
+    },
+    {
+      "id": 10,
+      "category": "Science",
+      "topic": "Gravity",
+      "question": "Isaac Newton formulated an inverse-square law to mathematically calculate the strength of this phenomenon between two point masses. Albert Einstein's general theory of relativity later reinterpreted it as the geometric curvature of spacetime created by mass and energy. For the point, name this fundamental force that attracts all physical objects toward one another.",
+      "options": [
+        "Electromagnetism",
+        "Strong Nuclear Force",
+        "Weak Nuclear Force",
+        "Gravity"
+      ],
+      "answer": 3,
+      "explanation": "Gravity is the universal force of attraction acting between all matter, described mathematically by Newton's law of universal gravitation and Einstein's general relativity."
+    },
+    {
+      "id": 11,
+      "category": "Geography",
+      "topic": "Amazon River",
+      "question": "The traditionally accepted source of this river is located high in the Peruvian Andes at Nevado Mismi. Accounting for approximately twenty percent of the world's total river discharge into the ocean, no bridges cross its main stem due to its immense width and surrounding rainforest. For the point, name this massive South American river, the largest in the world by water volume.",
+      "options": [
+        "Amazon River",
+        "Nile River",
+        "Orinoco River",
+        "Paraná River"
+      ],
+      "answer": 0,
+      "explanation": "The Amazon River originates at Nevado Mismi in Peru, contributes ~20% of global river discharge into oceans, and has no bridges spanning its main stem."
+    },
+    {
+      "id": 12,
+      "category": "Science",
+      "topic": "Velocity",
+      "question": "In classical mechanics, this vector quantity is defined as the first derivative of position with respect to time. Unlike speed, it specifies both magnitude and direction, and taking its derivative yields acceleration. For the point, name this physical quantity measured in meters per second that describes an object's speed in a given direction.",
+      "options": [
+        "Acceleration",
+        "Velocity",
         "Momentum",
         "Displacement"
       ],
       "answer": 1,
-      "explanation": "Acceleration is defined as the rate of change of velocity over time, measured in m/s², related to force via F = ma, and its time derivative is jerk."
+      "explanation": "Velocity is a vector quantity representing the rate of change of position, requiring both speed (magnitude) and direction."
+    },
+    {
+      "id": 13,
+      "category": "Geography",
+      "topic": "World Capitals & Urban Centers",
+      "question": "Located near the confluence of the Blue and White Nile rivers, Khartoum serves as an administrative center of this type in Sudan. Other notable examples in Africa include Cairo on the Nile Delta and Pretoria, South Africa. For the point, name this category of municipal centers that function as the official seats of government for sovereign nations.",
+      "options": [
+        "Federal Districts",
+        "World Capitals & Urban Centers",
+        "Autonomous Zones",
+        "Megacities"
+      ],
+      "answer": 1,
+      "explanation": "Capitals such as Khartoum and Cairo serve as national seats of government and primary urban centers."
+    },
+    {
+      "id": 14,
+      "category": "Science",
+      "topic": "Photosynthesis",
+      "question": "This biochemical pathway utilizes light energy to fix inorganic carbon via the enzyme RuBisCO during the Calvin cycle. Occurring within the thylakoid membranes and stroma of chloroplasts, it consumes water and carbon dioxide to yield glucose and oxygen gas. For the point, name this fundamental biological process by which autotrophic plants convert sunlight into chemical energy.",
+      "options": [
+        "Cellular Respiration",
+        "Photosynthesis",
+        "Fermentation",
+        "Transpiration"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis takes place in plant chloroplasts, converting water, carbon dioxide, and sunlight into glucose and oxygen."
+    },
+    {
+      "id": 15,
+      "category": "Geography",
+      "topic": "River Delta",
+      "question": "The Okavango is an unusual endorheic example of this feature that discharges into an arid basin rather than the ocean. Formed when sediment carried by a river enters slow-moving or standing water, famous coastal examples are found at the mouths of the Mississippi, Ganges, and Nile rivers. For the point, name these landforms, named for their physical resemblance to a triangular Greek letter.",
+      "options": [
+        "Estuary",
+        "Fjord",
+        "River Delta",
+        "Alluvial Fan"
+      ],
+      "answer": 2,
+      "explanation": "River deltas form from sediment deposition at a river's mouth and are named after the Greek letter delta (Δ)."
+    },
+    {
+      "id": 16,
+      "category": "Science",
+      "topic": "Acceleration",
+      "question": "Centripetal forms of this vector quantity act perpendicular to velocity to maintain uniform circular motion, while its tangential component changes an object's speed. According to Newton's second law of motion, net force equals mass multiplied by this quantity. For the point, name this rate of change of velocity over time, typically measured in meters per second squared.",
+      "options": [
+        "Jerk",
+        "Velocity",
+        "Acceleration",
+        "Gravity"
+      ],
+      "answer": 2,
+      "explanation": "Acceleration is defined as the change in velocity per unit time (a = Δv/Δt) and appears in Newton's second law (F = ma)."
+    },
+    {
+      "id": 17,
+      "category": "Geography",
+      "topic": "Amazon Rainforest",
+      "question": "Home to endemic fauna such as the jaguar, poison dart frog, and pink river dolphin, this ecoregion contains over half of the planet's remaining tropical canopy. Spanning across nine South American nations including Brazil and Peru, its dense vegetation plays a crucial role in absorbing global carbon emissions. For the point, name this vast tropical forest surrounding South America's largest river.",
+      "options": [
+        "Cerrado",
+        "Pantanal",
+        "Valdivian Forest",
+        "Amazon Rainforest"
+      ],
+      "answer": 3,
+      "explanation": "The Amazon Rainforest is the world's largest tropical rainforest, surrounding the Amazon River basin across South America."
+    },
+    {
+      "id": 18,
+      "category": "Science",
+      "topic": "Gravity",
+      "question": "The strength of this fundamental interaction follows an inverse-square law with respect to distance between two point masses, as defined by Isaac Newton. Albert Einstein later reinterpreted it as the curvature of spacetime caused by mass and energy in general relativity. For the point, name this attractive force that gives weight to physical objects and keeps planets in orbit around the Sun.",
+      "options": [
+        "Electromagnetism",
+        "Strong Nuclear Force",
+        "Gravity",
+        "Weak Nuclear Force"
+      ],
+      "answer": 2,
+      "explanation": "Gravity is the fundamental force of attraction between masses, described classically by Newton and dynamically by Einstein's General Relativity."
+    },
+    {
+      "id": 19,
+      "category": "Geography",
+      "topic": "Nile River",
+      "question": "Emerging from Lake Victoria and Lake Tana, the two primary tributaries of this river join at Khartoum before flowing through the Nubian Desert. Historically crucial to ancient Egyptian civilization, it flows northward through eleven countries before emptying into the Mediterranean Sea. For the point, name this African river widely regarded as the longest river in the world.",
+      "options": [
+        "Congo River",
+        "Niger River",
+        "Nile River",
+        "Zambezi River"
+      ],
+      "answer": 2,
+      "explanation": "The White Nile and Blue Nile meet at Khartoum to form the main stem of the Nile River, which flows north to the Mediterranean."
+    },
+    {
+      "id": 20,
+      "category": "Science",
+      "topic": "Cell Respiration",
+      "question": "Occurring within the cytoplasm and mitochondrial matrix, this catabolic pathway includes glycolysis, the citric acid cycle, and oxidative phosphorylation. It breaks down glucose in the presence of oxygen gas to synthesize adenosine triphosphate, or ATP. For the point, name this cellular process by which living organisms convert biochemical nutrients into usable chemical energy.",
+      "options": [
+        "Photosynthesis",
+        "Cell Respiration",
+        "Chemiosmosis",
+        "Fermentation"
+      ],
+      "answer": 1,
+      "explanation": "Cellular respiration metabolizes glucose and oxygen to produce ATP, carbon dioxide, and water in eukaryote mitochondria and cytoplasm."
+    },
+    {
+      "id": 21,
+      "category": "Geography",
+      "topic": "Amazon River",
+      "question": "The traditionally accepted source of this body of water is high in the Peruvian Andes at Nevado Mismi. Uniquely, no bridges cross its main stem due to its extreme width, seasonal flooding, and dense rainforest environment. For the point, name this South American river that accounts for roughly twenty percent of the world's total river discharge.",
+      "options": [
+        "Amazon River",
+        "Nile River",
+        "Congo River",
+        "Orinoco River"
+      ],
+      "answer": 0,
+      "explanation": "The Amazon River originates near Nevado Mismi in Peru, has no bridges spanning its main channel, and contributes approximately 20% of global river discharge into the oceans."
+    },
+    {
+      "id": 22,
+      "category": "Science",
+      "topic": "Velocity",
+      "question": "In special relativity, this vector quantity undergoes Lorentz transformations between different inertial reference frames. It is defined mathematically as the first derivative of position with respect to time. For the point, name this kinematic quantity that measures both the speed and direction of an object's motion.",
+      "options": [
+        "Acceleration",
+        "Velocity",
+        "Momentum",
+        "Displacement"
+      ],
+      "answer": 1,
+      "explanation": "Velocity is a vector physical quantity that expresses both the rate of change of position over time and the direction of motion."
     },
     {
       "id": 23,
       "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Clue 1: This river's basin drains roughly 40 percent of the South American continent and receives flow from major tributaries like the Rio Negro. Clue 2: A famous natural confluence along its path near Manaus is known as the Meeting of Waters, where dark and pale rivers flow alongside each other. Clue 3: Carrying more water than the next seven largest rivers combined, it empties into the Atlantic Ocean. For the point, name this second-longest river in the world, surrounded by a massive namesake rainforest.",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This capital city is home to the Historic Centre of Sintra nearby and is built on seven steep hills overlooking the Tagus River estuary. It suffered a devastating earthquake and subsequent tsunami in 1755 that was heavily rebuilt under the Marquis of Pombal. For the point, name this Atlantic coastal city that serves as the capital of Portugal.",
       "options": [
-        "Orinoco River",
-        "Amazon River",
-        "Magdalena River",
-        "São Francisco River"
+        "Madrid",
+        "Lisbon",
+        "Porto",
+        "Seville"
       ],
       "answer": 1,
-      "explanation": "The Amazon River basin covers roughly 40% of South America, features the Meeting of Waters confluence near Manaus, and flows through the Amazon Rainforest into the Atlantic."
+      "explanation": "Lisbon is the capital city of Portugal, located where the Tagus River meets the Atlantic Ocean, famously rebuilt following the 1755 earthquake."
     },
     {
       "id": 24,
       "category": "Science",
-      "topic": "Cell Nucleus",
-      "question": "Clue 1: Structural support and regulation of chromatin organization within this structure are provided by a fibrous intermediate filament network known as the nuclear lamina. Clue 2: It contains a dense, membrane-less region called the nucleolus, which synthesizes ribosomal RNA and assembles ribosome subunits. Clue 3: Enclosed by a double-membrane structure with pore complexes, it serves as the main command center containing most of a eukaryotic cell's DNA. For the point, name this organelle that houses genetic material.",
-      "options": [
-        "Mitochondrion",
-        "Endoplasmic Reticulum",
-        "Cell Nucleus",
-        "Golgi Apparatus"
-      ],
-      "answer": 2,
-      "explanation": "The cell nucleus is bounded by a nuclear envelope, contains the nuclear lamina and nucleolus, and houses the cell's genetic material."
-    },
-    {
-      "id": 25,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Clue 1: Despite its vast size and economic importance, not a single bridge spans the main stem of this river due to seasonal flooding and shifting riverbeds. Clue 2: Recent geographical studies have debated whether its headwaters lie at Nevado Mismi or along the Mantaro River in Peru. Clue 3: It is responsible for approximately one-fifth of the total discharge of all rivers on Earth into the oceans. For the point, name this vast South American river.",
-      "options": [
-        "Paraná River",
-        "Congo River",
-        "Amazon River",
-        "Mekong River"
-      ],
-      "answer": 2,
-      "explanation": "No bridges cross the main stem of the Amazon River, which accounts for about 20% (one-fifth) of total global river discharge into the oceans."
-    },
-    {
-      "id": 26,
-      "category": "Science",
-      "topic": "Gravitational Force",
-      "question": "Clue 1: Oceans on Earth experience tides because of gradients in this interaction, which is governed by a constant of roughly 6.674 times 10 to the negative 11th power. Clue 2: Albert Einstein's General Theory of Relativity explained this phenomenon as the curvature of four-dimensional spacetime caused by mass and energy. Clue 3: Described classically by Isaac Newton's inverse-square law, it is the fundamental attractive interaction between any two physical masses. For the point, name this weakest fundamental force in physics.",
-      "options": [
-        "Gravitational Force",
-        "Electromagnetic Force",
-        "Strong Nuclear Force",
-        "Weak Nuclear Force"
-      ],
-      "answer": 0,
-      "explanation": "Gravitational force is governed classically by Newton's law of universal gravitation and relativistically by Einstein's General Relativity, causing ocean tides and attraction between masses."
-    },
-    {
-      "id": 27,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Clue 1: Near the Brazilian city of Manaus, the dark Rio Negro flows alongside the light-colored Solimões River without immediately mixing along the course of this river system. Clue 2: Originating high in the Peruvian Andes, this river flows eastward across northern South America to empty into the Atlantic Ocean. Clue 3: It carries more water than any other river on Earth, discharging more than the next seven largest rivers combined. For the point, name this massive river that flows through Brazil and Peru.",
-      "options": [
-        "Amazon River",
-        "Mississippi River",
-        "Yangtze River",
-        "Volga River"
-      ],
-      "answer": 0,
-      "explanation": "The Amazon River originates in the Peruvian Andes, flows past Manaus in Brazil, and has the greatest water discharge of any river on Earth."
-    },
-    {
-      "id": 28,
-      "category": "Science",
-      "topic": "Newton's Laws",
-      "question": "Clue 1: These physical principles were first outlined in the 1687 treatise Philosophiae Naturalis Principia Mathematica. Clue 2: The third of these principles states that for every action, there is an equal and opposite reaction. Clue 3: The first of these principles is the Law of Inertia, while the second states that net force equals mass times acceleration, or F equals m a. For the point, name this set of three fundamental laws of motion named for an English scientist.",
-      "options": [
-        "Kepler's Laws",
-        "Newton's Laws",
-        "Maxwell's Equations",
-        "Thermodynamic Laws"
-      ],
-      "answer": 1,
-      "explanation": "Newton's Laws of Motion were published in the Principia in 1687 and comprise the Law of Inertia, F = ma, and action-reaction."
-    },
-    {
-      "id": 29,
-      "category": "Geography",
-      "topic": "Amazon River",
-      "question": "Clue 1: Studies proposing the Mantaro River as a headwater source challenge the long-held belief that this river originates at Nevado Mismi in Peru. Clue 2: It drains a basin covering approximately 40 percent of South America, including vast stretches of tropical rainforest. Clue 3: It is generally recognized as the second-longest river in the world after the Nile and the largest river by volume. For the point, name this major South American river.",
-      "options": [
-        "Nile River",
-        "Amazon River",
-        "Zambezi River",
-        "Danube River"
-      ],
-      "answer": 1,
-      "explanation": "The Amazon River's headwater debate involves the Mantaro River and Nevado Mismi; it drains ~40% of South America as the world's largest river by discharge volume."
-    },
-    {
-      "id": 30,
-      "category": "Science",
       "topic": "Acceleration",
-      "question": "Clue 1: The rate of change of this vector quantity over time is called jerk, and for an object moving in a circle, its centripetal form equals v squared over r. Clue 2: Under free fall near Earth's surface in a vacuum, this quantity for any object is approximately 9.8 meters per second squared. Clue 3: Newton's Second Law describes how this quantity is equal to net force divided by mass. For the point, name this physical quantity defined as the change in velocity over time.",
+      "question": "The centripetal form of this quantity is expressed as speed squared divided by radius for an object moving in a uniform circular path. According to Newton's second law of motion, applying a net force to a mass produces this rate of change. For the point, name this physical quantity representing the rate of change of velocity over time, measured in meters per second squared.",
       "options": [
-        "Speed",
-        "Work",
+        "Velocity",
+        "Jerk",
         "Acceleration",
         "Force"
       ],
       "answer": 2,
-      "explanation": "Acceleration is the change in velocity over time, equal to ~9.8 m/s² in free fall near Earth's surface, and equal to force divided by mass (a = F/m)."
+      "explanation": "Acceleration measures the rate at which velocity changes over time and is calculated as force divided by mass according to Newton's second law."
+    },
+    {
+      "id": 25,
+      "category": "Geography",
+      "topic": "Amazon Rainforest",
+      "question": "This biome absorbs vast quantities of carbon dioxide and is home to one in ten known species on Earth. Spanning nine South American nations, more than sixty percent of its total area lies within the borders of Brazil. For the point, name this massive tropical rainforest surrounding the world's largest river by discharge volume.",
+      "options": [
+        "Congo Rainforest",
+        "Amazon Rainforest",
+        "Daintree Rainforest",
+        "Valdivian Temperate Rainforest"
+      ],
+      "answer": 1,
+      "explanation": "The Amazon Rainforest is the world's largest tropical rainforest, primarily situated in Brazil, supporting immense biodiversity across the Amazon Basin."
+    },
+    {
+      "id": 26,
+      "category": "Science",
+      "topic": "Photosynthesis",
+      "question": "This process relies on the enzyme RuBisCO during the light-independent Calvin cycle to fix inorganic carbon into organic sugars. It takes place inside specialized organelles called chloroplasts containing light-absorbing chlorophyll pigments. For the point, name this biological process by which autotrophs convert light energy into chemical energy.",
+      "options": [
+        "Cellular Respiration",
+        "Photosynthesis",
+        "Fermentation",
+        "Transpiration"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis is the metabolic pathway used by plants and algae to synthesize glucose from sunlight, water, and carbon dioxide inside chloroplasts."
+    },
+    {
+      "id": 27,
+      "category": "Geography",
+      "topic": "Nile River",
+      "question": "This river's discharge is regulated by the Aswan High Dam, which created the massive artificial reservoir known as Lake Nasser. It is formed by the confluence of the White and Blue branches in the Sudanese city of Khartoum. For the point, name this iconic African river long recognized as the longest river system in the world.",
+      "options": [
+        "Congo River",
+        "Niger River",
+        "Nile River",
+        "Zambezi River"
+      ],
+      "answer": 2,
+      "explanation": "The Nile River flows northward through northeastern Africa into the Mediterranean Sea and is formed by the joining of the Blue Nile and White Nile at Khartoum."
+    },
+    {
+      "id": 28,
+      "category": "Science",
+      "topic": "Plate Tectonics",
+      "question": "The theory of this process was strongly supported by symmetrical magnetic stripe patterns recorded on oceanic crust near mid-ocean ridges. It explains mountain building, seismic activity, and volcanic arcs along convergent, divergent, and transform boundaries. For the point, name this geological theory describing the large-scale movement of Earth's lithospheric plates.",
+      "options": [
+        "Continental Drift",
+        "Plate Tectonics",
+        "Isostasy",
+        "Mantle Convection"
+      ],
+      "answer": 1,
+      "explanation": "Plate tectonics is the unifying geological theory explaining continental movements, oceanic trenches, earthquakes, and volcanism through lithospheric plate dynamics."
+    },
+    {
+      "id": 29,
+      "category": "Geography",
+      "topic": "River Delta",
+      "question": "A classic bird's-foot pattern is exhibited by one of these geographical features formed at the mouth of the Mississippi River. These landforms occur where sediment deposited by a river entering slower-moving water creates fertile, low-lying alluvial plains. For the point, name these landforms named after the fourth letter of the Greek alphabet.",
+      "options": [
+        "Estuary",
+        "Alluvial Fan",
+        "River Delta",
+        "Fjord"
+      ],
+      "answer": 2,
+      "explanation": "A river delta is a landform created by deposition of sediment carried by a river as the flow leaves its mouth, typically taking a triangular shape resembling the Greek letter delta."
+    },
+    {
+      "id": 30,
+      "category": "Science",
+      "topic": "Thermodynamics",
+      "question": "The zeroth law of this branch of physics establishes thermal equilibrium as an equivalence relation to define temperature. Its second law dictates that the total entropy of an isolated system can never decrease over time. For the point, name this branch of physics concerned with heat, work, temperature, and energy transformations.",
+      "options": [
+        "Kinematics",
+        "Thermodynamics",
+        "Electromagnetism",
+        "Quantum Mechanics"
+      ],
+      "answer": 1,
+      "explanation": "Thermodynamics is the subfield of physics that investigates the relationships between heat, work, temperature, and macroscopic properties like entropy."
     }
   ],
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-07 01:40:03",
+    "generated_at": "2026-09-08 01:50:11",
     "resources": [
       "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
       "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
