@@ -268,35 +268,51 @@
       }
     }
 
-    function processTopicCloudData() {
-      topicList = [];
+function processTopicCloudData() {
+  topicList = [];
 
-      for (const [category, topics] of Object.entries(topicsData)) {
-        if (category === 'metadata' || !Array.isArray(topics)) continue;
+  if (Array.isArray(topicsData)) {
+    // Handling array format
+    topicsData.forEach(t => {
+      topicList.push({
+        name: t.name || t.topic,
+        category: t.category || 'General',
+        definition: t.definition || t.summary || '',
+        key_facts: t.key_facts || t.facts || [],
+        related_topics: t.related_topics || []
+      });
+    });
+  } else if (typeof topicsData === 'object' && topicsData !== null) {
+    // Handling category-keyed or object format
+    for (const [category, topics] of Object.entries(topicsData)) {
+      if (category === 'metadata') continue;
 
+      if (Array.isArray(topics)) {
         topics.forEach(t => {
           if (typeof t === 'string') {
             topicList.push({ name: t, category: category });
-          } else if (typeof t === 'object' && t.name) {
+          } else if (typeof t === 'object' && t) {
             topicList.push({
-              name: t.name,
+              name: t.name || t.topic,
               category: category,
-              definition: t.definition,
-              key_facts: t.key_facts || [],
+              definition: t.definition || t.summary || '',
+              key_facts: t.key_facts || t.facts || [],
               related_topics: t.related_topics || []
             });
           }
         });
       }
-
-      allData.forEach(q => {
-        if (q.topic && !topicList.some(t => t.name.toLowerCase() === q.topic.toLowerCase())) {
-          topicList.push({ name: q.topic, category: q.category || 'General' });
-        }
-      });
-
-      renderTopicCloud(topicList);
     }
+  }
+  // Merge remaining unique topics from quiz questions
+  allData.forEach(q => {
+    if (q.topic && !topicList.some(t => t.name.toLowerCase() === q.topic.toLowerCase())) {
+      topicList.push({ name: q.topic, category: q.category || 'General' });
+    }
+  });
+
+  renderTopicCloud(topicList);
+}
 
     function renderTopicCloud(list) {
       const container = document.getElementById('full-topic-cloud');
