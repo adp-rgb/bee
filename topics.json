@@ -1,19 +1,64 @@
 {
   "Geography": [
     {
-      "name": "Amazon River",
-      "definition": "The Amazon River in South America is the world's largest river by discharge volume of water and is widely considered the second-longest river system. Flowing primarily through Peru and Brazil into the Atlantic Ocean, its vast basin supports the planet's largest tropical rainforest.",
+      "name": "Amazon Rainforest",
+      "definition": "The Amazon Rainforest is the world's largest tropical rainforest, spanning over two million square miles across nine South American nations with the majority located in Brazil. Often referred to as the 'lungs of the Earth,' it plays a critical role in regulating the global climate through carbon sequestration and is home to roughly ten percent of all known species on Earth.",
       "key_facts": [
-        "It accounts for approximately 20% of the world's total river discharge into the oceans.",
-        "The traditionally accepted source of the Amazon River is high in the Peruvian Andes at Nevado Mismi.",
-        "There are no bridges built across the main stem of the Amazon River due to its extreme width, seasonal flooding, and dense surrounding rainforest."
+        "It encompasses the drainage basin of the Amazon River, which holds the largest discharge volume of water of any river system globally.",
+        "Over 60% of the forest's total area lies within Brazil, while the remainder is shared among eight other countries and territories.",
+        "The biome contains an estimated 390 billion individual trees belonging to approximately 16,000 distinct species.",
+        "Historical and ongoing deforestation, primarily driven by agriculture and cattle ranching, drastically impacts its role as a global carbon sink."
+      ],
+      "related_topics": [
+        "Amazon River",
+        "Deforestation",
+        "Biomes and Ecosystems"
+      ]
+    },
+    {
+      "name": "Amazon River",
+      "definition": "The Amazon River in South America is the largest river in the world by water discharge volume and is widely recognized as the second-longest river system on Earth. Flowing primarily through Peru and Brazil, it drains the vast Amazon Basin, which encompasses the world's largest tropical rainforest.",
+      "key_facts": [
+        "It accounts for approximately 20 percent of the world's total river flow into the oceans.",
+        "Despite its immense size, there are no bridges spanning the main stem of the Amazon River due to its wide width and sparse surrounding infrastructure.",
+        "The river's primary sources originate high in the Peruvian Andes, with Nevado Mismi historically identified as its ultimate headstream."
       ],
       "related_topics": [
         "Amazon Rainforest",
-        "Nile River",
-        "River Delta"
+        "Andes Mountains",
+        "River Discharge and Hydrology"
       ]
     }
   ],
-  "Science": []
+  "Science": [
+    {
+      "name": "Acceleration",
+      "definition": "Acceleration is defined as the rate at which an object's velocity changes over time, encompassing changes in both speed and direction. As a vector quantity, it is measured in meters per second squared (m/s²) in the International System of Units (SI).",
+      "key_facts": [
+        "According to Newton's Second Law of Motion, acceleration is directly proportional to the net force acting on an object and inversely proportional to its mass (F = ma).",
+        "Centripetal acceleration occurs when an object moves in a circular path, directed toward the center of curvature with a magnitude of v²/r.",
+        "The standard acceleration due to Earth's gravity at sea level is approximately 9.81 m/s² (denoted as g)."
+      ],
+      "related_topics": [
+        "Velocity",
+        "Newton's Laws of Motion",
+        "Kinematics"
+      ]
+    },
+    {
+      "name": "Gravity",
+      "definition": "Gravity is a fundamental interaction that causes mutual attraction between all objects with mass or energy. Described classically by Isaac Newton and modernly by Albert Einstein's general relativity, it governs the motion of celestial bodies and the large-scale structure of the universe.",
+      "key_facts": [
+        "Newton's Law of Universal Gravitation states that the gravitational force between two objects is directly proportional to the product of their masses and inversely proportional to the square of the distance between them.",
+        "Albert Einstein's General Theory of Relativity reinterpreted gravity not as a conventional force, but as the curvature of spacetime caused by mass and energy.",
+        "The standard acceleration due to gravity at Earth's surface is approximately 9.80665 m/s² (denoted as g).",
+        "Gravitational waves, predicted by Einstein in 1916 as ripples in spacetime, were first directly detected by the LIGO experiment in 2015."
+      ],
+      "related_topics": [
+        "General Relativity",
+        "Black Holes",
+        "Kepler's Laws of Planetary Motion"
+      ]
+    }
+  ]
 }
