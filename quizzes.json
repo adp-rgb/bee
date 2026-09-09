@@ -1,6 +1,6 @@
 {
   "rules_summary": {
-    "total_questions": 30,
+    "total_questions": 300,
     "max_correct_per_player": 6,
     "early_penalty": -1,
     "bonus_table": [
@@ -10,80 +10,47 @@
         "total": 15
       },
       {
-        "question_reached": [
-          7,
-          8
-        ],
+        "question_reached": [7, 8],
         "bonus": 8,
         "total": 14
       },
       {
-        "question_reached": [
-          9,
-          10
-        ],
+        "question_reached": [9, 10],
         "bonus": 7,
         "total": 13
       },
       {
-        "question_reached": [
-          11,
-          12
-        ],
+        "question_reached": [11, 12],
         "bonus": 6,
         "total": 12
       },
       {
-        "question_reached": [
-          13,
-          14,
-          15
-        ],
+        "question_reached": [13, 14, 15],
         "bonus": 5,
         "total": 11
       },
       {
-        "question_reached": [
-          16,
-          17,
-          18
-        ],
+        "question_reached": [16, 17, 18],
         "bonus": 4,
         "total": 10
       },
       {
-        "question_reached": [
-          19,
-          20,
-          21
-        ],
+        "question_reached": [19, 20, 21],
         "bonus": 3,
         "total": 9
       },
       {
-        "question_reached": [
-          22,
-          23,
-          24
-        ],
+        "question_reached": [22, 23, 24],
         "bonus": 2,
         "total": 8
       },
       {
-        "question_reached": [
-          25,
-          26,
-          27
-        ],
+        "question_reached": [25, 26, 27],
         "bonus": 1,
         "total": 7
       },
       {
-        "question_reached": [
-          28,
-          29,
-          30
-        ],
+        "question_reached": [28, 29, 30],
         "bonus": 0,
         "total": 6
       }
@@ -92,434 +59,63 @@
   "quizzes": [
     {
       "id": 1,
-      "category": "Geography",
-      "topic": "Physical Geography",
-      "question": "This body of water contains about 20 percent of the world's unfrozen surface fresh water and is home to the endemic nerpa, a species of freshwater seal. Formed in an active continental rift valley, it is bordered by the Barguzin and Baikal Mountains in southern Siberia. For the point, name this rift lake in Russia, the deepest freshwater lake on Earth.",
-      "options": [
-        "Lake Baikal",
-        "Lake Superior",
-        "Lake Victoria",
-        "Lake Tanganyika"
-      ],
-      "answer": 0,
-      "explanation": "Lake Baikal in southern Siberia, Russia, is the world's deepest lake and contains roughly 20% of the world's unfrozen surface freshwater."
+      "category": "Science",
+      "mode": "practice-specific",
+      "topic": "Photosynthesis",
+      "question": "Which organelle is responsible for converting light energy into chemical energy during photosynthesis?",
+      "options": ["Mitochondria", "Chloroplast", "Ribosome", "Golgi Apparatus"],
+      "answer": 1,
+      "explanation": "Chloroplasts contain chlorophyll which absorbs solar energy to power carbon fixation."
     },
     {
       "id": 2,
       "category": "Science",
-      "topic": "Cell Biology",
-      "question": "This organelle's inner membrane folds inward to form cristae, which enclose a fluid called the matrix containing its own circular DNA. It hosts the citric acid cycle and electron transport chain to produce ATP through cellular respiration. For the point, name this cellular organelle commonly known as the powerhouse of the cell.",
-      "options": [
-        "Ribosome",
-        "Mitochondria",
-        "Golgi Apparatus",
-        "Endoplasmic Reticulum"
-      ],
-      "answer": 1,
-      "explanation": "Mitochondria generate ATP via cellular respiration and possess inner foldings called cristae and their own matrix DNA."
+      "mode": "high-frequency",
+      "topic": "Thermodynamics",
+      "question": "Which law of thermodynamics states that the entropy of a pure crystalline substance approaches zero as temperature approaches absolute zero?",
+      "options": ["Zeroth Law", "First Law", "Second Law", "Third Law"],
+      "answer": 3,
+      "explanation": "The Third Law of Thermodynamics governs minimum entropy states at 0 Kelvin."
     },
     {
       "id": 3,
-      "category": "Geography",
-      "topic": "World Capitals & Urban Centers",
-      "question": "Near this city sits the geothermal spa known as the Blue Lagoon, which utilizes heated water from the nearby Svartsengi power plant. Located on the Seltjarnarnes Peninsula along Faxaflói Bay, its iconic landmarks include the Hallgrímskirkja church and Harpa Concert Hall. For the point, name this northernmost capital of a sovereign state, the capital of Iceland.",
-      "options": [
-        "Oslo",
-        "Helsinki",
-        "Reykjavik",
-        "Tórshavn"
-      ],
-      "answer": 2,
-      "explanation": "Reykjavik is the capital of Iceland and holds the distinction of being the world's northernmost capital of a sovereign nation."
+      "category": "Science",
+      "mode": "flashcards",
+      "topic": "Cell Biology",
+      "question": "What double-membraned organelle is commonly called the powerhouse of the cell?",
+      "options": ["Nucleus", "Mitochondrion", "Lysosome", "Vacuole"],
+      "answer": 1,
+      "explanation": "Mitochondria generate ATP through cellular respiration."
     },
     {
       "id": 4,
-      "category": "Science",
-      "topic": "Thermodynamics",
-      "question": "At this theoretical state, system particles possess minimum quantum mechanical zero-point energy and cease thermodynamic motion. The Third Law of Thermodynamics states that the entropy of a pure crystalline substance approaches zero as temperature approaches this baseline. For the point, name this lowest possible temperature, defined as zero Kelvin or negative 273.15 degrees Celsius.",
-      "options": [
-        "Triple Point",
-        "Critical Point",
-        "Absolute Zero",
-        "Curie Temperature"
-      ],
-      "answer": 2,
-      "explanation": "Absolute zero (0 Kelvin) is the lowest theoretical temperature where enthalpy and entropy of a cooled ideal gas reach their minimum value."
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Physical Geography",
+      "question": "Which rift lake in southern Siberia is the deepest freshwater lake on Earth?",
+      "options": ["Lake Baikal", "Lake Superior", "Lake Victoria", "Lake Tanganyika"],
+      "answer": 0,
+      "explanation": "Lake Baikal contains about 20% of the world's unfrozen surface freshwater."
     },
     {
       "id": 5,
       "category": "Geography",
-      "topic": "Rivers & Hydrography",
-      "question": "This river passes through the Iron Gates gorge on the border between Romania and Serbia before forming a vast delta on the Black Sea. Originating in the Black Forest of Germany, it flows through four national capitals: Vienna, Bratislava, Budapest, and Belgrade. For the point, name this second-longest river in Europe, trailing only the Volga.",
-      "options": [
-        "Rhine River",
-        "Danube River",
-        "Elbe River",
-        "Dnieper River"
-      ],
-      "answer": 1,
-      "explanation": "The Danube flows through Central and Eastern Europe to the Black Sea, passing through ten countries and four capital cities."
+      "mode": "high-frequency",
+      "topic": "World Capitals",
+      "question": "Which city is the northernmost capital of a sovereign state?",
+      "options": ["Oslo", "Helsinki", "Reykjavik", "Tórshavn"],
+      "answer": 2,
+      "explanation": "Reykjavik is the capital of Iceland and the northernmost national capital."
     },
     {
       "id": 6,
-      "category": "Science",
-      "topic": "Chemistry & Atomic Structure",
-      "question": "The heaviest stable member of this chemical group is radon, while lighter members like argon and neon produce distinct glows when ionized in discharge lamps. Found in Group 18 of the periodic table, these elements possess full outer valence electron shells, making them extremely unreactive. For the point, name this group of chemical elements that includes helium, neon, and argon.",
-      "options": [
-        "Halogens",
-        "Alkali Metals",
-        "Noble Gases",
-        "Alkaline Earth Metals"
-      ],
-      "answer": 2,
-      "explanation": "The noble gases make up Group 18 of the periodic table and are highly unreactive due to having complete valence shell configurations."
-    },
-    {
-      "id": 7,
       "category": "Geography",
-      "topic": "Island Nations & Archipelagos",
-      "question": "Separated from mainland Africa by the Mozambique Channel, this island features unique biodiversity including over 100 endemic species of lemurs and native baobab trees. Its central highlands house its capital, Antananarivo, which was historically ruled by the Merina Kingdom. For the point, name this large island country situated off the southeastern coast of Africa.",
-      "options": [
-        "Madagascar",
-        "Mauritius",
-        "Seychelles",
-        "Comoros"
-      ],
+      "mode": "flashcards",
+      "topic": "Deserts",
+      "question": "Located in northern Chile, what is considered the driest non-polar desert on Earth?",
+      "options": ["Atacama Desert", "Kalahari Desert", "Mojave Desert", "Patagonian Desert"],
       "answer": 0,
-      "explanation": "Madagascar is an island nation in the Indian Ocean off Africa's southeastern coast, famous for its high proportion of endemic wildlife like lemurs."
-    },
-    {
-      "id": 8,
-      "category": "Science",
-      "topic": "Physics: Optics & Light",
-      "question": "This optical phenomenon causes the apparent bending of a pencil submerged in a glass of water and is mathematically described by Snell's Law. It occurs because a wave changes its phase velocity when traveling through media with differing refractive indices. For the point, name this bending of light as it passes from one medium to another.",
-      "options": [
-        "Diffraction",
-        "Refraction",
-        "Dispersion",
-        "Polarization"
-      ],
-      "answer": 1,
-      "explanation": "Refraction is the change in direction of a wave passing from one medium into another caused by its change in speed."
-    },
-    {
-      "id": 9,
-      "category": "Geography",
-      "topic": "Mountain Ranges & Peaks",
-      "question": "This range contains the high-altitude Altiplano plateau and the Salar de Uyuni salt flat, with Mount Aconcagua standing as its highest peak. Stretching along the western edge of South America across seven nations, it was historically inhabited by the Inca civilization. For the point, name this longest continental mountain range in the world.",
-      "options": [
-        "Rocky Mountains",
-        "Alps",
-        "Andes Mountains",
-        "Himalayas"
-      ],
-      "answer": 2,
-      "explanation": "The Andes run continuously along the western coast of South America, making them the world's longest continental mountain chain."
-    },
-    {
-      "id": 10,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "The light-independent reactions of this pathway take place in the stroma via the Calvin cycle, utilizing energy molecules produced during the light-dependent reactions in the thylakoids. Specialized chlorophyll pigments absorb light energy within chloroplasts to convert carbon dioxide and water into glucose. For the point, name this biochemical process by which plants convert light energy into chemical energy.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Fermentation",
-        "Transpiration"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis occurs in plant chloroplasts, turning light energy, carbon dioxide, and water into chemical energy in the form of glucose."
-    },
-    {
-      "id": 11,
-      "category": "Geography",
-      "topic": "World Capitals & Urban Centers",
-      "question": "This city's downtown Baixa district was completely rebuilt following a catastrophic 1755 earthquake and tsunami. Located at the mouth of the Tagus River, it serves as the westernmost capital city on the mainland of continental Europe. For the point, name this capital of Portugal.",
-      "options": [
-        "Lisbon",
-        "Madrid",
-        "Porto",
-        "Seville"
-      ],
-      "answer": 0,
-      "explanation": "Lisbon was devastated by a magnitude 8.5 earthquake in 1755 and lies at the mouth of the Tagus River as the capital of Portugal."
-    },
-    {
-      "id": 12,
-      "category": "Science",
-      "topic": "Velocity",
-      "question": "In relativistic physics, four-vectors are used to transform this quantity across inertial frames via Lorentz transformations. On a graph of position versus time, instantaneous values of this quantity are given by the slope of the tangent line. For the point, name this vector quantity defined as the rate of change of displacement with respect to time.",
-      "options": [
-        "Acceleration",
-        "Velocity",
-        "Momentum",
-        "Force"
-      ],
-      "answer": 1,
-      "explanation": "Velocity is a vector quantity measuring displacement over time, corresponding to the slope of a position-time graph."
-    },
-    {
-      "id": 13,
-      "category": "Geography",
-      "topic": "Physical Features & Landforms",
-      "question": "This body of water contains the Dahlak Archipelago along its western shore and is connected to the Persian Gulf region via the Bab-el-Mandeb strait. Formed by the rifting of the Arabian and African plates, it is linked to the Mediterranean Sea by the Suez Canal. For the point, name this seawater inlet bounded by Egypt, Sudan, and Saudi Arabia.",
-      "options": [
-        "Persian Gulf",
-        "Red Sea",
-        "Mediterranean Sea",
-        "Black Sea"
-      ],
-      "answer": 1,
-      "explanation": "The Red Sea lies between NE Africa and the Arabian Peninsula, connected to the Mediterranean via the Suez Canal."
-    },
-    {
-      "id": 14,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "This metabolic process relies on Light-Harvesting Complex II to transfer excitation energy to reaction centers containing P680 chlorophyll pair molecules. During its light-independent reactions, carbon dioxide is fixed into organic molecules by the enzyme RuBisCO in the Calvin cycle. For the point, name this biological process through which plants convert sunlight into chemical energy.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Fermentation",
-        "Glycolysis"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis converts solar energy to chemical energy using photosystems and carbon fixation via RuBisCO in the Calvin cycle."
-    },
-    {
-      "id": 15,
-      "category": "Geography",
-      "topic": "Mountain Ranges & Rivers",
-      "question": "This mountain system features Mount Elbrus as its highest peak, sitting near the border between Georgia and Russia. Running from the Black Sea east to the Caspian Sea, it traditionally marks part of the continental boundary dividing Europe from Asia. For the point, name this major Eurasian mountain range.",
-      "options": [
-        "Alps",
-        "Ural Mountains",
-        "Caucasus Mountains",
-        "Carpathian Mountains"
-      ],
-      "answer": 2,
-      "explanation": "The Caucasus Mountains span between the Black and Caspian Seas and contain Mount Elbrus, the highest peak in Europe."
-    },
-    {
-      "id": 16,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "For an object in uniform circular motion, this vector quantity points directly toward the center of curvature and equals speed squared divided by radius. According to Newton's second law of motion, force equals mass times this value. For the point, name this physical quantity defined as the rate of change of velocity over time.",
-      "options": [
-        "Velocity",
-        "Jerk",
-        "Acceleration",
-        "Momentum"
-      ],
-      "answer": 2,
-      "explanation": "Acceleration is the time derivative of velocity, appearing in Newton's second law F = ma."
-    },
-    {
-      "id": 17,
-      "category": "Geography",
-      "topic": "Islands & Archipelagos",
-      "question": "This island country's southernmost major region contains Mount Apo on the island of Mindanao near Davao City. Its northern territory includes the Cagayan Valley on its largest island of Luzon, surrounding the capital city along Manila Bay. For the point, name this island nation located in Southeast Asia.",
-      "options": [
-        "Indonesia",
-        "Philippines",
-        "Malaysia",
-        "Japan"
-      ],
-      "answer": 1,
-      "explanation": "The Philippines consists of over 7,000 islands in Southeast Asia, including Luzon and Mindanao, with its capital at Manila."
-    },
-    {
-      "id": 18,
-      "category": "Science",
-      "topic": "Cell Biology",
-      "question": "This double-membraned organelle contains inner folds called cristae that maximize the surface area for membrane-bound ATP synthase complexes. It carries out pyruvate oxidation and the citric acid cycle within its inner matrix and retains its own maternal circular genome. For the point, name this cellular organelle famously known as the powerhouse of the cell.",
-      "options": [
-        "Ribosome",
-        "Mitochondrion",
-        "Endoplasmic Reticulum",
-        "Golgi Apparatus"
-      ],
-      "answer": 1,
-      "explanation": "Mitochondria generate cellular energy through ATP production along their cristae and are dubbed the powerhouses of cells."
-    },
-    {
-      "id": 19,
-      "category": "Geography",
-      "topic": "Deserts & Climate Zones",
-      "question": "This hyper-arid desert region hosts astronomical observatories like the Very Large Telescope on Cerro Paranal due to its exceptionally clear, dry skies. Situated in the rain shadow between the Chilean Coast Range and the Andes Mountains, it is regarded as the driest non-polar desert on Earth. For the point, name this South American desert located primarily in northern Chile.",
-      "options": [
-        "Atacama Desert",
-        "Patagonian Desert",
-        "Mojave Desert",
-        "Kalahari Desert"
-      ],
-      "answer": 0,
-      "explanation": "The Atacama Desert in northern Chile is the driest non-polar desert on Earth."
-    },
-    {
-      "id": 20,
-      "category": "Science",
-      "topic": "Thermodynamics",
-      "question": "The third law of this scientific discipline states that entropy approaches a constant value as temperature approaches absolute zero. Its first law is a statement of the conservation of energy, while its second law establishes that total entropy in an isolated system can never decrease. For the point, name this branch of physics concerned with heat, work, and energy transformations.",
-      "options": [
-        "Quantum Mechanics",
-        "Thermodynamics",
-        "Electromagnetism",
-        "Fluid Dynamics"
-      ],
-      "answer": 1,
-      "explanation": "Thermodynamics governs heat and energy transfer through its fundamental laws involving internal energy, entropy, and absolute zero."
-    },
-    {
-      "id": 21,
-      "category": "Geography",
-      "topic": "European Geography",
-      "question": "This body of water contains the North Frisian Islands and receives flow from the Elbe and Rhine rivers. Dogger Bank is a shallow region located within this marginal sea of the Atlantic Ocean. For the point, name this sea situated between Great Britain, Scandinavia, Germany, and the Netherlands.",
-      "options": [
-        "North Sea",
-        "Baltic Sea",
-        "Norwegian Sea",
-        "Celtic Sea"
-      ],
-      "answer": 0,
-      "explanation": "The North Sea is a marginal sea of the Atlantic Ocean bordered by Great Britain, Scandinavia, Germany, and the Netherlands."
-    },
-    {
-      "id": 22,
-      "category": "Science",
-      "topic": "Cell Biology",
-      "question": "This organelle contains cristae that increase the surface area of its inner membrane for electron transport chain complexes. It possesses its own circular DNA genome that is inherited maternally in most multicellular eukaryotes. For the point, name this cellular organelle responsible for ATP production, often called the powerhouse of the cell.",
-      "options": [
-        "Endoplasmic Reticulum",
-        "Mitochondrion",
-        "Golgi Apparatus",
-        "Lysosome"
-      ],
-      "answer": 1,
-      "explanation": "Mitochondria contain cristae, possess maternal mtDNA, and generate ATP during cellular respiration."
-    },
-    {
-      "id": 23,
-      "category": "Geography",
-      "topic": "Physical Geography",
-      "question": "This mountain range includes the High Tatra subgroup and forms an arc extending from the Czech Republic through Slovakia, Poland, Ukraine, and Romania. The Iron Gates gorge on the Danube River separates this system from the Balkan Mountains. For the point, name this major mountain range of Central and Eastern Europe.",
-      "options": [
-        "Alps",
-        "Carpathian Mountains",
-        "Pyrenees",
-        "Ural Mountains"
-      ],
-      "answer": 1,
-      "explanation": "The Carpathian Mountains form an arc across Central and Eastern Europe, containing the High Tatras and reaching the Iron Gates gorge."
-    },
-    {
-      "id": 24,
-      "category": "Science",
-      "topic": "Velocity",
-      "question": "In fluid dynamics, the terminal value of this quantity occurs when drag force equals the buoyancy and gravitational force on an object. Unlike speed, it is a vector quantity, meaning it accounts for both magnitude and directional orientation. For the point, name this physical quantity defined as the rate of change of displacement with respect to time.",
-      "options": [
-        "Acceleration",
-        "Velocity",
-        "Momentum",
-        "Force"
-      ],
-      "answer": 1,
-      "explanation": "Velocity is a vector quantity measuring displacement over time, distinguished from speed by having a defined direction."
-    },
-    {
-      "id": 25,
-      "category": "Geography",
-      "topic": "World Capitals & Urban Centers",
-      "question": "This capital city lies on the banks of the Vistula River and was largely rebuilt after near-total destruction during World War II. Its Historic Centre was designated a UNESCO World Heritage Site in 1980 and features the restored Royal Castle. For the point, name this capital and largest city of Poland.",
-      "options": [
-        "Kraków",
-        "Prague",
-        "Warsaw",
-        "Budapest"
-      ],
-      "answer": 2,
-      "explanation": "Warsaw is the capital of Poland, situated on the Vistula River and known for its meticulously rebuilt historic center."
-    },
-    {
-      "id": 26,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "This metabolic process utilizes the enzyme RuBisCO during its light-independent reactions, also known as the Calvin cycle. Occurring within the thylakoid membranes and stroma of chloroplasts, it produces glucose and oxygen from water and carbon dioxide. For the point, name this biological process used by plants to convert solar energy into chemical energy.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Fermentation",
-        "Glycolysis"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis takes place in plant chloroplasts, converting sunlight, water, and carbon dioxide into glucose and oxygen."
-    },
-    {
-      "id": 27,
-      "category": "Geography",
-      "topic": "Climatology & Atmosphere",
-      "question": "This semi-arid region of transition lies directly south of the Sahara Desert and spans across northern Africa from the Atlantic Ocean to the Red Sea. It is vulnerable to severe desertification exacerbated by overgrazing and fluctuating rainfall patterns. For the point, name this biogeographic zone that includes countries such as Mali, Niger, and Chad.",
-      "options": [
-        "Kalahari",
-        "Sahel",
-        "Veld",
-        "Atacama"
-      ],
-      "answer": 1,
-      "explanation": "The Sahel is the ecoclimatic transition zone in Africa situated between the Sahara to the north and the Sudanian savanna to the south."
-    },
-    {
-      "id": 28,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "This quantity is represented by the slope of a velocity-time graph and is measured in SI units of meters per second squared. According to Newton's Second Law of Motion, it is directly proportional to net force and inversely proportional to mass. For the point, name this rate of change of velocity over time.",
-      "options": [
-        "Speed",
-        "Acceleration",
-        "Jerk",
-        "Displacement"
-      ],
-      "answer": 1,
-      "explanation": "Acceleration measures how rapidly velocity changes over time (m/s²) and equals net force divided by mass according to F=ma."
-    },
-    {
-      "id": 29,
-      "category": "Geography",
-      "topic": "Hydrology & River Systems",
-      "question": "This body of water is fed by the Volga and Ural rivers but lacks any natural outlet to the world's oceans, making it an endorheic basin. It borders five countries, including Kazakhstan, Turkmenistan, Iran, Azerbaijan, and Russia. For the point, name this body of water, technically the largest lake or inland sea in the world.",
-      "options": [
-        "Black Sea",
-        "Aral Sea",
-        "Caspian Sea",
-        "Lake Baikal"
-      ],
-      "answer": 2,
-      "explanation": "The Caspian Sea is the world's largest inland body of water, fed primarily by the Volga River and possessing no ocean outlet."
-    },
-    {
-      "id": 30,
-      "category": "Science",
-      "topic": "Plate Tectonics",
-      "question": "This type of tectonic boundary occurs where two lithospheric plates slide horizontally past one another, as seen along the San Andreas Fault in California. These margins generate frequent earthquakes without creating or destroying oceanic crust. For the point, name this type of plate boundary contrasted with convergent and divergent boundaries.",
-      "options": [
-        "Convergent Boundary",
-        "Transform Boundary",
-        "Divergent Boundary",
-        "Subduction Zone"
-      ],
-      "answer": 1,
-      "explanation": "Transform boundaries feature lateral sliding of tectonic plates past each other, creating conservative margins like the San Andreas Fault."
+      "explanation": "The Atacama Desert sits in a rain shadow between the Chilean Coast Range and the Andes."
     }
-  ],
-  "metadata": {
-    "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-09 10:38:32",
-    "resources": [
-      "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
-      "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
-      "[https://www.iacompetitions.com/resources/](https://www.iacompetitions.com/resources/)",
-      "[https://www.internationalgeographybee.com/europe/resources/](https://www.internationalgeographybee.com/europe/resources/)",
-      "[https://www.iacompetitions.com/ems-national-science-bee-past-questions/](https://www.iacompetitions.com/ems-national-science-bee-past-questions/)"
-    ]
-  }
+  ]
 }
