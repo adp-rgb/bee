@@ -1,83 +1,22 @@
 {
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-09 20:43:27",
+    "generated_at": "2026-09-09 12:32:17",
     "resources": [
       "https://iacompetitionsasia.com/resources/",
       "https://www.internationalgeographybee.com/asia/resources/",
       "https://www.iacompetitions.com/resources/",
       "https://www.internationalgeographybee.com/europe/resources/",
       "https://www.iacompetitions.com/ems-national-science-bee-past-questions/"
+    ],
+    "categories": [
+      "Practice Specific Topics",
+      "Start Quiz",
+      "Practice Frequently Asked",
+      "Flashcards",
+      "Good to Know Topics"
     ]
   },
-  "Geography": [
-    {
-      "name": "Physical Geography",
-      "mode": "standard",
-      "definition": "Lake Baikal contains about 20% of the world's unfrozen surface freshwater.",
-      "key_facts": [
-        "Which rift lake in southern Siberia is the deepest freshwater lake on Earth?"
-      ],
-      "related_topics": [
-        "Physical Geography"
-      ]
-    },
-    {
-      "name": "World Capitals",
-      "mode": "high-frequency",
-      "definition": "Reykjavik is the capital of Iceland and the northernmost national capital.",
-      "key_facts": [
-        "Which city is the northernmost capital of a sovereign state?"
-      ],
-      "related_topics": [
-        "World Capitals"
-      ]
-    },
-    {
-      "name": "Deserts",
-      "mode": "flashcards",
-      "definition": "The Atacama Desert sits in a rain shadow between the Chilean Coast Range and the Andes.",
-      "key_facts": [
-        "Located in northern Chile, what is considered the driest non-polar desert on Earth?"
-      ],
-      "related_topics": [
-        "Deserts"
-      ]
-    }
-  ],
-  "Science": [
-    {
-      "name": "Photosynthesis",
-      "mode": "practice-specific",
-      "definition": "Chloroplasts contain chlorophyll which absorbs solar energy to power carbon fixation.",
-      "key_facts": [
-        "Which organelle is responsible for converting light energy into chemical energy during photosynthesis?"
-      ],
-      "related_topics": [
-        "Photosynthesis"
-      ]
-    },
-    {
-      "name": "Thermodynamics",
-      "mode": "high-frequency",
-      "definition": "The Third Law of Thermodynamics governs minimum entropy states at 0 Kelvin.",
-      "key_facts": [
-        "Which law of thermodynamics states that the entropy of a pure crystalline substance approaches zero as temperature approaches absolute zero?"
-      ],
-      "related_topics": [
-        "Thermodynamics"
-      ]
-    },
-    {
-      "name": "Cell Biology",
-      "mode": "flashcards",
-      "definition": "Mitochondria generate ATP through cellular respiration.",
-      "key_facts": [
-        "What double-membraned organelle is commonly called the powerhouse of the cell?"
-      ],
-      "related_topics": [
-        "Cell Biology"
-      ]
-    }
-  ]
+  "Geography": [],
+  "Science": []
 }
