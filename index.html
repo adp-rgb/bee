@@ -4,22 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Academic Bee Prep & Practice Agent</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Custom scrollbar & mobile touch optimization */
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 4px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #475569;
-      border-radius: 4px;
-    }
-    button {
-      touch-action: manipulation;
-    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+    button { touch-action: manipulation; }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
@@ -27,55 +17,36 @@
   <!-- Header -->
   <header class="border-b border-slate-800 bg-slate-950/90 sticky top-0 z-40 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
-      
-      <!-- Logo & Title -->
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-2.5">
-          <div class="p-1.5 sm:p-2 bg-amber-500 rounded-lg text-slate-950 font-bold text-lg sm:text-xl leading-none">
-            🐝
-          </div>
+          <div class="p-1.5 sm:p-2 bg-amber-500 rounded-lg text-slate-950 font-bold text-lg sm:text-xl leading-none">🐝</div>
           <div>
             <h1 class="text-lg sm:text-xl font-bold tracking-wide text-white leading-tight">Academic Bee AI</h1>
             <p class="text-[10px] sm:text-xs text-slate-400">Pyramidal Tossup Generator & Practice Suite</p>
           </div>
         </div>
-
-        <!-- Controls Trigger for Mobile -->
-        <button onclick="toggleAdminPanel()" class="sm:hidden text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-1.5 rounded-lg border border-slate-700">
-          ⚙️
-        </button>
+        <button onclick="toggleAdminPanel()" class="sm:hidden text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-1.5 rounded-lg border border-slate-700">⚙️</button>
       </div>
 
-      <!-- Navigation Tabs (Scrollable on small mobile) -->
       <div class="flex items-center justify-between sm:justify-end gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
         <nav class="flex bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs font-semibold shrink-0 w-full sm:w-auto">
-          <button id="tab-btn-quizzes" onclick="switchTab('quizzes')" class="flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition text-center whitespace-nowrap">
-            🎯 Practice Quizzes
-          </button>
-          <button id="tab-btn-study" onclick="switchTab('study')" class="flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg text-slate-400 hover:text-white transition text-center whitespace-nowrap">
-            📖 Good to Know Hub
-          </button>
+          <button id="tab-btn-quizzes" onclick="switchTab('quizzes')" class="flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition text-center whitespace-nowrap">🎯 Practice Quizzes</button>
+          <button id="tab-btn-study" onclick="switchTab('study')" class="flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg text-slate-400 hover:text-white transition text-center whitespace-nowrap">📖 Good to Know Hub</button>
         </nav>
-
         <div class="hidden sm:flex items-center space-x-3">
           <span id="system-status" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Ready
           </span>
-          <button onclick="toggleAdminPanel()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg transition border border-slate-700">
-            ⚙️ Settings
-          </button>
+          <button onclick="toggleAdminPanel()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg transition border border-slate-700">⚙️ Settings</button>
         </div>
       </div>
-
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8 space-y-6 sm:space-y-8">
 
-    <!-- TAB 1: QUIZZES & PRACTICE -->
+    <!-- TAB 1: QUIZZES -->
     <div id="view-quizzes" class="space-y-6 sm:space-y-8">
-      
-      <!-- Category Cards -->
       <section class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         
         <!-- Geography Card -->
@@ -89,22 +60,27 @@
             </div>
           </div>
 
+          <!-- 1. Practice Specific Topics -->
           <div class="mb-4">
-            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">Filter by Topic</span>
+            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">1. Practice Specific Topics</span>
             <div id="geo-topics" class="flex flex-wrap gap-1.5">
               <span class="text-xs text-slate-500 italic">Loading topics...</span>
             </div>
           </div>
 
-          <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 mt-4 sm:mt-6 pt-4 border-t border-slate-700/50">
-            <button onclick="launchMode('Geography', 'standard')" class="col-span-2 sm:flex-1 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-semibold py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
-              ▶️ Standard Quiz
-            </button>
-            <button onclick="launchMode('Geography', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
-              🎴 Flashcards
+          <!-- 2-5 Action Buttons -->
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-700/50">
+            <button onclick="launchMode('Geography', 'standard')" class="col-span-2 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-semibold py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
+              ▶️ 2. Start Quiz (30 Questions)
             </button>
             <button onclick="launchMode('Geography', 'high-frequency')" class="bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-amber-400 font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
-              ⚡ High Frequency
+              ⚡ 3. Frequently Asked (30 Qs)
+            </button>
+            <button onclick="launchMode('Geography', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
+              🎴 4. Flashcards (30 Qs)
+            </button>
+            <button onclick="switchTab('study')" class="col-span-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
+              📖 5. Good to Know Topics
             </button>
           </div>
         </div>
@@ -120,22 +96,27 @@
             </div>
           </div>
 
+          <!-- 1. Practice Specific Topics -->
           <div class="mb-4">
-            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">Filter by Topic</span>
+            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">1. Practice Specific Topics</span>
             <div id="sci-topics" class="flex flex-wrap gap-1.5">
               <span class="text-xs text-slate-500 italic">Loading topics...</span>
             </div>
           </div>
 
-          <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 mt-4 sm:mt-6 pt-4 border-t border-slate-700/50">
-            <button onclick="launchMode('Science', 'standard')" class="col-span-2 sm:flex-1 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-semibold py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
-              ▶️ Standard Quiz
-            </button>
-            <button onclick="launchMode('Science', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
-              🎴 Flashcards
+          <!-- 2-5 Action Buttons -->
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-700/50">
+            <button onclick="launchMode('Science', 'standard')" class="col-span-2 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-semibold py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
+              ▶️ 2. Start Quiz (30 Questions)
             </button>
             <button onclick="launchMode('Science', 'high-frequency')" class="bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-amber-400 font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
-              ⚡ High Frequency
+              ⚡ 3. Frequently Asked (30 Qs)
+            </button>
+            <button onclick="launchMode('Science', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
+              🎴 4. Flashcards (30 Qs)
+            </button>
+            <button onclick="switchTab('study')" class="col-span-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
+              📖 5. Good to Know Topics
             </button>
           </div>
         </div>
@@ -146,16 +127,10 @@
       <section id="quiz-container" class="hidden bg-slate-800/90 border border-slate-700 rounded-2xl p-4 sm:p-8 shadow-2xl relative">
         <div class="flex justify-between items-center border-b border-slate-700/80 pb-3 sm:pb-4 mb-4 sm:mb-6">
           <div class="flex items-center gap-2 flex-wrap">
-            <span id="active-mode-tag" class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-400/20">
-              Subject • Mode
-            </span>
-            <span id="question-counter" class="text-xs text-slate-400">
-              Question 1 of 10
-            </span>
+            <span id="active-mode-tag" class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-400/20">Subject • Mode</span>
+            <span id="question-counter" class="text-xs text-slate-400">Question 1 of 30</span>
           </div>
-          <button onclick="closeQuiz()" class="text-slate-400 hover:text-white transition text-xs sm:text-sm px-2 py-1">
-            ✕ Close
-          </button>
+          <button onclick="closeQuiz()" class="text-slate-400 hover:text-white transition text-xs sm:text-sm px-2 py-1">✕ Close</button>
         </div>
 
         <div class="mb-6 sm:mb-8">
@@ -176,57 +151,39 @@
         </div>
 
         <div class="flex justify-between items-center pt-4 border-t border-slate-700/80">
-          <button onclick="prevQuestion()" id="prev-btn" class="bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-white text-xs sm:text-sm font-medium py-2.5 px-4 sm:px-5 rounded-xl transition">
-            ← Prev
-          </button>
-          <button onclick="nextQuestion()" id="next-btn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-semibold py-2.5 px-4 sm:px-5 rounded-xl transition">
-            Next →
-          </button>
+          <button onclick="prevQuestion()" id="prev-btn" class="bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-white text-xs sm:text-sm font-medium py-2.5 px-4 sm:px-5 rounded-xl transition">← Prev</button>
+          <button onclick="nextQuestion()" id="next-btn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-semibold py-2.5 px-4 sm:px-5 rounded-xl transition">Next →</button>
         </div>
       </section>
-
     </div>
 
-    <!-- TAB 2: "GOOD TO KNOW" STUDY HUB -->
+    <!-- TAB 2: STUDY HUB -->
     <div id="view-study" class="hidden space-y-4 sm:space-y-6">
-      
-      <!-- Offline Callout Banner -->
       <div class="bg-blue-950/40 border border-blue-500/30 rounded-2xl p-3.5 sm:p-4 text-blue-200 text-xs flex items-start gap-3">
         <span class="text-base sm:text-lg shrink-0">📱</span>
         <div>
           <p class="font-semibold text-blue-300 mb-0.5">Offline-Ready Study Hub</p>
-          <p class="text-slate-400 leading-relaxed text-[11px] sm:text-xs">
-            These topics are key facts used in competition questions. Keep this page open during travel to study even with spotty or no internet access!
-          </p>
+          <p class="text-slate-400 leading-relaxed text-[11px] sm:text-xs">These topics are key facts used in competition questions. Keep this page open to study offline!</p>
         </div>
       </div>
 
-      <!-- Live Topic Search Bar -->
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 sm:top-4 text-slate-400 text-xs sm:text-sm"></i>
-        <input type="text" id="topic-search-input" oninput="filterTopicCloud()" placeholder="Search for a topic (e.g. Acceleration, Amazon, Velocity)..." 
-               class="w-full bg-slate-800/90 border border-slate-700 rounded-xl py-2.5 sm:py-3 pl-9 sm:pl-11 pr-4 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition shadow-inner">
+        <input type="text" id="topic-search-input" oninput="filterTopicCloud()" placeholder="Search for a topic (e.g. Amazon River, Photosynthesis, Absolute Zero)..." class="w-full bg-slate-800/90 border border-slate-700 rounded-xl py-2.5 sm:py-3 pl-9 sm:pl-11 pr-4 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition shadow-inner">
       </div>
 
-      <!-- Topic Cloud Container -->
       <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-4 sm:p-6">
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1.5 mb-4">
           <span class="text-[10px] sm:text-xs text-slate-400 font-semibold uppercase tracking-wider">Tap a topic below to read facts</span>
           <span id="topic-count-tag" class="self-start sm:self-auto text-[10px] sm:text-xs text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/20">0 Topics</span>
         </div>
-        
-        <div id="full-topic-cloud" class="flex flex-wrap gap-1.5 sm:gap-2 max-h-[60vh] sm:max-h-[500px] overflow-y-auto pr-1 custom-scrollbar">
-          <!-- Dynamic Topic Pills Rendered Here -->
-        </div>
+        <div id="full-topic-cloud" class="flex flex-wrap gap-1.5 sm:gap-2 max-h-[60vh] sm:max-h-[500px] overflow-y-auto pr-1 custom-scrollbar"></div>
       </div>
-
     </div>
 
-    <!-- ADMIN & CONFIGURATION PANEL -->
+    <!-- CONTROLS PANEL -->
     <section id="admin-panel" class="hidden bg-slate-800/90 border border-slate-700 rounded-2xl p-4 sm:p-6 backdrop-blur">
-      <h3 class="text-sm sm:text-md font-bold text-white mb-3 sm:mb-4 flex items-center gap-2">
-        <span>⚙️</span> Agent Controls & Configuration
-      </h3>
+      <h3 class="text-sm sm:text-md font-bold text-white mb-3 sm:mb-4 flex items-center gap-2"><span>⚙️</span> Agent Controls & Configuration</h3>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
         <div class="bg-slate-900/50 p-3 sm:p-4 rounded-xl border border-slate-800">
           <span class="text-slate-400 block text-[10px] sm:text-xs mb-0.5">Loaded Questions</span>
@@ -237,61 +194,41 @@
           <span id="stat-breakdown" class="text-xl sm:text-2xl font-bold text-white">0 / 0</span>
         </div>
         <div class="bg-slate-900/50 p-3 sm:p-4 rounded-xl border border-slate-800 flex items-center">
-          <button onclick="reloadQuizData()" class="w-full bg-slate-800 hover:bg-slate-700 active:bg-slate-900 text-amber-400 font-medium py-2 rounded-lg transition border border-slate-700 text-xs">
-            🔄 Reload Data
-          </button>
+          <button onclick="reloadQuizData()" class="w-full bg-slate-800 hover:bg-slate-700 text-amber-400 font-medium py-2 rounded-lg border border-slate-700 text-xs">🔄 Reload Data</button>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- CONCEPT DETAIL MODAL -->
+  <!-- CONCEPT MODAL -->
   <div id="concept-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
     <div class="bg-slate-800 border border-slate-700 rounded-2xl w-[95%] sm:w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
-      
-      <!-- Modal Header -->
       <div class="p-4 sm:p-6 border-b border-slate-700/80 flex justify-between items-center bg-slate-800/90 shrink-0">
         <div class="pr-4">
           <h3 id="modal-topic-title" class="text-lg sm:text-xl font-bold text-white leading-tight">Topic Title</h3>
           <span id="modal-category-badge" class="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold bg-amber-400/10 text-amber-400 px-2 py-0.5 rounded border border-amber-400/20 inline-block mt-1">Category</span>
         </div>
-        <button onclick="closeConceptModal()" class="text-slate-400 hover:text-white text-xl transition p-1">✕</button>
+        <button onclick="closeConceptModal()" class="text-slate-400 hover:text-white text-xl p-1">✕</button>
       </div>
 
-      <!-- Modal Content -->
       <div class="p-4 sm:p-6 overflow-y-auto space-y-4 sm:space-y-6 text-xs sm:text-sm custom-scrollbar">
-        
-        <!-- Core Definition Card -->
         <div class="bg-blue-950/30 border border-blue-500/30 p-3.5 sm:p-4 rounded-xl text-blue-100 leading-relaxed">
           <p id="modal-definition">Topic overview definition will be displayed here.</p>
         </div>
-
-        <!-- Key Facts List -->
         <div>
           <h4 class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 sm:mb-3">Key Facts</h4>
-          <ul id="modal-key-facts" class="space-y-2 list-disc list-inside text-slate-200 leading-relaxed">
-            <!-- Facts dynamically injected -->
-          </ul>
+          <ul id="modal-key-facts" class="space-y-2 list-disc list-inside text-slate-200 leading-relaxed"></ul>
         </div>
-
-        <!-- Related Topics -->
         <div id="modal-related-section" class="pt-3 sm:pt-4 border-t border-slate-700/60">
           <h4 class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 sm:mb-3">Related Topics</h4>
-          <div id="modal-related-topics" class="flex flex-wrap gap-1.5 sm:gap-2">
-            <!-- Related topic buttons dynamically injected -->
-          </div>
+          <div id="modal-related-topics" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
         </div>
-
       </div>
 
-      <!-- Modal Footer -->
       <div class="p-3 sm:p-4 border-t border-slate-700/80 bg-slate-900/50 flex justify-end shrink-0">
-        <button onclick="closeConceptModal()" class="w-full sm:w-auto bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-white font-medium px-4 py-2 rounded-xl text-xs transition text-center">
-          Close Overview
-        </button>
+        <button onclick="closeConceptModal()" class="w-full sm:w-auto bg-slate-700 hover:bg-slate-600 text-white font-medium px-4 py-2 rounded-xl text-xs text-center">Close Overview</button>
       </div>
-
     </div>
   </div>
 
@@ -335,7 +272,6 @@
       topicList = [];
 
       for (const [category, topics] of Object.entries(topicsData)) {
-        // Skip metadata key and non-array values
         if (category === 'metadata' || !Array.isArray(topics)) continue;
 
         topics.forEach(t => {
@@ -375,7 +311,7 @@
 
       list.forEach(item => {
         const btn = document.createElement('button');
-        btn.className = 'text-[11px] sm:text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 active:bg-amber-600 text-slate-200 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full transition border border-slate-700/80 shadow-sm flex items-center gap-1.5';
+        btn.className = 'text-[11px] sm:text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full transition border border-slate-700/80 flex items-center gap-1.5';
         btn.innerHTML = `<span>${item.name}</span>`;
         btn.onclick = () => openConceptModal(item.name);
         container.appendChild(btn);
@@ -405,7 +341,7 @@
       if (topicObj.definition) {
         defEl.innerText = topicObj.definition;
       } else if (relatedQuestions.length > 0) {
-        defEl.innerText = `${topicObj.name} is a key topic covered in ${relatedQuestions.length} competition tossup question(s).`;
+        defEl.innerText = `${topicObj.name} is a key topic covered in competition tossup questions.`;
       } else {
         defEl.innerText = `${topicObj.name} is a high-frequency academic competition topic.`;
       }
@@ -414,9 +350,7 @@
       let facts = topicObj.key_facts || [];
 
       if (facts.length === 0 && relatedQuestions.length > 0) {
-        relatedQuestions.forEach(q => {
-          facts.push(q.explanation || q.question);
-        });
+        relatedQuestions.forEach(q => facts.push(q.explanation || q.question));
       }
 
       if (facts.length === 0) {
@@ -436,7 +370,7 @@
         document.getElementById('modal-related-section').classList.remove('hidden');
         related.forEach(rel => {
           const btn = document.createElement('button');
-          btn.className = 'text-[11px] sm:text-xs bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2.5 py-1 rounded-lg transition border border-slate-700';
+          btn.className = 'text-[11px] sm:text-xs bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700';
           btn.innerText = `+ ${rel}`;
           btn.onclick = () => openConceptModal(rel);
           relatedContainer.appendChild(btn);
@@ -492,7 +426,7 @@
 
     function filterByTopic(category, topicName) {
       if (allData.length === 0) {
-        alert("Quiz data is loading or missing. Please ensure quizzes.json is populated.");
+        alert("Quiz data is loading or missing.");
         return;
       }
 
@@ -502,7 +436,7 @@
       );
 
       if (activeSet.length === 0) {
-        alert(`No questions found specifically tagged with "${topicName}". Showing all ${category} questions instead.`);
+        alert(`Showing all ${category} questions.`);
         activeSet = allData.filter(q => q.category.toLowerCase().includes(category.toLowerCase()));
       }
 
@@ -518,38 +452,35 @@
     function updateStats() {
       const geo = allData.filter(q => q.category.toLowerCase().includes('geography')).length;
       const sci = allData.filter(q => q.category.toLowerCase().includes('science')).length;
-      
       document.getElementById('stat-total').innerText = allData.length;
       document.getElementById('stat-breakdown').innerText = `${geo} / ${sci}`;
     }
 
     function reloadQuizData() {
       loadQuizData();
-      alert('Quiz and Topic data refreshed!');
+      alert('Data refreshed!');
     }
 
     function toggleAdminPanel() {
-      const panel = document.getElementById('admin-panel');
-      panel.classList.toggle('hidden');
+      document.getElementById('admin-panel').classList.toggle('hidden');
     }
 
     function launchMode(subject, mode) {
       if (allData.length === 0) {
-        alert("Quiz data is loading or missing. Please ensure quizzes.json is populated.");
+        alert("Quiz data is loading or missing.");
         return;
       }
 
       isFlashcardMode = (mode === 'flashcards');
       
-      activeSet = allData.filter(q => {
-        const matchSub = q.category.toLowerCase().includes(subject.toLowerCase());
-        if (mode === 'high-frequency') {
-          return matchSub && (q.id % 2 === 0);
-        }
-        return matchSub;
-      });
+      activeSet = allData.filter(q => 
+        q.category.toLowerCase() === subject.toLowerCase() && 
+        (q.mode ? q.mode.toLowerCase() === mode.toLowerCase() : true)
+      );
 
-      if (activeSet.length === 0) activeSet = allData;
+      if (activeSet.length === 0) {
+        activeSet = allData.filter(q => q.category.toLowerCase().includes(subject.toLowerCase()));
+      }
 
       currentIdx = 0;
       document.getElementById('quiz-container').classList.remove('hidden');
@@ -580,7 +511,7 @@
       if (isFlashcardMode) {
         grid.innerHTML = `
           <div class="col-span-1 md:col-span-2 text-center">
-            <button onclick="revealAnswer(${q.answer})" class="w-full bg-slate-700/50 border border-dashed border-slate-600 hover:border-amber-400 active:bg-slate-800 text-slate-300 p-4 sm:p-6 rounded-xl transition text-xs sm:text-sm">
+            <button onclick="revealAnswer(${q.answer})" class="w-full bg-slate-700/50 border border-dashed border-slate-600 hover:border-amber-400 text-slate-300 p-4 sm:p-6 rounded-xl transition text-xs sm:text-sm">
               🔍 Tap to Reveal Answer
             </button>
           </div>
@@ -588,7 +519,7 @@
       } else {
         q.options.forEach((opt, idx) => {
           const btn = document.createElement('button');
-          btn.className = 'bg-slate-900/60 border border-slate-700 hover:border-amber-500/50 active:bg-slate-800 text-left p-3.5 sm:p-4 rounded-xl text-slate-200 text-xs sm:text-sm transition flex items-center gap-3 min-h-[44px]';
+          btn.className = 'bg-slate-900/60 border border-slate-700 hover:border-amber-500/50 text-left p-3.5 sm:p-4 rounded-xl text-slate-200 text-xs sm:text-sm transition flex items-center gap-3 min-h-[44px]';
           btn.innerHTML = `<span class="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-[10px] sm:text-xs shrink-0">${String.fromCharCode(65 + idx)}</span> <span class="leading-snug">${opt}</span>`;
           btn.onclick = () => selectOption(idx, q.answer, q.explanation);
           grid.appendChild(btn);
@@ -608,7 +539,6 @@
           buttons[i].className = 'bg-red-950/60 border border-red-500 text-red-200 text-left p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm transition flex items-center gap-3 min-h-[44px]';
         }
       }
-
       showExplanation(explanation);
     }
 
@@ -626,7 +556,7 @@
 
     function showExplanation(text) {
       const expBox = document.getElementById('explanation-box');
-      document.getElementById('explanation-text').innerText = text || 'No detailed explanation provided for this question.';
+      document.getElementById('explanation-text').innerText = text || 'No detailed explanation provided.';
       expBox.classList.remove('hidden');
     }
 
@@ -635,7 +565,7 @@
         currentIdx++;
         renderCurrentQuestion();
       } else {
-        alert('You have reached the end of this study set!');
+        alert('End of study set!');
       }
     }
 
