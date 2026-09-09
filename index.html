@@ -335,6 +335,9 @@
       topicList = [];
 
       for (const [category, topics] of Object.entries(topicsData)) {
+        // Skip metadata key and non-array values
+        if (category === 'metadata' || !Array.isArray(topics)) continue;
+
         topics.forEach(t => {
           if (typeof t === 'string') {
             topicList.push({ name: t, category: category });
@@ -472,14 +475,14 @@
       const geoContainer = document.getElementById('geo-topics');
       const sciContainer = document.getElementById('sci-topics');
 
-      if (geoContainer && topicsData.Geography) {
+      if (geoContainer && Array.isArray(topicsData.Geography)) {
         geoContainer.innerHTML = topicsData.Geography.map(t => {
           const name = typeof t === 'string' ? t : t.name;
           return `<button onclick="filterByTopic('Geography', '${name}')" class="text-[10px] sm:text-[11px] bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 active:bg-amber-600 text-slate-300 px-2 py-1 rounded-lg transition border border-slate-700">${name}</button>`;
         }).join('');
       }
 
-      if (sciContainer && topicsData.Science) {
+      if (sciContainer && Array.isArray(topicsData.Science)) {
         sciContainer.innerHTML = topicsData.Science.map(t => {
           const name = typeof t === 'string' ? t : t.name;
           return `<button onclick="filterByTopic('Science', '${name}')" class="text-[10px] sm:text-[11px] bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 active:bg-amber-600 text-slate-300 px-2 py-1 rounded-lg transition border border-slate-700">${name}</button>`;
