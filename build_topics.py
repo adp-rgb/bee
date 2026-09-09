@@ -18,7 +18,6 @@ def build_knowledge_base():
     # 1. Gather all unique topics/answers from extracted question files
     extracted_topics = set()
 
-    # Check extracted_questions.json
     packet_data_path = Path("extracted_questions.json")
     if packet_data_path.exists():
         with open(packet_data_path, "r", encoding="utf-8") as f:
@@ -28,7 +27,6 @@ def build_knowledge_base():
                 if ans and len(ans) < 50:
                     extracted_topics.add(ans)
 
-    # Check quizzes.json
     quizzes_path = Path("quizzes.json")
     if quizzes_path.exists():
         with open(quizzes_path, "r", encoding="utf-8") as f:
@@ -36,10 +34,9 @@ def build_knowledge_base():
             for q in q_data.get("quizzes", []):
                 opts = q.get("options", [])
                 ans_idx = q.get("answer", 0)
-                if opts and ans_idx < len(opts):
+                if opts and isinstance(ans_idx, int) and ans_idx < len(opts):
                     extracted_topics.add(opts[ans_idx])
 
-    # Default fallback topics if dataset is small
     if len(extracted_topics) < 5:
         extracted_topics = {
             "Acceleration",
@@ -57,7 +54,6 @@ def build_knowledge_base():
     topic_list = sorted(list(extracted_topics))
     print(f"Generating knowledge base for {len(topic_list)} topics...")
 
-    # Initialize DB once with metadata header
     topics_db = {
         "metadata": {
             "source": "Science Bee & Geography Bee Official Resources",
@@ -69,13 +65,25 @@ def build_knowledge_base():
                 "https://www.internationalgeographybee.com/europe/resources/",
                 "https://www.iacompetitions.com/ems-national-science-bee-past-questions/",
             ],
+            "categories": [
+                "Practice Specific Topics",
+                "Start Quiz",
+                "Practice Frequently Asked",
+                "Flashcards",
+                "Good to Know Topics"
+            ]
         },
         "Geography": [],
         "Science": [],
     }
 
-    # 2. Query Gemini API for each topic to generate study facts
-    for topic in topic_list:
+    # Modes map directly to your 5 UI options
+    modes = ["practice-specific", "standard", "high-frequency", "flashcards", "good-to-know"]
+
+    for idx, topic in enumerate(topic_list):
+        # Cycle mode assignment across topics
+        assigned_mode = modes[idx % len(modes)]
+
         prompt = f"""
         Provide detailed study guide data for the academic competition topic: "{topic}".
         
@@ -103,7 +111,6 @@ def build_knowledge_base():
                 ),
             )
 
-            # Clean potential Markdown formatting block wrappers
             raw_text = response.text.strip()
             if raw_text.startswith("```"):
                 lines = raw_text.splitlines()
@@ -122,6 +129,7 @@ def build_knowledge_base():
             topics_db[category].append(
                 {
                     "name": topic,
+                    "mode": assigned_mode,
                     "definition": topic_data.get(
                         "summary", f"Overview of {topic}."
                     ),
@@ -130,19 +138,18 @@ def build_knowledge_base():
                 }
             )
 
-            print(f"   ✓ Generated study guide for: {topic} [{category}]")
-            time.sleep(0.5)  # Rate-limit protection
+            print(f"   ✓ Generated study guide for: {topic} [{category}] ({assigned_mode})")
+            time.sleep(0.5)
 
         except Exception as e:
             print(f"   ❌ Error processing {topic}: {e}")
 
-    # 3. Save knowledge base output
     with open("topics.json", "w", encoding="utf-8") as f:
         json.dump(topics_db, f, indent=2, ensure_ascii=False)
 
     total_count = len(topics_db["Geography"]) + len(topics_db["Science"])
     print(
-        f"\n✅ Successfully generated topics.json with {total_count} unique items across Geography and Science!"
+        f"\n✅ Successfully generated topics.json with {total_count} unique items mapped to 5 modes!"
     )
 
 
