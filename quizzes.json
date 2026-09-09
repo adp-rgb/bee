@@ -56,13 +56,13 @@
       }
     ]
   },
-  "quizzes": [
+ "quizzes": [
     {
       "id": 1,
       "category": "Science",
       "mode": "practice-specific",
       "topic": "Photosynthesis",
-      "question": "Which organelle is responsible for converting light energy into chemical energy during photosynthesis?",
+      "question": "Which organelle converts light energy into chemical energy during photosynthesis?",
       "options": ["Mitochondria", "Chloroplast", "Ribosome", "Golgi Apparatus"],
       "answer": 1,
       "explanation": "Chloroplasts contain chlorophyll which absorbs solar energy to power carbon fixation."
@@ -70,35 +70,75 @@
     {
       "id": 2,
       "category": "Science",
+      "mode": "practice-specific",
+      "topic": "Cell Biology",
+      "question": "What molecule carries genetic instructions in living organisms?",
+      "options": ["RNA", "DNA", "ATP", "Glucose"],
+      "answer": 1,
+      "explanation": "DNA contains the genetic blueprint used in development and functioning."
+    },
+    {
+      "id": 31,
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Physics",
+      "question": "What is the SI unit of force?",
+      "options": ["Joule", "Pascal", "Newton", "Watt"],
+      "answer": 2,
+      "explanation": "One Newton is the force required to accelerate 1 kg at 1 m/s²."
+    },
+    {
+      "id": 61,
+      "category": "Science",
       "mode": "high-frequency",
       "topic": "Thermodynamics",
-      "question": "Which law of thermodynamics states that the entropy of a pure crystalline substance approaches zero as temperature approaches absolute zero?",
+      "question": "Which law states that the entropy of a pure crystalline substance approaches zero at absolute zero?",
       "options": ["Zeroth Law", "First Law", "Second Law", "Third Law"],
       "answer": 3,
       "explanation": "The Third Law of Thermodynamics governs minimum entropy states at 0 Kelvin."
     },
     {
-      "id": 3,
+      "id": 91,
       "category": "Science",
       "mode": "flashcards",
       "topic": "Cell Biology",
-      "question": "What double-membraned organelle is commonly called the powerhouse of the cell?",
+      "question": "What double-membraned organelle is known as the powerhouse of the cell?",
       "options": ["Nucleus", "Mitochondrion", "Lysosome", "Vacuole"],
       "answer": 1,
       "explanation": "Mitochondria generate ATP through cellular respiration."
     },
     {
-      "id": 4,
+      "id": 121,
+      "category": "Science",
+      "mode": "good-to-know",
+      "topic": "Astronomy",
+      "question": "What is the nearest star system to our Solar System?",
+      "options": ["Alpha Centauri", "Sirius", "Betelgeuse", "Procyon"],
+      "answer": 0,
+      "explanation": "Alpha Centauri is located roughly 4.37 light-years away."
+    },
+    {
+      "id": 151,
       "category": "Geography",
-      "mode": "standard",
+      "mode": "practice-specific",
       "topic": "Physical Geography",
-      "question": "Which rift lake in southern Siberia is the deepest freshwater lake on Earth?",
+      "question": "Which rift lake in Siberia is the deepest freshwater lake on Earth?",
       "options": ["Lake Baikal", "Lake Superior", "Lake Victoria", "Lake Tanganyika"],
       "answer": 0,
       "explanation": "Lake Baikal contains about 20% of the world's unfrozen surface freshwater."
     },
     {
-      "id": 5,
+      "id": 181,
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Physical Geography",
+      "question": "What mountain range separates Europe from Asia?",
+      "options": ["Alps", "Ural Mountains", "Andes", "Himalayas"],
+      "answer": 1,
+      "explanation": "The Ural Mountains run north-to-south through western Russia."
+    },
+    {
+      "id": 211,
       "category": "Geography",
       "mode": "high-frequency",
       "topic": "World Capitals",
@@ -108,14 +148,24 @@
       "explanation": "Reykjavik is the capital of Iceland and the northernmost national capital."
     },
     {
-      "id": 6,
+      "id": 241,
       "category": "Geography",
       "mode": "flashcards",
       "topic": "Deserts",
-      "question": "Located in northern Chile, what is considered the driest non-polar desert on Earth?",
+      "question": "Located in Chile, what is considered the driest non-polar desert on Earth?",
       "options": ["Atacama Desert", "Kalahari Desert", "Mojave Desert", "Patagonian Desert"],
       "answer": 0,
       "explanation": "The Atacama Desert sits in a rain shadow between the Chilean Coast Range and the Andes."
+    },
+    {
+      "id": 271,
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Rivers",
+      "question": "Which river is the longest in the world by overall length?",
+      "options": ["Amazon River", "Nile River", "Yangtze River", "Mississippi River"],
+      "answer": 1,
+      "explanation": "The Nile River spans approximately 6,650 kilometers."
     }
   ]
 }
