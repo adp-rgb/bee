@@ -58,7 +58,22 @@ def build_knowledge_base():
     print(f"Generating knowledge base for {len(topic_list)} topics...")
 
     topics_db = {"Geography": [], "Science": []}
-
+　　　　# 1. Initialize DB with metadata header
+　　　　　　topics_db = {
+  　　　　　　  "metadata": {
+  　　　　　　　      "source": "Science Bee & Geography Bee Official Resources",
+   　　　　　　　     "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+　　　　　　"resources": [
+            "https://iacompetitionsasia.com/resources/",
+            "https://www.internationalgeographybee.com/asia/resources/",
+            "https://www.iacompetitions.com/resources/",
+            "https://www.internationalgeographybee.com/europe/resources/",
+            "https://www.iacompetitions.com/ems-national-science-bee-past-questions/",
+        ],
+    },
+    "Geography": [],
+    "Science": [],
+       }
     # 2. Query Gemini API for each topic to generate study facts
     for topic in topic_list:
         prompt = f"""
@@ -123,7 +138,7 @@ def build_knowledge_base():
 
     # 3. Save knowledge base output
     with open("topics.json", "w", encoding="utf-8") as f:
-        json.dump(topics_db, f, indent=2, ensure_ascii=False)
+    json.dump(topics_db, f, indent=2, ensure_ascii=False)
 
     total_count = len(topics_db["Geography"]) + len(topics_db["Science"])
     print(
