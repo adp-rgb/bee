@@ -60,15 +60,13 @@
             </div>
           </div>
 
-          <!-- 1. Practice Specific Topics -->
           <div class="mb-4">
-            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">1. Practice Specific Topics</span>
+            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">1. Practice Specific Topics (30 Qs)</span>
             <div id="geo-topics" class="flex flex-wrap gap-1.5">
               <span class="text-xs text-slate-500 italic">Loading topics...</span>
             </div>
           </div>
 
-          <!-- 2-5 Action Buttons -->
           <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-700/50">
             <button onclick="launchMode('Geography', 'standard')" class="col-span-2 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-semibold py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
               ▶️ 2. Start Quiz (30 Questions)
@@ -79,8 +77,8 @@
             <button onclick="launchMode('Geography', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
               🎴 4. Flashcards (30 Qs)
             </button>
-            <button onclick="switchTab('study')" class="col-span-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
-              📖 5. Good to Know Topics
+            <button onclick="launchMode('Geography', 'good-to-know')" class="col-span-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
+              📖 5. Good to Know Topics (30 Qs)
             </button>
           </div>
         </div>
@@ -96,15 +94,13 @@
             </div>
           </div>
 
-          <!-- 1. Practice Specific Topics -->
           <div class="mb-4">
-            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">1. Practice Specific Topics</span>
+            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">1. Practice Specific Topics (30 Qs)</span>
             <div id="sci-topics" class="flex flex-wrap gap-1.5">
               <span class="text-xs text-slate-500 italic">Loading topics...</span>
             </div>
           </div>
 
-          <!-- 2-5 Action Buttons -->
           <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-700/50">
             <button onclick="launchMode('Science', 'standard')" class="col-span-2 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-semibold py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
               ▶️ 2. Start Quiz (30 Questions)
@@ -115,8 +111,8 @@
             <button onclick="launchMode('Science', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 active:bg-slate-800 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
               🎴 4. Flashcards (30 Qs)
             </button>
-            <button onclick="switchTab('study')" class="col-span-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
-              📖 5. Good to Know Topics
+            <button onclick="launchMode('Science', 'good-to-know')" class="col-span-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 py-2.5 px-3 rounded-xl text-xs sm:text-sm transition text-center">
+              📖 5. Good to Know Topics (30 Qs)
             </button>
           </div>
         </div>
@@ -169,7 +165,7 @@
 
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 sm:top-4 text-slate-400 text-xs sm:text-sm"></i>
-        <input type="text" id="topic-search-input" oninput="filterTopicCloud()" placeholder="Search for a topic (e.g. Amazon River, Photosynthesis, Absolute Zero)..." class="w-full bg-slate-800/90 border border-slate-700 rounded-xl py-2.5 sm:py-3 pl-9 sm:pl-11 pr-4 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition shadow-inner">
+        <input type="text" id="topic-search-input" oninput="filterTopicCloud()" placeholder="Search for a topic..." class="w-full bg-slate-800/90 border border-slate-700 rounded-xl py-2.5 sm:py-3 pl-9 sm:pl-11 pr-4 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 transition shadow-inner">
       </div>
 
       <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-4 sm:p-6">
@@ -201,41 +197,9 @@
 
   </main>
 
-  <!-- CONCEPT MODAL -->
-  <div id="concept-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl w-[95%] sm:w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
-      <div class="p-4 sm:p-6 border-b border-slate-700/80 flex justify-between items-center bg-slate-800/90 shrink-0">
-        <div class="pr-4">
-          <h3 id="modal-topic-title" class="text-lg sm:text-xl font-bold text-white leading-tight">Topic Title</h3>
-          <span id="modal-category-badge" class="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold bg-amber-400/10 text-amber-400 px-2 py-0.5 rounded border border-amber-400/20 inline-block mt-1">Category</span>
-        </div>
-        <button onclick="closeConceptModal()" class="text-slate-400 hover:text-white text-xl p-1">✕</button>
-      </div>
-
-      <div class="p-4 sm:p-6 overflow-y-auto space-y-4 sm:space-y-6 text-xs sm:text-sm custom-scrollbar">
-        <div class="bg-blue-950/30 border border-blue-500/30 p-3.5 sm:p-4 rounded-xl text-blue-100 leading-relaxed">
-          <p id="modal-definition">Topic overview definition will be displayed here.</p>
-        </div>
-        <div>
-          <h4 class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 sm:mb-3">Key Facts</h4>
-          <ul id="modal-key-facts" class="space-y-2 list-disc list-inside text-slate-200 leading-relaxed"></ul>
-        </div>
-        <div id="modal-related-section" class="pt-3 sm:pt-4 border-t border-slate-700/60">
-          <h4 class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 sm:mb-3">Related Topics</h4>
-          <div id="modal-related-topics" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
-        </div>
-      </div>
-
-      <div class="p-3 sm:p-4 border-t border-slate-700/80 bg-slate-900/50 flex justify-end shrink-0">
-        <button onclick="closeConceptModal()" class="w-full sm:w-auto bg-slate-700 hover:bg-slate-600 text-white font-medium px-4 py-2 rounded-xl text-xs text-center">Close Overview</button>
-      </div>
-    </div>
-  </div>
-
   <script>
     let allData = [];
     let topicsData = {};
-    let topicList = [];
     let activeSet = [];
     let currentIdx = 0;
     let isFlashcardMode = false;
@@ -253,171 +217,11 @@
 
         if (topicRes && topicRes.ok) {
           topicsData = await topicRes.json();
-          renderTopicPills();
-          processTopicCloudData();
         }
-
+        renderTopicPills();
         updateStats();
       } catch (err) {
-        console.error('Failed to load quiz or topic data:', err);
-        const statusEl = document.getElementById('system-status');
-        if (statusEl) {
-          statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-400"></span> Error`;
-          statusEl.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20";
-        }
-      }
-    }
-
-function processTopicCloudData() {
-  topicList = [];
-
-  if (Array.isArray(topicsData)) {
-    // Handling array format
-    topicsData.forEach(t => {
-      topicList.push({
-        name: t.name || t.topic,
-        category: t.category || 'General',
-        definition: t.definition || t.summary || '',
-        key_facts: t.key_facts || t.facts || [],
-        related_topics: t.related_topics || []
-      });
-    });
-  } else if (typeof topicsData === 'object' && topicsData !== null) {
-    // Handling category-keyed or object format
-    for (const [category, topics] of Object.entries(topicsData)) {
-      if (category === 'metadata') continue;
-
-      if (Array.isArray(topics)) {
-        topics.forEach(t => {
-          if (typeof t === 'string') {
-            topicList.push({ name: t, category: category });
-          } else if (typeof t === 'object' && t) {
-            topicList.push({
-              name: t.name || t.topic,
-              category: category,
-              definition: t.definition || t.summary || '',
-              key_facts: t.key_facts || t.facts || [],
-              related_topics: t.related_topics || []
-            });
-          }
-        });
-      }
-    }
-  }
-  // Merge remaining unique topics from quiz questions
-  allData.forEach(q => {
-    if (q.topic && !topicList.some(t => t.name.toLowerCase() === q.topic.toLowerCase())) {
-      topicList.push({ name: q.topic, category: q.category || 'General' });
-    }
-  });
-
-  renderTopicCloud(topicList);
-}
-
-function renderTopicCloud(list) {
-  const container = document.getElementById('full-topic-cloud');
-  const countTag = document.getElementById('topic-count-tag');
-  container.innerHTML = '';
-  countTag.innerText = `${list.length} Topics`;
-
-  if (list.length === 0) {
-    container.innerHTML = `<span class="text-xs text-slate-500 py-4">No matching topics found.</span>`;
-    return;
-  }
-
-  list.forEach(item => {
-    const btn = document.createElement('button');
-    btn.className = 'text-[11px] sm:text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full transition border border-slate-700/80 flex items-center gap-1.5';
-    btn.textContent = item.name; // Prevents HTML injection
-    btn.addEventListener('click', () => openConceptModal(item.name)); // Avoids inline quote syntax bugs
-    container.appendChild(btn);
-  });
-}
-
-    function filterTopicCloud() {
-      const query = document.getElementById('topic-search-input').value.toLowerCase().trim();
-      const filtered = topicList.filter(t => t.name.toLowerCase().includes(query));
-      renderTopicCloud(filtered);
-    }
-
-    function openConceptModal(topicName) {
-      const modal = document.getElementById('concept-modal');
-      const titleEl = document.getElementById('modal-topic-title');
-      const badgeEl = document.getElementById('modal-category-badge');
-      const defEl = document.getElementById('modal-definition');
-      const factsList = document.getElementById('modal-key-facts');
-      const relatedContainer = document.getElementById('modal-related-topics');
-
-      const topicObj = topicList.find(t => t.name.toLowerCase() === topicName.toLowerCase()) || { name: topicName, category: 'General' };
-      const relatedQuestions = allData.filter(q => q.topic && q.topic.toLowerCase() === topicName.toLowerCase());
-
-      titleEl.innerText = topicObj.name;
-      badgeEl.innerText = topicObj.category || 'General';
-
-      if (topicObj.definition) {
-        defEl.innerText = topicObj.definition;
-      } else if (relatedQuestions.length > 0) {
-        defEl.innerText = `${topicObj.name} is a key topic covered in competition tossup questions.`;
-      } else {
-        defEl.innerText = `${topicObj.name} is a high-frequency academic competition topic.`;
-      }
-
-      factsList.innerHTML = '';
-      let facts = topicObj.key_facts || [];
-
-      if (facts.length === 0 && relatedQuestions.length > 0) {
-        relatedQuestions.forEach(q => facts.push(q.explanation || q.question));
-      }
-
-      if (facts.length === 0) {
-        facts = [`Study high-frequency clues and concepts associated with ${topicObj.name} for competition rounds.`];
-      }
-
-      facts.forEach(fact => {
-        const li = document.createElement('li');
-        li.innerText = fact;
-        factsList.appendChild(li);
-      });
-
-      relatedContainer.innerHTML = '';
-      const related = topicObj.related_topics || [];
-
-      if (related.length > 0) {
-        document.getElementById('modal-related-section').classList.remove('hidden');
-        related.forEach(rel => {
-          const btn = document.createElement('button');
-          btn.className = 'text-[11px] sm:text-xs bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700';
-          btn.innerText = `+ ${rel}`;
-          btn.onclick = () => openConceptModal(rel);
-          relatedContainer.appendChild(btn);
-        });
-      } else {
-        document.getElementById('modal-related-section').classList.add('hidden');
-      }
-
-      modal.classList.remove('hidden');
-    }
-
-    function closeConceptModal() {
-      document.getElementById('concept-modal').classList.add('hidden');
-    }
-
-    function switchTab(tabName) {
-      const qView = document.getElementById('view-quizzes');
-      const sView = document.getElementById('view-study');
-      const qBtn = document.getElementById('tab-btn-quizzes');
-      const sBtn = document.getElementById('tab-btn-study');
-
-      if (tabName === 'quizzes') {
-        qView.classList.remove('hidden');
-        sView.classList.add('hidden');
-        qBtn.className = "flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition text-center whitespace-nowrap";
-        sBtn.className = "flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg text-slate-400 hover:text-white transition text-center whitespace-nowrap";
-      } else {
-        qView.classList.add('hidden');
-        sView.classList.remove('hidden');
-        sBtn.className = "flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition text-center whitespace-nowrap";
-        qBtn.className = "flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg text-slate-400 hover:text-white transition text-center whitespace-nowrap";
+        console.error('Failed to load quiz data:', err);
       }
     }
 
@@ -425,83 +229,36 @@ function renderTopicCloud(list) {
       const geoContainer = document.getElementById('geo-topics');
       const sciContainer = document.getElementById('sci-topics');
 
-      if (geoContainer && Array.isArray(topicsData.Geography)) {
-        geoContainer.innerHTML = topicsData.Geography.map(t => {
-          const name = typeof t === 'string' ? t : t.name;
-          return `<button onclick="filterByTopic('Geography', '${name}')" class="text-[10px] sm:text-[11px] bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 active:bg-amber-600 text-slate-300 px-2 py-1 rounded-lg transition border border-slate-700">${name}</button>`;
-        }).join('');
+      const geoItems = allData.filter(q => q.category.toLowerCase() === 'geography' && q.mode === 'practice-specific');
+      const sciItems = allData.filter(q => q.category.toLowerCase() === 'science' && q.mode === 'practice-specific');
+
+      if (geoContainer) {
+        geoContainer.innerHTML = geoItems.map(t => 
+          `<button onclick="filterByTopic('Geography', '${t.topic}')" class="text-[10px] bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2 py-1 rounded border border-slate-700">${t.topic}</button>`
+        ).join('');
       }
 
-      if (sciContainer && Array.isArray(topicsData.Science)) {
-        sciContainer.innerHTML = topicsData.Science.map(t => {
-          const name = typeof t === 'string' ? t : t.name;
-          return `<button onclick="filterByTopic('Science', '${name}')" class="text-[10px] sm:text-[11px] bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 active:bg-amber-600 text-slate-300 px-2 py-1 rounded-lg transition border border-slate-700">${name}</button>`;
-        }).join('');
+      if (sciContainer) {
+        sciContainer.innerHTML = sciItems.map(t => 
+          `<button onclick="filterByTopic('Science', '${t.topic}')" class="text-[10px] bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2 py-1 rounded border border-slate-700">${t.topic}</button>`
+        ).join('');
       }
-    }
-
-    function filterByTopic(category, topicName) {
-      if (allData.length === 0) {
-        alert("Quiz data is loading or missing.");
-        return;
-      }
-
-      activeSet = allData.filter(q => 
-        q.category.toLowerCase().includes(category.toLowerCase()) && 
-        (q.topic ? q.topic.toLowerCase() === topicName.toLowerCase() : true)
-      );
-
-      if (activeSet.length === 0) {
-        alert(`Showing all ${category} questions.`);
-        activeSet = allData.filter(q => q.category.toLowerCase().includes(category.toLowerCase()));
-      }
-
-      isFlashcardMode = false;
-      currentIdx = 0;
-      document.getElementById('quiz-container').classList.remove('hidden');
-      document.getElementById('active-mode-tag').innerText = `${category.toUpperCase()} • ${topicName.toUpperCase()}`;
-      
-      renderCurrentQuestion();
-      document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function updateStats() {
-      const geo = allData.filter(q => q.category.toLowerCase().includes('geography')).length;
-      const sci = allData.filter(q => q.category.toLowerCase().includes('science')).length;
-      document.getElementById('stat-total').innerText = allData.length;
-      document.getElementById('stat-breakdown').innerText = `${geo} / ${sci}`;
-    }
-
-    function reloadQuizData() {
-      loadQuizData();
-      alert('Data refreshed!');
-    }
-
-    function toggleAdminPanel() {
-      document.getElementById('admin-panel').classList.toggle('hidden');
     }
 
     function launchMode(subject, mode) {
-      if (allData.length === 0) {
-        alert("Quiz data is loading or missing.");
-        return;
-      }
-
       isFlashcardMode = (mode === 'flashcards');
-      
       activeSet = allData.filter(q => 
         q.category.toLowerCase() === subject.toLowerCase() && 
-        (q.mode ? q.mode.toLowerCase() === mode.toLowerCase() : true)
+        q.mode.toLowerCase() === mode.toLowerCase()
       );
 
       if (activeSet.length === 0) {
-        activeSet = allData.filter(q => q.category.toLowerCase().includes(subject.toLowerCase()));
+        activeSet = allData.filter(q => q.category.toLowerCase() === subject.toLowerCase());
       }
 
       currentIdx = 0;
       document.getElementById('quiz-container').classList.remove('hidden');
       document.getElementById('active-mode-tag').innerText = `${subject.toUpperCase()} • ${mode.toUpperCase()}`;
-      
       renderCurrentQuestion();
       document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
     }
@@ -511,23 +268,14 @@ function renderTopicCloud(list) {
       document.getElementById('question-counter').innerText = `Question ${currentIdx + 1} of ${activeSet.length}`;
       document.getElementById('question-text').innerText = q.question;
       
-      const topicTag = document.getElementById('question-topic-tag');
-      if (q.topic) {
-        topicTag.innerText = q.topic;
-        topicTag.classList.remove('hidden');
-      } else {
-        topicTag.classList.add('hidden');
-      }
-
       const grid = document.getElementById('options-grid');
-      const expBox = document.getElementById('explanation-box');
-      expBox.classList.add('hidden');
+      document.getElementById('explanation-box').classList.add('hidden');
       grid.innerHTML = '';
 
       if (isFlashcardMode) {
         grid.innerHTML = `
           <div class="col-span-1 md:col-span-2 text-center">
-            <button onclick="revealAnswer(${q.answer})" class="w-full bg-slate-700/50 border border-dashed border-slate-600 hover:border-amber-400 text-slate-300 p-4 sm:p-6 rounded-xl transition text-xs sm:text-sm">
+            <button onclick="revealAnswer(${q.answer})" class="w-full bg-slate-700/50 border border-dashed border-slate-600 hover:border-amber-400 text-slate-300 p-6 rounded-xl transition text-sm">
               🔍 Tap to Reveal Answer
             </button>
           </div>
@@ -535,8 +283,8 @@ function renderTopicCloud(list) {
       } else {
         q.options.forEach((opt, idx) => {
           const btn = document.createElement('button');
-          btn.className = 'bg-slate-900/60 border border-slate-700 hover:border-amber-500/50 text-left p-3.5 sm:p-4 rounded-xl text-slate-200 text-xs sm:text-sm transition flex items-center gap-3 min-h-[44px]';
-          btn.innerHTML = `<span class="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-[10px] sm:text-xs shrink-0">${String.fromCharCode(65 + idx)}</span> <span class="leading-snug">${opt}</span>`;
+          btn.className = 'bg-slate-900/60 border border-slate-700 hover:border-amber-500/50 text-left p-4 rounded-xl text-slate-200 text-sm flex items-center gap-3';
+          btn.innerHTML = `<span class="w-6 h-6 rounded bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-xs shrink-0">${String.fromCharCode(65 + idx)}</span> <span>${opt}</span>`;
           btn.onclick = () => selectOption(idx, q.answer, q.explanation);
           grid.appendChild(btn);
         });
@@ -550,9 +298,9 @@ function renderTopicCloud(list) {
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true;
         if (i === correctIdx) {
-          buttons[i].className = 'bg-emerald-950/60 border border-emerald-500 text-emerald-200 text-left p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm transition flex items-center gap-3 min-h-[44px]';
+          buttons[i].className = 'bg-emerald-950/60 border border-emerald-500 text-emerald-200 p-4 rounded-xl text-sm flex items-center gap-3';
         } else if (i === selectedIdx) {
-          buttons[i].className = 'bg-red-950/60 border border-red-500 text-red-200 text-left p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm transition flex items-center gap-3 min-h-[44px]';
+          buttons[i].className = 'bg-red-950/60 border border-red-500 text-red-200 p-4 rounded-xl text-sm flex items-center gap-3';
         }
       }
       showExplanation(explanation);
@@ -560,28 +308,24 @@ function renderTopicCloud(list) {
 
     function revealAnswer(correctIdx) {
       const q = activeSet[currentIdx];
-      const grid = document.getElementById('options-grid');
-      grid.innerHTML = `
-        <div class="col-span-1 md:col-span-2 bg-emerald-950/40 border border-emerald-500/50 p-4 rounded-xl text-center">
-          <span class="text-[10px] uppercase font-bold text-emerald-400 block mb-1">Correct Answer</span>
-          <span class="text-base sm:text-lg font-bold text-white">${q.options[correctIdx]}</span>
+      document.getElementById('options-grid').innerHTML = `
+        <div class="col-span-2 bg-emerald-950/40 border border-emerald-500/50 p-4 rounded-xl text-center">
+          <span class="text-xs uppercase font-bold text-emerald-400 block mb-1">Correct Answer</span>
+          <span class="text-lg font-bold text-white">${q.options[correctIdx]}</span>
         </div>
       `;
       showExplanation(q.explanation);
     }
 
     function showExplanation(text) {
-      const expBox = document.getElementById('explanation-box');
-      document.getElementById('explanation-text').innerText = text || 'No detailed explanation provided.';
-      expBox.classList.remove('hidden');
+      document.getElementById('explanation-text').innerText = text || 'No explanation provided.';
+      document.getElementById('explanation-box').classList.remove('hidden');
     }
 
     function nextQuestion() {
       if (currentIdx < activeSet.length - 1) {
         currentIdx++;
         renderCurrentQuestion();
-      } else {
-        alert('End of study set!');
       }
     }
 
@@ -594,6 +338,27 @@ function renderTopicCloud(list) {
 
     function closeQuiz() {
       document.getElementById('quiz-container').classList.add('hidden');
+    }
+
+    function switchTab(tab) {
+      if (tab === 'quizzes') {
+        document.getElementById('view-quizzes').classList.remove('hidden');
+        document.getElementById('view-study').classList.add('hidden');
+      } else {
+        document.getElementById('view-quizzes').classList.add('hidden');
+        document.getElementById('view-study').classList.remove('hidden');
+      }
+    }
+
+    function updateStats() {
+      const geo = allData.filter(q => q.category.toLowerCase() === 'geography').length;
+      const sci = allData.filter(q => q.category.toLowerCase() === 'science').length;
+      document.getElementById('stat-total').innerText = allData.length;
+      document.getElementById('stat-breakdown').innerText = `${geo} / ${sci}`;
+    }
+
+    function toggleAdminPanel() {
+      document.getElementById('admin-panel').classList.toggle('hidden');
     }
 
     loadQuizData();
