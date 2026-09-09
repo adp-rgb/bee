@@ -28,14 +28,15 @@
           id="search-input" 
           type="text" 
           placeholder="Search for a topic..." 
+          aria-label="Search topics"
           class="flex-1 bg-slate-700 text-slate-100 px-4 py-3 rounded-xl border border-slate-600 focus:border-amber-400 focus:outline-none transition-all"
         />
         
         <!-- Category Selector Tabs -->
         <div class="flex gap-2 bg-slate-900 p-1 rounded-xl border border-slate-700">
-          <button onclick="setCategoryFilter('all')" id="cat-btn-all" class="cat-btn bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs transition-all">All</button>
-          <button onclick="setCategoryFilter('Science')" id="cat-btn-Science" class="cat-btn text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold transition-all">Science</button>
-          <button onclick="setCategoryFilter('Geography')" id="cat-btn-Geography" class="cat-btn text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold transition-all">Geography</button>
+          <button type="button" onclick="setCategoryFilter('all')" id="cat-btn-all" class="cat-btn bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs transition-all">All</button>
+          <button type="button" onclick="setCategoryFilter('Science')" id="cat-btn-Science" class="cat-btn text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold transition-all">Science</button>
+          <button type="button" onclick="setCategoryFilter('Geography')" id="cat-btn-Geography" class="cat-btn text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold transition-all">Geography</button>
         </div>
       </div>
       
@@ -56,11 +57,11 @@
   </div>
 
   <!-- Topic Detail Modal -->
-  <div id="topic-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+  <div id="topic-modal" role="dialog" aria-modal="true" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
     <div class="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col">
       
       <!-- Modal Header -->
-      <div class="sticky top-0 bg-slate-800 border-b border-slate-700 p-6 flex justify-between items-center">
+      <div class="sticky top-0 bg-slate-800 border-b border-slate-700 p-6 flex justify-between items-center z-10">
         <div>
           <div class="flex items-center gap-2">
             <h2 id="modal-topic-title" class="text-2xl font-bold text-amber-400"></h2>
@@ -68,11 +69,11 @@
           </div>
           <p id="modal-topic-progress" class="text-xs text-slate-400 mt-1"></p>
         </div>
-        <button onclick="closeTopicModal()" class="text-slate-400 hover:text-white text-2xl transition-all">✕</button>
+        <button type="button" onclick="closeTopicModal()" aria-label="Close modal" class="text-slate-400 hover:text-white text-2xl transition-all">✕</button>
       </div>
 
       <!-- Modal Content (Scrollable) -->
-      <div class="overflow-y-auto flex-1 p-6 space-y-6">
+      <div id="modal-scroll-body" class="overflow-y-auto flex-1 p-6 space-y-6">
         
         <!-- Summary Box -->
         <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl">
@@ -93,12 +94,12 @@
       </div>
 
       <!-- Modal Footer Navigation -->
-      <div class="sticky bottom-0 bg-slate-800 border-t border-slate-700 p-6 flex justify-between items-center gap-2">
-        <button id="btn-prev" onclick="prevTopic()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl text-sm font-bold transition-all">
+      <div class="sticky bottom-0 bg-slate-800 border-t border-slate-700 p-6 flex justify-between items-center gap-2 z-10">
+        <button type="button" id="btn-prev" onclick="prevTopic()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl text-sm font-bold transition-all">
           ← Previous
         </button>
         <span id="modal-topic-nav" class="text-xs font-bold text-slate-400 bg-slate-700 px-3 py-1 rounded-lg"></span>
-        <button id="btn-next" onclick="nextTopic()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-xl text-sm font-bold transition-all">
+        <button type="button" id="btn-next" onclick="nextTopic()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-xl text-sm font-bold transition-all">
           Next →
         </button>
       </div>
@@ -106,12 +107,11 @@
   </div>
 
   <script>
-    let allTopicsList = []; // Flattened list of topic objects
+    let allTopicsList = [];
     let filteredTopics = [];
     let currentCategoryFilter = 'all';
     let currentTopicIndex = 0;
 
-    // Fallback data if JSON fails to load
     const DEFAULT_TOPICS = [
       {
         "name": "Acceleration",
@@ -152,6 +152,7 @@
     ];
 
     function escapeHtmlAttr(str) {
+      if (!str) return '';
       return String(str)
         .replace(/&/g, '&amp;')
         .replace(/'/g, '&#39;')
@@ -160,17 +161,13 @@
         .replace(/>/g, '&gt;');
     }
 
-    // Load and normalize Topics from topics.json
     async function init() {
       try {
         const res = await fetch('./topics.json');
         if (!res.ok) throw new Error('Failed to load topics.json');
         const data = await res.json();
-        
         allTopicsList = parseTopicsData(data);
-        if (allTopicsList.length === 0) {
-          allTopicsList = DEFAULT_TOPICS;
-        }
+        if (allTopicsList.length === 0) allTopicsList = DEFAULT_TOPICS;
       } catch (err) {
         console.warn('Using fallback data:', err);
         allTopicsList = DEFAULT_TOPICS;
@@ -180,12 +177,21 @@
       searchTopics('');
     }
 
-    // Convert structured topics.json into a clean array format
     function parseTopicsData(data) {
       let list = [];
       if (!data) return list;
 
-      // Handle Geography & Science category arrays
+      if (Array.isArray(data)) {
+        return data.map(item => ({
+          name: item.name || item.topic || "Unknown Topic",
+          category: item.category || "General",
+          mode: item.mode || "standard",
+          definition: item.definition || item.summary || "No definition available.",
+          key_facts: item.key_facts || item.facts || [],
+          related_topics: item.related_topics || []
+        }));
+      }
+
       ["Science", "Geography"].forEach(cat => {
         if (Array.isArray(data[cat])) {
           data[cat].forEach(item => {
@@ -201,7 +207,6 @@
         }
       });
 
-      // Handle legacy flat object format
       if (list.length === 0 && typeof data === 'object') {
         Object.keys(data).forEach(key => {
           if (key !== 'metadata') {
@@ -223,7 +228,6 @@
       return list;
     }
 
-    // Category Filter Switcher
     function setCategoryFilter(category) {
       currentCategoryFilter = category;
       
@@ -241,7 +245,6 @@
       searchTopics(document.getElementById('search-input').value);
     }
 
-    // Render Quick Topic Tags
     function renderTopicTags() {
       const tagsContainer = document.getElementById('topic-tags');
       const sampleTopics = allTopicsList.slice(0, 8);
@@ -255,6 +258,7 @@
         const safeTopic = escapeHtmlAttr(item.name);
         return `
           <button 
+            type="button"
             onclick="filterByTopic('${safeTopic}')" 
             class="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded-full text-xs font-medium transition-all border border-slate-600 hover:border-amber-400"
           >
@@ -264,7 +268,6 @@
       }).join('');
     }
 
-    // Filter Topics by Search Query & Category
     function searchTopics(query) {
       const searchTerm = query.toLowerCase();
 
@@ -285,7 +288,6 @@
       searchTopics(topicName);
     }
 
-    // Render Grid Cards
     function renderTopicsGrid() {
       const container = document.getElementById('topics-container');
       
@@ -300,8 +302,7 @@
       }
 
       container.innerHTML = filteredTopics.map((item, idx) => {
-        const facts = item.key_facts;
-        const safeName = escapeHtmlAttr(item.name);
+        const facts = item.key_facts || [];
         
         return `
           <div 
@@ -324,7 +325,6 @@
       }).join('');
     }
 
-    // Open Modal by Index in filteredTopics
     function openTopicModal(index) {
       currentTopicIndex = index;
       displayTopicDetail(filteredTopics[currentTopicIndex]);
@@ -337,7 +337,6 @@
       document.body.style.overflow = 'auto';
     }
 
-    // Populate Modal Content
     function displayTopicDetail(item) {
       if (!item) return;
 
@@ -346,7 +345,6 @@
       document.getElementById('modal-topic-progress').innerText = `${currentTopicIndex + 1} of ${filteredTopics.length}`;
       document.getElementById('modal-topic-summary').innerText = item.definition;
 
-      // Facts
       const factsContainer = document.getElementById('modal-topic-facts');
       factsContainer.innerHTML = item.key_facts.map(fact => `
         <li class="bg-slate-950 border border-slate-700 p-4 rounded-xl flex gap-3 items-start hover:border-amber-400/30 transition-all">
@@ -355,7 +353,6 @@
         </li>
       `).join('');
 
-      // Related Topics
       const relatedContainer = document.getElementById('modal-topic-related');
       if (item.related_topics && item.related_topics.length > 0) {
         document.getElementById('related-topics-section').classList.remove('hidden');
@@ -363,6 +360,7 @@
           const safeRelTopic = escapeHtmlAttr(relTopic);
           return `
             <button 
+              type="button"
               onclick="closeTopicModal(); setTimeout(() => filterByTopic('${safeRelTopic}'), 100)"
               class="bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/50 hover:border-emerald-400 text-emerald-300 px-4 py-2 rounded-full text-xs font-medium transition-all"
             >
@@ -374,7 +372,6 @@
         document.getElementById('related-topics-section').classList.add('hidden');
       }
 
-      // Nav counter & state
       document.getElementById('modal-topic-nav').innerText = `${currentTopicIndex + 1} / ${filteredTopics.length}`;
 
       const prevBtn = document.getElementById('btn-prev');
@@ -387,6 +384,9 @@
       nextBtn.disabled = (currentTopicIndex >= filteredTopics.length - 1);
       nextBtn.classList.toggle('opacity-50', nextBtn.disabled);
       nextBtn.classList.toggle('cursor-not-allowed', nextBtn.disabled);
+
+      // Scroll modal content to top on view switch
+      document.getElementById('modal-scroll-body').scrollTop = 0;
     }
 
     function prevTopic() {
