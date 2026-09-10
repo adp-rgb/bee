@@ -1,70 +1,20 @@
 import json
-import os
 import time
 from pathlib import Path
-from google import genai
-from google.genai import types
 
-
-def build_knowledge_base():
-    api_key = (
-        os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or ""
-    ).strip()
-    if not api_key:
-        raise ValueError("GEMINI_API_KEY is missing.")
-
-    client = genai.Client(api_key=api_key)
-
-    # 1. Gather all unique topics/answers from extracted question files
-    extracted_topics = set()
-
-    packet_data_path = Path("extracted_questions.json")
-    if packet_data_path.exists():
-        with open(packet_data_path, "r", encoding="utf-8") as f:
-            items = json.load(f)
-            for item in items:
-                ans = item.get("answer", "").strip()
-                if ans and len(ans) < 50:
-                    extracted_topics.add(ans)
-
-    quizzes_path = Path("quizzes.json")
-    if quizzes_path.exists():
-        with open(quizzes_path, "r", encoding="utf-8") as f:
-            q_data = json.load(f)
-            for q in q_data.get("quizzes", []):
-                opts = q.get("options", [])
-                ans_idx = q.get("answer", 0)
-                if opts and isinstance(ans_idx, int) and ans_idx < len(opts):
-                    extracted_topics.add(opts[ans_idx])
-
-    if len(extracted_topics) < 5:
-        extracted_topics = {
-            "Acceleration",
-            "Photosynthesis",
-            "Tectonic Plates",
-            "Gravitational Force",
-            "Cell Nucleus",
-            "Velocity",
-            "Newton's Laws",
-            "Amazon River",
-            "Mount Everest",
-            "Tokyo",
-        }
-
-    topic_list = sorted(list(extracted_topics))
-    print(f"Generating knowledge base for {len(topic_list)} topics...")
-
+def generate_300_topics_db():
+    modes = [
+        "practice-specific",
+        "standard",
+        "high-frequency",
+        "flashcards",
+        "good-to-know"
+    ]
+    
     topics_db = {
         "metadata": {
             "source": "Science Bee & Geography Bee Official Resources",
             "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
-            "resources": [
-                "https://iacompetitionsasia.com/resources/",
-                "https://www.internationalgeographybee.com/asia/resources/",
-                "https://www.iacompetitions.com/resources/",
-                "https://www.internationalgeographybee.com/europe/resources/",
-                "https://www.iacompetitions.com/ems-national-science-bee-past-questions/",
-            ],
             "categories": [
                 "Practice Specific Topics",
                 "Start Quiz",
@@ -73,85 +23,45 @@ def build_knowledge_base():
                 "Good to Know Topics"
             ]
         },
-        "Geography": [],
         "Science": [],
+        "Geography": []
     }
 
-    # Modes map directly to your 5 UI options
-    modes = ["practice-specific", "standard", "high-frequency", "flashcards", "good-to-know"]
+    quizzes_path = Path("quizzes.json")
+    if not quizzes_path.exists():
+        raise FileNotFoundError("quizzes.json must exist with 300 questions before generating topics.json.")
 
-    for idx, topic in enumerate(topic_list):
-        # Cycle mode assignment across topics
-        assigned_mode = modes[idx % len(modes)]
+    with open(quizzes_path, "r", encoding="utf-8") as f:
+        q_data = json.load(f)
+        quizzes = q_data.get("quizzes", [])
 
-        prompt = f"""
-        Provide detailed study guide data for the academic competition topic: "{topic}".
+    for idx, item in enumerate(quizzes):
+        subj = item.get("category", "Science")
+        if subj not in topics_db:
+            topics_db[subj] = []
+
+        # Ensure valid mode assignment even if missing in quiz item
+        assigned_mode = item.get("mode") or modes[idx % len(modes)]
         
-        Task:
-        1. Classify category as strictly either "Geography" or "Science".
-        2. Write a clear summary/definition.
-        3. Provide 3-4 distinct high-frequency competition key facts.
-        4. List 2-3 related topics.
-
-        Respond ONLY with a JSON object matching this schema:
-        {{
-            "category": "Geography" or "Science",
-            "summary": "A 2-sentence explanation/definition of {topic}.",
-            "facts": ["Specific Fact 1", "Specific Fact 2", "Specific Fact 3"],
-            "related_topics": ["Related Topic 1", "Related Topic 2"]
-        }}
-        """
-
-        try:
-            response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json"
-                ),
-            )
-
-            raw_text = response.text.strip()
-            if raw_text.startswith("```"):
-                lines = raw_text.splitlines()
-                if lines[0].startswith("```"):
-                    lines = lines[1:]
-                if lines and lines[-1].startswith("```"):
-                    lines = lines[:-1]
-                raw_text = "\n".join(lines).strip()
-
-            topic_data = json.loads(raw_text)
-
-            category = topic_data.get("category", "Science")
-            if category not in ["Geography", "Science"]:
-                category = "Science"
-
-            topics_db[category].append(
-                {
-                    "name": topic,
-                    "mode": assigned_mode,
-                    "definition": topic_data.get(
-                        "summary", f"Overview of {topic}."
-                    ),
-                    "key_facts": topic_data.get("facts", []),
-                    "related_topics": topic_data.get("related_topics", []),
-                }
-            )
-
-            print(f"   ✓ Generated study guide for: {topic} [{category}] ({assigned_mode})")
-            time.sleep(0.5)
-
-        except Exception as e:
-            print(f"   ❌ Error processing {topic}: {e}")
+        topics_db[subj].append({
+            "name": item.get("topic", f"Topic {item.get('id', idx + 1)}"),
+            "mode": assigned_mode,
+            "definition": item.get("explanation", "Study guide explanation."),
+            "key_facts": [item.get("question")],
+            "related_topics": [item.get("topic", "General")]
+        })
 
     with open("topics.json", "w", encoding="utf-8") as f:
         json.dump(topics_db, f, indent=2, ensure_ascii=False)
 
-    total_count = len(topics_db["Geography"]) + len(topics_db["Science"])
-    print(
-        f"\n✅ Successfully generated topics.json with {total_count} unique items mapped to 5 modes!"
-    )
+    sci_count = len(topics_db.get("Science", []))
+    geo_count = len(topics_db.get("Geography", []))
+    total = sci_count + geo_count
 
+    print(f"✅ Generated topics.json | Science: {sci_count} | Geography: {geo_count} | Total: {total}")
+    
+    if total < 300:
+        print(f"⚠️ Warning: Output contains only {total}/300 entries. Ensure quizzes.json has 300 items.")
 
 if __name__ == "__main__":
-    build_knowledge_base()
+    generate_300_topics_db()
