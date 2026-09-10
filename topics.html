@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academic Bee - Topics & Knowledge Base</title>
+  <title>Academic Bee - Knowledge Base</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans p-4 sm:p-6">
 
   <div class="max-w-6xl mx-auto space-y-6">
-
-    <!-- Header -->
     <header class="flex justify-between items-center bg-slate-800 p-4 rounded-2xl border border-slate-700 shadow-lg">
       <div>
         <h1 class="text-2xl font-bold text-amber-400">Academic Bee Knowledge Base 📚</h1>
@@ -21,405 +19,35 @@
       </a>
     </header>
 
-    <!-- Search & Category Filter Section -->
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
-      <div class="flex flex-col sm:flex-row gap-3">
-        <input 
-          id="search-input" 
-          type="text" 
-          placeholder="Search for a topic..." 
-          aria-label="Search topics"
-          class="flex-1 bg-slate-700 text-slate-100 px-4 py-3 rounded-xl border border-slate-600 focus:border-amber-400 focus:outline-none transition-all"
-        />
-        
-        <!-- Category Selector Tabs -->
-        <div class="flex gap-2 bg-slate-900 p-1 rounded-xl border border-slate-700">
-          <button type="button" onclick="setCategoryFilter('all')" id="cat-btn-all" class="cat-btn bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs transition-all">All</button>
-          <button type="button" onclick="setCategoryFilter('Science')" id="cat-btn-Science" class="cat-btn text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold transition-all">Science</button>
-          <button type="button" onclick="setCategoryFilter('Geography')" id="cat-btn-Geography" class="cat-btn text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold transition-all">Geography</button>
-        </div>
-      </div>
-      
-      <!-- Quick Topic Tags -->
-      <div>
-        <p class="text-xs text-slate-400 mb-2">Quick Browse:</p>
-        <div id="topic-tags" class="flex flex-wrap gap-2"></div>
-      </div>
-    </div>
-
-    <!-- Topics Grid -->
-    <div id="topics-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="col-span-full text-center py-12">
-        <p class="text-slate-400">Loading topics...</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Topic Detail Modal -->
-  <div id="topic-modal" role="dialog" aria-modal="true" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col">
-      
-      <!-- Modal Header -->
-      <div class="sticky top-0 bg-slate-800 border-b border-slate-700 p-6 flex justify-between items-center z-10">
-        <div>
-          <div class="flex items-center gap-2">
-            <h2 id="modal-topic-title" class="text-2xl font-bold text-amber-400"></h2>
-            <span id="modal-topic-category" class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-slate-700 text-amber-400 border border-amber-400/30"></span>
-          </div>
-          <p id="modal-topic-progress" class="text-xs text-slate-400 mt-1"></p>
-        </div>
-        <button type="button" onclick="closeTopicModal()" aria-label="Close modal" class="text-slate-400 hover:text-white text-2xl transition-all">✕</button>
-      </div>
-
-      <!-- Modal Content (Scrollable) -->
-      <div id="modal-scroll-body" class="overflow-y-auto flex-1 p-6 space-y-6">
-        
-        <!-- Summary Box -->
-        <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl">
-          <p id="modal-topic-summary" class="text-slate-300 leading-relaxed italic"></p>
-        </div>
-
-        <!-- Key Facts -->
-        <div>
-          <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">🔑 Key Facts</h3>
-          <ul id="modal-topic-facts" class="space-y-3"></ul>
-        </div>
-
-        <!-- Related Topics -->
-        <div id="related-topics-section" class="pt-4 border-t border-slate-700">
-          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider mb-4">🔗 Related Topics</h3>
-          <div id="modal-topic-related" class="flex flex-wrap gap-2"></div>
-        </div>
-      </div>
-
-      <!-- Modal Footer Navigation -->
-      <div class="sticky bottom-0 bg-slate-800 border-t border-slate-700 p-6 flex justify-between items-center gap-2 z-10">
-        <button type="button" id="btn-prev" onclick="prevTopic()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl text-sm font-bold transition-all">
-          ← Previous
-        </button>
-        <span id="modal-topic-nav" class="text-xs font-bold text-slate-400 bg-slate-700 px-3 py-1 rounded-lg"></span>
-        <button type="button" id="btn-next" onclick="nextTopic()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-xl text-sm font-bold transition-all">
-          Next →
-        </button>
-      </div>
-    </div>
+    <div id="topics-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
   </div>
 
   <script>
-    let allTopicsList = [];
-    let filteredTopics = [];
-    let currentCategoryFilter = 'all';
-    let currentTopicIndex = 0;
-
-    const DEFAULT_TOPICS = [
-      {
-        "name": "Acceleration",
-        "category": "Science",
-        "mode": "standard",
-        "definition": "Acceleration is the rate at which an object's velocity changes over time. Measured in m/s².",
-        "key_facts": [
-          "Calculated with formula a = Δv/Δt.",
-          "Newton's Second Law connects force and acceleration: F = ma.",
-          "Earth's gravitational acceleration is roughly 9.8 m/s²."
-        ],
-        "related_topics": ["Velocity", "Newton's Laws", "Kinematics"]
-      },
-      {
-        "name": "Photosynthesis",
-        "category": "Science",
-        "mode": "practice-specific",
-        "definition": "Process by which plants convert light energy into chemical energy stored in glucose.",
-        "key_facts": [
-          "Equation: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂.",
-          "Takes place in chloroplasts containing chlorophyll.",
-          "Light-dependent reactions occur in thylakoids."
-        ],
-        "related_topics": ["Cellular Respiration", "Chloroplasts", "Plant Biology"]
-      },
-      {
-        "name": "Tectonic Plates",
-        "category": "Geography",
-        "mode": "flashcards",
-        "definition": "Rigid slabs of Earth's lithosphere moving over the underlying asthenosphere.",
-        "key_facts": [
-          "Boundaries are classified as convergent, divergent, or transform.",
-          "Subduction zones generate explosive deep ocean trenches and volcanoes.",
-          "San Andreas Fault represents a major transform plate boundary."
-        ],
-        "related_topics": ["Earthquakes", "Volcanoes", "Continental Drift"]
-      }
-    ];
-
-    function escapeHtmlAttr(str) {
-      if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/'/g, '&#39;')
-        .replace(/"/g, '&quot;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-    }
-
     async function init() {
       try {
-        const res = await fetch('./topics.json');
-        if (!res.ok) throw new Error('Failed to load topics.json');
+        const res = await fetch('topics.json');
         const data = await res.json();
-        allTopicsList = parseTopicsData(data);
-        if (allTopicsList.length === 0) allTopicsList = DEFAULT_TOPICS;
-      } catch (err) {
-        console.warn('Using fallback data:', err);
-        allTopicsList = DEFAULT_TOPICS;
-      }
-
-      renderTopicTags();
-      searchTopics('');
-    }
-
-    function parseTopicsData(data) {
-      let list = [];
-      if (!data) return list;
-
-      if (Array.isArray(data)) {
-        return data.map(item => ({
-          name: item.name || item.topic || "Unknown Topic",
-          category: item.category || "General",
-          mode: item.mode || "standard",
-          definition: item.definition || item.summary || "No definition available.",
-          key_facts: item.key_facts || item.facts || [],
-          related_topics: item.related_topics || []
-        }));
-      }
-
-      ["Science", "Geography"].forEach(cat => {
-        if (Array.isArray(data[cat])) {
-          data[cat].forEach(item => {
-            list.push({
-              name: item.name || item.topic || "Unknown Topic",
-              category: cat,
-              mode: item.mode || "standard",
-              definition: item.definition || item.summary || "No definition available.",
-              key_facts: item.key_facts || item.facts || [],
-              related_topics: item.related_topics || []
+        const container = document.getElementById('topics-container');
+        
+        let html = '';
+        ['Science', 'Geography'].forEach(cat => {
+          if (data[cat]) {
+            data[cat].forEach(item => {
+              html += `
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-2xl">
+                  <span class="text-xs font-bold text-amber-400 uppercase">${item.mode} • ${cat}</span>
+                  <h3 class="text-lg font-bold text-white mt-1 mb-2">${item.name}</h3>
+                  <p class="text-slate-400 text-xs">${item.definition}</p>
+                </div>
+              `;
             });
-          });
-        }
-      });
-
-      if (list.length === 0 && typeof data === 'object') {
-        Object.keys(data).forEach(key => {
-          if (key !== 'metadata') {
-            const item = data[key];
-            if (typeof item === 'object' && item !== null) {
-              list.push({
-                name: item.name || item.topic || key,
-                category: item.category || "Science",
-                mode: item.mode || "standard",
-                definition: item.definition || item.summary || "No summary available.",
-                key_facts: item.key_facts || item.facts || [],
-                related_topics: item.related_topics || []
-              });
-            }
           }
         });
-      }
-
-      return list;
-    }
-
-    function setCategoryFilter(category) {
-      currentCategoryFilter = category;
-      
-      document.querySelectorAll('.cat-btn').forEach(btn => {
-        btn.classList.remove('bg-amber-500', 'text-slate-950');
-        btn.classList.add('text-slate-300');
-      });
-
-      const activeBtn = document.getElementById(`cat-btn-${category}`);
-      if (activeBtn) {
-        activeBtn.classList.add('bg-amber-500', 'text-slate-950');
-        activeBtn.classList.remove('text-slate-300');
-      }
-
-      searchTopics(document.getElementById('search-input').value);
-    }
-
-    function renderTopicTags() {
-      const tagsContainer = document.getElementById('topic-tags');
-      const sampleTopics = allTopicsList.slice(0, 8);
-      
-      if (sampleTopics.length === 0) {
-        tagsContainer.innerHTML = '<p class="text-xs text-slate-500">No topics available</p>';
-        return;
-      }
-
-      tagsContainer.innerHTML = sampleTopics.map(item => {
-        const safeTopic = escapeHtmlAttr(item.name);
-        return `
-          <button 
-            type="button"
-            onclick="filterByTopic('${safeTopic}')" 
-            class="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded-full text-xs font-medium transition-all border border-slate-600 hover:border-amber-400"
-          >
-            ${item.name}
-          </button>
-        `;
-      }).join('');
-    }
-
-    function searchTopics(query) {
-      const searchTerm = query.toLowerCase();
-
-      filteredTopics = allTopicsList.filter(item => {
-        const matchesCat = (currentCategoryFilter === 'all') || (item.category === currentCategoryFilter);
-        const matchName = item.name.toLowerCase().includes(searchTerm);
-        const matchDef = item.definition.toLowerCase().includes(searchTerm);
-        const matchFacts = item.key_facts.some(f => f.toLowerCase().includes(searchTerm));
-
-        return matchesCat && (matchName || matchDef || matchFacts);
-      });
-      
-      renderTopicsGrid();
-    }
-
-    function filterByTopic(topicName) {
-      document.getElementById('search-input').value = topicName;
-      searchTopics(topicName);
-    }
-
-    function renderTopicsGrid() {
-      const container = document.getElementById('topics-container');
-      
-      if (filteredTopics.length === 0) {
-        container.innerHTML = `
-          <div class="col-span-full text-center py-12">
-            <p class="text-slate-400 text-lg">🔍 No topics found</p>
-            <p class="text-slate-500 text-sm mt-2">Try adjusting your search or category filter</p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = filteredTopics.map((item, idx) => {
-        const facts = item.key_facts || [];
-        
-        return `
-          <div 
-            onclick="openTopicModal(${idx})"
-            class="group bg-slate-800 border border-slate-700 rounded-2xl p-5 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-400/10 cursor-pointer transition-all shadow-md flex flex-col justify-between"
-          >
-            <div>
-              <div class="flex justify-between items-start mb-2">
-                <h3 class="text-lg font-bold text-amber-400 group-hover:text-amber-300 transition-all">${item.name}</h3>
-                <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-slate-700 text-slate-300">${item.category}</span>
-              </div>
-              <p class="text-slate-400 text-xs mb-4 line-clamp-2 leading-relaxed">${item.definition}</p>
-            </div>
-            <div class="flex items-center justify-between pt-2 border-t border-slate-700/50">
-              <span class="text-xs text-slate-500 bg-slate-700/50 px-2 py-1 rounded">📖 ${facts.length} facts</span>
-              <span class="text-amber-400 group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function openTopicModal(index) {
-      currentTopicIndex = index;
-      displayTopicDetail(filteredTopics[currentTopicIndex]);
-      document.getElementById('topic-modal').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeTopicModal() {
-      document.getElementById('topic-modal').classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
-
-    function displayTopicDetail(item) {
-      if (!item) return;
-
-      document.getElementById('modal-topic-title').innerText = item.name;
-      document.getElementById('modal-topic-category').innerText = item.category;
-      document.getElementById('modal-topic-progress').innerText = `${currentTopicIndex + 1} of ${filteredTopics.length}`;
-      document.getElementById('modal-topic-summary').innerText = item.definition;
-
-      const factsContainer = document.getElementById('modal-topic-facts');
-      factsContainer.innerHTML = item.key_facts.map(fact => `
-        <li class="bg-slate-950 border border-slate-700 p-4 rounded-xl flex gap-3 items-start hover:border-amber-400/30 transition-all">
-          <span class="text-amber-400 font-bold flex-shrink-0 text-lg">•</span>
-          <span class="text-slate-300 text-sm leading-relaxed">${fact}</span>
-        </li>
-      `).join('');
-
-      const relatedContainer = document.getElementById('modal-topic-related');
-      if (item.related_topics && item.related_topics.length > 0) {
-        document.getElementById('related-topics-section').classList.remove('hidden');
-        relatedContainer.innerHTML = item.related_topics.map(relTopic => {
-          const safeRelTopic = escapeHtmlAttr(relTopic);
-          return `
-            <button 
-              type="button"
-              onclick="closeTopicModal(); setTimeout(() => filterByTopic('${safeRelTopic}'), 100)"
-              class="bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/50 hover:border-emerald-400 text-emerald-300 px-4 py-2 rounded-full text-xs font-medium transition-all"
-            >
-              ${relTopic}
-            </button>
-          `;
-        }).join('');
-      } else {
-        document.getElementById('related-topics-section').classList.add('hidden');
-      }
-
-      document.getElementById('modal-topic-nav').innerText = `${currentTopicIndex + 1} / ${filteredTopics.length}`;
-
-      const prevBtn = document.getElementById('btn-prev');
-      const nextBtn = document.getElementById('btn-next');
-
-      prevBtn.disabled = (currentTopicIndex <= 0);
-      prevBtn.classList.toggle('opacity-50', prevBtn.disabled);
-      prevBtn.classList.toggle('cursor-not-allowed', prevBtn.disabled);
-
-      nextBtn.disabled = (currentTopicIndex >= filteredTopics.length - 1);
-      nextBtn.classList.toggle('opacity-50', nextBtn.disabled);
-      nextBtn.classList.toggle('cursor-not-allowed', nextBtn.disabled);
-
-      // Scroll modal content to top on view switch
-      document.getElementById('modal-scroll-body').scrollTop = 0;
-    }
-
-    function prevTopic() {
-      if (currentTopicIndex > 0) {
-        currentTopicIndex--;
-        displayTopicDetail(filteredTopics[currentTopicIndex]);
+        container.innerHTML = html;
+      } catch(e) {
+        console.error(e);
       }
     }
-
-    function nextTopic() {
-      if (currentTopicIndex < filteredTopics.length - 1) {
-        currentTopicIndex++;
-        displayTopicDetail(filteredTopics[currentTopicIndex]);
-      }
-    }
-
-    document.getElementById('search-input').addEventListener('input', (e) => {
-      searchTopics(e.target.value);
-    });
-
-    document.getElementById('topic-modal').addEventListener('click', (e) => {
-      if (e.target.id === 'topic-modal') closeTopicModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      const isModalOpen = !document.getElementById('topic-modal').classList.contains('hidden');
-      if (!isModalOpen) return;
-
-      if (e.key === 'Escape') closeTopicModal();
-      else if (e.key === 'ArrowLeft') prevTopic();
-      else if (e.key === 'ArrowRight') nextTopic();
-    });
-
     init();
   </script>
 </body>
