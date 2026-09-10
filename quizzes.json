@@ -94,161 +94,21 @@
       "id": 1,
       "category": "Geography",
       "topic": "World Capitals & Urban Centers",
-      "question": "This city's historic center contains the Zocalo, which was constructed directly over the ruins of the Aztec ceremonial site of Tenochtitlan. It is situated in an endorheic basin surrounded by volcanoes like Popocatepetl, contributing to severe air pollution and land subsidence issues. Built on the drained bed of Lake Texcoco, it serves as the seat of government for its country. For the point, name this capital city of Mexico.",
+      "question": "This city's historic core contains the district of Sultanahmet and the ancient Byzantine Hippodrome. Located on both sides of the Bosporus strait, it was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
       "options": [
-        "Mexico City",
-        "Guadalajara",
-        "Monterrey",
-        "Puebla"
+        "Istanbul",
+        "Ankara",
+        "Izmir",
+        "Bursa"
       ],
       "answer": 0,
-      "explanation": "Mexico City was founded on the ruins of Tenochtitlan over Lake Texcoco in the Valley of Mexico and is the capital of Mexico."
+      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was previously known as Byzantium and Constantinople."
     },
     {
       "id": 2,
       "category": "Science",
       "topic": "Photosynthesis",
-      "question": "During the light-dependent reactions of this pathway, water molecules undergo photolysis to produce oxygen gas and protons. The enzyme RuBisCO fixes inorganic carbon dioxide in its Calvin cycle stage, taking place inside the stroma. Occurring within specialized plant organelles called chloroplasts, this process converts solar energy into chemical energy stored as glucose. For the point, name this biological process used by plants.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Fermentation",
-        "Transpiration"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis occurs in chloroplasts, using light to convert water and carbon dioxide into oxygen and glucose via RuBisCO in the Calvin cycle."
-    },
-    {
-      "id": 3,
-      "category": "Geography",
-      "topic": "European Geography",
-      "question": "The Iron Gates gorge on this river forms a natural boundary between Serbia and Romania before it flows into a large delta on the Black Sea. It passes through four national capitals—Vienna, Bratislava, Budapest, and Belgrade—as it flows eastward across Central Europe. Originating in Germany's Black Forest region, it is the second-longest river in Europe after the Volga. For the point, name this major European river.",
-      "options": [
-        "Rhine",
-        "Elbe",
-        "Danube",
-        "Dnieper"
-      ],
-      "answer": 2,
-      "explanation": "The Danube River begins in Germany's Black Forest, flows through four European capitals, forms the Iron Gates gorge, and drains into the Black Sea."
-    },
-    {
-      "id": 4,
-      "category": "Science",
-      "topic": "Velocity",
-      "question": "On a position-versus-time graph, the derivative or slope of the tangent line represents the instantaneous value of this quantity. Because it is calculated by dividing displacement by elapsed time, its value changes whenever an object's speed or direction changes. Unlike speed, which is a scalar quantity, this physical vector includes both magnitude and directional information. For the point, name this physical quantity measured in meters per second.",
-      "options": [
-        "Acceleration",
-        "Velocity",
-        "Momentum",
-        "Force"
-      ],
-      "answer": 1,
-      "explanation": "Velocity is defined as displacement divided by time and represents a vector quantity, unlike the scalar quantity speed."
-    },
-    {
-      "id": 5,
-      "category": "Geography",
-      "topic": "Rivers & Lakes",
-      "question": "This body of water is fed predominantly by the Omo River, but it lacks an outlet, making it the world's largest permanent desert and alkaline lake. Located in the Great Rift Valley, its high concentration of cyanobacteria often gives its water a distinct greenish hue. Located primarily in northwestern Kenya, its northernmost shore reaches into Ethiopia. For the point, name this African lake formerly known as Lake Rudolf.",
-      "options": [
-        "Lake Victoria",
-        "Lake Tanganyika",
-        "Lake Turkana",
-        "Lake Malawi"
-      ],
-      "answer": 2,
-      "explanation": "Lake Turkana in Kenya is an endorheic alkaline lake in the East African Rift, historically named Lake Rudolf."
-    },
-    {
-      "id": 6,
-      "category": "Science",
-      "topic": "Plate Tectonics",
-      "question": "The Wadati-Benioff zone is a planar band of deep-seated earthquake foci associated with subduction zones found at these geological sites. Features such as deep ocean trenches, volcanic island arcs, and high mountain ranges form where these tectonic features occur. Unlike divergent boundaries that create new oceanic crust, these zones involve one plate sliding beneath another. For the point, name these convergent plate boundaries.",
-      "options": [
-        "Divergent boundaries",
-        "Convergent boundaries",
-        "Transform boundaries",
-        "Hotspots"
-      ],
-      "answer": 1,
-      "explanation": "Convergent boundaries involve plates moving toward each other, leading to subduction, trench formation, and Wadati-Benioff seismic zones."
-    },
-    {
-      "id": 7,
-      "category": "Geography",
-      "topic": "Asian Geography",
-      "question": "The fertile Fergana Valley is shared among three nations in this region, which is flanked by the Caspian Sea to the west and the Pamir Mountains to the east. Historically traversed by trade routes along the Silk Road, its interior contains arid expanses such as the Karakum and Kyzylkum deserts. It consists of five former Soviet republics, including Kazakhstan, Uzbekistan, and Turkmenistan. For the point, name this geopolitical region of Asia.",
-      "options": [
-        "Southeast Asia",
-        "Central Asia",
-        "South Asia",
-        "East Asia"
-      ],
-      "answer": 1,
-      "explanation": "Central Asia consists of five post-Soviet republics (Kazakhstan, Uzbekistan, Turkmenistan, Kyrgyzstan, and Tajikistan) and houses the Fergana Valley."
-    },
-    {
-      "id": 8,
-      "category": "Science",
-      "topic": "Cellular Biology",
-      "question": "According to the endosymbiotic theory, these membrane-bound structures evolved from engulfed aerobic alphaproteobacteria. Infoldings of their inner membrane form cristae, which enclose an internal matrix where the citric acid cycle occurs. They produce the majority of cellular adenosine triphosphate, or ATP, through oxidative phosphorylation. For the point, name these organelles commonly referred to as the powerhouse of the cell.",
-      "options": [
-        "Lysosomes",
-        "Mitochondria",
-        "Golgi Apparatus",
-        "Endoplasmic Reticulum"
-      ],
-      "answer": 1,
-      "explanation": "Mitochondria generate cellular energy in the form of ATP via cristae and matrix-bound metabolic pathways, earning them the nickname 'powerhouse of the cell'."
-    },
-    {
-      "id": 9,
-      "category": "Geography",
-      "topic": "African Geography",
-      "question": "The narrow Caprivi Strip extends eastward from this country's main territory to give it access to the Zambezi River. Its coastline along the Atlantic Ocean is home to the Skeleton Coast and the ancient sand dunes of the Namib Desert. Bordered by South Africa to the south, its capital city is Windhoek. For the point, name this southwestern African nation.",
-      "options": [
-        "Angola",
-        "Botswana",
-        "Namibia",
-        "Zambia"
-      ],
-      "answer": 2,
-      "explanation": "Namibia is located in southwestern Africa, featuring the Caprivi Strip, the Namib Desert, and its capital, Windhoek."
-    },
-    {
-      "id": 10,
-      "category": "Science",
-      "topic": "Thermodynamics",
-      "question": "The third law of this branch of physics states that as a system's temperature approaches absolute zero, its entropy approaches a constant minimum value. Its first law is a formulation of the law of conservation of energy, stating that internal energy equals heat added minus work done. Derived from Greek roots meaning heat and power, it governs heat transfer and energy transformations. For the point, name this branch of physical science.",
-      "options": [
-        "Electromagnetism",
-        "Thermodynamics",
-        "Quantum Mechanics",
-        "Optics"
-      ],
-      "answer": 1,
-      "explanation": "Thermodynamics deals with heat, work, entropy, and energy transformations according to its fundamental laws."
-    },
-    {
-      "id": 11,
-      "category": "Geography",
-      "topic": "World Capitals & Urban Centers",
-      "question": "This city's historic district of Gamla Stan is situated on a central island where Lake Mälaren flows into the Baltic Sea. Except for the Peace Prize, its City Hall annually hosts the banquet for the prestigious Nobel Prize awards. For the point, name this capital city built across fourteen islands in Sweden.",
-      "options": [
-        "Stockholm",
-        "Copenhagen",
-        "Oslo",
-        "Helsinki"
-      ],
-      "answer": 0,
-      "explanation": "Stockholm is the capital of Sweden, located across 14 islands where Lake Mälaren meets the Baltic Sea, and hosts the annual Nobel Prize ceremonies."
-    },
-    {
-      "id": 12,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "The light-independent Calvin cycle of this biological pathway relies on the enzyme RuBisCO to fix carbon dioxide within the stroma. Its light-dependent stage takes place inside thylakoid membranes, where absorbed light energy splits water molecules to release oxygen gas. For the point, name this process by which green plants convert light energy into sugar.",
+      "question": "During the light-independent reactions of this process, the enzyme RuBisCO fixes carbon dioxide within the stroma of chloroplasts. It relies on chlorophyll pigments to absorb solar energy and uses water to generate glucose and oxygen gas. For the point, name this process by which green plants convert light energy into chemical energy.",
       "options": [
         "Cellular Respiration",
         "Photosynthesis",
@@ -256,27 +116,27 @@
         "Fermentation"
       ],
       "answer": 1,
-      "explanation": "Photosynthesis is the process used by plants to turn light, carbon dioxide, and water into sugars and oxygen, involving reactions in the stroma and thylakoid membranes."
+      "explanation": "Photosynthesis converts light energy, water, and carbon dioxide into glucose and oxygen inside chloroplasts."
     },
     {
-      "id": 13,
+      "id": 3,
       "category": "Geography",
-      "topic": "Rivers & Lakes",
-      "question": "This river rises in the Valdai Hills of western Russia and flows past major urban centers such as Kazan and Volgograd. Connected to the Baltic Sea via a series of canals, it flows southward before emptying into the landlocked Caspian Sea. For the point, name this longest river in Europe.",
+      "topic": "Physical Geography",
+      "question": "This geographical region includes the Danakil Depression, one of the lowest and hottest places on Earth. Formed by the divergence of the African and Arabian tectonic plates, it extends thousands of kilometers from Syria southwards to Mozambique. For the point, name this massive continuous trench running through East Africa.",
       "options": [
-        "Danube River",
-        "Rhine River",
-        "Volga River",
-        "Dnieper River"
+        "Great Rift Valley",
+        "Grand Canyon",
+        "Mariana Trench",
+        "Mid-Atlantic Ridge"
       ],
-      "answer": 2,
-      "explanation": "The Volga River is the longest river in Europe, flowing entirely through Russia into the Caspian Sea."
+      "answer": 0,
+      "explanation": "The Great Rift Valley is a continuous geological trench formed by tectonic plate divergence through East Africa."
     },
     {
-      "id": 14,
+      "id": 4,
       "category": "Science",
       "topic": "Velocity",
-      "question": "In calculus, this quantity is defined as the first derivative of position with respect to time. Because it specifies both a magnitude and a spatial direction, it is classified as a vector quantity rather than a scalar like speed. For the point, name this physical quantity measured in meters per second that describes the speed and direction of a moving object.",
+      "question": "The time derivative of this quantity equals acceleration, while integrating it over time yields an object's overall displacement. Unlike speed, this property accounts for both magnitude and direction, defining it as a vector quantity. For the point, name this physical vector quantity defined as the rate of change of position.",
       "options": [
         "Acceleration",
         "Velocity",
@@ -284,111 +144,251 @@
         "Force"
       ],
       "answer": 1,
-      "explanation": "Velocity is a vector quantity defined as the rate of change of position, requiring both speed and direction."
+      "explanation": "Velocity is a vector quantity that represents the rate and direction of an object's motion."
+    },
+    {
+      "id": 5,
+      "category": "Geography",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water receives flow from the Volga and Ural rivers but lacks any natural outlets, making it an endorheic basin. Geologically classified as the world's largest lake by surface area, its waters are partially saline. For the point, name this landlocked sea bordered by Russia, Kazakhstan, Turkmenistan, Iran, and Azerbaijan.",
+      "options": [
+        "Black Sea",
+        "Caspian Sea",
+        "Aral Sea",
+        "Lake Baikal"
+      ],
+      "answer": 1,
+      "explanation": "The Caspian Sea is the world's largest inland body of water, bounded by Russia, Iran, and three Central Asian nations."
+    },
+    {
+      "id": 6,
+      "category": "Science",
+      "topic": "Cell Biology",
+      "question": "This organelle contains inner membrane folds called cristae that increase surface area for ATP synthase during the electron transport chain. It possesses its own independent circular DNA, supporting the endosymbiotic theory of its evolution. For the point, name this double-membraned organelle commonly called the powerhouse of the cell.",
+      "options": [
+        "Ribosome",
+        "Mitochondrion",
+        "Golgi Apparatus",
+        "Endoplasmic Reticulum"
+      ],
+      "answer": 1,
+      "explanation": "Mitochondria generate cellular energy in the form of ATP via aerobic respiration and are known as cellular powerhouses."
+    },
+    {
+      "id": 7,
+      "category": "Geography",
+      "topic": "Deserts & Arid Regions",
+      "question": "The McMurdo Dry Valleys within this landmass are among the driest places on Earth and feature hyper-saline bodies of water such as Don Juan Pond. Although it holds nearly 70 percent of the world's fresh water in its massive ice sheet, its extremely low annual precipitation classifies it as a desert. For the point, name this southernmost continent.",
+      "options": [
+        "Antarctica",
+        "Australia",
+        "Greenland",
+        "Africa"
+      ],
+      "answer": 0,
+      "explanation": "Antarctica is technically the largest desert in the world due to its extremely low average annual precipitation."
+    },
+    {
+      "id": 8,
+      "category": "Science",
+      "topic": "Plate Tectonics",
+      "question": "Subduction zones at these locations form deep oceanic trenches and volcanic arcs, such as those forming the Pacific Ring of Fire. These zones occur when two tectonic plates move toward one another and collide, forming mountains or subducting under each other. For the point, name these tectonic plate boundaries contrasted with divergent and transform boundaries.",
+      "options": [
+        "Divergent Boundaries",
+        "Convergent Boundaries",
+        "Transform Boundaries",
+        "Fault Lines"
+      ],
+      "answer": 1,
+      "explanation": "Convergent boundaries occur where tectonic plates collide, resulting in subduction zones or mountain-building uplift."
+    },
+    {
+      "id": 9,
+      "category": "Geography",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's interior plateau includes the Ankaratra Range and its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is famous for its isolated evolution and endemic species like lemurs. For the point, name this large island nation located off the southeast coast of Africa.",
+      "options": [
+        "Madagascar",
+        "Sri Lanka",
+        "Tasmania",
+        "Mauritius"
+      ],
+      "answer": 0,
+      "explanation": "Madagascar is an island nation off the southeastern coast of mainland Africa in the Indian Ocean."
+    },
+    {
+      "id": 10,
+      "category": "Science",
+      "topic": "Thermodynamics",
+      "question": "Absolute zero on the Kelvin scale represents the theoretical point at which this property reaches its minimum possible value. According to kinetic theory, it reflects the average kinetic energy of particles within a system. For the point, name this physical property measured using the Celsius, Fahrenheit, or Kelvin scales.",
+      "options": [
+        "Pressure",
+        "Temperature",
+        "Volume",
+        "Entropy"
+      ],
+      "answer": 1,
+      "explanation": "Temperature measures the average translational kinetic energy of molecules within a system."
+    },
+    {
+      "id": 11,
+      "category": "Geography",
+      "topic": "World Capitals & Urban Centers",
+      "question": "Located at the confluence of the Kagera and Ruvubu rivers near Lake Victoria, this country's political administration shifted away from Bujumbura in 2018. The country is bordered by Rwanda, the Democratic Republic of the Congo, and Tanzania. For the point, name this East African landlocked country whose official capital city was moved to Gitega.",
+      "options": [
+        "Burundi",
+        "Rwanda",
+        "Uganda",
+        "Malawi"
+      ],
+      "answer": 0,
+      "explanation": "Burundi shifted its official capital from Bujumbura to Gitega in 2018."
+    },
+    {
+      "id": 12,
+      "category": "Science",
+      "topic": "Photosynthesis",
+      "question": "The first step of light-independent reactions in this biological process is catalyzed by the enzyme RuBisCO. It takes place within the stroma of chloroplasts where carbon dioxide is fixed into 3-phosphoglycerate molecules. For the point, name this process used by plants to convert solar energy into chemical energy in the form of glucose.",
+      "options": [
+        "Cellular Respiration",
+        "Photosynthesis",
+        "Transpiration",
+        "Glycolysis"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis consists of light-dependent reactions and the light-independent Calvin cycle catalyzed by RuBisCO in plant chloroplasts."
+    },
+    {
+      "id": 13,
+      "category": "Geography",
+      "topic": "Rivers & Hydrography",
+      "question": "Originating in the San Juan Mountains of Colorado, this river flows past Elephant Butte Dam and forms part of the border near El Paso and Ciudad Juárez. It acts as a natural boundary along the entire southern border of Texas. For the point, name this major river that forms a long portion of the international border between the United States and Mexico.",
+      "options": [
+        "Colorado River",
+        "Columbia River",
+        "Rio Grande",
+        "Missouri River"
+      ],
+      "answer": 2,
+      "explanation": "The Rio Grande originates in Colorado, flows through New Mexico, and forms the border between Texas and Mexico."
+    },
+    {
+      "id": 14,
+      "category": "Science",
+      "topic": "Velocity",
+      "question": "In specialized applications of fluid dynamics, the terminal value of this vector quantity occurs when drag force equals gravitational force on a falling object. It is mathematically defined as the derivative of position with respect to time. For the point, name this vector physical quantity that measures both the speed and direction of an object's motion.",
+      "options": [
+        "Acceleration",
+        "Velocity",
+        "Momentum",
+        "Displacement"
+      ],
+      "answer": 1,
+      "explanation": "Velocity is a vector quantity representing the rate of change of position, incorporating both speed and direction."
     },
     {
       "id": 15,
       "category": "Geography",
-      "topic": "Islands & Archipelagos",
-      "question": "Separated from the mainland by the Bass Strait, this island features Mount Ossa and the Franklin-Gordon Wild Rivers National Park. Named after the Dutch navigator Abel Tasman, its primary island hosts a famed carnivorous marsupial species. For the point, name this island state of Australia whose capital is Hobart.",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "The highest peak of this volcanic mountain range is Mount Damavand, which sits near the southern coast of the Caspian Sea. Running through northern Iran, it isolates the central Iranian plateau from northern maritime humidity. For the point, name this major mountain range located in northern Iran.",
       "options": [
-        "New Zealand",
-        "Tasmania",
-        "New Guinea",
-        "Kangaroo Island"
+        "Zagros Mountains",
+        "Alborz Mountains",
+        "Caucasus Mountains",
+        "Ural Mountains"
       ],
       "answer": 1,
-      "explanation": "Tasmania is an island state of Australia located south of the mainland across the Bass Strait, with Hobart as its capital."
+      "explanation": "The Alborz Mountains span northern Iran and contain Mount Damavand, the highest peak in the Middle East."
     },
     {
       "id": 16,
       "category": "Science",
-      "topic": "Cell Biology",
-      "question": "The endosymbiotic theory posits that these double-membraned organelles evolved from ancient aerobic alpha-proteobacteria engulfed by early eukaryotic cells. They contain an inner membrane folded into cristae where ATP synthase powers oxidative phosphorylation. For the point, name this eukaryotic organelle frequently called the powerhouse of the cell.",
+      "topic": "Thermodynamics",
+      "question": "This thermodynamic quantity measures the amount of thermal energy per unit temperature that is unavailable for doing useful work. According to the Second Law of Thermodynamics, this value in an isolated system always increases over time during spontaneous processes. For the point, name this measure of disorder or randomness in a physical system.",
       "options": [
-        "Mitochondria",
-        "Chloroplast",
-        "Golgi Apparatus",
-        "Endoplasmic Reticulum"
+        "Enthalpy",
+        "Entropy",
+        "Gibbs Free Energy",
+        "Thermal Conductivity"
       ],
-      "answer": 0,
-      "explanation": "Mitochondria produce cellular ATP via cellular respiration and cristae-bound electron transport chains, earning the nickname 'powerhouse of the cell'."
+      "answer": 1,
+      "explanation": "Entropy measures the degree of disorder or randomness in a system and increases in spontaneous isolated processes."
     },
     {
       "id": 17,
       "category": "Geography",
-      "topic": "Physical Geography",
-      "question": "The northern boundary of this biome transitions into the semi-arid Sahel region, while its interior features the Tibesti and Ahaggar mountain ranges. High atmospheric pressure causes extreme diurnal temperature swings across its vast erg sand seas and gravel plains. For the point, name this expansive landform covering northern Africa, the largest hot desert in the world.",
+      "topic": "Islands & Archipelagos",
+      "question": "Separated from the Asian mainland by the Strait of Malacca, this island contains Lake Toba, the largest volcanic lake on Earth. It is the sixth-largest island in the world and home to major cities like Medan and Palembang. For the point, name this large western Indonesian island located west of Java and Borneo.",
       "options": [
-        "Gobi Desert",
-        "Atacama Desert",
-        "Sahara Desert",
-        "Kalahari Desert"
+        "Sumatra",
+        "Sulawesi",
+        "Lombok",
+        "Mindanao"
       ],
-      "answer": 2,
-      "explanation": "The Sahara Desert spans most of North Africa, bounded south by the Sahel, making it the world's largest hot desert."
+      "answer": 0,
+      "explanation": "Sumatra is a large island in western Indonesia, famous for Lake Toba and its extensive biodiversity."
     },
     {
       "id": 18,
       "category": "Science",
-      "topic": "Acceleration",
-      "question": "According to Newton's second law of motion, this quantity is calculated by dividing net force by mass. Near Earth's surface, the standard constant value for this rate produced by gravity is approximately 9.8 meters per second squared. For the point, name this rate of change of velocity over time.",
+      "topic": "Periodic Table & Elements",
+      "question": "Denoted by the symbol W from its alternative name Wolfram, this transition metal has the highest melting point of all discovered pure metals. It is commonly alloyed to form extremely hard cutting tools and was historically used as the filament in incandescent light bulbs. For the point, name this chemical element with atomic number 74.",
       "options": [
-        "Jerk",
-        "Velocity",
-        "Acceleration",
-        "Inertia"
+        "Titanium",
+        "Tungsten",
+        "Platinum",
+        "Molybdenum"
       ],
-      "answer": 2,
-      "explanation": "Acceleration is defined as the change in velocity per unit time, famously related to force by F = ma."
+      "answer": 1,
+      "explanation": "Tungsten (symbol W, atomic number 74) possesses the highest melting point of all pure metals."
     },
     {
       "id": 19,
       "category": "Geography",
-      "topic": "World Capitals & Urban Centers",
-      "question": "This city's historic districts of Sultanahmet and Beyoğlu are separated by the Golden Horn, an inlet of the Sea of Marmara. Bisected by the Bosphorus Strait, it served historically as Byzantium and later as the capital of the Ottoman Empire. For the point, name this largest city in Turkey, famous for spanning both Europe and Asia.",
+      "topic": "Deserts & Arid Regions",
+      "question": "Formed by the rain shadow effect of the Andes mountains, this region features weather stations that have recorded no rainfall for decades. Rich in sodium nitrate and lithium deposits, it is considered the driest non-polar desert in the world. For the point, name this desert located in northern Chile.",
       "options": [
-        "Ankara",
-        "Istanbul",
-        "Athens",
-        "Izmir"
+        "Kalahari Desert",
+        "Mojave Desert",
+        "Atacama Desert",
+        "Gobi Desert"
       ],
-      "answer": 1,
-      "explanation": "Istanbul lies on both sides of the Bosphorus Strait in Turkey, historically known as Byzantium and Constantinople."
+      "answer": 2,
+      "explanation": "The Atacama Desert in Chile is recognized as the driest non-polar desert on Earth."
     },
     {
       "id": 20,
       "category": "Science",
-      "topic": "Genetics",
-      "question": "In 1952, Rosalind Franklin's Photo 51 provided pivotal X-ray diffraction images revealing the helical symmetry of this molecule. It is composed of nucleotide strands containing adenine, thymine, cytosine, and guanine base pairs linked to a sugar-phosphate backbone. For the point, name this double-helix nucleic acid that stores the hereditary information of living organisms.",
+      "topic": "Acceleration",
+      "question": "Represented by the letter g near Earth's surface, this quantity has an approximate standard value of 9.81 meters per second squared. According to Newton's second law, multiplying mass by this quantity yields net force. For the point, name this rate of change of velocity over time.",
       "options": [
-        "RNA",
-        "DNA",
-        "ATP",
-        "Protein"
+        "Velocity",
+        "Acceleration",
+        "Jerk",
+        "Force"
       ],
       "answer": 1,
-      "explanation": "DNA (deoxyribonucleic acid) forms a double-helix structure containing the genetic code for life."
+      "explanation": "Acceleration measures the rate at which an object's velocity changes over time."
     },
     {
       "id": 21,
       "category": "Geography",
       "topic": "World Capitals & Urban Centers",
-      "question": "This city's historic center contains the Zócalo, a massive public square built directly over the ruins of Tenochtitlan's Templo Mayor. Situated in the Valley of Mexico at an elevation exceeding 2,200 meters, it is surrounded by volcanic peaks like Popocatépetl. For the point, name this capital and largest city of Mexico.",
+      "question": "This city's historic district includes the neighborhood of La Candelaria and the mountaintop sanctuary of Monserrate overlooking its vast savanna. Located on a high plateau in the Eastern Cordillera of the Andes, it lies at an elevation of over 2,600 meters above sea level. For the point, name this capital city of Colombia.",
       "options": [
-        "Mexico City",
-        "Guadalajara",
-        "Monterrey",
-        "Puebla"
+        "Bogotá",
+        "Quito",
+        "Lima",
+        "Caracas"
       ],
       "answer": 0,
-      "explanation": "Mexico City was built on the ruins of Tenochtitlan, features the Zócalo, and serves as Mexico's capital."
+      "explanation": "Bogotá is the high-altitude capital city of Colombia, situated in the Andes mountains."
     },
     {
       "id": 22,
       "category": "Science",
       "topic": "Photosynthesis",
-      "question": "This metabolic pathway relies on the enzyme RuBisCO to facilitate carbon fixation during the Calvin cycle. Taking place inside membrane-bound organelles called chloroplasts, its light-dependent reactions split water molecules to produce oxygen gas. For the point, name this biological process through which green plants convert light energy into chemical energy.",
+      "question": "The light-independent reactions of this process take place within the stroma and utilize ATP and NADPH produced during the light-dependent stage. RuBisCO catalyzes the initial step of carbon fixation during its Calvin cycle. For the point, name this biological process by which green plants convert light energy into chemical energy.",
       "options": [
         "Cellular Respiration",
         "Photosynthesis",
@@ -396,27 +396,83 @@
         "Transpiration"
       ],
       "answer": 1,
-      "explanation": "Photosynthesis occurs in chloroplasts, using light energy and RuBisCO to synthesize glucose from CO2 and water."
+      "explanation": "Photosynthesis uses light energy to synthesize organic compounds from carbon dioxide and water inside plant chloroplasts."
     },
     {
       "id": 23,
       "category": "Geography",
-      "topic": "European Geography",
-      "question": "The Iron Gates gorge on this river forms a natural boundary between Serbia and Romania before it empties into the Black Sea. It flows through or forms borders for ten European nations and passes through four national capitals, including Vienna, Bratislava, Budapest, and Belgrade. For the point, name this second-longest river in Europe.",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water is fed by the Volga, Ural, and Kura Rivers and has no outlet to the open ocean, making it an endorheic basin. Bordered by five countries including Kazakhstan, Turkmenistan, and Azerbaijan, it contains major offshore oil fields such as Kashagan. For the point, name this body of water, the world's largest inland body of water by surface area.",
       "options": [
-        "Rhine River",
-        "Volga River",
-        "Danube River",
-        "Elbe River"
+        "Lake Baikal",
+        "Caspian Sea",
+        "Aral Sea",
+        "Black Sea"
       ],
-      "answer": 2,
-      "explanation": "The Danube River passes through four European capitals and empties into the Black Sea, making it Europe's second-longest river."
+      "answer": 1,
+      "explanation": "The Caspian Sea is the world's largest inland body of water, bounded by Europe and Asia."
     },
     {
       "id": 24,
       "category": "Science",
+      "topic": "Thermodynamics",
+      "question": "The absolute zero of temperature is defined as the point at which this thermodynamic property reaches a constant minimum value according to Nernst's heat theorem. Stated in the second law of thermodynamics, this state function measures the degree of randomness or disorder in a closed system. For the point, name this physical property denoted by the letter S.",
+      "options": [
+        "Enthalpy",
+        "Entropy",
+        "Gibbs Free Energy",
+        "Internal Energy"
+      ],
+      "answer": 1,
+      "explanation": "Entropy is a measure of molecular randomness in a system, quantified by the symbol S."
+    },
+    {
+      "id": 25,
+      "category": "Geography",
+      "topic": "Physical Geography",
+      "question": "Mount Pinatubo's major 1991 eruption on the island of Luzon occurred within this geologically active zone. Containing approximately 75 percent of Earth's active volcanoes, this region is shaped by subduction along oceanic trenches surrounding a ocean basin. For the point, name this horseshoe-shaped region of intense seismic and volcanic activity surrounding the Pacific Ocean.",
+      "options": [
+        "Mid-Atlantic Ridge",
+        "Ring of Fire",
+        "Great Rift Valley",
+        "Alpine Belt"
+      ],
+      "answer": 1,
+      "explanation": "The Pacific Ring of Fire is a major area in the basin of the Pacific Ocean where tectonic plates interact, causing frequent earthquakes and volcanic eruptions."
+    },
+    {
+      "id": 26,
+      "category": "Science",
+      "topic": "Genetics",
+      "question": "This molecular structure features antiparallel strands held together by hydrogen bonds between complementary purine and pyrimidine bases. First modeled by James Watson and Francis Crick using X-ray crystallography data collected by Rosalind Franklin, it carries genetic instructions in living organisms. For the point, name this double-helix nucleic acid containing deoxyribose sugar.",
+      "options": [
+        "RNA",
+        "DNA",
+        "ATP",
+        "Protein"
+      ],
+      "answer": 1,
+      "explanation": "DNA (deoxyribonucleic acid) stores genetic code in a double-stranded helical structure."
+    },
+    {
+      "id": 27,
+      "category": "Geography",
+      "topic": "Islands & Archipelagos",
+      "question": "This island is separated from the mainland by the Bass Strait and features unique native wildlife including a carnivorous marsupial named for its loud scream. Its capital city of Hobart sits near Mount Wellington and the mouth of the Derwent River. For the point, name this Australian island state located south of Victoria.",
+      "options": [
+        "Tasmania",
+        "New Zealand",
+        "Kangaroo Island",
+        "New Guinea"
+      ],
+      "answer": 0,
+      "explanation": "Tasmania is an Australian island state south of the mainland, famous for the Tasmanian devil and its capital Hobart."
+    },
+    {
+      "id": 28,
+      "category": "Science",
       "topic": "Velocity",
-      "question": "Taking the derivative of this vector quantity with respect to time yields acceleration, while its own magnitude is equal to speed. Unlike scalar speed, it incorporates directional orientation along with magnitude. For the point, name this physical quantity defined as the rate of change of displacement over time.",
+      "question": "This vector quantity is defined as the rate of change of displacement with respect to time, unlike its scalar counterpart which represents speed. Graphically, it corresponds to the derivative of position with respect to time. For the point, name this physical quantity that specifies both the speed and direction of an object in motion.",
       "options": [
         "Acceleration",
         "Velocity",
@@ -424,96 +480,40 @@
         "Force"
       ],
       "answer": 1,
-      "explanation": "Velocity is a vector quantity representing the rate of displacement per unit time, combining speed and direction."
-    },
-    {
-      "id": 25,
-      "category": "Geography",
-      "topic": "Asian Geography",
-      "question": "The vast Sundarbans mangrove forest covers the delta created by the confluence of the Brahmaputra, the Meghna, and this river. Originating from the Gangotri Glacier in the western Himalayas, it flows across northern India and Bangladesh before discharging into the Bay of Bengal. For the point, name this river sacred to Hinduism.",
-      "options": [
-        "Indus River",
-        "Mekong River",
-        "Ganges River",
-        "Yangtze River"
-      ],
-      "answer": 2,
-      "explanation": "The Ganges River forms a massive delta in Bengal alongside the Brahmaputra and is considered sacred in Hinduism."
-    },
-    {
-      "id": 26,
-      "category": "Science",
-      "topic": "Cellular Biology",
-      "question": "This organelle contains acid hydrolases that operate at an optimal pH near 4.5 to breakdown cellular waste through autophagy. Inherited defects in its functional enzymes lead to lysosomal storage disorders such as Tay-Sachs disease. For the point, name this membrane-bound organelle that acts as the primary waste degradation system in animal cells.",
-      "options": [
-        "Mitochondria",
-        "Golgi Apparatus",
-        "Lysosome",
-        "Endoplasmic Reticulum"
-      ],
-      "answer": 2,
-      "explanation": "Lysosomes are organelles containing hydrolytic enzymes responsible for digesting waste and cellular debris."
-    },
-    {
-      "id": 27,
-      "category": "Geography",
-      "topic": "African Geography",
-      "question": "This country contains a narrow salient known as the Caprivi Strip extending eastward to give it access to the Zambezi River. Bordered by Angola, Zambia, Botswana, and South Africa, its central interior features the Kalahari Desert and its capital city of Windhoek. For the point, name this nation on the southwestern coast of Africa.",
-      "options": [
-        "Namibia",
-        "Zimbabwe",
-        "Mozambique",
-        "Angola"
-      ],
-      "answer": 0,
-      "explanation": "Namibia is located in southwestern Africa, featuring Windhoek as its capital and the Caprivi Strip in its northeast."
-    },
-    {
-      "id": 28,
-      "category": "Science",
-      "topic": "Thermodynamics",
-      "question": "In an isentropic process, this thermodynamic property remains constant throughout the system. The second law of thermodynamics states that this quantity in an isolated system can never decrease over time, reflecting an increase in molecular disorder. For the point, name this thermodynamic quantity commonly denoted by the symbol S.",
-      "options": [
-        "Enthalpy",
-        "Entropy",
-        "Gibbs Free Energy",
-        "Temperature"
-      ],
-      "answer": 1,
-      "explanation": "Entropy (S) measures molecular disorder, and the second law of thermodynamics dictates that total entropy increases over time."
+      "explanation": "Velocity is a vector quantity expressing speed alongside direction of motion."
     },
     {
       "id": 29,
       "category": "Geography",
       "topic": "Physical Geography",
-      "question": "The high plateau region known as the Altiplano lies within this mountain range, which also encompasses Mount Cotopaxi and Mount Chimborazo. Home to Mount Aconcagua, the highest peak outside Asia, it extends for over 7,000 kilometers across seven South American nations. For the point, name this longest continental mountain range on Earth.",
+      "question": "This hyper-arid desert hosts the ALMA radio telescope array due to its extremely low humidity and clear skies at high altitude. Situated along the Pacific coast of South America west of the Andes, it lies within a rain shadow that prevents rainfall. For the point, name this desert in northern Chile, considered the driest non-polar desert in the world.",
       "options": [
-        "Rockies",
-        "Alps",
-        "Andes",
-        "Himalayas"
+        "Mojave Desert",
+        "Kalahari Desert",
+        "Atacama Desert",
+        "Gobi Desert"
       ],
       "answer": 2,
-      "explanation": "The Andes mountain range stretches along the entire western coast of South America and includes Mount Aconcagua."
+      "explanation": "The Atacama Desert in northern Chile is celebrated as Earth's driest non-polar desert region."
     },
     {
       "id": 30,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "According to Newton's second law of motion, this quantity is directly proportional to net force and inversely proportional to object mass. Centripetal forms of it direct objects toward the center of circular paths, while near Earth's surface, gravity imparts a standard value of 9.8 meters per second squared. For the point, name this rate of change of velocity.",
+      "question": "In uniform circular motion, this vector points directly toward the center of the circular trajectory and is termed centripetal. Defined in Newton's second law as force divided by mass, it measures the rate at which velocity changes over time. For the point, name this quantity usually expressed in meters per second squared.",
       "options": [
         "Velocity",
         "Acceleration",
         "Jerk",
-        "Force"
+        "Displacement"
       ],
       "answer": 1,
-      "explanation": "Acceleration measures the rate of change of velocity with respect to time and is equal to force divided by mass (F=ma)."
+      "explanation": "Acceleration is the rate of change of velocity per unit time, measured in m/s²."
     }
   ],
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-09 12:49:03",
+    "generated_at": "2026-09-10 01:50:54",
     "resources": [
       "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
       "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
