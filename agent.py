@@ -14,7 +14,7 @@ import requests
 def load_rules():
     rules_path = Path("rules.json")
     if not rules_path.exists():
-        raise FileNotFoundError("rules.json not found.")
+        return {"questions_per_round": 300}
     with open(rules_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -323,9 +323,11 @@ def run_ai_agent():
     print("\n🔍 STEP 3: Retrieving Competition Context")
     print("-" * 60)
 
-    total_requested = rules.get("questions_per_round", 30)
-    batch_size = 10
-    num_batches = (total_requested + batch_size - 1) // batch_size
+    modes = ["standard", "high-frequency", "flashcards", "good-to-know", "practice-specific"]
+    subjects = ["Geography", "Science"]
+    
+    # Target 30 questions per mode per subject = 300 total
+    questions_per_batch_unit = 10
 
     queries = [
         "geography bee tossup pyramidal question clues",
@@ -357,93 +359,70 @@ def run_ai_agent():
         )
 
     print(
-        f"\n🤖 STEP 4: Generating {total_requested} Pyramidal Tossup Questions"
+        f"\n🤖 STEP 4: Generating 30 Questions per Mode & Subject (300 total)"
     )
     print("-" * 60)
 
     all_quizzes = []
 
-    for batch_num in range(num_batches):
-        current_count = min(batch_size, total_requested - len(all_quizzes))
-        print(
-            f"\n   Batch {batch_num + 1}/{num_batches}: Generating {current_count} questions..."
-        )
-
-        prompt_text = f"""
+    for subject in subjects:
+        for mode in modes:
+            print(f"\n   Generating 30 questions for [{subject}] in [{mode}] mode...")
+            for batch in range(3): # 3 x 10 = 30 per mode/subject pair
+                prompt_text = f"""
 You are an official item writer for Science Bee and Geography Bee competitions.
-Your task is to create pyramidal tossup questions using the provided competition materials and topic taxonomy.
+Create 10 pyramidal tossup questions for subject '{subject}' with mode '{mode}'.
 
-REFERENCE MATERIALS FROM OFFICIAL SOURCES:
+REFERENCE MATERIALS:
 {retrieved_context}
 
 TAXONOMY & TOPICS:
 {json.dumps(topics_data, indent=2)}
 
 RULES:
-- Competition: {rules.get('competition_name', 'Science & Geography Bee')}
-- Question Structure: {rules.get('question_structure', 'Pyramidal Tossup')}
-- Format: Each question has 3-4 clues progressing from obscure/specific to obvious/general.
-- Final clue must end with "For the point, name..." or similar format.
-- Content: Focus on factual, verifiable information from academic sources.
-- Category: Alternate between GEOGRAPHY and SCIENCE topics.
-- Assign each question a "topic" string strictly matching an actual topic name from the TAXONOMY JSON above (e.g. "World Capitals & Urban Centers", "Velocity", "Acceleration", "Photosynthesis", etc.).
+- Subject: {subject}
+- Mode: {mode}
+- Question Structure: Pyramidal Tossup with 3-4 clues ending with "For the point, name..."
+- Category MUST strictly be "{subject}"
+- Mode MUST strictly be "{mode}"
+- Assign a valid "topic" string relevant to {subject}.
 
-GENERATE EXACTLY {current_count} pyramidal tossup questions.
+GENERATE EXACTLY {questions_per_batch_unit} questions.
 
 Output STRICT JSON array matching this format (NO OTHER TEXT):
 [
   {{
-    "id": 1,
-    "category": "Geography",
-    "topic": "World Capitals & Urban Centers",
-    "question": "Clue 1: [obscure reference]... Clue 2: [medium difficulty]... Clue 3: [accessible]... For the point, name...",
-    "options": ["Answer A", "Answer B", "Answer C", "Answer D"],
-    "answer": 0,
-    "explanation": "Factual explanation of why this is correct, citing the source material."
-  }},
-  {{
-    "id": 2,
-    "category": "Science",
-    "topic": "Velocity",
-    "question": "Clue 1: [specific fact]... Clue 2: [related concept]... Clue 3: [common knowledge]... For the point, name...",
+    "category": "{subject}",
+    "mode": "{mode}",
+    "topic": "Sample Topic",
+    "question": "Clue 1... Clue 2... For the point, name...",
     "options": ["Option A", "Option B", "Option C", "Option D"],
-    "answer": 1,
-    "explanation": "Scientific explanation of the correct answer."
+    "answer": 0,
+    "explanation": "Explanation here."
   }}
 ]
-
-IMPORTANT: 
-- Only return valid JSON array
-- Each question must have exactly 4 options
-- Answer index must be 0-3
-- Questions must be grounded in the competition materials provided
-- Alternate between Geography (odd IDs) and Science (even IDs) categories
 """
+                try:
+                    response = generate_with_retry(client, prompt_text)
+                    raw_text = response.text.strip()
+                    if raw_text.startswith("```"):
+                        lines = raw_text.splitlines()
+                        if lines[0].startswith("```"):
+                            lines = lines[1:]
+                        if lines and lines[-1].startswith("```"):
+                            lines = lines[:-1]
+                        raw_text = "\n".join(lines).strip()
 
-        try:
-            response = generate_with_retry(client, prompt_text)
-            
-            raw_text = response.text.strip()
-            if raw_text.startswith("```"):
-                lines = raw_text.splitlines()
-                if lines[0].startswith("```"):
-                    lines = lines[1:]
-                if lines and lines[-1].startswith("```"):
-                    lines = lines[:-1]
-                raw_text = "\n".join(lines).strip()
-
-            batch_data = json.loads(raw_text)
-            all_quizzes.extend(batch_data)
-            print(
-                f"   ✓ Generated {len(batch_data)} questions successfully"
-            )
-            time.sleep(1)
-        except json.JSONDecodeError as e:
-            print(f"   ❌ JSON parsing error: {e}")
-            continue
-        except Exception as e:
-            print(f"   ❌ Generation failed: {e}")
-            continue
+                    batch_data = json.loads(raw_text)
+                    for q in batch_data:
+                        q["category"] = subject
+                        q["mode"] = mode
+                    all_quizzes.extend(batch_data)
+                    print(f"      ✓ Batch {batch + 1}/3 complete (+{len(batch_data)} Qs)")
+                    time.sleep(1)
+                except Exception as e:
+                    print(f"      ❌ Failed batch generation: {e}")
+                    continue
 
     print("\n💾 STEP 5: Saving Quiz Data")
     print("-" * 60)
@@ -459,12 +438,8 @@ IMPORTANT:
     output_payload = {
         "rules_summary": {
             "total_questions": len(all_quizzes),
-            "max_correct_per_player": scoring_rules.get(
-                "max_correct_per_player", 6
-            ),
-            "early_penalty": scoring_rules.get(
-                "early_incorrect_penalty", -1
-            ),
+            "max_correct_per_player": scoring_rules.get("max_correct_per_player", 6),
+            "early_penalty": scoring_rules.get("early_incorrect_penalty", -1),
             "bonus_table": scoring_rules.get("bonus_structure", []),
         },
         "quizzes": all_quizzes,
@@ -484,17 +459,11 @@ IMPORTANT:
     with open("quizzes.json", "w", encoding="utf-8") as f:
         json.dump(output_payload, f, indent=2, ensure_ascii=False)
 
-    geo_count = len(
-        [q for q in all_quizzes if "Geography" in q.get("category", "")]
-    )
-    sci_count = len(
-        [q for q in all_quizzes if "Science" in q.get("category", "")]
-    )
+    geo_count = len([q for q in all_quizzes if q.get("category") == "Geography"])
+    sci_count = len([q for q in all_quizzes if q.get("category") == "Science"])
 
     print("\n" + "=" * 60)
-    print(
-        f"✅ SUCCESS! Generated {len(all_quizzes)} pyramidal tossup questions"
-    )
+    print(f"✅ SUCCESS! Generated {len(all_quizzes)} pyramidal tossup questions")
     print("📄 Saved to: quizzes.json")
     print(f"📊 Categories: {geo_count} Geography, {sci_count} Science")
     print("=" * 60)
