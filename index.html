@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Academic Bee Prep & Practice Agent</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
   <style>
     .custom-scrollbar::-webkit-scrollbar { width: 4px; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
@@ -204,7 +204,6 @@
     let currentIdx = 0;
     let isFlashcardMode = false;
 
-    // Cache-busting data loader to ensure fresh fetches every browser load
     async function loadQuizData() {
       try {
         const timestamp = new Date().getTime();
@@ -213,7 +212,7 @@
           fetch(`./topics.json?t=${timestamp}`, { cache: 'no-store' }).catch(() => null)
         ]);
 
-        if (!quizRes.ok) throw new Error(`quizzes.json returned status ${quizRes.status}`);
+        if (!quizRes.ok) throw new Error(`quizzes.json status: ${quizRes.status}`);
 
         const rawQuiz = await quizRes.json();
         allData = Array.isArray(rawQuiz) ? rawQuiz : (rawQuiz.quizzes || rawQuiz.data || []);
@@ -230,7 +229,6 @@
       }
     }
 
- // Render Study Hub topics cloud
     function renderStudyHub() {
       const container = document.getElementById('full-topic-cloud');
       const countTag = document.getElementById('topic-count-tag');
@@ -241,14 +239,12 @@
       if (Array.isArray(topicsData)) {
         topicsList = topicsData;
       } else if (topicsData && typeof topicsData === 'object') {
-        // Flatten nested categories (ignoring 'metadata')
         Object.entries(topicsData).forEach(([key, val]) => {
           if (key.toLowerCase() === 'metadata') return;
 
           if (Array.isArray(val)) {
             topicsList.push(...val);
           } else if (typeof val === 'object' && val !== null) {
-            // Handle nested objects where keys/values might be topic names or arrays
             Object.values(val).forEach(item => {
               if (Array.isArray(item)) topicsList.push(...item);
               else topicsList.push(item);
@@ -257,9 +253,7 @@
         });
       }
 
-      if (countTag) {
-        countTag.innerText = `${topicsList.length} Topics`;
-      }
+      if (countTag) countTag.innerText = `${topicsList.length} Topics`;
 
       if (topicsList.length === 0) {
         container.innerHTML = '<span class="text-xs text-slate-500 italic">No study topics available.</span>';
@@ -278,7 +272,7 @@
         `;
       }).join('');
     }
-    // Search filter function for Study Hub
+
     function filterTopicCloud() {
       const query = (document.getElementById('topic-search-input')?.value || '').toLowerCase();
       const pills = document.querySelectorAll('#full-topic-cloud .topic-pill');
@@ -289,18 +283,20 @@
       });
     }
 
-    // Flexible topic pill renderer with fallback
     function renderTopicPills() {
       const getTopics = (subject) => {
         let matches = allData.filter(item => {
           const cat = (item.category || item.subject || '').toLowerCase();
-          return cat === subject.toLowerCase();
+          const mode = (item.mode || '').toLowerCase();
+          return cat === subject.toLowerCase() && mode === 'practice-specific';
         });
 
-        let practiceItems = matches.filter(item => item.mode === 'practice-specific');
-        const finalItems = practiceItems.length > 0 ? practiceItems : matches.slice(0, 30);
+        if (matches.length === 0) {
+          matches = allData.filter(item => (item.category || item.subject || '').toLowerCase() === subject.toLowerCase());
+        }
 
-        return finalItems.map(item => item.topic || item.name || 'Topic').filter(Boolean);
+        const uniqueTopics = Array.from(new Set(matches.map(item => item.topic || item.name).filter(Boolean)));
+        return uniqueTopics.slice(0, 30);
       };
 
       renderPills('geo-topics', getTopics('Geography'), 'Geography');
@@ -333,7 +329,9 @@
       });
 
       if (activeSet.length === 0) {
-        activeSet = allData.filter(q => (q.category || q.subject || '').toLowerCase() === subject.toLowerCase());
+        activeSet = allData.filter(q => (q.category || q.subject || '').toLowerCase() === subject.toLowerCase()).slice(0, 30);
+      } else {
+        activeSet = activeSet.slice(0, 30);
       }
 
       currentIdx = 0;
@@ -346,6 +344,7 @@
 
     function launchMode(subject, mode) {
       isFlashcardMode = (mode === 'flashcards');
+      
       activeSet = allData.filter(q => {
         const cat = (q.category || q.subject || '').toLowerCase();
         const m = (q.mode || '').toLowerCase();
@@ -353,7 +352,9 @@
       });
 
       if (activeSet.length === 0) {
-        activeSet = allData.filter(q => (q.category || q.subject || '').toLowerCase() === subject.toLowerCase());
+        activeSet = allData.filter(q => (q.category || q.subject || '').toLowerCase() === subject.toLowerCase()).slice(0, 30);
+      } else {
+        activeSet = activeSet.slice(0, 30);
       }
 
       currentIdx = 0;
