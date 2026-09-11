@@ -230,17 +230,31 @@
       }
     }
 
-    // Render Study Hub topics cloud
+ // Render Study Hub topics cloud
     function renderStudyHub() {
       const container = document.getElementById('full-topic-cloud');
       const countTag = document.getElementById('topic-count-tag');
       if (!container) return;
 
       let topicsList = [];
+
       if (Array.isArray(topicsData)) {
         topicsList = topicsData;
       } else if (topicsData && typeof topicsData === 'object') {
-        topicsList = Object.keys(topicsData);
+        // Flatten nested categories (ignoring 'metadata')
+        Object.entries(topicsData).forEach(([key, val]) => {
+          if (key.toLowerCase() === 'metadata') return;
+
+          if (Array.isArray(val)) {
+            topicsList.push(...val);
+          } else if (typeof val === 'object' && val !== null) {
+            // Handle nested objects where keys/values might be topic names or arrays
+            Object.values(val).forEach(item => {
+              if (Array.isArray(item)) topicsList.push(...item);
+              else topicsList.push(item);
+            });
+          }
+        });
       }
 
       if (countTag) {
@@ -253,16 +267,17 @@
       }
 
       container.innerHTML = topicsList.map(topic => {
-        const topicName = typeof topic === 'string' ? topic : (topic.name || topic.title || 'Topic');
+        const topicName = typeof topic === 'string' ? topic : (topic.name || topic.title || topic.topic || 'Topic');
+        const subject = typeof topic === 'object' && topic.category ? topic.category : 'Geography';
+
         return `
-          <button onclick="filterByTopic('Geography', '${topicName.replace(/'/g, "\\'")}')" 
+          <button onclick="filterByTopic('${subject}', '${topicName.replace(/'/g, "\\'")}')" 
             class="topic-pill text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
             ${topicName}
           </button>
         `;
       }).join('');
     }
-
     // Search filter function for Study Hub
     function filterTopicCloud() {
       const query = (document.getElementById('topic-search-input')?.value || '').toLowerCase();
