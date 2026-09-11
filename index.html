@@ -204,47 +204,59 @@
     let currentIdx = 0;
     let isFlashcardMode = false;
 
-    async function loadQuizData() {
-      try {
-        const [quizRes, topicRes] = await Promise.all([
-          fetch('quizzes.json'),
-          fetch('topics.json').catch(() => null)
-        ]);
+  async function loadAndRenderTopics() {
+  try {
+    const quizRes = await fetch('quizzes.json');
+    const rawData = await quizRes.json();
+    
+    // Extract array if wrapped inside an object (e.g., { "quizzes": [...] })
+    const allItems = Array.isArray(rawData) ? rawData : (rawData.quizzes || rawData.data || []);
 
-        if (!quizRes.ok) throw new Error('quizzes.json not found');
-        const jsonPayload = await quizRes.json();
-        allData = jsonPayload.quizzes || [];
+    const getTopics = (subject) => {
+      // Filter by category/subject (case-insensitive)
+      let matches = allItems.filter(item => {
+        const cat = (item.category || item.subject || '').toLowerCase();
+        return cat === subject.toLowerCase();
+      });
 
-        if (topicRes && topicRes.ok) {
-          topicsData = await topicRes.json();
-        }
-        renderTopicPills();
-        updateStats();
-      } catch (err) {
-        console.error('Failed to load quiz data:', err);
-      }
-    }
+      // Filter by practice-specific mode if available
+      let practiceItems = matches.filter(item => item.mode === 'practice-specific');
+      
+      // Fallback: If no items match 'practice-specific', take the first 30 items for that subject
+      const finalItems = practiceItems.length > 0 ? practiceItems : matches.slice(0, 30);
 
-    function renderTopicPills() {
-      const geoContainer = document.getElementById('geo-topics');
-      const sciContainer = document.getElementById('sci-topics');
+      return finalItems.map(item => item.topic || item.name || 'Topic').filter(Boolean);
+    };
 
-      const geoItems = allData.filter(q => q.category.toLowerCase() === 'geography' && q.mode === 'practice-specific');
-      const sciItems = allData.filter(q => q.category.toLowerCase() === 'science' && q.mode === 'practice-specific');
+    renderPills('geo-topics', getTopics('Geography'), 'Geography');
+    renderPills('sci-topics', getTopics('Science'), 'Science');
 
-      if (geoContainer) {
-        geoContainer.innerHTML = geoItems.map(t => 
-          `<button onclick="filterByTopic('Geography', '${t.topic}')" class="text-[10px] bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2 py-1 rounded border border-slate-700">${t.topic}</button>`
-        ).join('');
-      }
+  } catch (err) {
+    console.error('Error rendering topics:', err);
+  }
+}
 
-      if (sciContainer) {
-        sciContainer.innerHTML = sciItems.map(t => 
-          `<button onclick="filterByTopic('Science', '${t.topic}')" class="text-[10px] bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2 py-1 rounded border border-slate-700">${t.topic}</button>`
-        ).join('');
-      }
-    }
+function renderPills(containerId, topics, category) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
 
+  if (topics.length === 0) {
+    container.innerHTML = '<span class="text-xs text-slate-500">No topics available</span>';
+    return;
+  }
+
+  container.innerHTML = topics.map(topic => `
+    <button 
+      onclick="filterByTopic('${category}', '${topic.replace(/'/g, "\\'")}')" 
+      class="text-[10px] bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2 py-1 rounded border border-slate-700 transition-colors">
+      ${topic}
+    </button>
+  `).join('');
+}
+
+// Call function on page load
+document.addEventListener('DOMContentLoaded', loadAndRenderTopics);
+    
     function launchMode(subject, mode) {
       isFlashcardMode = (mode === 'flashcards');
       activeSet = allData.filter(q => 
