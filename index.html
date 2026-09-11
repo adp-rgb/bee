@@ -223,10 +223,55 @@
         }
 
         renderTopicPills();
+        renderStudyHub();
         updateStats();
       } catch (err) {
         console.error('Failed to load quiz data:', err);
       }
+    }
+
+    // Render Study Hub topics cloud
+    function renderStudyHub() {
+      const container = document.getElementById('full-topic-cloud');
+      const countTag = document.getElementById('topic-count-tag');
+      if (!container) return;
+
+      let topicsList = [];
+      if (Array.isArray(topicsData)) {
+        topicsList = topicsData;
+      } else if (topicsData && typeof topicsData === 'object') {
+        topicsList = Object.keys(topicsData);
+      }
+
+      if (countTag) {
+        countTag.innerText = `${topicsList.length} Topics`;
+      }
+
+      if (topicsList.length === 0) {
+        container.innerHTML = '<span class="text-xs text-slate-500 italic">No study topics available.</span>';
+        return;
+      }
+
+      container.innerHTML = topicsList.map(topic => {
+        const topicName = typeof topic === 'string' ? topic : (topic.name || topic.title || 'Topic');
+        return `
+          <button onclick="filterByTopic('Geography', '${topicName.replace(/'/g, "\\'")}')" 
+            class="topic-pill text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+            ${topicName}
+          </button>
+        `;
+      }).join('');
+    }
+
+    // Search filter function for Study Hub
+    function filterTopicCloud() {
+      const query = (document.getElementById('topic-search-input')?.value || '').toLowerCase();
+      const pills = document.querySelectorAll('#full-topic-cloud .topic-pill');
+      
+      pills.forEach(pill => {
+        const match = pill.textContent.toLowerCase().includes(query);
+        pill.style.display = match ? 'inline-block' : 'none';
+      });
     }
 
     // Flexible topic pill renderer with fallback
