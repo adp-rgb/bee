@@ -94,88 +94,172 @@
       "id": 1,
       "category": "Geography",
       "topic": "World Capitals & Urban Centers",
-      "question": "This city's historic core contains the district of Sultanahmet and the ancient Byzantine Hippodrome. Located on both sides of the Bosporus strait, it was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "question": "This city's historic district includes the ancient Byzantine Hippodrome and the historic neighborhood surrounding the Hagia Sophia. Located along a major waterway dividing two continents, it was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
       "options": [
-        "Istanbul",
         "Ankara",
+        "Istanbul",
         "Izmir",
-        "Bursa"
+        "Athens"
       ],
-      "answer": 0,
-      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was previously known as Byzantium and Constantinople."
+      "answer": 1,
+      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was historically known as Byzantium and Constantinople."
     },
     {
       "id": 2,
+      "category": "Science",
+      "topic": "Photosynthesis",
+      "question": "During the light-independent reactions of this process, carbon dioxide fixation is catalyzed by the enzyme RuBisCO within the stroma. This biological pathway utilizes chlorophyll pigments to absorb solar radiation and splits water molecules to generate oxygen gas. For the point, name this process by which green plants convert light energy into chemical energy.",
+      "options": [
+        "Cellular Respiration",
+        "Photosynthesis",
+        "Fermentation",
+        "Transpiration"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis converts solar energy, carbon dioxide, and water into glucose and oxygen inside plant chloroplasts."
+    },
+    {
+      "id": 3,
+      "category": "Geography",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Gobi Desert",
+        "Kalahari Desert",
+        "Atacama Desert",
+        "Mojave Desert"
+      ],
+      "answer": 2,
+      "explanation": "The Atacama Desert in northern Chile is formed by the rain shadow of the Andes and is recognized as the driest non-polar desert on Earth."
+    },
+    {
+      "id": 4,
+      "category": "Science",
+      "topic": "Velocity",
+      "question": "In fluid dynamics, the terminal value of this vector quantity occurs when the drag force equals the gravitational force acting on a falling body. Mathematically defined as the first derivative of position with respect to time, it accounts for both magnitude and direction. For the point, name this physical vector quantity defined as the rate of change of displacement.",
+      "options": [
+        "Acceleration",
+        "Velocity",
+        "Speed",
+        "Momentum"
+      ],
+      "answer": 1,
+      "explanation": "Velocity is a physical vector quantity representing both the speed and direction of an object's motion."
+    },
+    {
+      "id": 5,
+      "category": "Geography",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species. For the point, name this large island nation located off the southeastern coast of mainland Africa.",
+      "options": [
+        "Mauritius",
+        "Madagascar",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 1,
+      "explanation": "Madagascar is an island nation off the southeast coast of Africa separated by the Mozambique Channel, famous for endemic wildlife like lemurs."
+    },
+    {
+      "id": 6,
+      "category": "Science",
+      "topic": "Cell Biology",
+      "question": "This organelle contains inner membrane folds called cristae that maximize the surface area available for ATP synthase during oxidative phosphorylation. Because it retains its own independent circular DNA and ribosomes, it serves as primary evidence for the endosymbiotic theory. For the point, name this double-membraned organelle commonly nicknamed the powerhouse of the cell.",
+      "options": [
+        "Ribosome",
+        "Golgi Apparatus",
+        "Mitochondrion",
+        "Endoplasmic Reticulum"
+      ],
+      "answer": 2,
+      "explanation": "Mitochondria generate energy in the form of ATP via respiration and possess their own distinct circular DNA."
+    },
+    {
+      "id": 7,
+      "category": "Geography",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water is fed by major rivers such as the Volga, Ural, and Kura, but lacks any natural outlets, making it an endorheic basin. Classified geologically as the world's largest lake by surface area, it holds significant offshore petroleum fields like Kashagan. For the point, name this landlocked saline sea bordered by Russia, Iran, Kazakhstan, Turkmenistan, and Azerbaijan.",
+      "options": [
+        "Aral Sea",
+        "Black Sea",
+        "Caspian Sea",
+        "Lake Baikal"
+      ],
+      "answer": 2,
+      "explanation": "The Caspian Sea is the world's largest inland body of water by surface area, bounded by Russia, Iran, Kazakhstan, Turkmenistan, and Azerbaijan."
+    },
+    {
+      "id": 8,
+      "category": "Science",
+      "topic": "Thermodynamics",
+      "question": "According to Nernst's heat theorem, this thermodynamic state function approaches a constant minimum value as temperature reaches absolute zero. Stated in the second law of thermodynamics, its value in an isolated system always increases during spontaneous processes. For the point, name this measure of disorder or randomness in a physical system, often denoted by the letter S.",
+      "options": [
+        "Enthalpy",
+        "Entropy",
+        "Gibbs Free Energy",
+        "Heat Capacity"
+      ],
+      "answer": 1,
+      "explanation": "Entropy (denoted by S) quantifies the degree of disorder or randomness within a system, which increases in isolated systems during spontaneous processes."
+    },
+    {
+      "id": 9,
+      "category": "Geography",
+      "topic": "Physical Geography",
+      "question": "This expansive geographic region includes the hyper-saline Lake Natron and the Danakil Depression, one of the lowest and hottest places on Earth. Formed by the tectonic divergence of the African and Arabian plates, it extends thousands of kilometers southwards from the Middle East to Mozambique. For the point, name this massive continuous trench running through East Africa.",
+      "options": [
+        "Great Rift Valley",
+        "Mariana Trench",
+        "Mid-Atlantic Ridge",
+        "Red Sea Rift"
+      ],
+      "answer": 0,
+      "explanation": "The Great Rift Valley is a continuous geological trench formed by tectonic plate divergence running through East Africa."
+    },
+    {
+      "id": 10,
+      "category": "Science",
+      "topic": "Periodic Table & Elements",
+      "question": "Denoted historically by the alternative name Wolfram, this transition metal exhibits the highest melting point of all pure non-alloyed metals at over 3,400 degrees Celsius. Due to its exceptional hardness and heat resistance, it was historically used to construct filaments in incandescent light bulbs. For the point, name this chemical element with atomic number 74 and symbol W.",
+      "options": [
+        "Titanium",
+        "Tungsten",
+        "Tantalum",
+        "Platinum"
+      ],
+      "answer": 1,
+      "explanation": "Tungsten (symbol W, atomic number 74) has the highest melting point of all pure metals and was historically used for incandescent light bulb filaments."
+    },
+    {
+      "id": 11,
+      "category": "Geography",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic core contains the district of Sultanahmet and the ancient Byzantine Hippodrome. Located on both sides of the Bosporus strait, it was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Istanbul",
+        "Izmir",
+        "Bursa"
+      ],
+      "answer": 1,
+      "explanation": "Istanbul spans the Bosporus Strait connecting Europe and Asia, and was formerly known as Byzantium and Constantinople."
+    },
+    {
+      "id": 12,
       "category": "Science",
       "topic": "Photosynthesis",
       "question": "During the light-independent reactions of this process, the enzyme RuBisCO fixes carbon dioxide within the stroma of chloroplasts. It relies on chlorophyll pigments to absorb solar energy and uses water to generate glucose and oxygen gas. For the point, name this process by which green plants convert light energy into chemical energy.",
       "options": [
         "Cellular Respiration",
         "Photosynthesis",
-        "Transpiration",
-        "Fermentation"
+        "Fermentation",
+        "Transpiration"
       ],
       "answer": 1,
-      "explanation": "Photosynthesis converts light energy, water, and carbon dioxide into glucose and oxygen inside chloroplasts."
+      "explanation": "Photosynthesis is the metabolic process in chloroplasts using light, water, and CO2 to yield glucose and oxygen."
     },
     {
-      "id": 3,
-      "category": "Geography",
-      "topic": "Physical Geography",
-      "question": "This geographical region includes the Danakil Depression, one of the lowest and hottest places on Earth. Formed by the divergence of the African and Arabian tectonic plates, it extends thousands of kilometers from Syria southwards to Mozambique. For the point, name this massive continuous trench running through East Africa.",
-      "options": [
-        "Great Rift Valley",
-        "Grand Canyon",
-        "Mariana Trench",
-        "Mid-Atlantic Ridge"
-      ],
-      "answer": 0,
-      "explanation": "The Great Rift Valley is a continuous geological trench formed by tectonic plate divergence through East Africa."
-    },
-    {
-      "id": 4,
-      "category": "Science",
-      "topic": "Velocity",
-      "question": "The time derivative of this quantity equals acceleration, while integrating it over time yields an object's overall displacement. Unlike speed, this property accounts for both magnitude and direction, defining it as a vector quantity. For the point, name this physical vector quantity defined as the rate of change of position.",
-      "options": [
-        "Acceleration",
-        "Velocity",
-        "Momentum",
-        "Force"
-      ],
-      "answer": 1,
-      "explanation": "Velocity is a vector quantity that represents the rate and direction of an object's motion."
-    },
-    {
-      "id": 5,
-      "category": "Geography",
-      "topic": "Rivers & Lakes",
-      "question": "This body of water receives flow from the Volga and Ural rivers but lacks any natural outlets, making it an endorheic basin. Geologically classified as the world's largest lake by surface area, its waters are partially saline. For the point, name this landlocked sea bordered by Russia, Kazakhstan, Turkmenistan, Iran, and Azerbaijan.",
-      "options": [
-        "Black Sea",
-        "Caspian Sea",
-        "Aral Sea",
-        "Lake Baikal"
-      ],
-      "answer": 1,
-      "explanation": "The Caspian Sea is the world's largest inland body of water, bounded by Russia, Iran, and three Central Asian nations."
-    },
-    {
-      "id": 6,
-      "category": "Science",
-      "topic": "Cell Biology",
-      "question": "This organelle contains inner membrane folds called cristae that increase surface area for ATP synthase during the electron transport chain. It possesses its own independent circular DNA, supporting the endosymbiotic theory of its evolution. For the point, name this double-membraned organelle commonly called the powerhouse of the cell.",
-      "options": [
-        "Ribosome",
-        "Mitochondrion",
-        "Golgi Apparatus",
-        "Endoplasmic Reticulum"
-      ],
-      "answer": 1,
-      "explanation": "Mitochondria generate cellular energy in the form of ATP via aerobic respiration and are known as cellular powerhouses."
-    },
-    {
-      "id": 7,
+      "id": 13,
       "category": "Geography",
       "topic": "Deserts & Arid Regions",
       "question": "The McMurdo Dry Valleys within this landmass are among the driest places on Earth and feature hyper-saline bodies of water such as Don Juan Pond. Although it holds nearly 70 percent of the world's fresh water in its massive ice sheet, its extremely low annual precipitation classifies it as a desert. For the point, name this southernmost continent.",
@@ -186,119 +270,35 @@
         "Africa"
       ],
       "answer": 0,
-      "explanation": "Antarctica is technically the largest desert in the world due to its extremely low average annual precipitation."
-    },
-    {
-      "id": 8,
-      "category": "Science",
-      "topic": "Plate Tectonics",
-      "question": "Subduction zones at these locations form deep oceanic trenches and volcanic arcs, such as those forming the Pacific Ring of Fire. These zones occur when two tectonic plates move toward one another and collide, forming mountains or subducting under each other. For the point, name these tectonic plate boundaries contrasted with divergent and transform boundaries.",
-      "options": [
-        "Divergent Boundaries",
-        "Convergent Boundaries",
-        "Transform Boundaries",
-        "Fault Lines"
-      ],
-      "answer": 1,
-      "explanation": "Convergent boundaries occur where tectonic plates collide, resulting in subduction zones or mountain-building uplift."
-    },
-    {
-      "id": 9,
-      "category": "Geography",
-      "topic": "Islands & Archipelagos",
-      "question": "This island's interior plateau includes the Ankaratra Range and its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is famous for its isolated evolution and endemic species like lemurs. For the point, name this large island nation located off the southeast coast of Africa.",
-      "options": [
-        "Madagascar",
-        "Sri Lanka",
-        "Tasmania",
-        "Mauritius"
-      ],
-      "answer": 0,
-      "explanation": "Madagascar is an island nation off the southeastern coast of mainland Africa in the Indian Ocean."
-    },
-    {
-      "id": 10,
-      "category": "Science",
-      "topic": "Thermodynamics",
-      "question": "Absolute zero on the Kelvin scale represents the theoretical point at which this property reaches its minimum possible value. According to kinetic theory, it reflects the average kinetic energy of particles within a system. For the point, name this physical property measured using the Celsius, Fahrenheit, or Kelvin scales.",
-      "options": [
-        "Pressure",
-        "Temperature",
-        "Volume",
-        "Entropy"
-      ],
-      "answer": 1,
-      "explanation": "Temperature measures the average translational kinetic energy of molecules within a system."
-    },
-    {
-      "id": 11,
-      "category": "Geography",
-      "topic": "World Capitals & Urban Centers",
-      "question": "Located at the confluence of the Kagera and Ruvubu rivers near Lake Victoria, this country's political administration shifted away from Bujumbura in 2018. The country is bordered by Rwanda, the Democratic Republic of the Congo, and Tanzania. For the point, name this East African landlocked country whose official capital city was moved to Gitega.",
-      "options": [
-        "Burundi",
-        "Rwanda",
-        "Uganda",
-        "Malawi"
-      ],
-      "answer": 0,
-      "explanation": "Burundi shifted its official capital from Bujumbura to Gitega in 2018."
-    },
-    {
-      "id": 12,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "The first step of light-independent reactions in this biological process is catalyzed by the enzyme RuBisCO. It takes place within the stroma of chloroplasts where carbon dioxide is fixed into 3-phosphoglycerate molecules. For the point, name this process used by plants to convert solar energy into chemical energy in the form of glucose.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Transpiration",
-        "Glycolysis"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis consists of light-dependent reactions and the light-independent Calvin cycle catalyzed by RuBisCO in plant chloroplasts."
-    },
-    {
-      "id": 13,
-      "category": "Geography",
-      "topic": "Rivers & Hydrography",
-      "question": "Originating in the San Juan Mountains of Colorado, this river flows past Elephant Butte Dam and forms part of the border near El Paso and Ciudad Juárez. It acts as a natural boundary along the entire southern border of Texas. For the point, name this major river that forms a long portion of the international border between the United States and Mexico.",
-      "options": [
-        "Colorado River",
-        "Columbia River",
-        "Rio Grande",
-        "Missouri River"
-      ],
-      "answer": 2,
-      "explanation": "The Rio Grande originates in Colorado, flows through New Mexico, and forms the border between Texas and Mexico."
+      "explanation": "Antarctica is geographically classified as the largest desert in the world due to extremely low annual precipitation rates."
     },
     {
       "id": 14,
       "category": "Science",
-      "topic": "Velocity",
-      "question": "In specialized applications of fluid dynamics, the terminal value of this vector quantity occurs when drag force equals gravitational force on a falling object. It is mathematically defined as the derivative of position with respect to time. For the point, name this vector physical quantity that measures both the speed and direction of an object's motion.",
+      "topic": "Cell Biology",
+      "question": "This organelle contains inner membrane folds called cristae that increase surface area for ATP synthase during the electron transport chain. It possesses its own independent circular DNA, supporting the endosymbiotic theory of its evolution. For the point, name this double-membraned organelle commonly called the powerhouse of the cell.",
       "options": [
-        "Acceleration",
-        "Velocity",
-        "Momentum",
-        "Displacement"
+        "Endoplasmic Reticulum",
+        "Golgi Apparatus",
+        "Mitochondrion",
+        "Lysosome"
       ],
-      "answer": 1,
-      "explanation": "Velocity is a vector quantity representing the rate of change of position, incorporating both speed and direction."
+      "answer": 2,
+      "explanation": "Mitochondria generate cellular energy via ATP synthesis along the inner membrane cristae and contain their own mtDNA."
     },
     {
       "id": 15,
       "category": "Geography",
-      "topic": "Mountain Ranges & Volcanoes",
-      "question": "The highest peak of this volcanic mountain range is Mount Damavand, which sits near the southern coast of the Caspian Sea. Running through northern Iran, it isolates the central Iranian plateau from northern maritime humidity. For the point, name this major mountain range located in northern Iran.",
+      "topic": "Islands & Archipelagos",
+      "question": "Separated from the Asian mainland by the Strait of Malacca, this island contains Lake Toba, the largest volcanic lake on Earth. It is the sixth-largest island in the world and home to major cities like Medan and Palembang. For the point, name this large western Indonesian island located west of Java and Borneo.",
       "options": [
-        "Zagros Mountains",
-        "Alborz Mountains",
-        "Caucasus Mountains",
-        "Ural Mountains"
+        "Sulawesi",
+        "Sumatra",
+        "Java",
+        "Lombok"
       ],
       "answer": 1,
-      "explanation": "The Alborz Mountains span northern Iran and contain Mount Damavand, the highest peak in the Middle East."
+      "explanation": "Sumatra is a major island of Indonesia, home to Lake Toba and bounded by the Strait of Malacca."
     },
     {
       "id": 16,
@@ -309,24 +309,24 @@
         "Enthalpy",
         "Entropy",
         "Gibbs Free Energy",
-        "Thermal Conductivity"
+        "Heat Capacity"
       ],
       "answer": 1,
-      "explanation": "Entropy measures the degree of disorder or randomness in a system and increases in spontaneous isolated processes."
+      "explanation": "Entropy (S) quantifies the molecular disorder or randomness of a system and increases in spontaneous processes."
     },
     {
       "id": 17,
       "category": "Geography",
-      "topic": "Islands & Archipelagos",
-      "question": "Separated from the Asian mainland by the Strait of Malacca, this island contains Lake Toba, the largest volcanic lake on Earth. It is the sixth-largest island in the world and home to major cities like Medan and Palembang. For the point, name this large western Indonesian island located west of Java and Borneo.",
+      "topic": "Physical Geography",
+      "question": "This geographical region includes the Danakil Depression, one of the lowest and hottest places on Earth. Formed by the divergence of the African and Arabian tectonic plates, it extends thousands of kilometers from Syria southwards to Mozambique. For the point, name this massive continuous trench running through East Africa.",
       "options": [
-        "Sumatra",
-        "Sulawesi",
-        "Lombok",
-        "Mindanao"
+        "Great Rift Valley",
+        "Mid-Atlantic Ridge",
+        "Mariana Trench",
+        "Atlas Mountains"
       ],
       "answer": 0,
-      "explanation": "Sumatra is a large island in western Indonesia, famous for Lake Toba and its extensive biodiversity."
+      "explanation": "The Great Rift Valley is a continuous tectonic trench system formed by divergent plate boundaries in East Africa."
     },
     {
       "id": 18,
@@ -335,113 +335,29 @@
       "question": "Denoted by the symbol W from its alternative name Wolfram, this transition metal has the highest melting point of all discovered pure metals. It is commonly alloyed to form extremely hard cutting tools and was historically used as the filament in incandescent light bulbs. For the point, name this chemical element with atomic number 74.",
       "options": [
         "Titanium",
-        "Tungsten",
         "Platinum",
+        "Tungsten",
         "Molybdenum"
       ],
-      "answer": 1,
-      "explanation": "Tungsten (symbol W, atomic number 74) possesses the highest melting point of all pure metals."
+      "answer": 2,
+      "explanation": "Tungsten (W, atomic number 74) has the highest melting point of any metallic element."
     },
     {
       "id": 19,
       "category": "Geography",
-      "topic": "Deserts & Arid Regions",
-      "question": "Formed by the rain shadow effect of the Andes mountains, this region features weather stations that have recorded no rainfall for decades. Rich in sodium nitrate and lithium deposits, it is considered the driest non-polar desert in the world. For the point, name this desert located in northern Chile.",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "The highest peak of this volcanic mountain range is Mount Damavand, which sits near the southern coast of the Caspian Sea. Running through northern Iran, it isolates the central Iranian plateau from northern maritime humidity. For the point, name this major mountain range located in northern Iran.",
       "options": [
-        "Kalahari Desert",
-        "Mojave Desert",
-        "Atacama Desert",
-        "Gobi Desert"
+        "Zagros Mountains",
+        "Alborz Mountains",
+        "Caucasus Mountains",
+        "Hindu Kush"
       ],
-      "answer": 2,
-      "explanation": "The Atacama Desert in Chile is recognized as the driest non-polar desert on Earth."
+      "answer": 1,
+      "explanation": "The Alborz mountain range in northern Iran contains Mount Damavand, the highest peak in the Middle East."
     },
     {
       "id": 20,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "Represented by the letter g near Earth's surface, this quantity has an approximate standard value of 9.81 meters per second squared. According to Newton's second law, multiplying mass by this quantity yields net force. For the point, name this rate of change of velocity over time.",
-      "options": [
-        "Velocity",
-        "Acceleration",
-        "Jerk",
-        "Force"
-      ],
-      "answer": 1,
-      "explanation": "Acceleration measures the rate at which an object's velocity changes over time."
-    },
-    {
-      "id": 21,
-      "category": "Geography",
-      "topic": "World Capitals & Urban Centers",
-      "question": "This city's historic district includes the neighborhood of La Candelaria and the mountaintop sanctuary of Monserrate overlooking its vast savanna. Located on a high plateau in the Eastern Cordillera of the Andes, it lies at an elevation of over 2,600 meters above sea level. For the point, name this capital city of Colombia.",
-      "options": [
-        "Bogotá",
-        "Quito",
-        "Lima",
-        "Caracas"
-      ],
-      "answer": 0,
-      "explanation": "Bogotá is the high-altitude capital city of Colombia, situated in the Andes mountains."
-    },
-    {
-      "id": 22,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "The light-independent reactions of this process take place within the stroma and utilize ATP and NADPH produced during the light-dependent stage. RuBisCO catalyzes the initial step of carbon fixation during its Calvin cycle. For the point, name this biological process by which green plants convert light energy into chemical energy.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Fermentation",
-        "Transpiration"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis uses light energy to synthesize organic compounds from carbon dioxide and water inside plant chloroplasts."
-    },
-    {
-      "id": 23,
-      "category": "Geography",
-      "topic": "Rivers & Lakes",
-      "question": "This body of water is fed by the Volga, Ural, and Kura Rivers and has no outlet to the open ocean, making it an endorheic basin. Bordered by five countries including Kazakhstan, Turkmenistan, and Azerbaijan, it contains major offshore oil fields such as Kashagan. For the point, name this body of water, the world's largest inland body of water by surface area.",
-      "options": [
-        "Lake Baikal",
-        "Caspian Sea",
-        "Aral Sea",
-        "Black Sea"
-      ],
-      "answer": 1,
-      "explanation": "The Caspian Sea is the world's largest inland body of water, bounded by Europe and Asia."
-    },
-    {
-      "id": 24,
-      "category": "Science",
-      "topic": "Thermodynamics",
-      "question": "The absolute zero of temperature is defined as the point at which this thermodynamic property reaches a constant minimum value according to Nernst's heat theorem. Stated in the second law of thermodynamics, this state function measures the degree of randomness or disorder in a closed system. For the point, name this physical property denoted by the letter S.",
-      "options": [
-        "Enthalpy",
-        "Entropy",
-        "Gibbs Free Energy",
-        "Internal Energy"
-      ],
-      "answer": 1,
-      "explanation": "Entropy is a measure of molecular randomness in a system, quantified by the symbol S."
-    },
-    {
-      "id": 25,
-      "category": "Geography",
-      "topic": "Physical Geography",
-      "question": "Mount Pinatubo's major 1991 eruption on the island of Luzon occurred within this geologically active zone. Containing approximately 75 percent of Earth's active volcanoes, this region is shaped by subduction along oceanic trenches surrounding a ocean basin. For the point, name this horseshoe-shaped region of intense seismic and volcanic activity surrounding the Pacific Ocean.",
-      "options": [
-        "Mid-Atlantic Ridge",
-        "Ring of Fire",
-        "Great Rift Valley",
-        "Alpine Belt"
-      ],
-      "answer": 1,
-      "explanation": "The Pacific Ring of Fire is a major area in the basin of the Pacific Ocean where tectonic plates interact, causing frequent earthquakes and volcanic eruptions."
-    },
-    {
-      "id": 26,
       "category": "Science",
       "topic": "Genetics",
       "question": "This molecular structure features antiparallel strands held together by hydrogen bonds between complementary purine and pyrimidine bases. First modeled by James Watson and Francis Crick using X-ray crystallography data collected by Rosalind Franklin, it carries genetic instructions in living organisms. For the point, name this double-helix nucleic acid containing deoxyribose sugar.",
@@ -449,71 +365,155 @@
         "RNA",
         "DNA",
         "ATP",
-        "Protein"
+        "Polypeptide"
       ],
       "answer": 1,
-      "explanation": "DNA (deoxyribonucleic acid) stores genetic code in a double-stranded helical structure."
+      "explanation": "Deoxyribonucleic acid (DNA) is a double-stranded helical molecule encoding genetic information."
+    },
+    {
+      "id": 21,
+      "category": "Geography",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic core includes the district of Sultanahmet and the ancient Byzantine Hippodrome. Located on both sides of the Bosporus strait, it bridges Europe and Asia and was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Istanbul",
+        "Ankara",
+        "Athens",
+        "Cairo"
+      ],
+      "answer": 0,
+      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was formerly known as Byzantium and Constantinople."
+    },
+    {
+      "id": 22,
+      "category": "Science",
+      "topic": "Photosynthesis",
+      "question": "During the light-independent reactions of this process, the enzyme RuBisCO fixes carbon dioxide within the stroma of chloroplasts into 3-phosphoglycerate. It relies on chlorophyll pigments to absorb solar energy and uses water and carbon dioxide to yield glucose and oxygen gas. For the point, name this biological process by which green plants convert light energy into chemical energy.",
+      "options": [
+        "Cellular Respiration",
+        "Photosynthesis",
+        "Chemosynthesis",
+        "Transpiration"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis converts light energy, water, and carbon dioxide into glucose and oxygen inside plant chloroplasts."
+    },
+    {
+      "id": 23,
+      "category": "Geography",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's interior plateau includes the Ankaratra Range and its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is famous for its isolated evolution and endemic species such as lemurs. For the point, name this large island nation located off the southeast coast of mainland Africa.",
+      "options": [
+        "Mauritius",
+        "Sri Lanka",
+        "Madagascar",
+        "Seychelles"
+      ],
+      "answer": 2,
+      "explanation": "Madagascar is an island nation located off the southeastern coast of Africa in the Indian Ocean, separated by the Mozambique Channel."
+    },
+    {
+      "id": 24,
+      "category": "Science",
+      "topic": "Velocity",
+      "question": "In fluid dynamics, the terminal value of this quantity occurs when drag force equals the gravitational force acting on a falling body. Mathematically defined as the time derivative of position, it is distinguished from speed because it accounts for both magnitude and direction. For the point, name this vector physical quantity defined as the rate of change of displacement.",
+      "options": [
+        "Speed",
+        "Acceleration",
+        "Momentum",
+        "Velocity"
+      ],
+      "answer": 3,
+      "explanation": "Velocity is a vector quantity that represents the rate of change of position, incorporating both magnitude (speed) and direction."
+    },
+    {
+      "id": 25,
+      "category": "Geography",
+      "topic": "Deserts & Arid Regions",
+      "question": "This region hosts the high-altitude ALMA radio telescope array due to its extremely low humidity and clear skies. Created by the rain shadow effect of the Andes mountains, some weather stations here have recorded no rainfall for decades. For the point, name this hyper-arid desert located in northern Chile, recognized as the driest non-polar desert in the world.",
+      "options": [
+        "Atacama Desert",
+        "Gobi Desert",
+        "Kalahari Desert",
+        "Mojave Desert"
+      ],
+      "answer": 0,
+      "explanation": "The Atacama Desert in northern Chile lies in the rain shadow of the Andes and is Earth's driest non-polar desert."
+    },
+    {
+      "id": 26,
+      "category": "Science",
+      "topic": "Thermodynamics",
+      "question": "According to Nernst's heat theorem, this state function reaches a constant minimum value as temperature approaches absolute zero. Stated in the Second Law of Thermodynamics, this value in an isolated system always increases during spontaneous processes. For the point, name this measure of disorder or randomness in a physical system, often denoted by the letter S.",
+      "options": [
+        "Enthalpy",
+        "Entropy",
+        "Gibbs Free Energy",
+        "Heat Capacity"
+      ],
+      "answer": 1,
+      "explanation": "Entropy (S) is a thermodynamic property measuring the degree of randomness or disorder in a system, which increases in spontaneous isolated processes."
     },
     {
       "id": 27,
       "category": "Geography",
-      "topic": "Islands & Archipelagos",
-      "question": "This island is separated from the mainland by the Bass Strait and features unique native wildlife including a carnivorous marsupial named for its loud scream. Its capital city of Hobart sits near Mount Wellington and the mouth of the Derwent River. For the point, name this Australian island state located south of Victoria.",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water receives flow from the Volga and Ural rivers but lacks any natural outlet, making it an endorheic basin. Bounded by five countries including Kazakhstan, Turkmenistan, Iran, and Azerbaijan, it contains major offshore oil fields such as Kashagan. For the point, name this saline body of water, geologically classified as the world's largest inland lake by surface area.",
       "options": [
-        "Tasmania",
-        "New Zealand",
-        "Kangaroo Island",
-        "New Guinea"
+        "Aral Sea",
+        "Lake Baikal",
+        "Caspian Sea",
+        "Black Sea"
       ],
-      "answer": 0,
-      "explanation": "Tasmania is an Australian island state south of the mainland, famous for the Tasmanian devil and its capital Hobart."
+      "answer": 2,
+      "explanation": "The Caspian Sea is the world's largest landlocked inland body of water, bordered by Russia, Iran, Azerbaijan, Kazakhstan, and Turkmenistan."
     },
     {
       "id": 28,
       "category": "Science",
-      "topic": "Velocity",
-      "question": "This vector quantity is defined as the rate of change of displacement with respect to time, unlike its scalar counterpart which represents speed. Graphically, it corresponds to the derivative of position with respect to time. For the point, name this physical quantity that specifies both the speed and direction of an object in motion.",
+      "topic": "Cell Biology",
+      "question": "This organelle contains inner membrane folds called cristae that increase surface area for ATP synthase during the electron transport chain. It possesses its own independent circular DNA and ribosomes, supporting the endosymbiotic theory of its evolutionary origin. For the point, name this double-membraned organelle commonly called the powerhouse of the cell.",
       "options": [
-        "Acceleration",
-        "Velocity",
-        "Momentum",
-        "Force"
+        "Chloroplast",
+        "Ribosome",
+        "Golgi Apparatus",
+        "Mitochondria"
       ],
-      "answer": 1,
-      "explanation": "Velocity is a vector quantity expressing speed alongside direction of motion."
+      "answer": 3,
+      "explanation": "Mitochondria generate cellular energy in the form of ATP via aerobic respiration and contain cristae and their own DNA."
     },
     {
       "id": 29,
       "category": "Geography",
-      "topic": "Physical Geography",
-      "question": "This hyper-arid desert hosts the ALMA radio telescope array due to its extremely low humidity and clear skies at high altitude. Situated along the Pacific coast of South America west of the Andes, it lies within a rain shadow that prevents rainfall. For the point, name this desert in northern Chile, considered the driest non-polar desert in the world.",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range isolates the central Iranian plateau from northern maritime humidity coming from the Caspian Sea. Its highest peak is Mount Damavand, an active stratovolcano that forms the highest summit in the Middle East. For the point, name this major mountain range located in northern Iran.",
       "options": [
-        "Mojave Desert",
-        "Kalahari Desert",
-        "Atacama Desert",
-        "Gobi Desert"
+        "Alborz Mountains",
+        "Zagros Mountains",
+        "Caucasus Mountains",
+        "Hindu Kush"
       ],
-      "answer": 2,
-      "explanation": "The Atacama Desert in northern Chile is celebrated as Earth's driest non-polar desert region."
+      "answer": 0,
+      "explanation": "The Alborz mountain range spans northern Iran along the Caspian Sea coast and contains Mount Damavand."
     },
     {
       "id": 30,
       "category": "Science",
       "topic": "Acceleration",
-      "question": "In uniform circular motion, this vector points directly toward the center of the circular trajectory and is termed centripetal. Defined in Newton's second law as force divided by mass, it measures the rate at which velocity changes over time. For the point, name this quantity usually expressed in meters per second squared.",
+      "question": "In uniform circular motion, the centripetal form of this vector points directly toward the center of the circular path. According to Newton's second law, multiplying mass by this quantity yields net force, and near Earth's surface its standard gravitational value is roughly 9.81 meters per second squared. For the point, name this physical quantity defined as the rate of change of velocity over time.",
       "options": [
         "Velocity",
         "Acceleration",
         "Jerk",
-        "Displacement"
+        "Force"
       ],
       "answer": 1,
-      "explanation": "Acceleration is the rate of change of velocity per unit time, measured in m/s²."
+      "explanation": "Acceleration is the rate at which an object's velocity changes over time, measured in meters per second squared (m/s²)."
     }
   ],
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-10 01:50:54",
+    "generated_at": "2026-09-11 01:49:44",
     "resources": [
       "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
       "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
