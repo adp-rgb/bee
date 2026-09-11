@@ -190,7 +190,7 @@
           <span id="stat-breakdown" class="text-xl sm:text-2xl font-bold text-white">0 / 0</span>
         </div>
         <div class="bg-slate-900/50 p-3 sm:p-4 rounded-xl border border-slate-800 flex items-center">
-          <button onclick="reloadQuizData()" class="w-full bg-slate-800 hover:bg-slate-700 text-amber-400 font-medium py-2 rounded-lg border border-slate-700 text-xs">🔄 Reload Data</button>
+          <button onclick="loadQuizData()" class="w-full bg-slate-800 hover:bg-slate-700 text-amber-400 font-medium py-2 rounded-lg border border-slate-700 text-xs">🔄 Reload Data</button>
         </div>
       </div>
     </section>
@@ -204,68 +204,96 @@
     let currentIdx = 0;
     let isFlashcardMode = false;
 
-  async function loadAndRenderTopics() {
-  try {
-    const quizRes = await fetch('quizzes.json');
-    const rawData = await quizRes.json();
-    
-    // Extract array if wrapped inside an object (e.g., { "quizzes": [...] })
-    const allItems = Array.isArray(rawData) ? rawData : (rawData.quizzes || rawData.data || []);
+    // Cache-busting data loader to ensure fresh fetches every browser load
+    async function loadQuizData() {
+      try {
+        const timestamp = new Date().getTime();
+        const [quizRes, topicRes] = await Promise.all([
+          fetch(`./quizzes.json?t=${timestamp}`, { cache: 'no-store' }),
+          fetch(`./topics.json?t=${timestamp}`, { cache: 'no-store' }).catch(() => null)
+        ]);
 
-    const getTopics = (subject) => {
-      // Filter by category/subject (case-insensitive)
-      let matches = allItems.filter(item => {
-        const cat = (item.category || item.subject || '').toLowerCase();
-        return cat === subject.toLowerCase();
+        if (!quizRes.ok) throw new Error(`quizzes.json returned status ${quizRes.status}`);
+
+        const rawQuiz = await quizRes.json();
+        allData = Array.isArray(rawQuiz) ? rawQuiz : (rawQuiz.quizzes || rawQuiz.data || []);
+
+        if (topicRes && topicRes.ok) {
+          topicsData = await topicRes.json();
+        }
+
+        renderTopicPills();
+        updateStats();
+      } catch (err) {
+        console.error('Failed to load quiz data:', err);
+      }
+    }
+
+    // Flexible topic pill renderer with fallback
+    function renderTopicPills() {
+      const getTopics = (subject) => {
+        let matches = allData.filter(item => {
+          const cat = (item.category || item.subject || '').toLowerCase();
+          return cat === subject.toLowerCase();
+        });
+
+        let practiceItems = matches.filter(item => item.mode === 'practice-specific');
+        const finalItems = practiceItems.length > 0 ? practiceItems : matches.slice(0, 30);
+
+        return finalItems.map(item => item.topic || item.name || 'Topic').filter(Boolean);
+      };
+
+      renderPills('geo-topics', getTopics('Geography'), 'Geography');
+      renderPills('sci-topics', getTopics('Science'), 'Science');
+    }
+
+    function renderPills(containerId, topics, category) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      if (topics.length === 0) {
+        container.innerHTML = '<span class="text-xs text-slate-500">No topics available</span>';
+        return;
+      }
+
+      container.innerHTML = topics.map(topic => `
+        <button 
+          onclick="filterByTopic('${category}', '${topic.replace(/'/g, "\\'")}')" 
+          class="text-[10px] bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2 py-1 rounded border border-slate-700 transition-colors">
+          ${topic}
+        </button>
+      `).join('');
+    }
+
+    function filterByTopic(subject, topicName) {
+      activeSet = allData.filter(q => {
+        const cat = (q.category || q.subject || '').toLowerCase();
+        const top = (q.topic || q.name || '');
+        return cat === subject.toLowerCase() && top.toLowerCase() === topicName.toLowerCase();
       });
 
-      // Filter by practice-specific mode if available
-      let practiceItems = matches.filter(item => item.mode === 'practice-specific');
-      
-      // Fallback: If no items match 'practice-specific', take the first 30 items for that subject
-      const finalItems = practiceItems.length > 0 ? practiceItems : matches.slice(0, 30);
+      if (activeSet.length === 0) {
+        activeSet = allData.filter(q => (q.category || q.subject || '').toLowerCase() === subject.toLowerCase());
+      }
 
-      return finalItems.map(item => item.topic || item.name || 'Topic').filter(Boolean);
-    };
+      currentIdx = 0;
+      isFlashcardMode = false;
+      document.getElementById('quiz-container').classList.remove('hidden');
+      document.getElementById('active-mode-tag').innerText = `${subject.toUpperCase()} • TOPIC: ${topicName.toUpperCase()}`;
+      renderCurrentQuestion();
+      document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
+    }
 
-    renderPills('geo-topics', getTopics('Geography'), 'Geography');
-    renderPills('sci-topics', getTopics('Science'), 'Science');
-
-  } catch (err) {
-    console.error('Error rendering topics:', err);
-  }
-}
-
-function renderPills(containerId, topics, category) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  if (topics.length === 0) {
-    container.innerHTML = '<span class="text-xs text-slate-500">No topics available</span>';
-    return;
-  }
-
-  container.innerHTML = topics.map(topic => `
-    <button 
-      onclick="filterByTopic('${category}', '${topic.replace(/'/g, "\\'")}')" 
-      class="text-[10px] bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2 py-1 rounded border border-slate-700 transition-colors">
-      ${topic}
-    </button>
-  `).join('');
-}
-
-// Call function on page load
-document.addEventListener('DOMContentLoaded', loadAndRenderTopics);
-    
     function launchMode(subject, mode) {
       isFlashcardMode = (mode === 'flashcards');
-      activeSet = allData.filter(q => 
-        q.category.toLowerCase() === subject.toLowerCase() && 
-        q.mode.toLowerCase() === mode.toLowerCase()
-      );
+      activeSet = allData.filter(q => {
+        const cat = (q.category || q.subject || '').toLowerCase();
+        const m = (q.mode || '').toLowerCase();
+        return cat === subject.toLowerCase() && m === mode.toLowerCase();
+      });
 
       if (activeSet.length === 0) {
-        activeSet = allData.filter(q => q.category.toLowerCase() === subject.toLowerCase());
+        activeSet = allData.filter(q => (q.category || q.subject || '').toLowerCase() === subject.toLowerCase());
       }
 
       currentIdx = 0;
@@ -276,9 +304,11 @@ document.addEventListener('DOMContentLoaded', loadAndRenderTopics);
     }
 
     function renderCurrentQuestion() {
+      if (!activeSet || activeSet.length === 0) return;
+
       const q = activeSet[currentIdx];
       document.getElementById('question-counter').innerText = `Question ${currentIdx + 1} of ${activeSet.length}`;
-      document.getElementById('question-text').innerText = q.question;
+      document.getElementById('question-text').innerText = q.question || 'No question text available.';
       
       const grid = document.getElementById('options-grid');
       document.getElementById('explanation-box').classList.add('hidden');
@@ -293,7 +323,8 @@ document.addEventListener('DOMContentLoaded', loadAndRenderTopics);
           </div>
         `;
       } else {
-        q.options.forEach((opt, idx) => {
+        const opts = q.options || [];
+        opts.forEach((opt, idx) => {
           const btn = document.createElement('button');
           btn.className = 'bg-slate-900/60 border border-slate-700 hover:border-amber-500/50 text-left p-4 rounded-xl text-slate-200 text-sm flex items-center gap-3';
           btn.innerHTML = `<span class="w-6 h-6 rounded bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-xs shrink-0">${String.fromCharCode(65 + idx)}</span> <span>${opt}</span>`;
@@ -320,10 +351,11 @@ document.addEventListener('DOMContentLoaded', loadAndRenderTopics);
 
     function revealAnswer(correctIdx) {
       const q = activeSet[currentIdx];
+      const answerText = (q.options && q.options[correctIdx]) ? q.options[correctIdx] : 'Answer Revealed';
       document.getElementById('options-grid').innerHTML = `
         <div class="col-span-2 bg-emerald-950/40 border border-emerald-500/50 p-4 rounded-xl text-center">
           <span class="text-xs uppercase font-bold text-emerald-400 block mb-1">Correct Answer</span>
-          <span class="text-lg font-bold text-white">${q.options[correctIdx]}</span>
+          <span class="text-lg font-bold text-white">${answerText}</span>
         </div>
       `;
       showExplanation(q.explanation);
@@ -363,8 +395,8 @@ document.addEventListener('DOMContentLoaded', loadAndRenderTopics);
     }
 
     function updateStats() {
-      const geo = allData.filter(q => q.category.toLowerCase() === 'geography').length;
-      const sci = allData.filter(q => q.category.toLowerCase() === 'science').length;
+      const geo = allData.filter(q => (q.category || q.subject || '').toLowerCase() === 'geography').length;
+      const sci = allData.filter(q => (q.category || q.subject || '').toLowerCase() === 'science').length;
       document.getElementById('stat-total').innerText = allData.length;
       document.getElementById('stat-breakdown').innerText = `${geo} / ${sci}`;
     }
@@ -373,7 +405,7 @@ document.addEventListener('DOMContentLoaded', loadAndRenderTopics);
       document.getElementById('admin-panel').classList.toggle('hidden');
     }
 
-    loadQuizData();
+    document.addEventListener('DOMContentLoaded', loadQuizData);
   </script>
 </body>
 </html>
