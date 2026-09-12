@@ -1,6 +1,6 @@
 {
   "rules_summary": {
-    "total_questions": 30,
+    "total_questions": 190,
     "max_correct_per_player": 6,
     "early_penalty": -1,
     "bonus_table": [
@@ -91,8 +91,2108 @@
   },
   "quizzes": [
     {
-      "id": 1,
       "category": "Geography",
+      "mode": "standard",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water is fed by major rivers such as the Volga, Ural, and Kura, but lacks any natural outlets, making it an endorheic basin. Classified geologically as the world's largest lake by surface area, it holds significant offshore petroleum fields like Kashagan. Bordered by five countries including Russia, Kazakhstan, and Iran, for the point, name this landlocked saline sea.",
+      "options": [
+        "Black Sea",
+        "Caspian Sea",
+        "Aral Sea",
+        "Lake Baikal"
+      ],
+      "answer": 1,
+      "explanation": "The Caspian Sea is an endorheic basin bounded by Russia, Iran, Kazakhstan, Turkmenistan, and Azerbaijan, and is the world's largest lake by surface area.",
+      "id": 1
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic district includes the ancient Byzantine Hippodrome as well as the neighborhood surrounding the Hagia Sophia. Spanning the Bosporus Strait, it connects the Sea of Marmara to the Black Sea while bridging Europe and Asia. Historically known as Byzantium and Constantinople, for the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Izmir",
+        "Istanbul",
+        "Bursa"
+      ],
+      "answer": 2,
+      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was historically known as Byzantium and Constantinople.",
+      "id": 2
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, some weather stations here have recorded zero rainfall for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Gobi Desert",
+        "Atacama Desert",
+        "Kalahari Desert",
+        "Mojave Desert"
+      ],
+      "answer": 1,
+      "explanation": "The Atacama Desert in northern Chile is situated in the rain shadow of the Andes, making it the driest non-polar desert on Earth.",
+      "id": 3
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and high degree of endemic species. For the point, name this large island nation located off the southeastern coast of mainland Africa, famous for its lemurs.",
+      "options": [
+        "Madagascar",
+        "Mauritius",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 0,
+      "explanation": "Madagascar is situated off the southeast coast of Africa across the Mozambique Channel and is renowned for endemic species like lemurs.",
+      "id": 4
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range isolates the central Iranian plateau from northern maritime humidity coming from the Caspian Sea. Its highest peak is Mount Damavand, an active stratovolcano that forms the highest summit in the entire Middle East. For the point, name this major mountain range located in northern Iran.",
+      "options": [
+        "Zagros Mountains",
+        "Alborz Mountains",
+        "Caucasus Mountains",
+        "Taurus Mountains"
+      ],
+      "answer": 1,
+      "explanation": "The Alborz range extends across northern Iran, south of the Caspian Sea, and contains Mount Damavand, the highest peak in the Middle East.",
+      "id": 5
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Physical Geography",
+      "question": "This expansive geographic feature includes the hyper-saline Lake Natron and the Danakil Depression, one of the lowest and hottest places on Earth. Formed by tectonic divergence between the African and Arabian plates, it extends thousands of kilometers southwards toward Mozambique. For the point, name this massive continuous trench running through East Africa.",
+      "options": [
+        "Mariana Trench",
+        "Great Rift Valley",
+        "Mid-Atlantic Ridge",
+        "Grand Canyon"
+      ],
+      "answer": 1,
+      "explanation": "The Great Rift Valley is a continuous geological trench created by tectonic divergence running through East Africa.",
+      "id": 6
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city is situated on the Río de la Plata estuary and features the wide Avenue 9 de Julio, dominated by its central Obelisco. Known for its historical San Telmo neighborhood and colorful La Boca district, it serves as the political and economic hub of its nation. For the point, name this federal capital and largest city of Argentina.",
+      "options": [
+        "Montevideo",
+        "Santiago",
+        "Buenos Aires",
+        "Lima"
+      ],
+      "answer": 2,
+      "explanation": "Buenos Aires is the capital and largest city of Argentina, located along the Río de la Plata estuary.",
+      "id": 7
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Rivers & Lakes",
+      "question": "Containing roughly twenty percent of the world's unfrozen surface fresh water, this body of water is the deepest lake on Earth. Located in southern Siberia, it is fed by over three hundred rivers including the Selenga, but has only one outlet, the Angara River. For the point, name this ancient Russian rift lake.",
+      "options": [
+        "Lake Baikal",
+        "Lake Tanganyika",
+        "Lake Superior",
+        "Lake Ladoga"
+      ],
+      "answer": 0,
+      "explanation": "Lake Baikal in southern Siberia is the deepest lake in the world and contains about 20% of Earth's unfrozen surface fresh water.",
+      "id": 8
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Deserts & Arid Regions",
+      "question": "The McMurdo Dry Valleys within this vast region feature hyper-saline bodies of water such as Don Juan Pond. Although it holds nearly 70 percent of the world's fresh water within its massive ice sheet, its extremely low annual precipitation technically classifies it as a desert. For the point, name this southernmost continent on Earth.",
+      "options": [
+        "Greenland",
+        "Antarctica",
+        "Australia",
+        "Svalbard"
+      ],
+      "answer": 1,
+      "explanation": "Antarctica is the world's largest desert by area because of its extremely low rate of annual precipitation.",
+      "id": 9
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Physical Geography",
+      "question": "This strait connects the Persian Gulf to the Gulf of Oman and the Arabian Sea, serving as one of the world's most critical petroleum chokepoints. Bounded by Iran to the north and the Musandam Peninsula of Oman and the UAE to the south, for the point, name this narrow waterway through which much of the world's sea-borne crude oil passes.",
+      "options": [
+        "Strait of Malacca",
+        "Strait of Gibraltar",
+        "Strait of Hormuz",
+        "Bering Strait"
+      ],
+      "answer": 2,
+      "explanation": "The Strait of Hormuz is a vital strategic chokepoint connecting the Persian Gulf to the Gulf of Oman.",
+      "id": 10
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water is fed by major rivers such as the Volga, Ural, and Kura, but lacks any natural outlet, making it an endorheic basin. Classified geologically as the world's largest lake by surface area, it holds significant offshore petroleum fields like Kashagan. For the point, name this landlocked saline sea bordered by Russia, Iran, Kazakhstan, Turkmenistan, and Azerbaijan.",
+      "options": [
+        "Caspian Sea",
+        "Aral Sea",
+        "Black Sea",
+        "Lake Baikal"
+      ],
+      "answer": 0,
+      "explanation": "The Caspian Sea is the world's largest landlocked body of water and is fed by the Volga and Ural rivers.",
+      "id": 11
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic core includes the district of Sultanahmet as well as the ancient Byzantine Hippodrome. Located on both sides of the Bosporus Strait, it bridges Europe and Asia and was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Izmir",
+        "Istanbul",
+        "Bursa"
+      ],
+      "answer": 2,
+      "explanation": "Istanbul is Turkey's largest city, straddling the Bosporus Strait between Europe and Asia, and was formerly named Byzantium and Constantinople.",
+      "id": 12
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Kalahari Desert",
+        "Atacama Desert",
+        "Mojave Desert",
+        "Gobi Desert"
+      ],
+      "answer": 1,
+      "explanation": "The Atacama Desert in northern Chile is considered the driest non-polar desert in the world.",
+      "id": 13
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species such as lemurs. For the point, name this large island nation located off the southeastern coast of mainland Africa.",
+      "options": [
+        "Madagascar",
+        "Mauritius",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 0,
+      "explanation": "Madagascar is an island nation in the Indian Ocean off the coast of East Africa, known for its unique wildlife including lemurs.",
+      "id": 14
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain's highest peak is Uhuru Peak, located on the Kibo cone alongside the Mawenzi and Shira volcanic cones. It features the Furtwängler Glacier, which has been rapidly retreating over recent decades due to global climate change. Located in northern Tanzania, it is the highest peak on its continent. For the point, name this dormant stratovolcano, the highest mountain in Africa.",
+      "options": [
+        "Mount Kenya",
+        "Mount Stanley",
+        "Mount Kilimanjaro",
+        "Mount Elgon"
+      ],
+      "answer": 2,
+      "explanation": "Mount Kilimanjaro in Tanzania is Africa's highest mountain at 5,895 meters above sea level.",
+      "id": 15
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Rivers & Lakes",
+      "question": "This river's headwaters include the Apurímac and Mantaro rivers, originating in the Peruvian Andes before traversing the basin that holds the world's largest tropical rainforest. It discharges more water into the Atlantic Ocean than the next seven largest rivers combined. For the point, name this immense South American river, the largest in the world by discharge volume.",
+      "options": [
+        "Orinoco River",
+        "Paraná River",
+        "Amazon River",
+        "Magdalena River"
+      ],
+      "answer": 2,
+      "explanation": "The Amazon River in South America has the greatest water flow of any river in the world.",
+      "id": 16
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Physical Geography",
+      "question": "This expansive geographic region includes the hyper-saline Lake Natron and the Danakil Depression, one of the lowest and hottest places on Earth. Formed by the tectonic divergence of the African and Arabian plates, it extends thousands of kilometers southwards from the Middle East to Mozambique. For the point, name this massive continuous geological trench running through East Africa.",
+      "options": [
+        "Great Rift Valley",
+        "Mid-Atlantic Ridge",
+        "Mariana Trench",
+        "San Andreas Fault"
+      ],
+      "answer": 0,
+      "explanation": "The Great Rift Valley is a continuous trench system caused by rifting along tectonic plates in East Africa.",
+      "id": 17
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city was designed by American architects Walter Burley Griffin and Marion Mahony Griffin following an international competition in 1912. Built around an artificial lake that bears Griffin's name, it was selected as a compromise location between Sydney and Melbourne. For the point, name this planned city that serves as the national capital of Australia.",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Brisbane",
+        "Canberra"
+      ],
+      "answer": 3,
+      "explanation": "Canberra was chosen as Australia's capital city in 1908 as a compromise between rival cities Sydney and Melbourne.",
+      "id": 18
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range isolates the central Iranian plateau from northern maritime humidity coming from the Caspian Sea. Its highest peak is Mount Damavand, an active stratovolcano that forms the highest summit in the entire Middle East. For the point, name this major mountain range located in northern Iran.",
+      "options": [
+        "Zagros Mountains",
+        "Caucasus Mountains",
+        "Alborz",
+        "Hindu Kush"
+      ],
+      "answer": 2,
+      "explanation": "The Alborz range stretches across northern Iran south of the Caspian Sea and contains Mount Damavand.",
+      "id": 19
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Deserts & Arid Regions",
+      "question": "The McMurdo Dry Valleys within this vast region are among the driest places on Earth and feature hyper-saline bodies of water such as Don Juan Pond. Although it holds nearly 70 percent of the world's fresh water within its massive ice sheet, its extremely low annual precipitation technically classifies it as a desert. For the point, name this southernmost continent.",
+      "options": [
+        "Greenland",
+        "Antarctica",
+        "Australia",
+        "Svalbard"
+      ],
+      "answer": 1,
+      "explanation": "Antarctica is the coldest, driest, and windiest continent on Earth and is classified as a polar desert.",
+      "id": 20
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water is fed by major rivers such as the Volga, Ural, and Kura, but lacks any natural outflow, making it an endorheic basin. Classified geologically as the world's largest lake by surface area, it holds significant offshore petroleum reserves like the Kashagan Field. For the point, name this landlocked saline body of water bordered by Russia, Iran, Kazakhstan, Turkmenistan, and Azerbaijan.",
+      "options": [
+        "Black Sea",
+        "Caspian Sea",
+        "Aral Sea",
+        "Lake Baikal"
+      ],
+      "answer": 1,
+      "explanation": "The Caspian Sea is the world's largest inland body of water by surface area, classified as an endorheic lake bounded by five countries.",
+      "id": 21
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic district includes the neighborhood of Sultanahmet as well as the ancient Byzantine Hippodrome. Divided by the Golden Horn waterway, it spans both sides of the Bosporus Strait to connect Europe and Asia. Historically known as Byzantium and Constantinople, for the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Istanbul",
+        "Izmir",
+        "Bursa"
+      ],
+      "answer": 1,
+      "explanation": "Istanbul is Turkey's largest city, straddling the Bosporus Strait between Europe and Asia, and was formerly named Byzantium and Constantinople.",
+      "id": 22
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and minimal cloud cover. Formed primarily by the rain shadow effect of the neighboring Andes Mountains and the cold Humboldt Current, some weather stations here have recorded zero rainfall for centuries. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Mojave Desert",
+        "Kalahari Desert",
+        "Atacama Desert",
+        "Gobi Desert"
+      ],
+      "answer": 2,
+      "explanation": "The Atacama Desert in northern Chile is Earth's driest non-polar desert due to the rain shadow of the Andes and ocean current effects.",
+      "id": 23
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Physical Geography",
+      "question": "This expansive geologic feature includes the hyper-saline Lake Natron and the low-elevation Danakil Depression. Formed by the tectonic separation of the Nubian, Somalian, and Arabian plates, it stretches thousands of kilometers from Syria south to Mozambique. For the point, name this massive continuous trench running through East Africa.",
+      "options": [
+        "Great Rift Valley",
+        "Mariana Trench",
+        "Mid-Atlantic Ridge",
+        "Grand Canyon"
+      ],
+      "answer": 0,
+      "explanation": "The Great Rift Valley is a continuous tectonic trench system extending across East Africa created by diverging tectonic plates.",
+      "id": 24
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range and surrounds its capital city of Antananarivo. Separated from the mainland by the Mozambique Channel, it is famous for its high biodiversity and unique wildlife that evolved in isolation. For the point, name this large island nation located off the southeastern coast of Africa.",
+      "options": [
+        "Mauritius",
+        "Madagascar",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 1,
+      "explanation": "Madagascar is an island country located off the southeast coast of Africa across the Mozambique Channel, known for its endemic fauna like lemurs.",
+      "id": 25
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range isolates the central plateau of its host country from northern maritime humidity coming from the Caspian Sea. Its highest summit is Mount Damavand, an active stratovolcano that forms the highest peak in the Middle East. For the point, name this major mountain range located in northern Iran.",
+      "options": [
+        "Zagros Mountains",
+        "Alborz Mountains",
+        "Caucasus Mountains",
+        "Pamir Mountains"
+      ],
+      "answer": 1,
+      "explanation": "The Alborz Mountains run across northern Iran south of the Caspian Sea and contain Mount Damavand, the highest peak in the Middle East.",
+      "id": 26
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Physical Geography",
+      "question": "The McMurdo Dry Valleys within this vast region feature hyper-saline water bodies such as Don Juan Pond and receive virtually no precipitation. Despite containing nearly 70 percent of the planet's fresh water locked within its massive ice sheet, its interior receives less than 50 millimeters of precipitation annually. For the point, name this coldest continent on Earth, geographically classified as the world's largest desert.",
+      "options": [
+        "Greenland",
+        "Antarctica",
+        "Australia",
+        "North America"
+      ],
+      "answer": 1,
+      "explanation": "Antarctica is the largest desert on Earth due to its extremely low annual precipitation, despite housing most of Earth's fresh water ice.",
+      "id": 27
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Rivers & Lakes",
+      "question": "This river passes through the Iron Gates gorge along the border between Serbia and Romania before emptying into the Black Sea via a vast wetland delta. Flowing past four national capitals—Vienna, Bratislava, Budapest, and Belgrade—it is the second-longest river in Europe. For the point, name this major European river that originates in Germany's Black Forest.",
+      "options": [
+        "Rhine River",
+        "Elbe River",
+        "Danube River",
+        "Volga River"
+      ],
+      "answer": 2,
+      "explanation": "The Danube River is Europe's second-longest river, rising in Germany and flowing through ten countries and four capital cities to the Black Sea.",
+      "id": 28
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city is located at the confluence of the White Nile and Blue Nile rivers, directly opposite its sister city of Omdurman. Founded as a military outpost by Ibrahim Pasha in 1821, its name translates to 'Elephant's Trunk' in reference to the narrow strip of land between the rivers. For the point, name this capital city of Sudan.",
+      "options": [
+        "Addis Ababa",
+        "Khartoum",
+        "Asmara",
+        "Juba"
+      ],
+      "answer": 1,
+      "explanation": "Khartoum is the capital of Sudan, situated at the confluence of the White Nile and Blue Nile rivers.",
+      "id": 29
+    },
+    {
+      "category": "Geography",
+      "mode": "standard",
+      "topic": "Physical Geography",
+      "question": "This strait connects the Gulf of Oman to the Persian Gulf and serves as one of the world's most critical petroleum choke points. Bounded to the north by Iran and to the south by the Musandam Peninsula of Oman and the United Arab Emirates, for the point, name this strategic narrow passage through which a large portion of global maritime crude oil travels.",
+      "options": [
+        "Strait of Malacca",
+        "Strait of Hormuz",
+        "Bab-el-Mandeb",
+        "Strait of Gibraltar"
+      ],
+      "answer": 1,
+      "explanation": "The Strait of Hormuz connects the Persian Gulf with the Gulf of Oman and is a crucial strategic choke point for global oil transport.",
+      "id": 30
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Deserts & Arid Regions",
+      "question": "This region's Valle de la Luna features salt formations and sand dunes near the town of San Pedro. The ALMA radio telescope array was constructed in this region due to its extremely dry atmospheric conditions and clear skies. Created largely by the cold Humboldt Current and the rain shadow of the Andes, some weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Atacama Desert",
+        "Kalahari Desert",
+        "Mojave Desert",
+        "Sonoran Desert"
+      ],
+      "answer": 0,
+      "explanation": "The Atacama Desert in northern Chile is recognized as the driest non-polar desert on Earth, influenced by the rain shadow of the Andes and the cold Humboldt Current.",
+      "id": 31
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Rivers & Lakes",
+      "question": "Olkhon Island is the largest island located within this body of water, which is fed by the Selenga and Barguzin Rivers. Home to the world's only exclusively freshwater seal, the nerpa, it holds roughly twenty percent of the world's unfrozen surface fresh water. Plunging to a maximum depth of over 5,000 feet, it is recognized as both the oldest and deepest freshwater lake on Earth. For the point, name this massive lake located in Russian Siberia.",
+      "options": [
+        "Lake Tanganyika",
+        "Lake Superior",
+        "Lake Baikal",
+        "Lake Ladoga"
+      ],
+      "answer": 2,
+      "explanation": "Lake Baikal in Siberia, Russia, is the world's deepest and oldest lake, containing nearly 20% of Earth's unfrozen surface fresh water.",
+      "id": 32
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Rivers & Lakes",
+      "question": "Legend says that a siren named Lorelei sat on a rock overlooking a narrow passage along this waterway, enticing sailors to their doom. Receiving major tributaries such as the Main and Neckar, it forms a significant section of the border between France and Germany. Originating in the Swiss Alps, it flows northward through Europe's industrial heartland before emptying into the North Sea at Rotterdam. For the point, name this major European river.",
+      "options": [
+        "Danube River",
+        "Elbe River",
+        "Rhine River",
+        "Rhône River"
+      ],
+      "answer": 2,
+      "explanation": "The Rhine River originates in Switzerland and flows through Germany and the Netherlands into the North Sea, serving as one of Europe's most vital commercial waterways.",
+      "id": 33
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This volcanic massif consists of three distinct cones named Shira, Mawenzi, and Kibo, the last of which contains its highest point, Uhuru Peak. Retaining iconic equatorial glaciers that have rapidly shrunk in recent decades, it rises dramatically above the surrounding plains of East Africa. Located in northeastern Tanzania, it is the tallest free-standing mountain in the world. For the point, name this dormant stratovolcano, the highest mountain in Africa.",
+      "options": [
+        "Mount Kenya",
+        "Mount Kilimanjaro",
+        "Mount Elgon",
+        "Mount Stanley"
+      ],
+      "answer": 1,
+      "explanation": "Mount Kilimanjaro in Tanzania is a dormant stratovolcano whose highest peak, Uhuru Peak on Kibo, reaches 5,895 meters, making it Africa's highest point.",
+      "id": 34
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Physical Geography",
+      "question": "The narrow Phillips Channel near Singapore forms one of the most critical bottleneck choke points along this waterway. Separating the Malay Peninsula from the Indonesian island of Sumatra, it links the Indian Ocean to the South China Sea and serves as one of the world's busiest commercial shipping routes. For the point, name this vital maritime strait named after a historic sultanate in modern-day Malaysia.",
+      "options": [
+        "Strait of Malacca",
+        "Sunda Strait",
+        "Lombok Strait",
+        "Strait of Hormuz"
+      ],
+      "answer": 0,
+      "explanation": "The Strait of Malacca runs between Sumatra and Peninsular Malaysia, serving as a primary maritime trade channel connecting the Indian and Pacific Oceans.",
+      "id": 35
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Rivers & Lakes",
+      "question": "The dramatic 'Meeting of Waters' occurs near the city of Manaus, where the dark Rio Negro merges with the sandy Solimões to form part of this waterway. The massive river island of Marajó sits at its Atlantic mouth, and it drains a basin covering over forty percent of South America. For the point, name this South American river, which discharges more water than any other river on Earth.",
+      "options": [
+        "Orinoco River",
+        "Paraná River",
+        "Amazon River",
+        "Magdalena River"
+      ],
+      "answer": 2,
+      "explanation": "The Amazon River carries the world's largest discharge volume of fresh water into the Atlantic Ocean, draining much of northern South America.",
+      "id": 36
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Physical Geography",
+      "question": "This artificial waterway incorporates natural bodies of water including Lake Timsah and the Great Bitter Lake along its route. Engineered under the direction of Ferdinand de Lesseps and opened in 1869, it runs between Port Said on the north and Port Tewfik on the south. By avoiding the circumnavigation of Africa, it drastically reduced maritime trade routes. For the point, name this Egyptian canal connecting the Mediterranean Sea to the Red Sea.",
+      "options": [
+        "Panama Canal",
+        "Suez Canal",
+        "Kiel Canal",
+        "Erie Canal"
+      ],
+      "answer": 1,
+      "explanation": "Opened in 1869 in Egypt, the Suez Canal connects the Mediterranean Sea to the Red Sea, enabling direct maritime travel between Europe and Asia.",
+      "id": 37
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Rivers & Lakes",
+      "question": "Ukerewe Island is the largest landmass inside this body of water, which is drained by the Victoria Nile at Ripon Falls near Jinja. Named by John Hanning Speke after a reigning British monarch, it forms a major geographic boundary shared by Uganda, Kenya, and Tanzania. For the point, name this largest lake in Africa by surface area, which serves as the principal reservoir of the Nile River.",
+      "options": [
+        "Lake Tanganyika",
+        "Lake Malawi",
+        "Lake Chad",
+        "Lake Victoria"
+      ],
+      "answer": 3,
+      "explanation": "Lake Victoria is Africa's largest lake by surface area and the primary reservoir of the White Nile, bordered by Tanzania, Uganda, and Kenya.",
+      "id": 38
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Deserts & Arid Regions",
+      "question": "The Flaming Cliffs, or Bayanzag, in this region were made famous by Roy Chapman Andrews for yielding the first confirmed fossilized dinosaur eggs. Created primarily by the rain shadow of the Himalayas blocking moisture from the Indian Ocean, it experiences extreme cold temperatures and winter blizzards. For the point, name this vast, rain-shadowed desert spanning southern Mongolia and northern China.",
+      "options": [
+        "Taklamakan Desert",
+        "Gobi Desert",
+        "Karakum Desert",
+        "Thar Desert"
+      ],
+      "answer": 1,
+      "explanation": "The Gobi Desert is a large cold desert in East Asia, stretching across southern Mongolia and northern China, formed by the Himalayan rain shadow.",
+      "id": 39
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Islands & Archipelagos",
+      "question": "Volcán Wolf on Isabela Island is the highest peak in this volcanic archipelago, which is home to unique fauna such as flightless cormorants and marine iguanas. Administered as a province of Ecuador, its distinctive wildlife inspired Charles Darwin's theory of evolution by natural selection following his 1835 visit aboard the HMS Beagle. For the point, name this Pacific archipelago famed for its giant tortoises.",
+      "options": [
+        "Galápagos Islands",
+        "Falkland Islands",
+        "Juan Fernández Islands",
+        "Marquesas Islands"
+      ],
+      "answer": 0,
+      "explanation": "The Galápagos Islands are an Ecuadorian archipelago in the Pacific Ocean famous for endemic species studied by Charles Darwin in 1835.",
+      "id": 40
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Deserts & Arid Regions",
+      "question": "This region hosts the high-altitude ALMA radio telescope array on the Chajnantor Plateau due to its exceptionally dry atmospheric conditions. Created in large part by the rain shadow of the Andes Mountains and the cooling influence of the Humboldt Current, some weather stations here have recorded zero rainfall for decades. For the point, name this extremely dry non-polar desert located in northern Chile.",
+      "options": [
+        "Atacama Desert",
+        "Gobi Desert",
+        "Kalahari Desert",
+        "Mojave Desert"
+      ],
+      "answer": 0,
+      "explanation": "The Atacama Desert in northern Chile is recognized as the world's driest non-polar desert, formed by the rain shadow of the Andes and the Humboldt Current.",
+      "id": 41
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water contains Olkhon Island and receives water from over 300 rivers, including the Selenga, but has only a single outflow through the Angara River. Formed within an active continental rift valley, it contains nearly 20 percent of the world's unfrozen surface fresh water and is inhabited by the nerpa, a species of freshwater seal. For the point, name this ancient water body in Siberia, recognized as the world's deepest lake.",
+      "options": [
+        "Lake Tanganyika",
+        "Lake Superior",
+        "Lake Baikal",
+        "Lake Victoria"
+      ],
+      "answer": 2,
+      "explanation": "Lake Baikal in southern Siberia is the world's deepest and oldest lake, holding roughly one-fifth of the world's unfrozen surface fresh water.",
+      "id": 42
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "The Shira, Mawenzi, and Kibo volcanic cones make up this dormant stratovolcano, whose summit ice caps have receded rapidly over the past century. Situated near the border with Kenya inside a namesake national park, its highest peak is Uhuru Peak, standing at 5,895 meters above sea level. For the point, name this free-standing mountain in Tanzania, the highest peak in Africa.",
+      "options": [
+        "Mount Kenya",
+        "Mount Kilimanjaro",
+        "Mount Elgon",
+        "Mount Stanley"
+      ],
+      "answer": 1,
+      "explanation": "Mount Kilimanjaro in Tanzania is Africa's tallest peak and the world's highest free-standing mountain.",
+      "id": 43
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This municipality's landmark structures include the Skytree near the historic Asakusa district and the Sumida River. Rebuilt after the 1923 Great Kanto Earthquake and originally known as Edo during the Tokugawa Shogunate, it anchors a mega-region that includes Yokohama and Kawasaki. For the point, name this massive metropolis located on its namesake bay, the capital of Japan.",
+      "options": [
+        "Kyoto",
+        "Osaka",
+        "Seoul",
+        "Tokyo"
+      ],
+      "answer": 3,
+      "explanation": "Tokyo, formerly known as Edo, is the capital of Japan and the core of the world's most populous metropolitan area.",
+      "id": 44
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Physical Geography",
+      "question": "This river's source was traditionally traced to Nevado Mismi, and its vast drainage basin includes the Solimões region and the Encontro das Águas confluence near Manaus. Surrounded by the planet's largest tropical rainforest, it discharges more fresh water into the Atlantic Ocean than any other river system on Earth. For the point, name this massive river in South America.",
+      "options": [
+        "Orinoco River",
+        "Amazon River",
+        "Paraná River",
+        "Magdalena River"
+      ],
+      "answer": 1,
+      "explanation": "The Amazon River in South America is the world's largest river by discharge volume and flows through the Amazon Rainforest.",
+      "id": 45
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Islands & Archipelagos",
+      "question": "Gunnbjørn Fjeld is the highest peak on this landmass, which is separated from Ellesmere Island by the Nares Strait and from Iceland by the Denmark Strait. Dominated by a massive interior ice sheet that covers over 80 percent of its land area, its capital is Nuuk. For the point, name this autonomous territory of Denmark, recognized as the world's largest island.",
+      "options": [
+        "Greenland",
+        "Baffin Island",
+        "Madagascar",
+        "New Guinea"
+      ],
+      "answer": 0,
+      "explanation": "Greenland is an autonomous territory within the Kingdom of Denmark and is geographically classified as the largest island in the world.",
+      "id": 46
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Deserts & Arid Regions",
+      "question": "The Tibesti and Ahaggar mountain ranges rise from the central part of this region, which contains vast erg sand seas and reg gravel plains. Bounded to the south by the semi-arid Sahel zone, it spans countries such as Algeria, Chad, Mali, and Egypt across the northern third of its continent. For the point, name this largest hot desert in the world, located in Northern Africa.",
+      "options": [
+        "Namib Desert",
+        "Kalahari Desert",
+        "Sahara Desert",
+        "Arabian Desert"
+      ],
+      "answer": 2,
+      "explanation": "The Sahara Desert spans most of Northern Africa and is the world's largest hot desert.",
+      "id": 47
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Rivers & Lakes",
+      "question": "This river is formed by the confluence of two main branches near Khartoum: one originating from Lake Tana in Ethiopia and another flowing out of Lake Victoria. It flows northward through Sudan and Egypt into an expansive Mediterranean delta, historically sustaining ancient Egyptian civilization. For the point, name this African river widely considered the longest in the world.",
+      "options": [
+        "Congo River",
+        "Niger River",
+        "Zambezi River",
+        "Nile River"
+      ],
+      "answer": 3,
+      "explanation": "The Nile River is formed by the Blue Nile and White Nile confluences in Khartoum and flows northward through Egypt to the Mediterranean Sea.",
+      "id": 48
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range was formed by the ongoing collision of the Indian Plate with the Eurasian Plate, a tectonic process that continues to uplift the adjacent Tibetan Plateau. Bound on the west by the Indus River and containing peaks such as Annapurna and Kanchenjunga, it spans countries like Nepal, Bhutan, and India. For the point, name this major Asian mountain range that includes Mount Everest.",
+      "options": [
+        "Tian Shan",
+        "Himalayas",
+        "Pamir Mountains",
+        "Altai Mountains"
+      ],
+      "answer": 1,
+      "explanation": "The Himalayas were formed by tectonic collision and contain the highest peaks in the world, including Mount Everest.",
+      "id": 49
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "World Capitals & Urban Centers",
+      "question": "Designed by American architects Walter Burley Griffin and Marion Mahony Griffin, this planned city was selected as a compromise between two larger rival coastal cities. Built around an artificial reservoir named Lake Burley Griffin, it lies in a separate federal territory inland from Sydney and Melbourne. For the point, name this capital city of Australia.",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Brisbane"
+      ],
+      "answer": 2,
+      "explanation": "Canberra was planned and built in the early 20th century to serve as Australia's capital city, situated between Sydney and Melbourne.",
+      "id": 50
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Atacama Desert",
+        "Gobi Desert",
+        "Kalahari Desert",
+        "Mojave Desert"
+      ],
+      "answer": 0,
+      "explanation": "The Atacama Desert in northern Chile is situated in the rain shadow of the Andes, making it Earth's driest non-polar desert.",
+      "id": 51
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Deserts & Arid Regions",
+      "question": "The McMurdo Dry Valleys within this vast region are among the driest places on Earth and feature hyper-saline bodies of water such as Don Juan Pond. Although it holds nearly 70 percent of the world's fresh water within its massive ice sheet, its extremely low annual precipitation classifies it as a desert. For the point, name this southernmost continent.",
+      "options": [
+        "Antarctica",
+        "Australia",
+        "Greenland",
+        "Patagonia"
+      ],
+      "answer": 0,
+      "explanation": "Antarctica is geographically classified as the world's largest desert due to extremely low annual precipitation rates.",
+      "id": 52
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic core includes the district of Sultanahmet as well as the ancient Byzantine Hippodrome and Hagia Sophia. Located on both sides of the Bosporus Strait, it bridges Europe and Asia and was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Istanbul",
+        "Ankara",
+        "Izmir",
+        "Bursa"
+      ],
+      "answer": 0,
+      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was historically known as Byzantium and Constantinople.",
+      "id": 53
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water is fed by major rivers such as the Volga, Ural, and Kura, but lacks any natural outlet, making it an endorheic basin. Geologically classified as the world's largest lake by surface area, it holds significant offshore petroleum fields like Kashagan. For the point, name this landlocked saline sea bordered by Russia, Iran, Kazakhstan, Turkmenistan, and Azerbaijan.",
+      "options": [
+        "Caspian Sea",
+        "Aral Sea",
+        "Black Sea",
+        "Dead Sea"
+      ],
+      "answer": 0,
+      "explanation": "The Caspian Sea is the world's largest inland body of water by surface area, bounded by five nations.",
+      "id": 54
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Rivers & Lakes",
+      "question": "This river flows through the massive Three Gorges Dam, the world's largest power station by installed capacity, before passing through Wuhan and Shanghai. Originating in the Tibetan Plateau and flowing entirely within one country, it is the longest river in Asia. For the point, name this major Chinese river.",
+      "options": [
+        "Yangtze River",
+        "Yellow River",
+        "Mekong River",
+        "Pearl River"
+      ],
+      "answer": 0,
+      "explanation": "The Yangtze River is the longest river in Asia and the third-longest in the world, home to the Three Gorges Dam.",
+      "id": 55
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species such as lemurs. For the point, name this large island nation located off the southeastern coast of mainland Africa.",
+      "options": [
+        "Madagascar",
+        "Borneo",
+        "Sumatra",
+        "Sri Lanka"
+      ],
+      "answer": 0,
+      "explanation": "Madagascar is an island nation off the southeast coast of Africa separated by the Mozambique Channel, famous for its unique wildlife.",
+      "id": 56
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Physical Geography",
+      "question": "This expansive geographic feature includes the hyper-saline Lake Natron and the Danakil Depression, one of the lowest and hottest places on Earth. Formed by the tectonic divergence of the African and Arabian plates, it extends thousands of kilometers southward from the Middle East to Mozambique. For the point, name this massive continuous trench running through East Africa.",
+      "options": [
+        "Great Rift Valley",
+        "Mariana Trench",
+        "Mid-Atlantic Ridge",
+        "San Andreas Fault"
+      ],
+      "answer": 0,
+      "explanation": "The Great Rift Valley is a continuous geological trench formed by tectonic plate divergence running through East Africa.",
+      "id": 57
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Mountains & Volcanoes",
+      "question": "This mountain range isolates the central Iranian plateau from northern maritime humidity coming from the Caspian Sea. Its highest peak is Mount Damavand, an active stratovolcano that forms the highest summit in the entire Middle East. For the point, name this major mountain range located in northern Iran.",
+      "options": [
+        "Alborz",
+        "Zagros",
+        "Caucasus",
+        "Urals"
+      ],
+      "answer": 0,
+      "explanation": "The Alborz range spans northern Iran and includes Mount Damavand, the highest peak in the Middle East.",
+      "id": 58
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Mountains & Volcanoes",
+      "question": "This peak's classic ascent routes include Hörnli Ridge, and it towers above the Swiss car-free resort village of Zermatt. Situated on the border between Switzerland and Italy, its near-symmetric pyramidal peak makes it an iconic landmark of the Alps. For the point, name this famous mountain whose silhouette famously appears on Toblerone packaging.",
+      "options": [
+        "Matterhorn",
+        "Mont Blanc",
+        "Eiger",
+        "Jungfrau"
+      ],
+      "answer": 0,
+      "explanation": "The Matterhorn is an iconic pyramidal peak in the Pennine Alps, situated on the border between Switzerland and Italy.",
+      "id": 59
+    },
+    {
+      "category": "Geography",
+      "mode": "high-frequency",
+      "topic": "Rivers & Lakes",
+      "question": "This lake's outlet is the Neva River, which flows into the Gulf of Finland near Saint Petersburg. Situated in northwestern Russia, it receives the Volkhov and Svir rivers and ranks as the largest lake located entirely within Europe by surface area. For the point, name this massive Russian freshwater lake.",
+      "options": [
+        "Lake Ladoga",
+        "Lake Onega",
+        "Lake Baikal",
+        "Lake Peipus"
+      ],
+      "answer": 0,
+      "explanation": "Lake Ladoga, located near Saint Petersburg in Russia, is the largest lake located entirely in Europe.",
+      "id": 60
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Physical Geography",
+      "question": "This expansive geographic region includes the hyper-saline Lake Natron and the Danakil Depression, one of the lowest and hottest places on Earth. Formed by the tectonic divergence of the African and Arabian plates, it extends thousands of kilometers southwards from the Middle East to Mozambique. For the point, name this massive continuous trench running through East Africa.",
+      "options": [
+        "Great Rift Valley",
+        "Mariana Trench",
+        "Mid-Atlantic Ridge",
+        "San Andreas Fault"
+      ],
+      "answer": 0,
+      "explanation": "The Great Rift Valley is a continuous geographic trench running through East Africa formed by tectonic plate divergence.",
+      "id": 61
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range isolates the central Iranian plateau from northern maritime humidity coming from the Caspian Sea. Its highest peak is Mount Damavand, an active stratovolcano that forms the highest summit in the entire Middle East. For the point, name this major mountain range located in northern Iran.",
+      "options": [
+        "Zagros Mountains",
+        "Alborz Mountains",
+        "Caucasus Mountains",
+        "Hindu Kush"
+      ],
+      "answer": 1,
+      "explanation": "The Alborz range spans northern Iran south of the Caspian Sea and contains Mount Damavand.",
+      "id": 62
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic center contains the iconic Sultanahmet district and the ancient Byzantine Hippodrome. Situated on both sides of the Bosporus Strait, it bridges Europe and Asia and was formerly known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Izmir",
+        "Istanbul",
+        "Bursa"
+      ],
+      "answer": 2,
+      "explanation": "Istanbul spans the Bosporus Strait between Europe and Asia and was historically known as Byzantium and Constantinople.",
+      "id": 63
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Patagonian Desert",
+        "Atacama Desert",
+        "Sonoran Desert",
+        "Mojave Desert"
+      ],
+      "answer": 1,
+      "explanation": "The Atacama Desert in northern Chile is situated in the rain shadow of the Andes, making it Earth's driest non-polar desert.",
+      "id": 64
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's central plateau features the Ankaratra volcanic range and its capital city of Antananarivo. Separated from mainland Africa by the Mozambique Channel, it is famous for its unique endemic biodiversity, including species like lemurs and baobabs. For the point, name this large island nation located off the southeastern coast of Africa.",
+      "options": [
+        "Mauritius",
+        "Madagascar",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 1,
+      "explanation": "Madagascar lies off the southeast coast of Africa across the Mozambique Channel and is renowned for its endemic wildlife.",
+      "id": 65
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water receives inflow from major rivers such as the Volga, Ural, and Kura, but lacks any natural outlets, making it an endorheic basin. Bounded by five countries including Russia, Iran, and Kazakhstan, it is geologically classified as the world's largest inland lake by surface area. For the point, name this landlocked saline sea.",
+      "options": [
+        "Aral Sea",
+        "Dead Sea",
+        "Caspian Sea",
+        "Black Sea"
+      ],
+      "answer": 2,
+      "explanation": "The Caspian Sea is an endorheic basin bordered by five nations and is considered the world's largest inland body of water by surface area.",
+      "id": 66
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Rivers & Lakes",
+      "question": "This river flows through major urban centers like Khartoum and Cairo before terminating in an expansive delta into the Mediterranean Sea. Formed by the confluence of the White and Blue tributaries, it spans over 6,600 kilometers as it flows northwards through eastern Africa. For the point, name this longest river in Africa.",
+      "options": [
+        "Congo River",
+        "Niger River",
+        "Zambezi River",
+        "Nile River"
+      ],
+      "answer": 3,
+      "explanation": "The Nile River is formed by the White and Blue Nile tributaries and flows northward through northeastern Africa into the Mediterranean Sea.",
+      "id": 67
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain system forms a natural border between Spain and France, stretching from the Bay of Biscay to the Mediterranean Sea. Containing the tiny landlocked principality of Andorra, its highest point is Pico Aneto. For the point, name this mountain range in southwestern Europe.",
+      "options": [
+        "Alps",
+        "Pyrenees",
+        "Apennines",
+        "Carpathians"
+      ],
+      "answer": 1,
+      "explanation": "The Pyrenees form a natural geographic border between Spain and France and enclose the microstate of Andorra.",
+      "id": 68
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "World Capitals & Urban Centers",
+      "question": "Situated along the Rio de la Plata estuary, this city features famous neighborhoods such as La Boca, San Telmo, and Recoleta. Often referred to as the 'Paris of South America,' it serves as the cultural, political, and economic capital of its country. For the point, name this capital city of Argentina.",
+      "options": [
+        "Montevideo",
+        "Santiago",
+        "Buenos Aires",
+        "Lima"
+      ],
+      "answer": 2,
+      "explanation": "Buenos Aires is the capital and largest city of Argentina, located on the western shore of the Rio de la Plata.",
+      "id": 69
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Islands & Archipelagos",
+      "question": "This archipelago consists of four main islands—Hokkaido, Honshu, Shikoku, and Kyushu—along with thousands of smaller islands. Situated along the Pacific Ring of Fire, its mountainous interior is crowned by Mount Fuji. For the point, name this East Asian island nation whose capital is Tokyo.",
+      "options": [
+        "Japan",
+        "Philippines",
+        "Indonesia",
+        "Taiwan"
+      ],
+      "answer": 0,
+      "explanation": "Japan is an island nation in East Asia made up of four major islands and thousands of smaller ones in the Pacific Ocean.",
+      "id": 70
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Physical Geography",
+      "question": "This geographic feature contains the Danakil Depression, one of the lowest and hottest places on Earth. It was formed by the tectonic divergence of the African and Arabian plates, extending thousands of kilometers southwards to Mozambique. For the point, name this massive continuous trench running through East Africa.",
+      "options": [
+        "Great Rift Valley",
+        "Mid-Atlantic Ridge",
+        "Mariana Trench",
+        "San Andreas Fault"
+      ],
+      "answer": 0,
+      "explanation": "The Great Rift Valley is a continuous geological trench formed by plate divergence in East Africa.",
+      "id": 71
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range isolates the central Iranian plateau from maritime moisture originating from the Caspian Sea to its north. Its highest peak is Mount Damavand, an active stratovolcano that represents the highest summit in the entire Middle East. For the point, name this major mountain range located in northern Iran.",
+      "options": [
+        "Zagros Mountains",
+        "Alborz Mountains",
+        "Caucasus Mountains",
+        "Hindu Kush"
+      ],
+      "answer": 1,
+      "explanation": "The Alborz range spans northern Iran and includes Mount Damavand, the highest peak in the Middle East.",
+      "id": 72
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, some weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Patagonian Desert",
+        "Mojave Desert",
+        "Atacama Desert",
+        "Kalahari Desert"
+      ],
+      "answer": 2,
+      "explanation": "The Atacama Desert in Chile is considered the driest non-polar desert on Earth.",
+      "id": 73
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range and surrounds its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic biodiversity. For the point, name this large island nation located off the southeastern coast of Africa, famous for its lemurs.",
+      "options": [
+        "Mauritius",
+        "Madagascar",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 1,
+      "explanation": "Madagascar is an island country off the southeast coast of Africa known for its endemic species like lemurs.",
+      "id": 74
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water receives flow from major rivers such as the Volga, Ural, and Kura, but lacks any natural outlets, making it an endorheic basin. Bounded by five countries including Russia, Iran, and Kazakhstan, it holds significant offshore petroleum fields like Kashagan. For the point, name this landlocked saline body of water, geologically classified as the world's largest lake by surface area.",
+      "options": [
+        "Black Sea",
+        "Aral Sea",
+        "Caspian Sea",
+        "Lake Baikal"
+      ],
+      "answer": 2,
+      "explanation": "The Caspian Sea is an endorheic basin and the world's largest inland lake by surface area.",
+      "id": 75
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic core includes the district of Sultanahmet as well as the ancient Byzantine Hippodrome. Located on both sides of the Bosporus Strait, it bridges Europe and Asia and was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Izmir",
+        "Bursa",
+        "Istanbul"
+      ],
+      "answer": 3,
+      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was formerly known as Byzantium and Constantinople.",
+      "id": 76
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Rivers & Lakes",
+      "question": "This river originates at Lake Itasca in Minnesota and flows southward through ten states before emptying into the Gulf of Mexico. Major tributaries like the Ohio and Missouri Rivers contribute to its massive drainage basin, which covers much of North America. For the point, name this major American river, the second-longest in the United States.",
+      "options": [
+        "Colorado River",
+        "Mississippi River",
+        "Columbia River",
+        "Rio Grande"
+      ],
+      "answer": 1,
+      "explanation": "The Mississippi River flows south from Minnesota to the Gulf of Mexico, forming one of North America's primary river systems.",
+      "id": 77
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Deserts & Arid Regions",
+      "question": "The McMurdo Dry Valleys within this vast region are among the driest places on Earth and feature hyper-saline bodies of water such as Don Juan Pond. Although it holds nearly 70 percent of the world's fresh water within its massive ice sheet, its extremely low annual precipitation classifies it as a desert. For the point, name this southernmost continent.",
+      "options": [
+        "Greenland",
+        "Antarctica",
+        "Australia",
+        "Arctica"
+      ],
+      "answer": 1,
+      "explanation": "Antarctica is the southernmost continent and is technically classified as the world's largest desert due to extremely low precipitation.",
+      "id": 78
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Physical Geography",
+      "question": "This narrow body of water connects the Persian Gulf to the Gulf of Oman and separates Iran from the Arabian Peninsula. Roughly one-third of the world's seaborne petroleum and natural gas passes through this vital maritime choke point. For the point, name this strategic strait bounded by Oman and Iran.",
+      "options": [
+        "Strait of Malacca",
+        "Bab-el-Mandeb",
+        "Strait of Hormuz",
+        "Bosporus Strait"
+      ],
+      "answer": 2,
+      "explanation": "The Strait of Hormuz connects the Persian Gulf to the Gulf of Oman and is a key global oil transport route.",
+      "id": 79
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range was formed by the ongoing collision of the Indian and Eurasian tectonic plates. Serving as a natural barrier between the Indian subcontinent and the Tibetan Plateau, it contains fourteen peaks over 8,000 meters including Kanchenjunga and Annapurna. For the point, name this Asian mountain range containing Mount Everest.",
+      "options": [
+        "Karakoram",
+        "Himalayas",
+        "Tien Shan",
+        "Altai Mountains"
+      ],
+      "answer": 1,
+      "explanation": "The Himalayas span South and Central Asia and contain the world's highest peaks, including Mount Everest.",
+      "id": 80
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Physical Geography",
+      "question": "This expansive geographic region includes the hyper-saline Lake Natron and the Danakil Depression, one of the lowest and hottest places on Earth. Formed by the tectonic divergence of the African and Arabian plates, it extends thousands of kilometers southwards from the Middle East to Mozambique. For the point, name this massive continuous trench running through East Africa.",
+      "options": [
+        "Great Rift Valley",
+        "Danakil Basin",
+        "Atacama Trench",
+        "Mid-Atlantic Ridge"
+      ],
+      "answer": 0,
+      "explanation": "The Great Rift Valley is a massive geological trench formed by the divergence of tectonic plates in East Africa.",
+      "id": 81
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range isolates the central Iranian plateau from northern maritime humidity coming from the Caspian Sea. Its highest peak is Mount Damavand, an active stratovolcano that forms the highest summit in the entire Middle East. For the point, name this major mountain range located in northern Iran.",
+      "options": [
+        "Zagros Mountains",
+        "Alborz Mountains",
+        "Caucasus Mountains",
+        "Taurus Mountains"
+      ],
+      "answer": 1,
+      "explanation": "The Alborz Mountains extend across northern Iran and contain Mount Damavand, the highest peak in the Middle East.",
+      "id": 82
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Islands & Archipelagos",
+      "question": "This archipelago's Fernandina Island contains the active volcano Mount Cumbres, while its largest settlement of Puerto Ayora is situated on Santa Cruz Island. Straddling the equator, this province of Ecuador is famous for its endemic wildlife species that inspired Charles Darwin's theory of natural selection. For the point, name this Pacific island group known for giant tortoises.",
+      "options": [
+        "Galapagos Islands",
+        "Hawaiian Islands",
+        "Marquesas Islands",
+        "Society Islands"
+      ],
+      "answer": 0,
+      "explanation": "The Galapagos Islands belong to Ecuador and are celebrated for their unique biodiversity, which played a pivotal role in Charles Darwin's development of evolutionary theory.",
+      "id": 83
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water receives flow from major rivers such as the Volga, Ural, and Kura, but lacks any natural outlet, making it an endorheic basin. Classified geologically as the world's largest lake by surface area, it holds significant offshore petroleum fields like Kashagan. For the point, name this landlocked saline body of water bordered by Russia, Iran, Kazakhstan, Turkmenistan, and Azerbaijan.",
+      "options": [
+        "Aral Sea",
+        "Caspian Sea",
+        "Lake Baikal",
+        "Black Sea"
+      ],
+      "answer": 1,
+      "explanation": "The Caspian Sea is the world's largest inland body of water by surface area, bounded by five sovereign nations.",
+      "id": 84
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array on the Chajnantor Plateau due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, some weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Patagonian Desert",
+        "Atacama Desert",
+        "Kalahari Desert",
+        "Sonoran Desert"
+      ],
+      "answer": 1,
+      "explanation": "The Atacama Desert in northern Chile is considered Earth's driest non-polar desert.",
+      "id": 85
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's urban area includes the satellite municipality of Quezon City, which served as its national capital from 1948 to 1976. Situated on a bay on the island of Luzon, it is centered along the Pasig River and was named after the flowering mangrove plant nilad. For the point, name this capital city of the Philippines.",
+      "options": [
+        "Jakarta",
+        "Manila",
+        "Kuala Lumpur",
+        "Hanoi"
+      ],
+      "answer": 1,
+      "explanation": "Manila is the capital of the Philippines, located on the island of Luzon.",
+      "id": 86
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic core includes the district of Sultanahmet as well as the ancient Byzantine Hippodrome. Located on both sides of the Bosporus Strait, it bridges Europe and Asia and was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Izmir",
+        "Istanbul",
+        "Bursa"
+      ],
+      "answer": 2,
+      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was historically known as Byzantium and Constantinople.",
+      "id": 87
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Rivers & Lakes",
+      "question": "This river forms the border between Zambia and Zimbabwe near the Batoka Gorge, where it plunges over the world's largest curtain of falling water at Victoria Falls. Originating in Zambia, it flows eastward through Mozambique to empty into the Indian Ocean. For the point, name this fourth-longest river in Africa.",
+      "options": [
+        "Congo River",
+        "Zambezi River",
+        "Niger River",
+        "Limpopo River"
+      ],
+      "answer": 1,
+      "explanation": "The Zambezi River flows through southern Africa, creating Victoria Falls on the border between Zambia and Zimbabwe.",
+      "id": 88
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Deserts & Arid Regions",
+      "question": "The McMurdo Dry Valleys within this vast region are among the driest places on Earth and feature hyper-saline bodies of water such as Don Juan Pond. Although it holds nearly 70 percent of the world's fresh water within its massive ice sheet, its extremely low annual precipitation classifies it as a desert. For the point, name this southernmost continent.",
+      "options": [
+        "Antarctica",
+        "Greenland",
+        "Australia",
+        "North America"
+      ],
+      "answer": 0,
+      "explanation": "Antarctica is geographically classified as the world's largest desert because of its extremely low annual precipitation.",
+      "id": 89
+    },
+    {
+      "category": "Geography",
+      "mode": "flashcards",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species such as lemurs. For the point, name this large island nation located off the southeastern coast of mainland Africa.",
+      "options": [
+        "Mauritius",
+        "Madagascar",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 1,
+      "explanation": "Madagascar is an island nation off the southeast coast of Africa, renowned for its endemic biological diversity.",
+      "id": 90
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species such as lemurs. For the point, name this large island nation located off the southeastern coast of mainland Africa.",
+      "options": [
+        "Madagascar",
+        "Mauritius",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 0,
+      "explanation": "Madagascar is an island nation in the Indian Ocean off the coast of East Africa, famous for its unique wildlife like lemurs and capital Antananarivo.",
+      "id": 91
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "The high peaks of this mountain range separate the humid coastal strip of the Caspian Sea from the arid Central Plateau of Iran. Its highest summit, Mount Damavand, is a dormant stratovolcano that represents the highest peak in the entire Middle East. For the point, name this major mountain range located in northern Iran.",
+      "options": [
+        "Zagros Mountains",
+        "Alborz Mountains",
+        "Caucasus Mountains",
+        "Hindu Kush"
+      ],
+      "answer": 1,
+      "explanation": "The Alborz range stretches across northern Iran along the southern coast of the Caspian Sea and features Mount Damavand.",
+      "id": 92
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Rivers & Lakes",
+      "question": "This endorheic lake is located in the East African Rift of Tanzania and is famous for its deep red coloration caused by salt-loving microorganisms. Located near the active volcano Ol Doinyo Lengai, its extreme alkalinity calcifies animals that die in its waters. For the point, name this highly mineralized saline lake in northern Tanzania.",
+      "options": [
+        "Lake Victoria",
+        "Lake Tanganyika",
+        "Lake Natron",
+        "Lake Malawi"
+      ],
+      "answer": 2,
+      "explanation": "Lake Natron in northern Tanzania is known for its extreme alkalinity and reddish color due to halophilic microorganisms.",
+      "id": 93
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Deserts & Arid Regions",
+      "question": "This region in northern Chile features hyper-arid terrain where some weather stations have never recorded a single drop of rainfall. Hosting astronomical observatories like the ALMA array due to its extremely dry and clear skies, it was formed in the rain shadow of the Andes Mountains. For the point, name this driest non-polar desert in the world.",
+      "options": [
+        "Gobi Desert",
+        "Atacama Desert",
+        "Kalahari Desert",
+        "Mojave Desert"
+      ],
+      "answer": 1,
+      "explanation": "The Atacama Desert in Chile is recognized as the driest non-polar desert on Earth.",
+      "id": 94
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic district includes the ancient Byzantine Hippodrome as well as landmarks like the Hagia Sophia and the Topkapi Palace. Straddling two continents across the Bosporus Strait, it was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Izmir",
+        "Bursa",
+        "Istanbul"
+      ],
+      "answer": 3,
+      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was formerly named Byzantium and Constantinople.",
+      "id": 95
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "World Capitals & Urban Centers",
+      "question": "Located along the banks of the Chao Phraya River, this city features major landmarks such as Wat Arun and the Grand Palace. Officially known in full as Krung Thep Maha Nakhon, it serves as the political and financial center of its Southeast Asian home nation. For the point, name this capital city of Thailand.",
+      "options": [
+        "Hanoi",
+        "Bangkok",
+        "Phnom Penh",
+        "Kuala Lumpur"
+      ],
+      "answer": 1,
+      "explanation": "Bangkok is the capital and most populous city of Thailand, famous for its cultural landmarks along the Chao Phraya River.",
+      "id": 96
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Islands & Archipelagos",
+      "question": "This volcanic island in the North Atlantic features active volcanoes like Eyjafjallajökull and sits directly atop the Mid-Atlantic Ridge where tectonic plates diverge. Known for geothermal hot springs such as the Blue Lagoon, its capital is Reykjavik. For the point, name this North European island nation.",
+      "options": [
+        "Greenland",
+        "Faroe Islands",
+        "Iceland",
+        "Svalbard"
+      ],
+      "answer": 2,
+      "explanation": "Iceland is a Nordic island country defined by its volcanic geology, hot springs, and capital Reykjavik.",
+      "id": 97
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Rivers & Lakes",
+      "question": "This river flows through ten countries and passes through four national capitals: Vienna, Bratislava, Budapest, and Belgrade. Originating in the Black Forest of Germany, it empties into the Black Sea via a large delta. For the point, name this second-longest river in Europe.",
+      "options": [
+        "Rhine River",
+        "Danube River",
+        "Elbe River",
+        "Rhône River"
+      ],
+      "answer": 1,
+      "explanation": "The Danube River is Central and Eastern Europe's longest river after the Volga, flowing through 10 countries into the Black Sea.",
+      "id": 98
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "Formed by the subduction of the Nazca Plate under the South American Plate, this continuous mountain chain stretches across seven countries along the western coast of South America. Its highest peak is Mount Aconcagua in Argentina. For the point, name this longest continental mountain range on Earth.",
+      "options": [
+        "Rocky Mountains",
+        "Appalachian Mountains",
+        "Andes Mountains",
+        "Atlas Mountains"
+      ],
+      "answer": 2,
+      "explanation": "The Andes Mountains form the longest continental mountain range in the world, running along South America's western coast.",
+      "id": 99
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Deserts & Arid Regions",
+      "question": "Stretching across southern Mongolia and northern China, this rain-shadow desert is bounded by the Altai Mountains to the north and the Tibetan Plateau to the south. Famous for historical trade along the Silk Road and dinosaur fossil discoveries at the Flaming Cliffs, for the point, name this massive Asian desert.",
+      "options": [
+        "Taklamakan Desert",
+        "Karakum Desert",
+        "Gobi Desert",
+        "Thar Desert"
+      ],
+      "answer": 2,
+      "explanation": "The Gobi Desert covers parts of northern China and southern Mongolia, known for its cold desert climate and rich fossil deposits.",
+      "id": 100
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species such as lemurs. For the point, name this large island nation located off the southeastern coast of mainland Africa.",
+      "options": [
+        "Madagascar",
+        "Mauritius",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 0,
+      "explanation": "Madagascar is an island nation located off the southeastern coast of Africa in the Indian Ocean, famous for endemic species such as lemurs and baobab trees.",
+      "id": 101
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water is fed by over 300 rivers, including the Selenga, but has only a single outlet, the Angara River. Holding roughly twenty percent of the world's unfrozen surface fresh water, it is the world's oldest and deepest lake. For the point, name this massive rift lake located in southern Siberia, Russia.",
+      "options": [
+        "Lake Superior",
+        "Lake Baikal",
+        "Lake Victoria",
+        "Lake Tanganyika"
+      ],
+      "answer": 1,
+      "explanation": "Lake Baikal in Siberia, Russia, is both the world's deepest lake and the world's largest freshwater lake by volume, containing roughly 20% of Earth's unfrozen surface fresh water.",
+      "id": 102
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "The Altiplano plateau lies within this mountain range, which contains high-altitude active volcanoes such as Cotopaxi and Chimborazo. Stretching along the western edge of South America from Venezuela down to Tierra del Fuego, it contains Mount Aconcagua. For the point, name this longest continental mountain range in the world.",
+      "options": [
+        "Rocky Mountains",
+        "Appalachian Mountains",
+        "Andes Mountains",
+        "Alps"
+      ],
+      "answer": 2,
+      "explanation": "The Andes run along the entire western coast of South America and form the world's longest continental mountain range.",
+      "id": 103
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts high-altitude observatories like the ALMA radio telescope array due to its extremely clear and dry skies. Formed largely by the rain shadow of the Andes Mountains along the Pacific coastline, some areas here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Kalahari Desert",
+        "Gobi Desert",
+        "Mojave Desert",
+        "Atacama Desert"
+      ],
+      "answer": 3,
+      "explanation": "The Atacama Desert in northern Chile is recognized as the world's driest non-polar desert due to the rain shadow of the Andes and atmospheric conditions created by the Humboldt Current.",
+      "id": 104
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Physical Geography & Waterways",
+      "question": "This narrow waterway separates the European part of Istanbul, known as Rumelia, from its Asian side, Anatolia. Connecting the Sea of Marmara to the Black Sea, it is spanned by major suspension bridges and the Marmaray railway tunnel. For the point, name this strategic Turkish strait that forms part of the continental boundary between Europe and Asia.",
+      "options": [
+        "Dardanelles",
+        "Bosporus Strait",
+        "Strait of Gibraltar",
+        "Strait of Hormuz"
+      ],
+      "answer": 1,
+      "explanation": "The Bosporus Strait separates the European and Asian parts of Istanbul, connecting the Black Sea with the Sea of Marmara.",
+      "id": 105
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Physical Geography",
+      "question": "This expansive geologic feature includes the Danakil Depression, one of the lowest and hottest places on Earth, as well as high-altitude soda lakes like Lake Natron. Formed by tectonic divergence between the African, Arabian, and Somali plates, it stretches thousands of kilometers from the Middle East to Mozambique. For the point, name this continuous trench running through East Africa.",
+      "options": [
+        "Mid-Atlantic Ridge",
+        "San Andreas Fault",
+        "Great Rift Valley",
+        "Mariana Trench"
+      ],
+      "answer": 2,
+      "explanation": "The Great Rift Valley is a continuous trench formed by tectonic divergence running southwards through East Africa.",
+      "id": 106
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This dormant compound volcano consists of three distinct volcanic cones named Shira, Mawenzi, and Kibo. Located inside a namesake national park near the border with Kenya, its summit area features rapidly receding glaciers despite being near the equator. For the point, name this dormant volcano in Tanzania that stands as the highest peak in Africa.",
+      "options": [
+        "Mount Kilimanjaro",
+        "Mount Kenya",
+        "Mount Elgon",
+        "Mount Cameroon"
+      ],
+      "answer": 0,
+      "explanation": "Mount Kilimanjaro in Tanzania is a dormant stratovolcano with three peaks (Kibo, Mawenzi, Shira) and is the highest mountain on the African continent.",
+      "id": 107
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Rivers & Lakes",
+      "question": "This river originates at Lake Tomasee in the Swiss Alps near the Oberalp Pass and forms part of the border between France and Germany. It flows north through the industrial Ruhr region before emptying into the North Sea at Rotterdam in the Netherlands. For the point, name this major European river that passes through cities like Basel, Strasbourg, and Cologne.",
+      "options": [
+        "Danube River",
+        "Rhone River",
+        "Elbe River",
+        "Rhine River"
+      ],
+      "answer": 3,
+      "explanation": "The Rhine River is a major European river flowing from the Swiss Alps through Germany and France to empty into the North Sea via the Netherlands.",
+      "id": 108
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Physical Geography",
+      "question": "Located in the Hermite Islands archipelago, this landmark marks the northern boundary of the Drake Passage. Renowned historically for its hazardous tempestuous waters, strong winds, and heavy waves, it was named after the Dutch town of Hoorn. For the point, name this southernmost headland of the Tierra del Fuego archipelago, long considered the southern tip of South America.",
+      "options": [
+        "Cape Agulhas",
+        "Cape of Good Hope",
+        "Cape Horn",
+        "Cape York"
+      ],
+      "answer": 2,
+      "explanation": "Cape Horn, situated in southern Chile's Tierra del Fuego archipelago, is widely recognized as the southernmost point of South America.",
+      "id": 109
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Physical Geography & Waterways",
+      "question": "This narrow stretch of water lies between the Malay Peninsula and the Indonesian island of Sumatra. Serving as a crucial maritime gateway connecting the Indian Ocean with the South China Sea, it is one of the busiest shipping lanes in the world, overseen largely by Singapore. For the point, name this strategic strait named after a historic Malaysian sultanate.",
+      "options": [
+        "Sunda Strait",
+        "Strait of Malacca",
+        "Lombok Strait",
+        "Taiwan Strait"
+      ],
+      "answer": 1,
+      "explanation": "The Strait of Malacca is a critical choke point for global trade, connecting the Indian Ocean to the Pacific Ocean between Malaysia and Sumatra.",
+      "id": 110
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Islands & Archipelagos",
+      "question": "This archipelago's highest point is Mount Pico, located on an island of the same name. Its easternmost island of Santa Maria was visited by Christopher Columbus on his return voyage from America, and its island of Faial was near the 1957 eruption of Capelinhos. Located about 850 miles west of mainland Portugal in the North Atlantic Ocean, For the point, name this autonomous region of Portugal consisting of nine volcanic islands.",
+      "options": [
+        "Azores",
+        "Madeira",
+        "Canary Islands",
+        "Cape Verde"
+      ],
+      "answer": 0,
+      "explanation": "The Azores is an autonomous region of Portugal comprising nine volcanic islands in the North Atlantic Ocean.",
+      "id": 111
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Rivers & Lakes",
+      "question": "The Okavango Delta, one of the world's largest inland deltas, terminates in the Kalahari Desert in this nation. Lake Ngami is located in its northwest, while its eastern border features the Limpopo River, which separates it from South Africa. For the point, name this landlocked Southern African country whose capital is Gaborone.",
+      "options": [
+        "Namibia",
+        "Botswana",
+        "Zimbabwe",
+        "Zambia"
+      ],
+      "answer": 1,
+      "explanation": "Botswana contains the Okavango Delta and much of the Kalahari Desert, and its national capital is Gaborone.",
+      "id": 112
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Physical Geography",
+      "question": "This geographical region contains Lake Tana, the source of the Blue Nile, and is bordered by the Red Sea to the north and the Gulf of Aden to the east. It features the Danakil Depression and is often described as the landmass containing the countries of Djibouti, Eritrea, Ethiopia, and Somalia. For the point, name this peninsula in Northeast Africa named for its resemblance to a rhino's head feature.",
+      "options": [
+        "Cape of Good Hope",
+        "Sinai Peninsula",
+        "Horn of Africa",
+        "Iberian Peninsula"
+      ],
+      "answer": 2,
+      "explanation": "The Horn of Africa is a prominent peninsula in Eastern Africa comprising Djibouti, Eritrea, Ethiopia, and Somalia.",
+      "id": 113
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "The highest peak in this mountain range is Mount Narodnaya, located in its northern section near the Subarctic. Extending about 2,500 kilometers from the Arctic Ocean down to the Kazakh Steppe, it forms part of the traditional geographical boundary dividing the continents of Europe and Asia. For the point, name this major mountain range located primarily in Russia.",
+      "options": [
+        "Caucasus Mountains",
+        "Ural Mountains",
+        "Altai Mountains",
+        "Carpathian Mountains"
+      ],
+      "answer": 1,
+      "explanation": "The Ural Mountains run north to south through western Russia and form the conventional boundary separating Europe and Asia.",
+      "id": 114
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Straits & Canals",
+      "question": "The Rock of Gibraltar marks the northern entrance of this waterway on the European side, while Jebel Musa in Morocco marks its southern entrance. Connecting the Atlantic Ocean to the Alboran Sea, this narrow passage separates Spain from Africa by only about 14 kilometers at its narrowest point. For the point, name this strait connecting the Atlantic Ocean to the Mediterranean Sea.",
+      "options": [
+        "Strait of Malacca",
+        "Strait of Hormuz",
+        "Strait of Gibraltar",
+        "Bering Strait"
+      ],
+      "answer": 2,
+      "explanation": "The Strait of Gibraltar connects the Atlantic Ocean to the Mediterranean Sea between southern Spain and northern Morocco.",
+      "id": 115
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "World Capitals & Urban Centers",
+      "question": "Located at the confluence of the White Nile and the Blue Nile, this city is situated directly opposite its twin city, Omdurman. Founded in 1821 as an army camp for the Ottoman Egyptian army, its name translates to \"elephant trunk\" in Arabic, referring to the thin strip of land between the two rivers. For the point, name this capital city of Sudan.",
+      "options": [
+        "Asmara",
+        "Khartoum",
+        "Juba",
+        "Addis Ababa"
+      ],
+      "answer": 1,
+      "explanation": "Khartoum is the capital city of Sudan, positioned at the confluence of the White Nile and Blue Nile rivers.",
+      "id": 116
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Deserts & Arid Regions",
+      "question": "The Taklamakan Desert occupies the central part of this endorheic basin located in northwestern China's Xinjiang region. Bounded by the Kunlun Mountains to the south and the Tian Shan range to the north, it was historically traversed by the Northern and Southern branches of the Silk Road. For the point, name this major depression, the largest basin in China.",
+      "options": [
+        "Tarim Basin",
+        "Dzungarian Basin",
+        "Sichuan Basin",
+        "Qaidam Basin"
+      ],
+      "answer": 0,
+      "explanation": "The Tarim Basin in Xinjiang, China, is a vast endorheic basin that encompasses the Taklamakan Desert.",
+      "id": 117
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Rivers & Lakes",
+      "question": "This lake is the deepest in the world, reaching a maximum depth of over 1,600 meters, and holds roughly 20 percent of the world's unfrozen surface fresh water. Located in southern Siberia, it contains Olkhon Island and is home to the nerpa, the world's only freshwater seal species. For the point, name this ancient lake in Russia.",
+      "options": [
+        "Lake Tanganyika",
+        "Lake Superior",
+        "Lake Baikal",
+        "Lake Victoria"
+      ],
+      "answer": 2,
+      "explanation": "Lake Baikal in southern Siberia, Russia, is the world's deepest and most voluminous freshwater lake.",
+      "id": 118
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Nations & Borders",
+      "question": "This landlocked European nation is divided into 26 cantons, including Valais, Graubünden, and Bern. It is famous for its strict historical policy of armed neutrality and hosts the headquarters of numerous international organizations in Geneva. For the point, name this Alpine country located between France, Germany, Austria, Liechtenstein, and Italy.",
+      "options": [
+        "Austria",
+        "Switzerland",
+        "Slovakia",
+        "Slovenia"
+      ],
+      "answer": 1,
+      "explanation": "Switzerland is a neutral, landlocked country in Central Europe divided into 26 cantons.",
+      "id": 119
+    },
+    {
+      "category": "Geography",
+      "mode": "good-to-know",
+      "topic": "Islands & Archipelagos",
+      "question": "This archipelagic nation consists of over 7,000 islands grouped into three main geographical divisions: Luzon, Visayas, and Mindanao. Situated in the western Pacific Ocean within the Coral Triangle, its northernmost islands are separated from Taiwan by the Bashi Channel. For the point, name this Southeast Asian country whose capital is Manila.",
+      "options": [
+        "Indonesia",
+        "Philippines",
+        "Malaysia",
+        "East Timor"
+      ],
+      "answer": 1,
+      "explanation": "The Philippines is an island country in Southeast Asia consisting of thousands of islands centered around Luzon, Visayas, and Mindanao.",
+      "id": 120
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic district includes the ancient Byzantine Hippodrome as well as the neighborhood surrounding the Hagia Sophia. Located along a strategic waterway dividing Europe and Asia, it was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Istanbul",
+        "Izmir",
+        "Bursa"
+      ],
+      "answer": 1,
+      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was historically known as Byzantium and Constantinople before acquiring its modern name.",
+      "id": 121
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Physical Geography",
+      "question": "This expansive geographic feature includes the hyper-saline Lake Natron and the Danakil Depression, one of the lowest and hottest places on Earth. Formed by tectonic divergence between the African and Arabian plates, it extends southwards toward Mozambique. For the point, name this massive continuous trench running through East Africa.",
+      "options": [
+        "Great Rift Valley",
+        "Grand Canyon",
+        "Mid-Atlantic Ridge",
+        "Mariana Trench"
+      ],
+      "answer": 0,
+      "explanation": "The Great Rift Valley is a continuous geological trench created by tectonic plate divergence running through East Africa from the Middle East down to Mozambique.",
+      "id": 122
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water is home to hundreds of endemic species, including the nerpa, the world's only exclusively freshwater seal. Located in southern Siberia, it is fed by the Selenga River and drained solely by the Angara River. For the point, name this ancient Russian body of water, the world's deepest and oldest freshwater lake.",
+      "options": [
+        "Lake Tanganyika",
+        "Lake Superior",
+        "Lake Baikal",
+        "Lake Victoria"
+      ],
+      "answer": 2,
+      "explanation": "Lake Baikal in southern Siberia is the deepest lake in the world, holding approximately 20% of Earth's unfrozen surface fresh water.",
+      "id": 123
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Deserts & Arid Regions",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, some weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
+      "options": [
+        "Kalahari Desert",
+        "Gobi Desert",
+        "Atacama Desert",
+        "Mojave Desert"
+      ],
+      "answer": 2,
+      "explanation": "The Atacama Desert in northern Chile sits in the rain shadow of the Andes, making it Earth's driest non-polar desert.",
+      "id": 124
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This mountain range isolates the central plateau of its home country from northern maritime humidity originating in the Caspian Sea. Its highest peak is Mount Damavand, an active stratovolcano that forms the highest summit in the Middle East. For the point, name this major mountain range located across northern Iran.",
+      "options": [
+        "Zagros Mountains",
+        "Alborz Mountains",
+        "Caucasus Mountains",
+        "Pamir Mountains"
+      ],
+      "answer": 1,
+      "explanation": "The Alborz Mountains stretch across northern Iran along the Caspian Sea and feature Mount Damavand, the highest peak in the Middle East.",
+      "id": 125
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's central interior is dominated by a high plateau featuring the Ankaratra volcanic field and the capital city of Antananarivo. Separated from mainland Africa by the Mozambique Channel, it features high levels of biological endemism. For the point, name this large island nation off the southeast coast of Africa, famous for native lemurs.",
+      "options": [
+        "Mauritius",
+        "Madagascar",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 1,
+      "explanation": "Madagascar is situated off the southeastern coast of Africa across the Mozambique Channel, renowned for unique endemic species like lemurs and baobab trees.",
+      "id": 126
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Rivers & Lakes",
+      "question": "This body of water receives inflow from major rivers such as the Volga, Ural, and Kura, but lacks any natural outlets, making it an endorheic basin. Bounded by five countries including Russia, Kazakhstan, and Iran, it contains major offshore petroleum deposits. For the point, name this landlocked body of water, geologically classified as the world's largest lake.",
+      "options": [
+        "Aral Sea",
+        "Black Sea",
+        "Caspian Sea",
+        "Dead Sea"
+      ],
+      "answer": 2,
+      "explanation": "The Caspian Sea is an endorheic saline basin surrounded by five nations and is geologically recognized as the largest lake on Earth by surface area.",
+      "id": 127
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This planned city was designed by American architects Walter Burley Griffin and Marion Mahony Griffin following an international competition. Built around an artificial lake named for its architect, it was selected in 1908 as a compromise capital location between Sydney and Melbourne. For the point, name this capital city of Australia.",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Brisbane",
+        "Canberra"
+      ],
+      "answer": 3,
+      "explanation": "Canberra was chosen in 1908 as the planned capital of Australia to settle a rivalry between Sydney and Melbourne, and was designed by Walter Burley Griffin.",
+      "id": 128
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Physical Geography",
+      "question": "This narrow maritime passage is flanked by geological features historically known as the Pillars of Hercules, including Jebel Musa and the Rock of Gibraltar. It forms a crucial shipping passage separating southern Europe from North Africa. For the point, name this strait connecting the Atlantic Ocean to the Mediterranean Sea between Spain and Morocco.",
+      "options": [
+        "Strait of Hormuz",
+        "Strait of Malacca",
+        "Strait of Gibraltar",
+        "Bering Strait"
+      ],
+      "answer": 2,
+      "explanation": "The Strait of Gibraltar connects the Atlantic Ocean to the Mediterranean Sea and separates Spain on the Iberian Peninsula from Morocco in Africa.",
+      "id": 129
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Deserts & Arid Regions",
+      "question": "The McMurdo Dry Valleys within this landmass contain extreme environmental conditions and bodies of water like hyper-saline Don Juan Pond. Although its continental ice sheet holds most of the world's fresh water, its extremely low precipitation classifies it scientifically as a polar desert. For the point, name this cold southernmost continent.",
+      "options": [
+        "Antarctica",
+        "Greenland",
+        "Sahara",
+        "Gobi"
+      ],
+      "answer": 0,
+      "explanation": "Antarctica is the southernmost continent on Earth and is scientifically classified as the world's largest desert due to its near-total lack of annual precipitation.",
+      "id": 130
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city's historic district includes the ancient Hippodrome of Constantinople and the Golden Horn inlet. Situated along both sides of the Bosporus Strait, it is the only major transcontinental city bridging Europe and Asia. Formerly known as Byzantium and Constantinople, it is the economic and cultural heart of its nation, though not its legal capital. For the point, name this most populous city in Turkey.",
+      "options": [
+        "Ankara",
+        "Istanbul",
+        "Izmir",
+        "Athens"
+      ],
+      "answer": 1,
+      "explanation": "Istanbul spans the Bosporus Strait between Europe and Asia and was historically known as Byzantium and Constantinople.",
+      "id": 131
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Rivers & Lakes",
+      "question": "This rift lake is home to the nerpa, the world's only exclusively freshwater seal species, as well as the deepwater oilfish known as the golomyanka. Located in southern Siberia near the city of Irkutsk, it contains roughly 20 percent of the planet's unfrozen surface fresh water. It is recognized as both the world's deepest lake and the oldest freshwater lake on Earth. For the point, name this massive Russian lake.",
+      "options": [
+        "Lake Baikal",
+        "Lake Victoria",
+        "Lake Superior",
+        "Lake Tanganyika"
+      ],
+      "answer": 0,
+      "explanation": "Lake Baikal in Siberia is the deepest and oldest freshwater lake in the world, containing approximately 20% of Earth's unfrozen surface fresh water.",
+      "id": 132
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This dormant stratovolcano contains three distinct volcanic cones named Shira, Mawenzi, and Kibo, the last of which houses its highest peak, Uhuru Peak. Situated near the border of Kenya within a namesake national park, its snow-capped summits and receding glaciers are a prominent symbol of East Africa. It stands as the tallest free-standing mountain above sea level in the world. For the point, name this highest peak on the African continent, located in Tanzania.",
+      "options": [
+        "Mount Kenya",
+        "Mount Elgon",
+        "Mount Kilimanjaro",
+        "Mount Stanley"
+      ],
+      "answer": 2,
+      "explanation": "Mount Kilimanjaro in Tanzania is Africa's highest peak and the world's tallest free-standing mountain.",
+      "id": 133
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Islands & Archipelagos",
+      "question": "This volcanic archipelago features active shield volcanoes such as Wolf and Sierra Negra on its largest landmass, Isabela Island. Located on the equator in the Pacific Ocean about 900 kilometers west of South America, its unique biodiversity influenced Charles Darwin's theory of evolution by natural selection. Famous for its marine iguanas and giant tortoises, for the point, name this island province belonging to Ecuador.",
+      "options": [
+        "Galápagos Islands",
+        "Falkland Islands",
+        "Easter Island",
+        "Canary Islands"
+      ],
+      "answer": 0,
+      "explanation": "The Galápagos Islands are an Ecuadorian archipelago in the Pacific Ocean famous for endemic wildlife studied by Charles Darwin.",
+      "id": 134
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Physical Geography",
+      "question": "This immense natural structure stretches for over 2,300 kilometers off the coast of Queensland in the Coral Sea. Comprising thousands of individual reefs and hundreds of islands, it is built by millions of tiny coral polyps and can be seen from space. Threat of mass bleaching events due to rising water temperatures has made it a central focus of global marine conservation. For the point, name this world's largest coral reef system, located off the northeastern coast of Australia.",
+      "options": [
+        "Belize Barrier Reef",
+        "Great Barrier Reef",
+        "Apo Reef",
+        "New Caledonia Barrier Reef"
+      ],
+      "answer": 1,
+      "explanation": "The Great Barrier Reef off Queensland, Australia, is the world's largest coral reef system.",
+      "id": 135
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Deserts & Arid Regions",
+      "question": "This high-altitude plateau hosts major astronomical observatories like the Very Large Telescope and ALMA due to its extremely dry atmospheric conditions. Situated in the rain shadow created by the Andes mountain range and cooled by the offshore Humboldt Current, some weather stations here have recorded zero rainfall for decades. For the point, name this plateau region in northern Chile, recognized as the driest non-polar desert on Earth.",
+      "options": [
+        "Gobi Desert",
+        "Kalahari Desert",
+        "Mojave Desert",
+        "Atacama Desert"
+      ],
+      "answer": 3,
+      "explanation": "The Atacama Desert in northern Chile is Earth's driest non-polar desert, bounded by the Andes and the Pacific Ocean.",
+      "id": 136
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "World Capitals & Urban Centers",
+      "question": "Designed by American architects Walter Burley Griffin and Marion Mahony Griffin, this planned city features a central artificial lake named after its main designer. Selected as a compromise location in 1908 to resolve a fierce rivalry between Sydney and Melbourne, it lies within a federal territory carved out of New South Wales. For the point, name this bush-surrounded city that serves as the national capital of Australia.",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Brisbane"
+      ],
+      "answer": 2,
+      "explanation": "Canberra was chosen as a compromise capital between Sydney and Melbourne and was constructed as a planned city.",
+      "id": 137
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Rivers & Lakes",
+      "question": "This river's headwaters originate high in the Peruvian Andes at Nevado Mismi before flowing past major inland ports such as Iquitos and Manaus. It discharges more water into the Atlantic Ocean than the next seven largest rivers combined and carries no bridges across its main stem. Flowing through the world's largest tropical rainforest, for the point, name this South American river, the largest in the world by water volume discharge.",
+      "options": [
+        "Orinoco River",
+        "Paraná River",
+        "Amazon River",
+        "Magdalena River"
+      ],
+      "answer": 2,
+      "explanation": "The Amazon River in South America is the largest river in the world by discharge volume and flows into the Atlantic Ocean.",
+      "id": 138
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Physical Geography",
+      "question": "This vast geographical region features the Perito Moreno Glacier, the Valdés Peninsula, and the dramatic granite peaks of the Cordillera del Paine. Bounded by the Colorado River to the north and the Strait of Magellan to the south, it encompasses steppes, grasslands, and glacial fjords across the southern cone of South America. Shared between Chile and Argentina, for the point, name this sparsely populated region famous for its wild landscapes.",
+      "options": [
+        "Pampas",
+        "Patagonia",
+        "Gran Chaco",
+        "Altiplano"
+      ],
+      "answer": 1,
+      "explanation": "Patagonia is a geographic region in southern South America shared by Argentina and Chile, known for glaciers, steppes, and mountains.",
+      "id": 139
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Straits & Waterways",
+      "question": "This narrow stretch of water separates the Malay Peninsula from the Indonesian island of Sumatra. Functioning as the primary maritime passage between the Indian Ocean and the Pacific Ocean, it is one of the world's most critical naval choke points and handles roughly a quarter of globally traded goods, anchored by the port of Singapore at its southeastern tip. For the point, name this strategic strait named after a historic Malaysian sultanate.",
+      "options": [
+        "Strait of Hormuz",
+        "Strait of Malacca",
+        "Sunda Strait",
+        "Lombok Strait"
+      ],
+      "answer": 1,
+      "explanation": "The Strait of Malacca runs between Sumatra and the Malay Peninsula, serving as a major shipping channel connecting the Indian and Pacific Oceans.",
+      "id": 140
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
       "topic": "World Capitals & Urban Centers",
       "question": "This city's historic core includes the district of Sultanahmet as well as the ancient Byzantine Hippodrome. Located on both sides of the Bosporus Strait, it bridges Europe and Asia and was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
       "options": [
@@ -102,41 +2202,164 @@
         "Bursa"
       ],
       "answer": 1,
-      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was historically known as Byzantium and Constantinople."
+      "explanation": "Istanbul is Turkey's largest city, straddling the Bosporus Strait between Europe and Asia. It was formerly named Byzantium and Constantinople.",
+      "id": 141
     },
     {
-      "id": 2,
-      "category": "Science",
-      "topic": "Cell Biology",
-      "question": "This organelle contains inner membrane folds called cristae that maximize surface area for ATP synthase during oxidative phosphorylation. Because it retains its own independent circular DNA and ribosomes, it serves as primary evidence for the endosymbiotic theory. For the point, name this double-membraned organelle commonly nicknamed the powerhouse of the cell.",
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Rivers & Lakes",
+      "question": "This river passes through major industrial centers such as Nizhny Novgorod, Kazan, and Volgograd before discharging into a large delta near Astrakhan. It receives major tributaries like the Oka and Kama rivers and flows into the landlocked Caspian Sea. For the point, name this longest river in Europe, flowing entirely through Russia.",
       "options": [
-        "Lysosome",
-        "Golgi apparatus",
-        "Mitochondrion",
-        "Endoplasmic reticulum"
+        "Danube",
+        "Dnieper",
+        "Volga",
+        "Don"
       ],
       "answer": 2,
-      "explanation": "Mitochondria generate energy in the form of ATP via aerobic respiration and possess their own distinct circular DNA."
+      "explanation": "The Volga River is the longest river in Europe. It flows entirely through Russia and empties into the Caspian Sea.",
+      "id": 142
     },
     {
-      "id": 3,
       "category": "Geography",
+      "mode": "practice-specific",
       "topic": "Deserts & Arid Regions",
-      "question": "The McMurdo Dry Valleys within this vast region are among the driest places on Earth and feature hyper-saline bodies of water such as Don Juan Pond. Although it holds nearly 70 percent of the world's fresh water within its massive ice sheet, its extremely low annual precipitation classifies it as a desert. For the point, name this southernmost continent.",
+      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, some weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
       "options": [
-        "Antarctica",
-        "Australia",
-        "Greenland",
-        "South America"
+        "Mojave Desert",
+        "Atacama Desert",
+        "Namib Desert",
+        "Gobi Desert"
+      ],
+      "answer": 1,
+      "explanation": "The Atacama Desert in northern Chile is geographically classified as the driest non-polar desert on Earth.",
+      "id": 143
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Islands & Archipelagos",
+      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species such as lemurs. For the point, name this large island nation located off the southeastern coast of mainland Africa.",
+      "options": [
+        "Mauritius",
+        "Madagascar",
+        "Seychelles",
+        "Comoros"
+      ],
+      "answer": 1,
+      "explanation": "Madagascar is an island nation off the southeast coast of Africa, world-famous for its endemic biodiversity including lemurs.",
+      "id": 144
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Mountain Ranges & Volcanoes",
+      "question": "This dormant stratovolcano consists of three distinct volcanic cones named Shira, Mawenzi, and Kibo, the latter of which holds its highest peak, Uhuru Peak. Located near the border with Kenya in the eastern part of its host country, its retreating ice cap is a prominent landmark of East Africa. For the point, name this highest mountain in Africa, located in Tanzania.",
+      "options": [
+        "Mount Kenya",
+        "Mount Kilimanjaro",
+        "Mount Elgon",
+        "Mount Ruwenzori"
+      ],
+      "answer": 1,
+      "explanation": "Mount Kilimanjaro in Tanzania is Africa's tallest peak, reaching an elevation of 5,895 meters (19,341 feet).",
+      "id": 145
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Political Geography",
+      "question": "This country's topography is defined by the Maloti Mountains and the Drakensberg range, giving it the highest lowest point of any nation in the world. Encircled entirely by its larger neighbor, its capital and largest city is Maseru. For the point, name this landlocked enclave nation located entirely within South Africa.",
+      "options": [
+        "Eswatini",
+        "San Marino",
+        "Lesotho",
+        "Andorra"
+      ],
+      "answer": 2,
+      "explanation": "Lesotho is a high-altitude, landlocked enclave completely surrounded by the territory of South Africa.",
+      "id": 146
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Rivers & Lakes",
+      "question": "This ancient rift lake is fed by over 300 rivers including the Selenga, but its only outflowing river is the Angara, a tributary of the Yenisey. Located in southern Siberia, it contains roughly 20 percent of the world's unfrozen surface fresh water. For the point, name this deepest and oldest freshwater lake in the world.",
+      "options": [
+        "Lake Tanganyika",
+        "Lake Superior",
+        "Lake Baikal",
+        "Lake Victoria"
+      ],
+      "answer": 2,
+      "explanation": "Lake Baikal in southern Russia (Siberia) is the world's deepest lake and holds the largest fresh water volume of any lake.",
+      "id": 147
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "World Capitals & Urban Centers",
+      "question": "This city was planned by American architects Walter Burley Griffin and Marion Mahony Griffin following an international design competition in the early 20th century. Its central feature is an artificial lake bearing Griffin's name, located in a capital territory situated between Sydney and Melbourne. For the point, name this purpose-built capital city of Australia.",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Brisbane",
+        "Canberra"
+      ],
+      "answer": 3,
+      "explanation": "Canberra was founded as a planned city in 1913 to serve as the national capital of Australia.",
+      "id": 148
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Physical Geography",
+      "question": "This narrow waterway is bordered to the north by Spain and the British Overseas Territory at the Rock, and to the south by Morocco and the territory of Ceuta. Historically referred to as the Pillars of Hercules, it connects the Atlantic Ocean to the Mediterranean Sea. For the point, name this strait separating Europe from Africa.",
+      "options": [
+        "Strait of Hormuz",
+        "Strait of Malacca",
+        "Strait of Gibraltar",
+        "Bering Strait"
+      ],
+      "answer": 2,
+      "explanation": "The Strait of Gibraltar connects the Atlantic Ocean and the Mediterranean Sea, separating southern Spain from northern Africa.",
+      "id": 149
+    },
+    {
+      "category": "Geography",
+      "mode": "practice-specific",
+      "topic": "Islands & Archipelagos",
+      "question": "This archipelago includes Isabela, Santa Cruz, and Fernandina islands and was formed by a volcanic hotspot along the Nazca Plate. Famous for endemic fauna such as marine iguanas and giant tortoises, it inspired Charles Darwin's theory of natural selection after his 1835 visit on the HMS Beagle. For the point, name this Pacific island chain belonging to Ecuador.",
+      "options": [
+        "Galápagos Islands",
+        "Falkland Islands",
+        "Canary Islands",
+        "Azores"
       ],
       "answer": 0,
-      "explanation": "Antarctica is geographically classified as the world's largest desert due to extremely low annual precipitation rates."
+      "explanation": "The Galápagos Islands are a province of Ecuador in the Pacific Ocean famous for endemic wildlife studied by Charles Darwin.",
+      "id": 150
     },
     {
-      "id": 4,
       "category": "Science",
+      "mode": "standard",
+      "topic": "Cell Biology",
+      "question": "This organelle contains inner membrane folds called cristae that maximize the surface area for ATP synthase during oxidative phosphorylation. Because it retains its own independent circular DNA and ribosomes, it serves as primary evidence for the endosymbiotic theory. For the point, name this double-membraned organelle commonly nicknamed the powerhouse of the cell.",
+      "options": [
+        "Mitochondrion",
+        "Ribosome",
+        "Golgi apparatus",
+        "Endoplasmic reticulum"
+      ],
+      "answer": 0,
+      "explanation": "Mitochondria generate ATP via aerobic respiration and contain their own DNA, supporting the endosymbiotic theory.",
+      "id": 151
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
       "topic": "Photosynthesis",
-      "question": "During the light-independent reactions of this pathway, carbon dioxide fixation is catalyzed by the enzyme RuBisCO within the stroma. This biological process utilizes chlorophyll pigments to absorb solar radiation and splits water molecules to generate oxygen gas alongside glucose. For the point, name this process by which green plants convert light energy into chemical energy.",
+      "question": "During the light-independent reactions of this pathway, carbon dioxide fixation into 3-phosphoglycerate is catalyzed by the enzyme RuBisCO within the stroma. This biological process utilizes chlorophyll pigments to absorb solar radiation and splits water molecules to generate oxygen gas alongside glucose. For the point, name this process by which green plants convert light energy into chemical energy.",
       "options": [
         "Cellular respiration",
         "Photosynthesis",
@@ -144,221 +2367,27 @@
         "Fermentation"
       ],
       "answer": 1,
-      "explanation": "Photosynthesis converts solar energy, carbon dioxide, and water into glucose and oxygen inside plant chloroplasts."
+      "explanation": "Photosynthesis converts light, carbon dioxide, and water into glucose and oxygen inside plant chloroplasts.",
+      "id": 152
     },
     {
-      "id": 5,
-      "category": "Geography",
-      "topic": "Islands & Archipelagos",
-      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species such as lemurs. For the point, name this large island nation located off the southeastern coast of mainland Africa.",
-      "options": [
-        "Mauritius",
-        "Madagascar",
-        "Seychelles",
-        "Zanzibar"
-      ],
-      "answer": 1,
-      "explanation": "Madagascar is an island nation off the southeast coast of Africa separated by the Mozambique Channel, famous for endemic wildlife."
-    },
-    {
-      "id": 6,
       "category": "Science",
+      "mode": "standard",
       "topic": "Thermodynamics",
-      "question": "According to Nernst's heat theorem, this thermodynamic state function approaches a constant minimum value as temperature reaches absolute zero. Stated in the second law of thermodynamics, its value in an isolated system always increases during spontaneous processes. For the point, name this measure of disorder or randomness in a physical system, often denoted by the letter S.",
+      "question": "According to Nernst's heat theorem, this thermodynamic state function approaches a constant minimum value as temperature reaches absolute zero. Stated in the second law of thermodynamics, its total value in an isolated system always increases during spontaneous processes. For the point, name this measure of disorder or randomness in a physical system, often denoted by the letter S.",
       "options": [
         "Enthalpy",
-        "Entropy",
         "Gibbs free energy",
-        "Specific heat capacity"
-      ],
-      "answer": 1,
-      "explanation": "Entropy (denoted by S) quantifies the degree of disorder or randomness within a system, which increases in isolated systems during spontaneous processes."
-    },
-    {
-      "id": 7,
-      "category": "Geography",
-      "topic": "Rivers & Lakes",
-      "question": "This body of water is fed by major rivers such as the Volga, Ural, and Kura, but lacks any natural outlet, making it an endorheic basin. Classified geologically as the world's largest lake by surface area, it holds significant offshore petroleum fields like Kashagan. For the point, name this landlocked saline sea bordered by Russia, Iran, Kazakhstan, Turkmenistan, and Azerbaijan.",
-      "options": [
-        "Aral Sea",
-        "Caspian Sea",
-        "Black Sea",
-        "Lake Baikal"
-      ],
-      "answer": 1,
-      "explanation": "The Caspian Sea is the world's largest inland body of water by surface area, bounded by Russia, Iran, Kazakhstan, Turkmenistan, and Azerbaijan."
-    },
-    {
-      "id": 8,
-      "category": "Science",
-      "topic": "Periodic Table & Elements",
-      "question": "Denoted historically by the alternative name Wolfram, this transition metal exhibits the highest melting point of all pure non-alloyed metals at over 3,400 degrees Celsius. Due to its exceptional hardness and heat resistance, it was historically used to construct filaments in incandescent light bulbs. For the point, name this chemical element with atomic number 74 and symbol W.",
-      "options": [
-        "Tungsten",
-        "Titanium",
-        "Tantalum",
-        "Platinum"
-      ],
-      "answer": 0,
-      "explanation": "Tungsten (symbol W, atomic number 74) has the highest melting point of all pure metals and was historically used for incandescent light bulb filaments."
-    },
-    {
-      "id": 9,
-      "category": "Geography",
-      "topic": "Physical Geography",
-      "question": "This expansive geographic region includes the hyper-saline Lake Natron and the Danakil Depression, one of the lowest and hottest places on Earth. Formed by the tectonic divergence of the African and Arabian plates, it extends thousands of kilometers southwards from the Middle East to Mozambique. For the point, name this massive continuous trench running through East Africa.",
-      "options": [
-        "Great Rift Valley",
-        "Grand Canyon",
-        "Mariana Trench",
-        "Mid-Atlantic Ridge"
-      ],
-      "answer": 0,
-      "explanation": "The Great Rift Valley is a continuous geological trench formed by tectonic plate divergence running through East Africa."
-    },
-    {
-      "id": 10,
-      "category": "Science",
-      "topic": "Acceleration",
-      "question": "In uniform circular motion, the centripetal form of this vector points directly toward the center of the circular path. According to Newton's second law, multiplying mass by this quantity yields net force, and near Earth's surface its standard gravitational value is roughly 9.81 meters per second squared. For the point, name this physical vector quantity defined as the rate of change of velocity over time.",
-      "options": [
-        "Velocity",
-        "Jerk",
-        "Acceleration",
-        "Momentum"
-      ],
-      "answer": 2,
-      "explanation": "Acceleration is the rate at which an object's velocity changes over time, measured in meters per second squared (m/s²)."
-    },
-    {
-      "id": 11,
-      "category": "Geography",
-      "topic": "World Capitals & Urban Centers",
-      "question": "This city's historic district includes the ancient Byzantine Hippodrome and the historic neighborhood surrounding the Hagia Sophia. Located along a major waterway dividing two continents, it was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
-      "options": [
-        "Ankara",
-        "Istanbul",
-        "Izmir",
-        "Bursa"
-      ],
-      "answer": 1,
-      "explanation": "Istanbul spans both Europe and Asia across the Bosporus Strait and was historically known as Byzantium and Constantinople."
-    },
-    {
-      "id": 12,
-      "category": "Science",
-      "topic": "Photosynthesis",
-      "question": "During the light-independent reactions of this process, carbon dioxide fixation is catalyzed by the enzyme RuBisCO within the stroma into 3-phosphoglycerate. This biological pathway utilizes chlorophyll pigments to absorb solar radiation and splits water molecules to generate oxygen gas. For the point, name this process by which green plants convert light energy into chemical energy.",
-      "options": [
-        "Cellular Respiration",
-        "Photosynthesis",
-        "Fermentation",
-        "Transpiration"
-      ],
-      "answer": 1,
-      "explanation": "Photosynthesis converts light, carbon dioxide, and water into glucose and oxygen gas in plant chloroplasts."
-    },
-    {
-      "id": 13,
-      "category": "Geography",
-      "topic": "Deserts & Arid Regions",
-      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, some weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
-      "options": [
-        "Gobi Desert",
-        "Kalahari Desert",
-        "Atacama Desert",
-        "Mojave Desert"
-      ],
-      "answer": 2,
-      "explanation": "The Atacama Desert in northern Chile is formed in the rain shadow of the Andes and is Earth's driest non-polar desert."
-    },
-    {
-      "id": 14,
-      "category": "Science",
-      "topic": "Velocity",
-      "question": "In fluid dynamics, the terminal value of this vector quantity occurs when drag force equals the gravitational force acting on a falling body. Mathematically defined as the first derivative of position with respect to time, it is distinguished from speed because it accounts for both magnitude and direction. For the point, name this physical vector quantity defined as the rate of change of displacement.",
-      "options": [
-        "Acceleration",
-        "Velocity",
-        "Momentum",
-        "Force"
-      ],
-      "answer": 1,
-      "explanation": "Velocity is a physical vector quantity that measures the rate of change of displacement over time."
-    },
-    {
-      "id": 15,
-      "category": "Geography",
-      "topic": "Islands & Archipelagos",
-      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species. For the point, name this large island nation located off the southeastern coast of mainland Africa, famous for its lemurs.",
-      "options": [
-        "Mauritius",
-        "Seychelles",
-        "Madagascar",
-        "Comoros"
-      ],
-      "answer": 2,
-      "explanation": "Madagascar is an island nation situated off the southeast coast of Africa across the Mozambique Channel."
-    },
-    {
-      "id": 16,
-      "category": "Science",
-      "topic": "Cell Biology",
-      "question": "This organelle contains inner membrane folds called cristae that maximize the surface area available for ATP synthase during oxidative phosphorylation. Because it retains its own independent circular DNA and ribosomes, it serves as primary evidence for the endosymbiotic theory. For the point, name this double-membraned organelle commonly nicknamed the powerhouse of the cell.",
-      "options": [
-        "Ribosome",
-        "Golgi Apparatus",
-        "Mitochondrion",
-        "Endoplasmic Reticulum"
-      ],
-      "answer": 2,
-      "explanation": "Mitochondria possess cristae and circular DNA, generating cellular energy in the form of ATP."
-    },
-    {
-      "id": 17,
-      "category": "Geography",
-      "topic": "Rivers & Lakes",
-      "question": "This body of water receives flow from major rivers such as the Volga, Ural, and Kura, but lacks any natural outlets, making it an endorheic basin. It holds significant offshore petroleum reserves such as the Kashagan field and is bounded by five countries including Russia and Iran. For the point, name this landlocked saline body of water, geologically classified as the world's largest lake by surface area.",
-      "options": [
-        "Lake Superior",
-        "Aral Sea",
-        "Caspian Sea",
-        "Lake Baikal"
-      ],
-      "answer": 2,
-      "explanation": "The Caspian Sea is an endorheic basin bounded by five nations and is the world's largest lake by surface area."
-    },
-    {
-      "id": 18,
-      "category": "Science",
-      "topic": "Thermodynamics",
-      "question": "According to Nernst's heat theorem, this thermodynamic state function approaches a constant minimum value as temperature reaches absolute zero. Stated in the Second Law of Thermodynamics, its value in an isolated system always increases during spontaneous processes. For the point, name this measure of disorder or randomness in a physical system, often denoted by the letter S.",
-      "options": [
-        "Enthalpy",
         "Entropy",
-        "Gibbs Free Energy",
-        "Heat Capacity"
-      ],
-      "answer": 1,
-      "explanation": "Entropy (S) quantifies the degree of disorder or randomness within a system and increases during spontaneous processes."
-    },
-    {
-      "id": 19,
-      "category": "Geography",
-      "topic": "Mountain Ranges & Volcanoes",
-      "question": "This mountain range isolates the central Iranian plateau from northern maritime humidity coming from the Caspian Sea. Its highest peak is Mount Damavand, an active stratovolcano that forms the highest summit in the entire Middle East. For the point, name this major mountain range located in northern Iran.",
-      "options": [
-        "Zagros Mountains",
-        "Caucasus Mountains",
-        "Alborz Mountains",
-        "Hindu Kush"
+        "Work"
       ],
       "answer": 2,
-      "explanation": "The Alborz range spans northern Iran and includes Mount Damavand, the highest peak in the Middle East."
+      "explanation": "Entropy (symbol S) is a state function measuring disorder or randomness, which increases in spontaneous isolated processes.",
+      "id": 153
     },
     {
-      "id": 20,
       "category": "Science",
+      "mode": "standard",
       "topic": "Periodic Table & Elements",
       "question": "Denoted historically by the alternative name Wolfram, this transition metal exhibits the highest melting point of all pure non-alloyed metals at over 3,400 degrees Celsius. Due to its exceptional hardness and heat resistance, it was historically used to construct filaments in incandescent light bulbs. For the point, name this chemical element with atomic number 74 and symbol W.",
       "options": [
@@ -368,27 +2397,404 @@
         "Chromium"
       ],
       "answer": 1,
-      "explanation": "Tungsten (symbol W, atomic number 74) has the highest melting point of all pure metals."
+      "explanation": "Tungsten (symbol W, atomic number 74) has the highest melting point among pure metals and was used in bulb filaments.",
+      "id": 154
     },
     {
-      "id": 21,
-      "category": "Geography",
-      "topic": "World Capitals & Urban Centers",
-      "question": "This city's historic district includes the ancient Byzantine Hippodrome and the historic neighborhood surrounding the Hagia Sophia. Located along a major waterway dividing two continents, it was historically known as Byzantium and Constantinople. For the point, name this most populous city in Turkey.",
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Physics - Mechanics",
+      "question": "In uniform circular motion, the centripetal form of this vector quantity points directly toward the center of the circular path. According to Newton's second law, multiplying mass by this quantity yields net force, and near Earth's surface its standard gravitational value is roughly 9.81 meters per second squared. For the point, name this physical vector quantity defined as the rate of change of velocity over time.",
       "options": [
-        "Istanbul",
-        "Ankara",
-        "Izmir",
-        "Athens"
+        "Acceleration",
+        "Momentum",
+        "Velocity",
+        "Jerk"
       ],
       "answer": 0,
-      "explanation": "Istanbul spans the Bosporus Strait between Europe and Asia and was formerly known as Byzantium and Constantinople."
+      "explanation": "Acceleration is defined as the rate of change of velocity over time, measured in m/s².",
+      "id": 155
     },
     {
-      "id": 22,
       "category": "Science",
+      "mode": "standard",
+      "topic": "Genetics & Molecular Biology",
+      "question": "In 1952, the Hershey-Chase experiment confirmed that this molecule, rather than protein, is the genetic material in bacteriophages. Characterized by major and minor grooves along its antiparallel sugar-phosphate backbone, its double-helix structure was elucidated using Photo 51 taken by Rosalind Franklin. For the point, name this nucleic acid that carries hereditary instructions in living organisms.",
+      "options": [
+        "RNA",
+        "Hemoglobin",
+        "DNA",
+        "ATP"
+      ],
+      "answer": 2,
+      "explanation": "DNA (deoxyribonucleic acid) stores hereditary information in its double-stranded helical structure.",
+      "id": 156
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Astronomy & Astrophysics",
+      "question": "These celestial objects are bounded by a boundary known as the event horizon, inside of which the escape velocity exceeds the speed of light. Supermassive varieties of them exist at the centers of most galaxies, such as Sagittarius A* at the center of the Milky Way. For the point, name these astronomical objects with gravitational fields so intense that nothing, not even light, can escape.",
+      "options": [
+        "Neutron stars",
+        "White dwarfs",
+        "Black holes",
+        "Quasars"
+      ],
+      "answer": 2,
+      "explanation": "Black holes possess gravity so strong that nothing, including light, can escape past their event horizons.",
+      "id": 157
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Earth Science & Geology",
+      "question": "The boundaries of these rigid slabs of Earth's lithosphere feature geological formations such as mid-ocean ridges, subduction zones, and transform faults like the San Andreas Fault. Driven by mantle convection currents, their motion was originally conceptualized in Alfred Wegener's theory of continental drift. For the point, name these massive pieces of Earth's crust whose movements cause earthquakes and mountain formation.",
+      "options": [
+        "Tectonic plates",
+        "Cratons",
+        "Glaciers",
+        "Magma chambers"
+      ],
+      "answer": 0,
+      "explanation": "Tectonic plates make up the lithosphere and float atop the asthenosphere, causing seismic activity.",
+      "id": 158
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Biochemistry",
+      "question": "These biological catalysts lower the activation energy required for chemical reactions without being consumed in the process. Their activity can be described by Michaelis-Menten kinetics and modeled by the lock-and-key or induced-fit hypotheses regarding their active sites. For the point, name these proteins that accelerate metabolic reactions in living organisms.",
+      "options": [
+        "Lipids",
+        "Enzymes",
+        "Hormones",
+        "Antibodies"
+      ],
+      "answer": 1,
+      "explanation": "Enzymes are specialized protein catalysts that accelerate chemical reactions by lowering activation energy.",
+      "id": 159
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Optics & Waves",
+      "question": "This wave phenomenon describes the change in observed frequency or wavelength of a wave in relation to an observer moving relative to its source. It causes light from receding celestial bodies to undergo a redshift, and explains why the siren of an approaching ambulance sounds higher in pitch. For the point, name this effect named after an Austrian physicist.",
+      "options": [
+        "Photoelectric effect",
+        "Doppler effect",
+        "Compton effect",
+        "Tyndall effect"
+      ],
+      "answer": 1,
+      "explanation": "The Doppler effect is the perceived change in frequency of a wave due to relative motion between the source and the observer.",
+      "id": 160
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Cell Biology",
+      "question": "This organelle's inner membrane contains folds called cristae that maximize surface area for oxidative phosphorylation. Because it contains its own distinct circular DNA and 70S ribosomes, it serves as primary evidence for the endosymbiotic theory. It is the site of the Krebs cycle and electron transport chain. For the point, name this double-membraned organelle commonly known as the powerhouse of the cell.",
+      "options": [
+        "Mitochondrion",
+        "Chloroplast",
+        "Golgi apparatus",
+        "Endoplasmic reticulum"
+      ],
+      "answer": 0,
+      "explanation": "Mitochondria generate cellular energy (ATP) via respiration, possess cristae and circular DNA, and are known as the powerhouse of the cell.",
+      "id": 161
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
       "topic": "Photosynthesis",
-      "question": "During the light-independent reactions of this process, carbon dioxide fixation into 3-phosphoglycerate is catalyzed by the enzyme RuBisCO within the stroma. Chlorophyll pigments absorb solar radiation to split water molecules and generate oxygen gas in the chloroplasts. For the point, name this biological process by which green plants convert light energy into chemical energy.",
+      "question": "During the light-independent reactions of this pathway, carbon dioxide fixation into 3-phosphoglycerate is catalyzed by the enzyme RuBisCO within the stroma. This process utilizes chlorophyll pigments inside thylakoid membranes to absorb solar radiation and split water molecules into oxygen gas, protons, and electrons. For the point, name this biological process by which green plants convert light energy into chemical energy.",
+      "options": [
+        "Cellular respiration",
+        "Photosynthesis",
+        "Fermentation",
+        "Transpiration"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis takes place in plant chloroplasts where RuBisCO fixes carbon dioxide in the Calvin cycle and light energy drives oxygen production from water splitting.",
+      "id": 162
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Thermodynamics",
+      "question": "According to Nernst's heat theorem, this thermodynamic state function approaches a constant minimum value as temperature reaches absolute zero. Stated in the Second Law of Thermodynamics, its total value in an isolated system always increases during spontaneous processes. Quantified as heat divided by temperature, it represents the degree of thermal energy unavailable for doing mechanical work. For the point, name this measure of disorder or randomness in a physical system, often denoted by the letter S.",
+      "options": [
+        "Enthalpy",
+        "Gibbs free energy",
+        "Entropy",
+        "Work"
+      ],
+      "answer": 2,
+      "explanation": "Entropy (S) measures the disorder or randomness of a system, and the Second Law of Thermodynamics states that entropy in an isolated system increases over time.",
+      "id": 163
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Periodic Table & Elements",
+      "question": "Denoted historically by the alternative name Wolfram, this transition metal exhibits the highest melting point of all pure non-alloyed metals at over 3,400 degrees Celsius. In organic synthesis, its hexacarbonyl derivative is widely used as a precursor for catalysis, and its high density makes it useful in kinetic energy penetrators. Due to its heat resistance, it was historically used to construct filaments in incandescent light bulbs. For the point, name this chemical element with atomic number 74 and symbol W.",
+      "options": [
+        "Titanium",
+        "Tungsten",
+        "Platinum",
+        "Tantalum"
+      ],
+      "answer": 1,
+      "explanation": "Tungsten (W, atomic number 74), historically called Wolfram, has the highest melting point among pure metals and was used for light bulb filaments.",
+      "id": 164
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Physics - Kinematics",
+      "question": "In uniform circular motion, the centripetal form of this vector points directly toward the center of curvature with magnitude equal to velocity squared divided by radius. Defined mathematically as the second derivative of position with respect to time, it is multiplied by mass in Newton's second law to calculate net force. On Earth's surface, its standard gravitational value is approximately 9.81 meters per second squared. For the point, name this physical vector quantity representing the rate of change of velocity over time.",
+      "options": [
+        "Velocity",
+        "Jerk",
+        "Acceleration",
+        "Momentum"
+      ],
+      "answer": 2,
+      "explanation": "Acceleration is the rate of change of velocity over time, measured in m/s², and figures in Newton's second law (F = ma).",
+      "id": 165
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Physics - Electromagnetism",
+      "question": "This phenomenon's law of induction states that an electromotive force is induced in a conductor by a changing magnetic field, with a direction described by Lenz's law. Maxwell's equations unify this force with electricity, and light itself is shown to be an oscillating wave of these coupled fields. Represented by field lines that form closed loops without magnetic monopoles, it exerts force on moving charged particles via the Lorentz force. For the point, name this physical force produced by moving electric charges and magnetic fields.",
+      "options": [
+        "Electromagnetism",
+        "Gravitation",
+        "Strong nuclear force",
+        "Weak nuclear force"
+      ],
+      "answer": 0,
+      "explanation": "Electromagnetism involves electric and magnetic forces; Faraday's law and Maxwell's equations describe electromagnetic phenomena.",
+      "id": 166
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Genetics & Molecular Biology",
+      "question": "In eukaryotes, this molecule is packaged around histone proteins to form nucleosomes in a complex called chromatin. Discovered by Friedrich Miescher and modeled as a right-handed double helix by James Watson and Francis Crick, it contains adenine, thymine, cytosine, and guanine as its four nitrogenous bases. For the point, name this nucleic acid that carries the genetic code in living organisms.",
+      "options": [
+        "RNA",
+        "DNA",
+        "ATP",
+        "Polypeptide"
+      ],
+      "answer": 1,
+      "explanation": "DNA (deoxyribonucleic acid) forms a double helix carrying genetic information composed of A, T, C, and G bases.",
+      "id": 167
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Chemistry - Acids and Bases",
+      "question": "Substances with high values on this scale turn red litmus paper blue, while low values turn blue litmus paper red. Defined mathematically as the negative logarithm of the hydronium ion concentration, it ranges from 0 to 14 under standard conditions. Pure water at 25 degrees Celsius has a neutral value of 7 on this logarithmic measure. For the point, name this scale used to specify the acidity or basicity of an aqueous solution.",
+      "options": [
+        "pH scale",
+        "Mohs scale",
+        "Richter scale",
+        "Kelvin scale"
+      ],
+      "answer": 0,
+      "explanation": "The pH scale measures the acidity or alkalinity of a solution, calculated as -log[H+].",
+      "id": 168
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Astronomy & Astrophysics",
+      "question": "The outer region of this structure is called the Oort cloud, while its inner region includes the Kuiper belt and the main asteroid belt. Formed roughly 4.6 billion years ago from the gravitational collapse of a giant interstellar molecular cloud, it contains eight recognized major planets divided into terrestrial and gas giant categories. For the point, name this gravitationally bound system comprising the Sun and the objects that orbit it.",
+      "options": [
+        "Milky Way Galaxy",
+        "Solar System",
+        "Andromeda Galaxy",
+        "Local Group"
+      ],
+      "answer": 1,
+      "explanation": "The Solar System includes the Sun, eight planets, the asteroid belt, Kuiper belt, and Oort cloud.",
+      "id": 169
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Earth Science - Geology",
+      "question": "The boundary between this geological layer and the crust above it is called the Mohorovičić discontinuity. Composed primarily of silicate rocks rich in iron and magnesium such as peridotite, this layer experiences convection currents that drive the movement of tectonic plates. Accounting for over 80 percent of Earth's total volume, it lies directly beneath the crust and above the outer core. For the point, name this thickest layer of the Earth's interior.",
+      "options": [
+        "Crust",
+        "Lithosphere",
+        "Mantle",
+        "Inner core"
+      ],
+      "answer": 2,
+      "explanation": "The Earth's mantle lies beneath the crust (separated by the Moho) and above the outer core, making up most of Earth's volume.",
+      "id": 170
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Cell Biology",
+      "question": "This organelle contains inner membrane folds called cristae that maximize the surface area available for ATP synthase during oxidative phosphorylation. Because it retains its own independent circular DNA and ribosomes, it serves as primary evidence for the endosymbiotic theory. For the point, name this double-membraned organelle commonly nicknamed the powerhouse of the cell.",
+      "options": [
+        "Mitochondrion",
+        "Golgi apparatus",
+        "Endoplasmic reticulum",
+        "Lysosome"
+      ],
+      "answer": 0,
+      "explanation": "Mitochondria produce ATP through cellular respiration along their inner membrane folds called cristae and retain their own circular DNA.",
+      "id": 171
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Photosynthesis",
+      "question": "During the light-independent reactions of this process, carbon dioxide fixation into 3-phosphoglycerate is catalyzed by the enzyme RuBisCO within the stroma. This biological pathway utilizes chlorophyll pigments to absorb solar radiation and splits water molecules to generate oxygen gas alongside glucose in plant chloroplasts. For the point, name this process by which green plants convert light energy into chemical energy.",
+      "options": [
+        "Cellular respiration",
+        "Photosynthesis",
+        "Transpiration",
+        "Fermentation"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis is the metabolic process in chloroplasts through which plants turn sunlight, water, and carbon dioxide into oxygen and glucose.",
+      "id": 172
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Thermodynamics",
+      "question": "According to Nernst's heat theorem, this thermodynamic state function approaches a constant minimum value as temperature reaches absolute zero. Stated in the second law of thermodynamics, its overall value in an isolated system always increases during spontaneous processes. For the point, name this measure of quantitative disorder or randomness in a physical system, often denoted by the letter S.",
+      "options": [
+        "Enthalpy",
+        "Gibbs free energy",
+        "Entropy",
+        "Work"
+      ],
+      "answer": 2,
+      "explanation": "Entropy (S) quantifies the level of disorder or randomness in a physical system and increases during spontaneous processes.",
+      "id": 173
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Periodic Table & Elements",
+      "question": "Denoted historically by the alternative name Wolfram, this transition metal exhibits the highest melting point of all pure non-alloyed metals at over 3,400 degrees Celsius. Due to its exceptional hardness and heat resistance, it was historically used to construct filaments in incandescent light bulbs. For the point, name this chemical element with atomic number 74 and symbol W.",
+      "options": [
+        "Tungsten",
+        "Titanium",
+        "Tantalum",
+        "Platinum"
+      ],
+      "answer": 0,
+      "explanation": "Tungsten (symbol W, atomic number 74) has the highest melting point among pure metals and was historically used in light bulb filaments.",
+      "id": 174
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Physics & Mechanics",
+      "question": "In uniform circular motion, the centripetal form of this vector quantity points directly toward the center of the circular path. According to Newton's second law, multiplying mass by this quantity yields net force, and near Earth's surface its standard gravitational value is roughly 9.81 meters per second squared. For the point, name this physical vector quantity defined as the rate of change of velocity over time.",
+      "options": [
+        "Speed",
+        "Jerk",
+        "Momentum",
+        "Acceleration"
+      ],
+      "answer": 3,
+      "explanation": "Acceleration measures the rate of change of velocity over time, expressed in m/s², and relates force and mass via Newton's Second Law.",
+      "id": 175
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Molecular Biology",
+      "question": "James Watson and Francis Crick relied heavily on Photo 51, an X-ray diffraction image captured by Rosalind Franklin, to determine the structural geometry of this molecule. Consisting of nitrogenous bases known as adenine, thymine, cytosine, and guanine linked along a sugar-phosphate backbone, it forms a double helix. For the point, name this nucleic acid that carries genetic instructions in living organisms.",
+      "options": [
+        "RNA",
+        "DNA",
+        "ATP",
+        "Protein"
+      ],
+      "answer": 1,
+      "explanation": "DNA (deoxyribonucleic acid) stores genetic code within a double helix formed by adenine, thymine, cytosine, and guanine base pairs.",
+      "id": 176
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Chemistry",
+      "question": "Soren Sorensen originally devised this logarithmic scale in 1909 to measure hydrogen ion concentration in aqueous solution. Neutral pure water has a value of 7 on this scale, while acidic solutions fall below 7 and basic or alkaline solutions range above 7 up to 14. For the point, name this scale used to specify the acidity or basicity of a liquid.",
+      "options": [
+        "Mohs scale",
+        "pH scale",
+        "Richter scale",
+        "Kelvin scale"
+      ],
+      "answer": 1,
+      "explanation": "The pH scale quantifies acidity or alkalinity based on hydrogen ion concentration, ranging typically from 0 (highly acidic) to 14 (highly basic).",
+      "id": 177
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Astronomy",
+      "question": "This astronomical object features a persistent high-pressure anticyclonic storm system located south of its equator known as the Great Red Spot. As the largest planet in our solar system, this gas giant possesses dozens of moons including the four large Galilean satellites: Io, Europa, Ganymede, and Callisto. For the point, name this fifth planet from the Sun.",
+      "options": [
+        "Saturn",
+        "Jupiter",
+        "Neptune",
+        "Uranus"
+      ],
+      "answer": 1,
+      "explanation": "Jupiter is the solar system's largest planet, famous for its Great Red Spot storm and Galilean moons Io, Europa, Ganymede, and Callisto.",
+      "id": 178
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Earth Science",
+      "question": "Alfred Wegener proposed the continental drift hypothesis after observing how continents fit together, leading to the theory describing these massive land masses. Subduction zones occur where two of these features converge, while mid-ocean ridges form where they pull apart at divergent boundaries. For the point, name these massive rigid slabs of Earth's lithosphere whose movement drives earthquakes and volcanism.",
+      "options": [
+        "Tectonic plates",
+        "Glaciers",
+        "Crustal folds",
+        "Ocean currents"
+      ],
+      "answer": 0,
+      "explanation": "Tectonic plates are rigid pieces of Earth's lithosphere that interact along boundaries to produce geological activities such as earthquakes and volcanoes.",
+      "id": 179
+    },
+    {
+      "category": "Science",
+      "mode": "standard",
+      "topic": "Biochemistry",
+      "question": "The catalytic activity of these biological catalysts can be described by the Michaelis-Menten kinetics model, and competitive inhibitors block their active sites. Most of these molecules are specialized proteins that speed up metabolic chemical reactions by lowering activation energy without being consumed. For the point, name these biological catalysts such as amylase and catalase.",
+      "options": [
+        "Hormones",
+        "Enzymes",
+        "Lipids",
+        "Carbohydrates"
+      ],
+      "answer": 1,
+      "explanation": "Enzymes are specialized protein molecules that catalyze metabolic biochemical reactions by lowering activation energy.",
+      "id": 180
+    },
+    {
+      "category": "Science",
+      "mode": "flashcards",
+      "topic": "Photosynthesis",
+      "question": "During the light-independent reactions of this process, carbon dioxide fixation into 3-phosphoglycerate is catalyzed by the enzyme RuBisCO within the stroma. This biological pathway utilizes chlorophyll pigments to absorb solar radiation and splits water molecules to produce oxygen gas in chloroplasts. For the point, name this biological process by which green plants convert light energy into chemical energy.",
       "options": [
         "Cellular Respiration",
         "Photosynthesis",
@@ -396,124 +2802,148 @@
         "Transpiration"
       ],
       "answer": 1,
-      "explanation": "Photosynthesis takes place in chloroplasts where RuBisCO catalyzes carbon fixation during the Calvin cycle to yield glucose and oxygen."
+      "explanation": "Photosynthesis occurs in plant chloroplasts, where light energy is absorbed by chlorophyll to convert carbon dioxide and water into glucose and oxygen.",
+      "id": 181
     },
     {
-      "id": 23,
-      "category": "Geography",
-      "topic": "Deserts & Arid Regions",
-      "question": "This hyper-arid region hosts the high-altitude ALMA radio telescope array due to its extremely dry atmospheric conditions and clear skies. Created largely by the rain shadow effect of the neighboring Andes Mountains, weather stations here have recorded zero precipitation for decades. For the point, name this driest non-polar desert in the world, located in northern Chile.",
-      "options": [
-        "Gobi Desert",
-        "Kalahari Desert",
-        "Atacama Desert",
-        "Mojave Desert"
-      ],
-      "answer": 2,
-      "explanation": "The Atacama Desert in northern Chile is situated in the rain shadow of the Andes, making it the driest non-polar desert on Earth."
-    },
-    {
-      "id": 24,
       "category": "Science",
+      "mode": "flashcards",
       "topic": "Velocity",
-      "question": "In fluid dynamics, the terminal value of this vector quantity occurs when the drag force equals the gravitational force acting on a falling body. Mathematically defined as the time derivative of position, it is distinguished from speed because it accounts for both magnitude and direction. For the point, name this physical vector quantity defined as the rate of change of displacement.",
+      "question": "In fluid dynamics, the terminal value of this vector quantity occurs when drag force equals the gravitational force acting on a falling body. Mathematically defined as the time derivative of position, it is distinguished from speed because it accounts for both magnitude and direction. For the point, name this physical vector quantity defined as the rate of change of displacement.",
       "options": [
         "Acceleration",
         "Momentum",
-        "Force",
-        "Velocity"
+        "Velocity",
+        "Force"
       ],
-      "answer": 3,
-      "explanation": "Velocity is a vector quantity representing both speed and direction, defined mathematically as the rate of change of displacement with respect to time."
+      "answer": 2,
+      "explanation": "Velocity is a vector quantity that represents both the speed and direction of an object's motion, calculated as the derivative of position over time.",
+      "id": 182
     },
     {
-      "id": 25,
-      "category": "Geography",
-      "topic": "Islands & Archipelagos",
-      "question": "This island's high central plateau features the Ankaratra volcanic range as well as its capital city of Antananarivo. Separated from the African continent by the Mozambique Channel, it is celebrated for its isolated evolutionary history and endemic species like lemurs. For the point, name this large island nation located off the southeastern coast of mainland Africa.",
-      "options": [
-        "Madagascar",
-        "Mauritius",
-        "Seychelles",
-        "Comoros"
-      ],
-      "answer": 0,
-      "explanation": "Madagascar lies off the southeast coast of Africa across the Mozambique Channel and is home to unique endemic wildlife including lemurs."
-    },
-    {
-      "id": 26,
       "category": "Science",
+      "mode": "flashcards",
       "topic": "Cell Biology",
       "question": "This organelle contains inner membrane folds called cristae that maximize the surface area available for ATP synthase during oxidative phosphorylation. Because it retains its own independent circular DNA and ribosomes, it serves as primary evidence for the endosymbiotic theory. For the point, name this double-membraned organelle commonly nicknamed the powerhouse of the cell.",
       "options": [
-        "Endoplasmic Reticulum",
-        "Mitochondrion",
+        "Mitochondria",
+        "Ribosome",
         "Golgi Apparatus",
-        "Lysosome"
+        "Endoplasmic Reticulum"
       ],
-      "answer": 1,
-      "explanation": "Mitochondria produce ATP through aerobic respiration along their inner cristae and contain distinct circular mtDNA."
+      "answer": 0,
+      "explanation": "Mitochondria generate cellular energy in the form of ATP via aerobic respiration and contain their own distinct circular DNA.",
+      "id": 183
     },
     {
-      "id": 27,
-      "category": "Geography",
-      "topic": "Rivers & Lakes",
-      "question": "This body of water receives flow from major rivers such as the Volga, Ural, and Kura, but lacks any natural outlets, making it an endorheic basin. Bounded by five countries including Russia, Iran, and Kazakhstan, it holds significant offshore petroleum fields like Kashagan. For the point, name this landlocked saline body of water, geologically classified as the world's largest inland lake by surface area.",
-      "options": [
-        "Aral Sea",
-        "Lake Baikal",
-        "Caspian Sea",
-        "Black Sea"
-      ],
-      "answer": 2,
-      "explanation": "The Caspian Sea is an endorheic basin bordered by five nations and is considered the world's largest inland body of water."
-    },
-    {
-      "id": 28,
       "category": "Science",
+      "mode": "flashcards",
       "topic": "Thermodynamics",
       "question": "According to Nernst's heat theorem, this thermodynamic state function approaches a constant minimum value as temperature reaches absolute zero. Stated in the second law of thermodynamics, its value in an isolated system always increases during spontaneous processes. For the point, name this measure of disorder or randomness in a physical system, often denoted by the letter S.",
       "options": [
         "Enthalpy",
+        "Entropy",
         "Gibbs Free Energy",
-        "Work",
-        "Entropy"
+        "Specific Heat"
       ],
-      "answer": 3,
-      "explanation": "Entropy (symbol S) measures molecular disorder, and the Second Law of Thermodynamics dictates that entropy in isolated systems increases in spontaneous processes."
+      "answer": 1,
+      "explanation": "Entropy (symbol S) quantifies the molecular disorder within a physical system, which naturally increases over time in isolated systems according to the Second Law of Thermodynamics.",
+      "id": 184
     },
     {
-      "id": 29,
-      "category": "Geography",
-      "topic": "Mountain Ranges & Volcanoes",
-      "question": "This mountain range isolates the central Iranian plateau from northern maritime humidity coming from the Caspian Sea. Its highest peak is Mount Damavand, an active stratovolcano that forms the highest summit in the Middle East. For the point, name this major mountain range located in northern Iran.",
-      "options": [
-        "Alborz",
-        "Zagros",
-        "Caucasus",
-        "Hindu Kush"
-      ],
-      "answer": 0,
-      "explanation": "The Alborz range extends across northern Iran south of the Caspian Sea and contains Mount Damavand."
-    },
-    {
-      "id": 30,
       "category": "Science",
+      "mode": "flashcards",
       "topic": "Periodic Table & Elements",
       "question": "Denoted historically by the alternative name Wolfram, this transition metal exhibits the highest melting point of all pure non-alloyed metals at over 3,400 degrees Celsius. Due to its exceptional hardness and heat resistance, it was historically used to construct filaments in incandescent light bulbs. For the point, name this chemical element with atomic number 74 and symbol W.",
       "options": [
         "Titanium",
         "Tungsten",
         "Platinum",
-        "Molybdenum"
+        "Chromium"
       ],
       "answer": 1,
-      "explanation": "Tungsten (symbol W, atomic number 74) has the highest melting point of pure metals and was widely used for light bulb filaments."
+      "explanation": "Tungsten (symbol W, atomic number 74) has the highest melting point of all pure elemental metals and was traditionally used for light bulb filaments.",
+      "id": 185
+    },
+    {
+      "category": "Science",
+      "mode": "flashcards",
+      "topic": "Genetics",
+      "question": "X-ray diffraction images collected by Rosalind Franklin and Raymond Gosling were crucial to determining the double-helical structure of this macromolecule. Composed of nitrogenous bases paired via hydrogen bonding—adenine with thymine, and cytosine with guanine—it stores genetic instructions. For the point, name this nucleic acid that contains the genetic code of living organisms.",
+      "options": [
+        "RNA",
+        "DNA",
+        "ATP",
+        "Protein"
+      ],
+      "answer": 1,
+      "explanation": "Deoxyribonucleic acid (DNA) is a double-stranded molecule carrying genetic instructions for the development and functioning of living organisms.",
+      "id": 186
+    },
+    {
+      "category": "Science",
+      "mode": "flashcards",
+      "topic": "Chemistry",
+      "question": "Calculated as the negative logarithm of hydrogen ion concentration in an aqueous solution, this scale was introduced by Danish chemist S. P. L. Sørensen in 1909. Pure water at room temperature has a value of 7 on this scale, whereas values below 7 indicate acidic conditions. For the point, name this logarithmic scale used to specify the acidity or basicity of a solution.",
+      "options": [
+        "Richter Scale",
+        "pH Scale",
+        "Kelvin Scale",
+        "Mohs Scale"
+      ],
+      "answer": 1,
+      "explanation": "The pH scale ranges from 0 to 14, where values below 7 represent acids, 7 is neutral, and values above 7 represent bases.",
+      "id": 187
+    },
+    {
+      "category": "Science",
+      "mode": "flashcards",
+      "topic": "Astronomy",
+      "question": "This planetary body features a persistent anticyclonic storm known as the Great Red Spot, which has been observed for over 150 years. Possessing a powerful magnetic field and four large Galilean moons including Io and Europa, it is the largest planet in our solar system. For the point, name this fifth planet from the Sun, a gas giant.",
+      "options": [
+        "Saturn",
+        "Jupiter",
+        "Neptune",
+        "Uranus"
+      ],
+      "answer": 1,
+      "explanation": "Jupiter is the largest planet in the Solar System, classified as a gas giant and known for its Great Red Spot and Galilean moons.",
+      "id": 188
+    },
+    {
+      "category": "Science",
+      "mode": "flashcards",
+      "topic": "Geology",
+      "question": "This geological theory expanded upon Alfred Wegener's early concept of continental drift, which posited the ancient supercontinent Pangaea. It explains features such as mid-ocean ridges and deep sea trenches created by oceanic and continental crust moving across the asthenosphere. For the point, name this scientific theory describing the large-scale motion of Earth's lithospheric plates.",
+      "options": [
+        "Plate Tectonics",
+        "Volcanism",
+        "Seafloor Spreading",
+        "Orogeny"
+      ],
+      "answer": 0,
+      "explanation": "Plate tectonics is the unifying geological theory that describes how Earth's outer shell is divided into several tectonic plates that glide over the mantle.",
+      "id": 189
+    },
+    {
+      "category": "Science",
+      "mode": "flashcards",
+      "topic": "Acceleration",
+      "question": "In uniform circular motion, the centripetal form of this vector points directly toward the center of the circular path. According to Newton's second law, multiplying mass by this quantity yields net force, and near Earth's surface its standard gravitational value is roughly 9.81 meters per second squared. For the point, name this physical vector quantity defined as the rate of change of velocity over time.",
+      "options": [
+        "Displacement",
+        "Velocity",
+        "Acceleration",
+        "Jerk"
+      ],
+      "answer": 2,
+      "explanation": "Acceleration is the vector quantity representing the rate at which an object changes its velocity, measured standardly in m/s².",
+      "id": 190
     }
   ],
   "metadata": {
     "source": "Science Bee & Geography Bee Official Resources",
-    "generated_at": "2026-09-11 12:13:17",
+    "generated_at": "2026-09-12 02:17:17",
     "resources": [
       "[https://iacompetitionsasia.com/resources/](https://iacompetitionsasia.com/resources/)",
       "[https://www.internationalgeographybee.com/asia/resources/](https://www.internationalgeographybee.com/asia/resources/)",
