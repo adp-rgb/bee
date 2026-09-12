@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Academic Bee Prep & Practice Agent</title>
-  <!-- Compiled Tailwind CDN + Fallback stylesheet injection -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -146,12 +145,32 @@
 
     <!-- TAB 2: STUDY HUB -->
     <div id="view-study" class="hidden space-y-6">
-      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6">
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
         <div class="flex justify-between items-center mb-4">
-          <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">All Available Topics</span>
+          <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Select a Topic to Explore Clues & Concepts</span>
           <span id="topic-count-tag" class="text-xs text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/20">0 Topics</span>
         </div>
-        <div id="full-topic-cloud" class="flex flex-wrap gap-2 max-h-[500px] overflow-y-auto custom-scrollbar"></div>
+        <div id="full-topic-cloud" class="flex flex-wrap gap-2 max-h-48 overflow-y-auto custom-scrollbar mb-4 p-1"></div>
+      </div>
+
+      <!-- Topic Details Panel -->
+      <div id="topic-details-card" class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex justify-between items-start border-b border-slate-700 pb-4">
+          <div>
+            <span id="study-topic-subject" class="text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md border border-amber-400/20">SUBJECT</span>
+            <h2 id="study-topic-title" class="text-xl font-bold text-white mt-2">Select a Topic</h2>
+          </div>
+          <button id="study-start-btn" onclick="" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs transition">
+            ▶️ Practice This Topic (Quiz)
+          </button>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Concepts & Knowledge Clues</h4>
+          <div id="study-topic-content" class="space-y-3">
+            <p class="text-sm text-slate-400 italic">Select any topic pill above to view key quiz clues and topic explanations.</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -180,6 +199,7 @@
     let activeSet = [];
     let currentIdx = 0;
     let isFlashcardMode = false;
+    let selectedStudyTopic = '';
 
     async function loadQuizData() {
       try {
@@ -193,6 +213,12 @@
         renderTopicPills();
         renderStudyHub();
         updateStats();
+
+        // Auto-display first topic in Study Hub
+        const firstTopic = allData.find(q => q.topic)?.topic;
+        if (firstTopic) {
+          selectStudyTopic(firstTopic);
+        }
       } catch (err) {
         console.error('Error loading quiz data:', err);
       }
@@ -234,11 +260,58 @@
       if (countTag) countTag.innerText = `${allTopics.length} Topics`;
 
       container.innerHTML = allTopics.map(topic => `
-        <button onclick="filterByTopic('', '${topic.replace(/'/g, "\\'")}')" 
-          class="text-xs bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+        <button id="pill-${topic.replace(/\s+/g, '-')}" onclick="selectStudyTopic('${topic.replace(/'/g, "\\'")}')" 
+          class="topic-pill text-xs bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
           ${topic}
         </button>
       `).join('');
+    }
+
+    function selectStudyTopic(topicName) {
+      selectedStudyTopic = topicName;
+
+      // Highlight active pill
+      document.querySelectorAll('.topic-pill').forEach(btn => {
+        btn.classList.remove('bg-amber-500', 'text-slate-950');
+        btn.classList.add('bg-slate-900', 'text-slate-300');
+      });
+      const activeBtn = document.getElementById(`pill-${topicName.replace(/\s+/g, '-')}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-900', 'text-slate-300');
+        activeBtn.classList.add('bg-amber-500', 'text-slate-950');
+      }
+
+      const topicQuestions = allData.filter(q => (q.topic || '').toLowerCase() === topicName.toLowerCase());
+      const firstQ = topicQuestions[0] || {};
+      const category = firstQ.category || firstQ.subject || 'General';
+
+      document.getElementById('study-topic-subject').innerText = category.toUpperCase();
+      document.getElementById('study-topic-title').innerText = topicName;
+
+      const contentContainer = document.getElementById('study-topic-content');
+      if (topicQuestions.length === 0) {
+        contentContainer.innerHTML = `<p class="text-sm text-slate-400">No extra material recorded for this topic.</p>`;
+        return;
+      }
+
+      contentContainer.innerHTML = topicQuestions.map((q, idx) => `
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-2">
+          <div class="flex items-center justify-between text-xs text-amber-400 font-semibold">
+            <span>Key Clue #${idx + 1}</span>
+            <span class="text-slate-400 text-[11px]">${q.mode || 'Standard'}</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${q.question}</p>
+          <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-emerald-400 font-medium">Answer: ${(q.options && q.options[q.answer]) || 'N/A'}</span>
+            <span class="text-slate-400 text-[11px]">${q.explanation || ''}</span>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('study-start-btn').onclick = () => {
+        switchTab('quizzes');
+        filterByTopic(category, topicName);
+      };
     }
 
     function filterByTopic(subject, topicName) {
@@ -265,7 +338,6 @@
     function launchMode(subject, mode) {
       isFlashcardMode = (mode === 'flashcards');
       
-      // Strict filter for mode, fallback to category slice of 30 Qs if exact match count < 30
       let filtered = allData.filter(q => {
         const cat = (q.category || q.subject || '').toLowerCase();
         const m = (q.mode || '').toLowerCase();
