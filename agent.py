@@ -51,6 +51,27 @@ def download_fresh_pdfs():
             "name": "IAC Competitions Resources",
             "keywords": ["science", "geography", "bee", "competition", "question"],
         },
+        {
+            "url": "http://iacompetitions.com/resources-national-geography-bee/",
+            "name": "IAC Competitions Resources",
+            "keywords": ["science", "geography", "bee", "competition", "question"],
+        },
+        {
+            "url": "https://www.iacompetitions.com/resources-national-science-bee/",
+            "name": "IAC Competitions Resources",
+            "keywords": ["science", "geography", "bee", "competition", "question"],
+        },
+        {
+            "url": "https://www.iacompetitions.com/ems-national-geography-bee-past-questions/",
+            "name": "IAC Competitions Resources",
+            "keywords": ["science", "geography", "bee", "competition", "question"],
+        },
+        {
+            "url": "https://www.iacompetitions.com/ems-national-science-bee-past-questions/",
+            "name": "IAC Competitions Resources",
+            "keywords": ["science", "geography", "bee", "competition", "question"],
+        },
+        
     ]
 
     headers = {
