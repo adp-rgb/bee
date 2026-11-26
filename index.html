@@ -1,475 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Academic Bee Prep & Practice Agent</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
-    .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
-    button { touch-action: manipulation; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Academic Bee practice: Geography and Science pyramidal tossups, flashcards and study hub.">
+<title>Academic Bee Prep & Practice</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐝</text></svg>">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style type="text/tailwindcss">
+.sb::-webkit-scrollbar{width:5px}.sb::-webkit-scrollbar-thumb{background:#475569;border-radius:4px}
+button{touch-action:manipulation}
+button:focus-visible,input:focus-visible{outline:2px solid #fbbf24;outline-offset:2px}
+button:disabled{cursor:not-allowed}
+@layer components{
+.card{@apply bg-slate-800/80 border border-slate-700 rounded-2xl p-5 shadow-xl}
+.btn{@apply font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition bg-slate-700 hover:bg-slate-600 text-white disabled:opacity-40 disabled:hover:bg-slate-700}
+.btn-pri{@apply font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 disabled:hover:bg-amber-500}
+.pill{@apply text-[11px] bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 transition}
+.pill.on{@apply bg-amber-500 text-slate-950}
+.opt{@apply bg-slate-900 border border-slate-700 hover:border-amber-500/50 text-left p-4 rounded-xl text-slate-200 text-sm flex items-center gap-3 transition}
+.opt.ok{@apply bg-emerald-950 border-emerald-500 text-emerald-200}
+.opt.bad{@apply bg-red-950 border-red-500 text-red-200}
+.opt.dim{@apply opacity-50}
+.key{@apply w-6 h-6 rounded bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-xs shrink-0}
+.lbl{@apply text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2}
+.tag{@apply text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md border border-amber-400/20}
+}
+</style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans antialiased">
 
-  <!-- Header -->
-  <header class="border-b border-slate-800 bg-slate-950/90 sticky top-0 z-40 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-2.5">
-          <div class="p-2 bg-amber-500 rounded-lg text-slate-950 font-bold text-xl leading-none">🐝</div>
-          <div>
-            <h1 class="text-lg sm:text-xl font-bold tracking-wide text-white leading-tight">Academic Bee AI</h1>
-            <p class="text-xs text-slate-400">Pyramidal Tossup Practice Suite</p>
-          </div>
-        </div>
-        <button onclick="toggleAdminPanel()" class="sm:hidden text-xs bg-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg border border-slate-700">⚙️</button>
-      </div>
-
-      <div class="flex items-center gap-2">
-        <nav class="flex bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs font-semibold w-full sm:w-auto">
-          <button id="tab-btn-quizzes" onclick="switchTab('quizzes')" class="flex-1 px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition">🎯 Practice Quizzes</button>
-          <button id="tab-btn-study" onclick="switchTab('study')" class="flex-1 px-4 py-2 rounded-lg text-slate-400 hover:text-white transition">📖 Good to Know Hub</button>
-        </nav>
-        <button onclick="toggleAdminPanel()" class="hidden sm:block text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-2 rounded-lg border border-slate-700">⚙️ Settings</button>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-3 sm:px-4 py-6 space-y-8">
-
-    <!-- TAB 1: QUIZZES -->
-    <div id="view-quizzes" class="space-y-8">
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- Geography Card -->
-        <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-5 shadow-xl relative overflow-hidden">
-          <div class="flex items-center space-x-3 mb-4">
-            <span class="p-3 bg-blue-500/10 text-blue-400 rounded-xl text-xl">🌐</span>
-            <div>
-              <h2 class="text-lg font-bold text-white">Geography Bee</h2>
-              <p class="text-xs text-slate-400">Physical, cultural, and political tossup questions</p>
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">1. Practice Specific Topics (30 Qs)</span>
-            <div id="geo-topics" class="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto custom-scrollbar">
-              <span class="text-xs text-slate-500 italic">Loading topics...</span>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-2.5 mt-4 pt-4 border-t border-slate-700/50">
-            <button onclick="launchMode('Geography', 'standard')" class="col-span-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs sm:text-sm transition">
-              ▶️ 2. Start Quiz (30 Questions)
-            </button>
-            <button onclick="launchMode('Geography', 'high-frequency')" class="bg-slate-700 hover:bg-slate-600 text-amber-400 font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition">
-              ⚡ 3. Frequently Asked (30 Qs)
-            </button>
-            <button onclick="launchMode('Geography', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition">
-              🎴 4. Flashcards (30 Qs)
-            </button>
-            <button onclick="launchMode('Geography', 'good-to-know')" class="col-span-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 py-2.5 px-3 rounded-xl text-xs sm:text-sm transition">
-              📖 5. Good to Know Topics (30 Qs)
-            </button>
-          </div>
-        </div>
-
-        <!-- Science Card -->
-        <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-5 shadow-xl relative overflow-hidden">
-          <div class="flex items-center space-x-3 mb-4">
-            <span class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl text-xl">🧪</span>
-            <div>
-              <h2 class="text-lg font-bold text-white">Science Bee</h2>
-              <p class="text-xs text-slate-400">Physics, chemistry, biology, and Earth science tossups</p>
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">1. Practice Specific Topics (30 Qs)</span>
-            <div id="sci-topics" class="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto custom-scrollbar">
-              <span class="text-xs text-slate-500 italic">Loading topics...</span>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-2.5 mt-4 pt-4 border-t border-slate-700/50">
-            <button onclick="launchMode('Science', 'standard')" class="col-span-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-3 rounded-xl text-xs sm:text-sm transition">
-              ▶️ 2. Start Quiz (30 Questions)
-            </button>
-            <button onclick="launchMode('Science', 'high-frequency')" class="bg-slate-700 hover:bg-slate-600 text-amber-400 font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition">
-              ⚡ 3. Frequently Asked (30 Qs)
-            </button>
-            <button onclick="launchMode('Science', 'flashcards')" class="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition">
-              🎴 4. Flashcards (30 Qs)
-            </button>
-            <button onclick="launchMode('Science', 'good-to-know')" class="col-span-2 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 py-2.5 px-3 rounded-xl text-xs sm:text-sm transition">
-              📖 5. Good to Know Topics (30 Qs)
-            </button>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- Active Quiz Workspace -->
-      <section id="quiz-container" class="hidden bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-8 shadow-2xl">
-        <div class="flex justify-between items-center border-b border-slate-700 pb-4 mb-6">
-          <div class="flex items-center gap-2">
-            <span id="active-mode-tag" class="text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md border border-amber-400/20">MODE</span>
-            <span id="question-counter" class="text-xs text-slate-400">Question 1 of 30</span>
-          </div>
-          <button onclick="closeQuiz()" class="text-slate-400 hover:text-white text-sm">✕ Close</button>
-        </div>
-
-        <div class="mb-6">
-          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Pyramidal Tossup Question</h4>
-          <div id="question-text" class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-slate-200 leading-relaxed text-base sm:text-lg max-h-72 overflow-y-auto custom-scrollbar">
-            Loading...
-          </div>
-        </div>
-
-        <div id="options-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6"></div>
-
-        <div id="explanation-box" class="hidden bg-slate-900 border border-slate-700 p-5 rounded-xl mb-6">
-          <h5 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Answer Explanation</h5>
-          <p id="explanation-text" class="text-sm text-slate-300 leading-relaxed"></p>
-        </div>
-
-        <div class="flex justify-between items-center pt-4 border-t border-slate-700">
-          <button onclick="prevQuestion()" id="prev-btn" class="bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-white text-sm font-medium py-2.5 px-5 rounded-xl transition">← Prev</button>
-          <button onclick="nextQuestion()" id="next-btn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-sm font-bold py-2.5 px-5 rounded-xl transition">Next →</button>
-        </div>
-      </section>
-    </div>
-
-    <!-- TAB 2: STUDY HUB -->
-    <div id="view-study" class="hidden space-y-6">
-      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
-        <div class="flex justify-between items-center mb-4">
-          <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Select a Topic to Explore Clues & Concepts</span>
-          <span id="topic-count-tag" class="text-xs text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/20">0 Topics</span>
-        </div>
-        <div id="full-topic-cloud" class="flex flex-wrap gap-2 max-h-48 overflow-y-auto custom-scrollbar mb-4 p-1"></div>
-      </div>
-
-      <!-- Topic Details Panel -->
-      <div id="topic-details-card" class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl space-y-4">
-        <div class="flex justify-between items-start border-b border-slate-700 pb-4">
-          <div>
-            <span id="study-topic-subject" class="text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md border border-amber-400/20">SUBJECT</span>
-            <h2 id="study-topic-title" class="text-xl font-bold text-white mt-2">Select a Topic</h2>
-          </div>
-          <button id="study-start-btn" onclick="" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs transition">
-            ▶️ Practice This Topic (Quiz)
-          </button>
-        </div>
-
+<header class="border-b border-slate-800 bg-slate-950/90 sticky top-0 z-40 backdrop-blur-md">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="p-2 bg-amber-500 rounded-lg text-xl leading-none" aria-hidden="true">🐝</div>
         <div>
-          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Concepts & Knowledge Clues</h4>
-          <div id="study-topic-content" class="space-y-3">
-            <p class="text-sm text-slate-400 italic">Select any topic pill above to view key quiz clues and topic explanations.</p>
-          </div>
+          <h1 class="text-lg sm:text-xl font-bold tracking-wide text-white leading-tight">Academic Bee AI</h1>
+          <p class="text-xs text-slate-400">Pyramidal Tossup Practice Suite</p>
         </div>
       </div>
+      <button data-act="settings" aria-label="Settings" class="sm:hidden btn !py-1.5">⚙️</button>
     </div>
+    <div class="flex items-center gap-2">
+      <nav class="flex bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs font-semibold w-full sm:w-auto" aria-label="Sections">
+        <button id="tab-quizzes" data-act="tab" data-tab="quizzes" class="flex-1 px-4 py-2 rounded-lg transition">🎯 Practice</button>
+        <button id="tab-study" data-act="tab" data-tab="study" class="flex-1 px-4 py-2 rounded-lg transition">📖 Study Hub</button>
+      </nav>
+      <button data-act="settings" class="hidden sm:block btn">⚙️ Settings</button>
+    </div>
+  </div>
+</header>
 
-    <!-- CONTROLS PANEL -->
-    <section id="admin-panel" class="hidden bg-slate-800 border border-slate-700 rounded-2xl p-6">
-      <h3 class="text-md font-bold text-white mb-4">⚙️ Dataset Configuration & Status</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-          <span class="text-slate-400 block text-xs mb-1">Total Loaded Questions</span>
-          <span id="stat-total" class="text-2xl font-bold text-white">0</span>
-        </div>
-        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-          <span class="text-slate-400 block text-xs mb-1">Geography / Science</span>
-          <span id="stat-breakdown" class="text-2xl font-bold text-white">0 / 0</span>
-        </div>
-        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center">
-          <button onclick="loadQuizData()" class="w-full bg-slate-800 hover:bg-slate-700 text-amber-400 font-medium py-2 rounded-lg border border-slate-700 text-xs">🔄 Reload Dataset</button>
-        </div>
+<main class="max-w-6xl mx-auto px-3 sm:px-4 py-6 space-y-6">
+  <div id="err" class="hidden bg-red-950 border border-red-500 text-red-200 rounded-xl p-4 text-sm flex items-center justify-between gap-3" role="alert">
+    <span id="err-msg"></span><button class="btn shrink-0" data-act="reload">Retry</button>
+  </div>
+
+  <div id="view-quizzes" class="space-y-6">
+    <div id="progress" class="text-xs text-slate-400 flex flex-wrap items-center gap-3" aria-live="polite"></div>
+    <section id="subjects" class="grid grid-cols-1 md:grid-cols-2 gap-6"><p class="text-sm text-slate-500 italic">Loading questions…</p></section>
+
+    <section id="quiz" class="hidden bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-8 shadow-2xl" aria-label="Active quiz">
+      <div class="flex justify-between items-center gap-2 mb-3">
+        <div class="flex items-center gap-2 flex-wrap"><span id="mode-tag" class="tag">MODE</span><span id="counter" class="text-xs text-slate-400" aria-live="polite"></span></div>
+        <button data-act="close" class="text-slate-400 hover:text-white text-sm shrink-0">✕ Close</button>
+      </div>
+      <div class="h-1 bg-slate-700 rounded mb-6 overflow-hidden"><div id="bar" class="h-full bg-amber-500 transition-all" style="width:0"></div></div>
+      <div class="flex justify-between items-center mb-2"><span class="lbl !mb-0">Pyramidal Tossup Question</span><span id="clue-tag" class="text-xs text-amber-400"></span></div>
+      <div id="q-text" class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-slate-200 leading-relaxed text-base sm:text-lg max-h-72 overflow-y-auto sb mb-3"></div>
+      <div id="reveal-wrap" class="mb-4"></div>
+      <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6"></div>
+      <div id="explain" class="hidden bg-slate-900 border border-slate-700 p-5 rounded-xl mb-6" role="status">
+        <h2 id="explain-h" class="text-xs font-bold uppercase tracking-wider mb-1"></h2>
+        <p id="explain-t" class="text-sm text-slate-300 leading-relaxed"></p>
+      </div>
+      <div class="flex justify-between items-center pt-4 border-t border-slate-700">
+        <button data-act="prev" id="prev" class="btn">← Prev</button>
+        <button data-act="next" id="next" class="btn btn-pri">Next →</button>
       </div>
     </section>
+    <section id="results" class="hidden bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-8 shadow-2xl space-y-4" aria-live="polite"></section>
+  </div>
 
-  </main>
+  <div id="view-study" class="hidden space-y-6">
+    <div class="card">
+      <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+        <input id="study-q" type="search" placeholder="Search topics…" aria-label="Search topics" class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-sm w-full sm:w-64">
+        <span id="topic-count" class="tag !rounded-full">0 Topics</span>
+      </div>
+      <div id="topic-cloud" class="flex flex-wrap gap-2 max-h-48 overflow-y-auto sb p-1"></div>
+    </div>
+    <div class="card space-y-4">
+      <div class="flex justify-between items-start gap-3 border-b border-slate-700 pb-4">
+        <div><span id="study-subject" class="tag">SUBJECT</span><h2 id="study-title" class="text-xl font-bold text-white mt-2">Select a topic</h2></div>
+        <button id="study-start" data-act="topic" class="hidden btn btn-pri shrink-0">▶️ Practice topic</button>
+      </div>
+      <div id="study-clues" class="space-y-3"><p class="text-sm text-slate-400 italic">Pick a topic to see key clues and explanations.</p></div>
+    </div>
+  </div>
 
-  <script>
-    let allData = [];
-    let activeSet = [];
-    let currentIdx = 0;
-    let isFlashcardMode = false;
-    let selectedStudyTopic = '';
+  <section id="settings" class="hidden card" aria-label="Settings">
+    <h2 class="font-bold text-white mb-4">⚙️ Dataset & Progress</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800"><span class="text-slate-400 block text-xs mb-1">Unique / total entries</span><span id="st-total" class="text-2xl font-bold">0</span></div>
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800"><span class="text-slate-400 block text-xs mb-1">Geography / Science (unique)</span><span id="st-split" class="text-2xl font-bold">0 / 0</span></div>
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex flex-col gap-2 justify-center">
+        <button class="btn" data-act="reload">🔄 Reload dataset</button><button class="btn" data-act="reset">🗑️ Reset progress</button>
+      </div>
+    </div>
+  </section>
+  <p class="text-center text-[11px] text-slate-500">Keys: 1–4 answer · R reveal clue / flip card · ← → navigate · Esc close</p>
+</main>
 
-    async function loadQuizData() {
-      try {
-        const timestamp = new Date().getTime();
-        const quizRes = await fetch(`./quizzes.json?t=${timestamp}`, { cache: 'no-store' });
-        if (!quizRes.ok) throw new Error(`quizzes.json status: ${quizRes.status}`);
+<script>
+const LIMIT = 30;
+// IAC rules: reaching 6 correct on question n earns a bonus (total = 6 + bonus)
+const BONUS = n => n <= 6 ? 9 : n <= 8 ? 8 : n <= 10 ? 7 : n <= 12 ? 6 : n <= 15 ? 5 : n <= 18 ? 4 : n <= 21 ? 3 : n <= 24 ? 2 : n <= 27 ? 1 : 0;
+const SUBJECTS = {
+  Geography: { icon: '🌐', note: 'Physical, cultural, and political tossups' },
+  Science: { icon: '🧪', note: 'Physics, chemistry, biology, and Earth science tossups' }
+};
+// [mode, label, column span, extra class]
+const MODES = [
+  ['standard', '▶️ Start Quiz', 2, 'btn-pri'], ['tossup', '🔔 Bee Round (IAC rules)', 2, ''],
+  ['high-frequency', '⚡ Frequently Asked', 1, ''], ['flashcards', '🎴 Flashcards', 1, ''],
+  ['good-to-know', '📖 Good to Know', 2, '']
+];
+// Merge near-duplicate topic names from the dataset
+const TOPIC_RULES = [
+  [/astronom/i, 'Astronomy'], [/physics|velocity|acceleration|kinematic|mechanic|optic|thermo|electro/i, 'Physics'],
+  [/chem|periodic|acid/i, 'Chemistry'], [/cell|genet|molecular|photosynth/i, 'Biology'], [/earth|geolog/i, 'Earth Science'],
+  [/mountain|volcano/i, 'Mountains & Volcanoes'], [/strait|canal/i, 'Straits & Canals'], [/physical/i, 'Physical Geography']
+];
+const normTopic = t => (TOPIC_RULES.find(([r]) => r.test(t)) || [0, t])[1];
 
-        const rawQuiz = await quizRes.json();
-        allData = Array.isArray(rawQuiz) ? rawQuiz : (rawQuiz.quizzes || rawQuiz.data || []);
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const hash = s => { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) | 0; return h.toString(36); };
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const uniq = a => { const s = new Set(); return a.filter(q => !s.has(q.hk) && s.add(q.hk)); };
+const store = {
+  get() { try { return JSON.parse(localStorage.getItem('bee-progress')) || {}; } catch { return {}; } },
+  set(v) { try { localStorage.setItem('bee-progress', JSON.stringify(v)); } catch { /* storage unavailable */ } }
+};
 
-        renderTopicPills();
-        renderStudyHub();
-        updateStats();
+let ALL = [], S = null, studyTopic = '';
+const modePool = (cat, mode) => uniq(ALL.filter(q => q.cat === cat && q.mode === (mode === 'tossup' ? 'standard' : mode)));
 
-        // Auto-display first topic in Study Hub
-        const firstTopic = allData.find(q => q.topic)?.topic;
-        if (firstTopic) {
-          selectStudyTopic(firstTopic);
-        }
-      } catch (err) {
-        console.error('Error loading quiz data:', err);
-      }
-    }
+async function load() {
+  $('err').classList.add('hidden');
+  try {
+    const r = await fetch('./quizzes.json', { cache: 'no-cache' });
+    if (!r.ok) throw new Error('quizzes.json returned HTTP ' + r.status);
+    const raw = await r.json();
+    const list = Array.isArray(raw) ? raw : (raw.quizzes || raw.data || []);
+    ALL = list.filter(q => q && q.question && Array.isArray(q.options) && q.options[q.answer] !== undefined)
+      .map(q => ({ ...q, cat: q.category || q.subject, topic: normTopic(q.topic || 'General'), hk: hash(q.question) }));
+    if (!ALL.length) throw new Error('No valid questions found in quizzes.json');
+    renderHome(); renderStudy(); renderSettings(); showStudy(ALL[0].topic); switchTab('quizzes');
+  } catch (e) {
+    $('err-msg').textContent = 'Could not load questions: ' + e.message + '. Serve the site over http(s) (e.g. GitHub Pages) with quizzes.json next to index.html.';
+    $('err').classList.remove('hidden');
+    $('subjects').innerHTML = '';
+  }
+}
 
-    function renderTopicPills() {
-      const getTopics = (subject) => {
-        const matches = allData.filter(item => (item.category || item.subject || '').toLowerCase() === subject.toLowerCase());
-        return Array.from(new Set(matches.map(item => item.topic).filter(Boolean)));
-      };
+function renderHome() {
+  $('subjects').innerHTML = Object.entries(SUBJECTS).map(([cat, m]) => {
+    const qs = uniq(ALL.filter(q => q.cat === cat)), topics = [...new Set(qs.map(q => q.topic))].sort();
+    const pills = topics.map(t => `<button class="pill" data-act="topic" data-cat="${esc(cat)}" data-topic="${esc(t)}">${esc(t)} <span class="opacity-60">${qs.filter(q => q.topic === t).length}</span></button>`).join('');
+    const btns = MODES.map(([mode, label, span, cls]) => {
+      const n = Math.min(modePool(cat, mode).length, LIMIT);
+      return `<button class="btn ${cls} ${span === 2 ? 'col-span-2' : ''}" data-act="mode" data-cat="${cat}" data-mode="${mode}" ${n ? '' : 'disabled title="No questions in this set yet"'}>${label} <span class="opacity-70">(${n})</span></button>`;
+    }).join('');
+    return `<div class="card"><div class="flex items-center gap-3 mb-4"><span class="p-3 bg-slate-900 rounded-xl text-xl" aria-hidden="true">${m.icon}</span>
+      <div><h2 class="text-lg font-bold text-white">${cat} Bee</h2><p class="text-xs text-slate-400">${m.note}</p></div></div>
+      <span class="lbl">Practice a topic</span><div class="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto sb mb-4">${pills}</div>
+      <div class="grid grid-cols-2 gap-2.5 pt-4 border-t border-slate-700/50">${btns}</div></div>`;
+  }).join('');
+  renderProgress();
+}
 
-      renderPills('geo-topics', getTopics('Geography'), 'Geography');
-      renderPills('sci-topics', getTopics('Science'), 'Science');
-    }
+function renderProgress() {
+  const p = store.get(), n = (p.missed || []).length;
+  $('progress').innerHTML = p.asked
+    ? `<span>📈 ${p.asked} answered · ${Math.round(p.correct / p.asked * 100)}% correct</span>${n ? `<button class="pill" data-act="review">Review ${n} missed</button>` : ''}`
+    : '<span>Answer questions to start tracking your progress.</span>';
+}
 
-    function renderPills(containerId, topics, category) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
+function record(q, ok) {
+  const p = store.get(), m = new Set(p.missed || []);
+  p.asked = (p.asked || 0) + 1; p.correct = (p.correct || 0) + (ok ? 1 : 0);
+  ok ? m.delete(q.hk) : m.add(q.hk);
+  p.missed = [...m]; store.set(p);
+}
 
-      if (topics.length === 0) {
-        container.innerHTML = '<span class="text-xs text-slate-500">No topics found</span>';
-        return;
-      }
+function start(qs, label, mode) {
+  if (!qs.length) return;
+  const items = shuffle(qs).slice(0, LIMIT).map(q => {
+    const order = shuffle(q.options.map((_, i) => i));   // shuffle answer positions too
+    return { ...q, picked: null, rated: null, shown: 0, pts: 0, flip: false,
+      opts: order.map(i => q.options[i]), ans: order.indexOf(q.answer), clues: Array.isArray(q.clues) && q.clues.length ? q.clues : q.question.split(/(?<=[.!?])\s+/) };
+  });
+  S = { qs: items, i: 0, label: label.toUpperCase(), mode, score: 0, right: 0 };
+  $('results').classList.add('hidden'); $('quiz').classList.remove('hidden');
+  renderQ(); $('quiz').scrollIntoView({ behavior: 'smooth' });
+}
 
-      container.innerHTML = topics.map(topic => `
-        <button onclick="filterByTopic('${category}', '${topic.replace(/'/g, "\\'")}')" 
-          class="text-[11px] bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 transition">
-          ${topic}
-        </button>
-      `).join('');
-    }
+function renderQ() {
+  const q = S.qs[S.i], tossup = S.mode === 'tossup', fc = S.mode === 'flashcards';
+  if (!q.shown) q.shown = tossup ? 1 : q.clues.length;
+  const done = q.picked != null || q.rated != null, last = S.i === S.qs.length - 1;
+  $('mode-tag').textContent = S.label;
+  $('counter').textContent = `Question ${S.i + 1} of ${S.qs.length}` + (tossup ? ` · Score ${S.score} · ${S.right}/6 correct` : '');
+  $('bar').style.width = ((S.i + 1) / S.qs.length * 100) + '%';
+  $('q-text').textContent = q.clues.slice(0, q.shown).join(' ');
+  $('clue-tag').textContent = tossup ? `Clue ${q.shown} of ${q.clues.length}` : '';
+  $('reveal-wrap').innerHTML = tossup && !done && q.shown < q.clues.length
+    ? '<button class="btn" data-act="reveal">➕ Next clue (R) <span class="opacity-70">— a 3rd wrong answer before the last clue costs −1</span></button>' : '';
+  const g = $('options'), w = q.wrong || [];
+  if (fc) {
+    const ans = `<div class="md:col-span-2 bg-emerald-950/60 border border-emerald-500 p-4 rounded-xl text-center"><span class="text-xs uppercase font-bold text-emerald-400 block mb-1">Correct answer</span><span class="text-lg font-bold text-white">${esc(q.opts[q.ans])}</span></div>`;
+    g.innerHTML = !q.flip ? '<button data-act="flip" class="md:col-span-2 w-full bg-slate-700/50 border border-dashed border-slate-600 hover:border-amber-400 text-slate-300 p-6 rounded-xl text-sm">🔍 Tap to reveal answer (R)</button>'
+      : ans + (q.rated == null ? '<button class="btn btn-pri" data-act="rate" data-v="1">✅ Got it</button><button class="btn" data-act="rate" data-v="0">❌ Missed it</button>' : '');
+  } else {
+    g.innerHTML = q.opts.map((o, i) => `<button class="opt ${done ? (i === q.ans ? 'ok' : (i === q.picked || w.includes(i)) ? 'bad' : 'dim') : (w.includes(i) ? 'bad' : '')}" data-act="pick" data-i="${i}" ${done || w.includes(i) ? 'disabled' : ''}><span class="key">${String.fromCharCode(65 + i)}</span><span>${esc(o)}</span></button>`).join('');
+  }
+  const show = fc ? q.flip : done, ok = fc ? q.rated === true : q.picked === q.ans;
+  $('explain').classList.toggle('hidden', !show);
+  if (show) {
+    $('explain-h').textContent = fc ? 'Explanation' : (ok ? `Correct${tossup ? ' (+1)' : ''}` : tossup ? `Question dead: 3 incorrect${q.pts < 0 ? ' (−1)' : ''}` : 'Incorrect');
+    $('explain-h').className = 'text-xs font-bold uppercase tracking-wider mb-1 ' + (fc || ok ? 'text-emerald-400' : 'text-red-400');
+    $('explain-t').textContent = q.explanation || 'No explanation provided.';
+  }
+  $('prev').disabled = S.i === 0;
+  $('next').textContent = last || (tossup && S.right >= 6) ? 'Finish ✓' : 'Next →';
+}
 
-    function renderStudyHub() {
-      const container = document.getElementById('full-topic-cloud');
-      const countTag = document.getElementById('topic-count-tag');
-      if (!container) return;
+function pick(i) {
+  const q = S.qs[S.i]; if (!q || q.picked != null || S.mode === 'flashcards' || i >= q.opts.length || (q.wrong || []).includes(i)) return;
+  const ok = i === q.ans, tossup = S.mode === 'tossup';
+  if (tossup && !ok) {   // IAC: wrong answers are free until the 3rd; a 3rd wrong while still "reading" = -1
+    (q.wrong = q.wrong || []).push(i);
+    if (q.wrong.length < 3) return renderQ();
+    q.pts = q.shown < q.clues.length ? -1 : 0;
+  } else q.pts = ok ? 1 : 0;
+  q.picked = i; q.shown = q.clues.length; S.score += q.pts; if (ok) S.right++;
+  if (tossup && ok && S.right === 6) S.bonus = BONUS(S.i + 1);
+  record(q, ok); renderQ();
+}
+function rate(ok) {
+  const q = S.qs[S.i]; if (q.rated != null) return;
+  q.rated = ok; q.pts = ok ? 1 : 0; S.score += q.pts; if (ok) S.right++;
+  record(q, ok); renderQ();
+}
+function next() { S.i < S.qs.length - 1 && !(S.mode === 'tossup' && S.right >= 6) ? (S.i++, renderQ()) : finish(); }
+function prev() { if (S.i > 0) { S.i--; renderQ(); } }
 
-      const allTopics = Array.from(new Set(allData.map(q => q.topic).filter(Boolean)));
-      if (countTag) countTag.innerText = `${allTopics.length} Topics`;
+function finish() {
+  const asked = S.qs.filter(q => q.picked != null || q.rated != null);
+  S.missed = S.qs.filter(q => (q.picked != null && q.picked !== q.ans) || q.rated === false);
+  const pct = asked.length ? Math.round(S.right / asked.length * 100) : 0, stat = (l, v) => `<div class="bg-slate-900 p-4 rounded-xl border border-slate-800"><span class="text-slate-400 block text-xs mb-1">${l}</span><span class="text-2xl font-bold">${v}</span></div>`;
+  $('quiz').classList.add('hidden');
+  $('results').classList.remove('hidden');
+  $('results').innerHTML = `<h2 class="text-xl font-bold text-white">Session complete 🎉</h2>
+    <div class="grid grid-cols-3 gap-3">${S.mode === 'tossup' ? stat('Total points', S.score + (S.bonus || 0)) + stat('Correct', S.right + '/6') + stat('Bonus', '+' + (S.bonus || 0)) : stat('Score', S.score) + stat('Correct', `${S.right}/${asked.length}`) + stat('Accuracy', pct + '%')}</div>
+    ${S.missed.length ? `<h3 class="lbl !mb-0 pt-2">Review missed (${S.missed.length})</h3>` + S.missed.map(q => `<div class="bg-slate-900 border border-slate-800 p-4 rounded-xl text-sm space-y-1"><p class="text-slate-300">${esc(q.question)}</p><p class="text-emerald-400 font-medium">Answer: ${esc(q.opts[q.ans])}</p><p class="text-xs text-slate-400">${esc(q.explanation)}</p></div>`).join('') : '<p class="text-emerald-400 text-sm">No misses. Nicely done!</p>'}
+    <div class="flex gap-2 pt-2">${S.missed.length ? `<button class="btn btn-pri" data-act="retry">🔁 Retry missed (${S.missed.length})</button>` : ''}<button class="btn" data-act="close">Back to menu</button></div>`;
+  renderProgress(); $('results').scrollIntoView({ behavior: 'smooth' });
+}
 
-      container.innerHTML = allTopics.map(topic => `
-        <button id="pill-${topic.replace(/\s+/g, '-')}" onclick="selectStudyTopic('${topic.replace(/'/g, "\\'")}')" 
-          class="topic-pill text-xs bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
-          ${topic}
-        </button>
-      `).join('');
-    }
+function closeQuiz() { $('quiz').classList.add('hidden'); $('results').classList.add('hidden'); renderProgress(); }
 
-    function selectStudyTopic(topicName) {
-      selectedStudyTopic = topicName;
+function renderStudy() {
+  const f = $('study-q').value.trim().toLowerCase();
+  const topics = [...new Set(ALL.map(q => q.topic))].sort().filter(t => t.toLowerCase().includes(f));
+  $('topic-count').textContent = `${topics.length} Topics`;
+  $('topic-cloud').innerHTML = topics.map(t => `<button class="pill !text-xs !px-3 !py-1.5 ${t === studyTopic ? 'on' : ''}" data-act="study" data-topic="${esc(t)}">${esc(t)}</button>`).join('') || '<span class="text-xs text-slate-500">No matching topics</span>';
+}
+function showStudy(t) {
+  studyTopic = t; renderStudy();
+  const qs = uniq(ALL.filter(q => q.topic === t)), cat = qs[0]?.cat || '';
+  $('study-subject').textContent = cat.toUpperCase(); $('study-title').textContent = t;
+  $('study-clues').innerHTML = qs.map((q, i) => `<div class="bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-2"><div class="text-xs text-amber-400 font-semibold">Key clue #${i + 1}</div>
+    <p class="text-sm text-slate-300 leading-relaxed">${esc(q.question)}</p><div class="pt-2 border-t border-slate-800 text-xs"><span class="text-emerald-400 font-medium">Answer: ${esc(q.options[q.answer])}</span><p class="text-slate-400 mt-1">${esc(q.explanation)}</p></div></div>`).join('');
+  const b = $('study-start'); b.dataset.cat = cat; b.dataset.topic = t; b.classList.remove('hidden');
+}
 
-      // Highlight active pill
-      document.querySelectorAll('.topic-pill').forEach(btn => {
-        btn.classList.remove('bg-amber-500', 'text-slate-950');
-        btn.classList.add('bg-slate-900', 'text-slate-300');
-      });
-      const activeBtn = document.getElementById(`pill-${topicName.replace(/\s+/g, '-')}`);
-      if (activeBtn) {
-        activeBtn.classList.remove('bg-slate-900', 'text-slate-300');
-        activeBtn.classList.add('bg-amber-500', 'text-slate-950');
-      }
+function renderSettings() {
+  const u = uniq(ALL);
+  $('st-total').textContent = `${u.length} / ${ALL.length}`;
+  $('st-split').textContent = ['Geography', 'Science'].map(c => u.filter(q => q.cat === c).length).join(' / ');
+}
 
-      const topicQuestions = allData.filter(q => (q.topic || '').toLowerCase() === topicName.toLowerCase());
-      const firstQ = topicQuestions[0] || {};
-      const category = firstQ.category || firstQ.subject || 'General';
+function switchTab(tab) {
+  const on = 'flex-1 px-4 py-2 rounded-lg transition bg-amber-500 text-slate-950', off = 'flex-1 px-4 py-2 rounded-lg transition text-slate-400 hover:text-white';
+  $('view-quizzes').classList.toggle('hidden', tab !== 'quizzes'); $('view-study').classList.toggle('hidden', tab !== 'study');
+  ['quizzes', 'study'].forEach(t => { $('tab-' + t).className = t === tab ? on : off; $('tab-' + t).setAttribute('aria-pressed', t === tab); });
+}
 
-      document.getElementById('study-topic-subject').innerText = category.toUpperCase();
-      document.getElementById('study-topic-title').innerText = topicName;
-
-      const contentContainer = document.getElementById('study-topic-content');
-      if (topicQuestions.length === 0) {
-        contentContainer.innerHTML = `<p class="text-sm text-slate-400">No extra material recorded for this topic.</p>`;
-        return;
-      }
-
-      contentContainer.innerHTML = topicQuestions.map((q, idx) => `
-        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-2">
-          <div class="flex items-center justify-between text-xs text-amber-400 font-semibold">
-            <span>Key Clue #${idx + 1}</span>
-            <span class="text-slate-400 text-[11px]">${q.mode || 'Standard'}</span>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${q.question}</p>
-          <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs">
-            <span class="text-emerald-400 font-medium">Answer: ${(q.options && q.options[q.answer]) || 'N/A'}</span>
-            <span class="text-slate-400 text-[11px]">${q.explanation || ''}</span>
-          </div>
-        </div>
-      `).join('');
-
-      document.getElementById('study-start-btn').onclick = () => {
-        switchTab('quizzes');
-        filterByTopic(category, topicName);
-      };
-    }
-
-    function filterByTopic(subject, topicName) {
-      activeSet = allData.filter(q => {
-        const matchesSubj = !subject || (q.category || q.subject || '').toLowerCase() === subject.toLowerCase();
-        const matchesTopic = (q.topic || '').toLowerCase() === topicName.toLowerCase();
-        return matchesSubj && matchesTopic;
-      });
-
-      if (activeSet.length === 0) {
-        activeSet = allData.filter(q => (q.category || q.subject || '').toLowerCase() === (subject || 'geography').toLowerCase()).slice(0, 30);
-      } else {
-        activeSet = activeSet.slice(0, 30);
-      }
-
-      currentIdx = 0;
-      isFlashcardMode = false;
-      document.getElementById('quiz-container').classList.remove('hidden');
-      document.getElementById('active-mode-tag').innerText = `TOPIC: ${topicName.toUpperCase()}`;
-      renderCurrentQuestion();
-      document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function launchMode(subject, mode) {
-      isFlashcardMode = (mode === 'flashcards');
-      
-      let filtered = allData.filter(q => {
-        const cat = (q.category || q.subject || '').toLowerCase();
-        const m = (q.mode || '').toLowerCase();
-        return cat === subject.toLowerCase() && m === mode.toLowerCase();
-      });
-
-      if (filtered.length < 30) {
-        const fallback = allData.filter(q => (q.category || q.subject || '').toLowerCase() === subject.toLowerCase());
-        activeSet = fallback.slice(0, 30);
-      } else {
-        activeSet = filtered.slice(0, 30);
-      }
-
-      currentIdx = 0;
-      document.getElementById('quiz-container').classList.remove('hidden');
-      document.getElementById('active-mode-tag').innerText = `${subject.toUpperCase()} • ${mode.toUpperCase()}`;
-      renderCurrentQuestion();
-      document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function renderCurrentQuestion() {
-      if (!activeSet || activeSet.length === 0) return;
-
-      const q = activeSet[currentIdx];
-      document.getElementById('question-counter').innerText = `Question ${currentIdx + 1} of ${activeSet.length}`;
-      document.getElementById('question-text').innerText = q.question || 'No question text available.';
-      
-      const grid = document.getElementById('options-grid');
-      document.getElementById('explanation-box').classList.add('hidden');
-      grid.innerHTML = '';
-
-      if (isFlashcardMode) {
-        grid.innerHTML = `
-          <div class="col-span-1 md:col-span-2 text-center">
-            <button onclick="revealAnswer(${q.answer})" class="w-full bg-slate-700/50 border border-dashed border-slate-600 hover:border-amber-400 text-slate-300 p-6 rounded-xl transition text-sm">
-              🔍 Tap to Reveal Answer
-            </button>
-          </div>
-        `;
-      } else {
-        const opts = q.options || [];
-        opts.forEach((opt, idx) => {
-          const btn = document.createElement('button');
-          btn.className = 'bg-slate-900 border border-slate-700 hover:border-amber-500/50 text-left p-4 rounded-xl text-slate-200 text-sm flex items-center gap-3 transition';
-          btn.innerHTML = `<span class="w-6 h-6 rounded bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-xs shrink-0">${String.fromCharCode(65 + idx)}</span> <span>${opt}</span>`;
-          btn.onclick = () => selectOption(idx, q.answer, q.explanation);
-          grid.appendChild(btn);
-        });
-      }
-
-      document.getElementById('prev-btn').disabled = (currentIdx === 0);
-    }
-
-    function selectOption(selectedIdx, correctIdx, explanation) {
-      const buttons = document.getElementById('options-grid').children;
-      for (let i = 0; i < buttons.length; i++) {
-        buttons[i].disabled = true;
-        if (i === correctIdx) {
-          buttons[i].className = 'bg-emerald-950/80 border border-emerald-500 text-emerald-200 p-4 rounded-xl text-sm flex items-center gap-3';
-        } else if (i === selectedIdx) {
-          buttons[i].className = 'bg-red-950/80 border border-red-500 text-red-200 p-4 rounded-xl text-sm flex items-center gap-3';
-        }
-      }
-      showExplanation(explanation);
-    }
-
-    function revealAnswer(correctIdx) {
-      const q = activeSet[currentIdx];
-      const answerText = (q.options && q.options[correctIdx]) ? q.options[correctIdx] : 'Answer Revealed';
-      document.getElementById('options-grid').innerHTML = `
-        <div class="col-span-2 bg-emerald-950/60 border border-emerald-500 p-4 rounded-xl text-center">
-          <span class="text-xs uppercase font-bold text-emerald-400 block mb-1">Correct Answer</span>
-          <span class="text-lg font-bold text-white">${answerText}</span>
-        </div>
-      `;
-      showExplanation(q.explanation);
-    }
-
-    function showExplanation(text) {
-      document.getElementById('explanation-text').innerText = text || 'No explanation provided.';
-      document.getElementById('explanation-box').classList.remove('hidden');
-    }
-
-    function nextQuestion() {
-      if (currentIdx < activeSet.length - 1) {
-        currentIdx++;
-        renderCurrentQuestion();
-      }
-    }
-
-    function prevQuestion() {
-      if (currentIdx > 0) {
-        currentIdx--;
-        renderCurrentQuestion();
-      }
-    }
-
-    function closeQuiz() {
-      document.getElementById('quiz-container').classList.add('hidden');
-    }
-
-    function switchTab(tab) {
-      const qTab = document.getElementById('view-quizzes');
-      const sTab = document.getElementById('view-study');
-      const qBtn = document.getElementById('tab-btn-quizzes');
-      const sBtn = document.getElementById('tab-btn-study');
-
-      if (tab === 'quizzes') {
-        qTab.classList.remove('hidden');
-        sTab.classList.add('hidden');
-        qBtn.className = 'flex-1 px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition';
-        sBtn.className = 'flex-1 px-4 py-2 rounded-lg text-slate-400 hover:text-white transition';
-      } else {
-        qTab.classList.add('hidden');
-        sTab.classList.remove('hidden');
-        sBtn.className = 'flex-1 px-4 py-2 rounded-lg bg-amber-500 text-slate-950 transition';
-        qBtn.className = 'flex-1 px-4 py-2 rounded-lg text-slate-400 hover:text-white transition';
-      }
-    }
-
-    function updateStats() {
-      const geo = allData.filter(q => (q.category || q.subject || '').toLowerCase() === 'geography').length;
-      const sci = allData.filter(q => (q.category || q.subject || '').toLowerCase() === 'science').length;
-      document.getElementById('stat-total').innerText = allData.length;
-      document.getElementById('stat-breakdown').innerText = `${geo} / ${sci}`;
-    }
-
-    function toggleAdminPanel() {
-      document.getElementById('admin-panel').classList.toggle('hidden');
-    }
-
-    document.addEventListener('DOMContentLoaded', loadQuizData);
-  </script>
+const ACT = {
+  topic: d => { switchTab('quizzes'); start(uniq(ALL.filter(q => q.cat === d.cat && q.topic === d.topic)), `${d.cat} • ${d.topic}`, 'quiz'); },
+  mode: d => start(modePool(d.cat, d.mode), `${d.cat} • ${d.mode}`, d.mode === 'tossup' ? 'tossup' : d.mode === 'flashcards' ? 'flashcards' : 'quiz'),
+  pick: d => pick(+d.i), rate: d => rate(d.v === '1'), next, prev, close: closeQuiz, reload: load, tab: d => switchTab(d.tab),
+  flip: () => { S.qs[S.i].flip = true; renderQ(); },
+  reveal: () => { const q = S.qs[S.i]; if (q.shown < q.clues.length) { q.shown++; renderQ(); } },
+  retry: () => start(S.missed, S.label + ' • RETRY', S.mode),
+  review: () => { const m = new Set(store.get().missed || []); start(uniq(ALL.filter(q => m.has(q.hk))), 'Review • missed', 'quiz'); },
+  study: d => showStudy(d.topic),
+  settings: () => $('settings').classList.toggle('hidden'),
+  reset: () => { if (confirm('Reset all saved progress on this device?')) { store.set({}); renderProgress(); } }
+};
+document.addEventListener('click', e => { const b = e.target.closest('[data-act]'); if (b && !b.disabled) ACT[b.dataset.act]?.(b.dataset); });
+$('study-q').addEventListener('input', renderStudy);
+document.addEventListener('keydown', e => {
+  if (!S || $('quiz').classList.contains('hidden') || e.target.matches('input') || e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key.toLowerCase();
+  if (/^[1-4]$/.test(k)) pick(+k - 1);
+  else if (k === 'r') S.mode === 'flashcards' ? ACT.flip() : ACT.reveal();
+  else if (k === 'arrowright') next(); else if (k === 'arrowleft') prev(); else if (k === 'escape') closeQuiz();
+});
+switchTab('quizzes');
+document.addEventListener('DOMContentLoaded', load);
+</script>
 </body>
 </html>
