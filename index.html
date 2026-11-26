@@ -170,7 +170,7 @@ async function load() {
 }
 
 function renderLevels() {
-  const levels = ['Elementary', 'Middle School', 'Junior Varsity', 'Varsity'].filter(l => ALL.some(q => q.level === l));
+  const levels = ['Elementary', 'Intermediate', 'Middle School', 'Junior Varsity', 'Varsity'].filter(l => ALL.some(q => q.level === l));
   $('levels').innerHTML = levels.length ? ['', ...levels].map(l => `<button class="pill !text-xs !px-3 !py-1.5 ${l === LEVEL ? 'on' : ''}" data-act="level" data-level="${l}">${l || 'All levels'}</button>`).join('') : '';
 }
 

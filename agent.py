@@ -47,7 +47,13 @@ RESOURCES = [
     "https://www.iacompetitions.com/resources-national-science-bee/",
     "https://www.iacompetitions.com/ems-national-geography-bee-past-questions/",
     "https://www.iacompetitions.com/ems-national-science-bee-past-questions/",
+    "https://geochampionships.com/resources/",
 ]
+
+# Skip files that are not question material (simulation guides, papers, answer sheets, puzzles).
+EXCLUDE = re.compile(
+    r"background-guide|symposium|answer-sheet|answer-document|fieldwork|hex|crossword|culinary|musical|"
+    r"linguistic|vexillology|question-writing|running-swimming|thai-geography|usa-at-250|free-response", re.I)
 
 # The old prompt only passed the mode *name*, so every mode produced the same kind of
 # question. Each mode now has a real brief.
@@ -70,10 +76,12 @@ DEFAULT_TOPICS = {
 }
 
 
-# Approximate grade bands for the four IAC divisions (adjust to your students).
+# Grade bands follow the IAC divisions (Elementary: 4th grade and younger; Intermediate: 5th-6th;
+# Middle School: 7th-8th; Junior Varsity / Varsity: high school).
 LEVELS = {
-    "Elementary": "grades 3-5: short sentences, familiar words, widely known facts",
-    "Middle School": "grades 6-8: moderate vocabulary, standard school-curriculum facts",
+    "Elementary": "grade 4 and younger: very short sentences, familiar words, widely known facts",
+    "Intermediate": "grades 5-6: simple vocabulary, common school-curriculum facts",
+    "Middle School": "grades 7-8: moderate vocabulary, standard curriculum facts",
     "Junior Varsity": "grades 9-10: more specialised facts and terminology",
     "Varsity": "grades 11-12: the hardest clues and expert-level detail",
 }
@@ -126,7 +134,7 @@ def download_pdfs() -> int:
             continue
         for a in BeautifulSoup(r.text, "html.parser").find_all("a", href=True):
             href = urljoin(url, a["href"])
-            if urlparse(href).path.lower().endswith(".pdf"):
+            if urlparse(href).path.lower().endswith(".pdf") and not EXCLUDE.search(href):
                 links.add(href)
         time.sleep(1)
 
@@ -343,8 +351,8 @@ def run(args) -> int:
                 attempts += 1
                 need = min(args.batch_size, args.per_mode - have)
                 names = list(LEVELS)
-                slots = [{"topic": pool[(cursor + i) % len(pool)], "level": names[(cursor + i) % len(names)]}
-                         for i in range(need)]  # rotate topics and levels for variety
+                slots = [{"topic": pool[(cursor + i) % len(pool)], "level": names[((cursor + i) + (cursor + i) // len(pool)) % len(names)]}
+                         for i in range(need)]  # rotate topics and levels; shift levels each topic cycle
                 cursor += need
                 used = [a for s, a in seen_a if s == subject]
                 avoid = rng.sample(used, min(80, len(used)))
