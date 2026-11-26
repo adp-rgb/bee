@@ -27,6 +27,29 @@ button:disabled{cursor:not-allowed}
 .tag{@apply text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md border border-amber-400/20}
 }
 </style>
+<style>
+  #division-panel [hidden] { display: none !important; }
+  #division-panel a { color: #fcd34d; }
+  #division-panel section, #division-panel form { background: #0f172a; border: 1px solid #334155; border-radius: 1rem; padding: 1rem; margin-block: 1rem; }
+  #division-panel .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); gap: .75rem; }
+  #division-panel label { display: grid; gap: .25rem; }
+  #division-panel button, #division-panel input, #division-panel select { box-sizing: border-box; min-height: 2.75rem; padding: .5rem .75rem; border: 1px solid #64748b; border-radius: .5rem; background: #1e293b; color: inherit; font: inherit; }
+  #division-panel button { cursor: pointer; }
+  #division-panel button:disabled { opacity: .65; cursor: default; }
+  #division-panel button[type=submit], #division-panel #division-buzz { background: #fcd34d; color: #1e293b; font-weight: 700; }
+  #division-panel button:focus-visible, #division-panel input:focus-visible, #division-panel select:focus-visible, #division-panel a:focus-visible { outline: 3px solid #fcd34d; outline-offset: 3px; }
+  #division-panel form > button { margin-top: 1rem; }
+  #division-panel #division-options { display: grid; gap: .5rem; }
+  #division-panel #division-options button { text-align: left; }
+  #division-panel #division-options [data-result=correct] { border-color: #6ee7b7; }
+  #division-panel #division-options [data-result=incorrect] { border-color: #fca5a5; }
+  #division-panel #division-clue-controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+  #division-panel #division-response { margin-top: 1rem; }
+  #division-panel #division-response input { width: 100%; }
+  #division-panel .secondary { color: #cbd5e1; }
+  #division-panel > summary { cursor: pointer; font-size: 1.125rem; font-weight: 700; }
+  #division-panel > form, #division-panel section { margin-bottom: 0; }
+</style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans antialiased">
 
@@ -56,6 +79,49 @@ button:disabled{cursor:not-allowed}
   <div id="err" class="hidden bg-red-950 border border-red-500 text-red-200 rounded-xl p-4 text-sm flex items-center justify-between gap-3" role="alert">
     <span id="err-msg"></span><button class="btn shrink-0" data-act="reload">Retry</button>
   </div>
+
+  <details id="division-panel" class="card" open>
+    <summary>2026–27 IAC Asia division practice</summary>
+    <p class="secondary">Science and Geography qualifying questions and solo tossups</p>
+    <form id="division-setup">
+      <div class="fields">
+        <label>Subject<select id="division-subject"></select></label>
+        <label>Division<select id="division-division" aria-describedby="division-eligibility"></select></label>
+        <label>Practice mode<select id="division-mode">
+          <option value="qualifying_exam">Qualifying exam</option>
+          <option value="buzzer">Solo buzzer</option>
+        </select></label>
+      </div>
+      <p id="division-eligibility" class="secondary"></p>
+      <p id="division-coaching"></p>
+      <p id="division-availability" class="secondary"></p>
+      <p id="division-student-progress" class="secondary" aria-live="polite"></p>
+      <details><summary>How to practise</summary>
+        <p>Qualifying Exam has four choices. Solo Buzzer reveals clues one at a time and lets you submit one answer from memory. Press B to buzz while practising with a keyboard.</p>
+      </details>
+      <button id="division-start" type="submit" disabled>Start practice</button>
+      <button type="button" id="division-retry-missed" disabled>Retry missed</button>
+    </form>
+    <p id="division-status" role="status"></p>
+    <section id="division-practice" aria-labelledby="division-topic" hidden>
+      <h2 id="division-topic" tabindex="-1"></h2>
+      <p id="division-prompt" aria-live="polite"></p>
+      <div id="division-options"></div>
+      <p><button id="division-read" type="button" hidden>Read aloud</button></p>
+      <div id="division-clue-controls" hidden>
+        <button id="division-reveal" type="button">Next clue</button>
+        <button id="division-buzz" type="button">Buzz in</button>
+        <button id="division-skip" type="button">Show answer</button>
+      </div>
+      <div id="division-response" hidden>
+        <label>Your answer<input id="division-answer" autocomplete="off"></label>
+        <button id="division-submit-answer" type="button">Check answer</button>
+      </div>
+      <div id="division-feedback" tabindex="-1" aria-live="polite"></div>
+      <p><button id="division-next-question" type="button" hidden>Next question</button> <button id="division-next-format" type="button" hidden>Try the other format</button></p>
+      <div id="division-sources" hidden><h3>Source evidence</h3><ul id="division-references"></ul></div>
+    </section>
+  </details>
 
   <div id="view-quizzes" class="space-y-6">
     <div id="progress" class="text-xs text-slate-400 flex flex-wrap items-center gap-3" aria-live="polite"></div>
@@ -332,6 +398,7 @@ const ACT = {
 document.addEventListener('click', e => { const b = e.target.closest('[data-act]'); if (b && !b.disabled) ACT[b.dataset.act]?.(b.dataset); });
 $('study-q').addEventListener('input', renderStudy);
 document.addEventListener('keydown', e => {
+  if ($('division-panel').contains(e.target) || e.target.matches('select, textarea, [contenteditable]')) return;
   if (!S || $('quiz').classList.contains('hidden') || e.target.matches('input') || e.metaKey || e.ctrlKey || e.altKey) return;
   const k = e.key.toLowerCase();
   if (/^[1-4]$/.test(k)) pick(+k - 1);
@@ -342,6 +409,745 @@ switchTab('quizzes');
 if (!('speechSynthesis' in window)) $('speak').classList.add('hidden');
 $('count').addEventListener('change', renderHome);
 document.addEventListener('DOMContentLoaded', load);
+</script>
+<script id="division-bank" type="application/json">
+{
+  "season": "2026-27",
+  "status": "pilot_draft",
+  "division_source": "https://iacompetitionsasia.com/",
+  "divisions": {
+    "Elementary": {
+      "born_from": "2014-09-01",
+      "born_through": null
+    },
+    "Middle School": {
+      "born_from": "2012-09-01",
+      "born_through": "2014-08-31"
+    },
+    "Junior Varsity": {
+      "born_from": "2010-09-01",
+      "born_through": "2012-08-31"
+    },
+    "Varsity": {
+      "born_from": null,
+      "born_through": "2010-08-31"
+    }
+  },
+  "questions": [
+    {
+      "subject": "Science",
+      "topic": "Solar System",
+      "division": "Elementary",
+      "id": "2026-27-science-elementary-mcq",
+      "format": "qualifying_exam",
+      "question": "Which planet has the Great Red Spot?",
+      "options": [
+        "Jupiter",
+        "Mars",
+        "Saturn",
+        "Mercury"
+      ],
+      "answer_index": 0,
+      "answer": "Jupiter",
+      "sources": [
+        {
+          "title": "200 Science Facts to Know!",
+          "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+          "page": 9,
+          "fact": 148
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "topic": "Solar System",
+      "division": "Elementary",
+      "id": "2026-27-science-elementary-tossup",
+      "format": "buzzer",
+      "clues": [
+        {
+          "text": "No other planet has a smaller diameter.",
+          "sources": [
+            {
+              "title": "200 Science Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+              "page": 9,
+              "fact": 145
+            }
+          ]
+        },
+        {
+          "text": "For the point, name the planet nearest the Sun.",
+          "sources": [
+            {
+              "title": "200 Science Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+              "page": 9,
+              "fact": 145
+            }
+          ]
+        }
+      ],
+      "answer": "Mercury"
+    },
+    {
+      "subject": "Science",
+      "topic": "Solar System",
+      "division": "Middle School",
+      "id": "2026-27-science-middle-school-mcq",
+      "format": "qualifying_exam",
+      "question": "Phobos is a moon of which planet?",
+      "options": [
+        "Jupiter",
+        "Mars",
+        "Saturn",
+        "Mercury"
+      ],
+      "answer_index": 1,
+      "answer": "Mars",
+      "sources": [
+        {
+          "title": "200 Science Facts to Know!",
+          "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+          "page": 9,
+          "fact": 147
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "topic": "Solar System",
+      "division": "Middle School",
+      "id": "2026-27-science-middle-school-tossup",
+      "format": "buzzer",
+      "clues": [
+        {
+          "text": "This planet is sixth in orbital order from the Sun.",
+          "sources": [
+            {
+              "title": "200 Science Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+              "page": 9,
+              "fact": 149
+            }
+          ]
+        },
+        {
+          "text": "For the point, name this planet known for its extensive rings.",
+          "sources": [
+            {
+              "title": "200 Science Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+              "page": 9,
+              "fact": 149
+            }
+          ]
+        }
+      ],
+      "answer": "Saturn"
+    },
+    {
+      "subject": "Science",
+      "topic": "Solar System",
+      "division": "Junior Varsity",
+      "id": "2026-27-science-junior-varsity-mcq",
+      "format": "qualifying_exam",
+      "question": "Which planet ranks first both in proximity to the Sun and in smallest size?",
+      "options": [
+        "Mars",
+        "Saturn",
+        "Mercury",
+        "Jupiter"
+      ],
+      "answer_index": 2,
+      "answer": "Mercury",
+      "sources": [
+        {
+          "title": "200 Science Facts to Know!",
+          "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+          "page": 9,
+          "fact": 145
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "topic": "Solar System",
+      "division": "Junior Varsity",
+      "id": "2026-27-science-junior-varsity-tossup",
+      "format": "buzzer",
+      "clues": [
+        {
+          "text": "Deimos and Phobos orbit this planet.",
+          "sources": [
+            {
+              "title": "200 Science Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+              "page": 9,
+              "fact": 147
+            }
+          ]
+        },
+        {
+          "text": "For the point, name the fourth planet from the Sun, nicknamed the Red Planet.",
+          "sources": [
+            {
+              "title": "200 Science Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+              "page": 9,
+              "fact": 147
+            }
+          ]
+        }
+      ],
+      "answer": "Mars"
+    },
+    {
+      "subject": "Science",
+      "topic": "Solar System",
+      "division": "Varsity",
+      "id": "2026-27-science-varsity-mcq",
+      "format": "qualifying_exam",
+      "question": "A planet is sixth in order from the Sun and has an extensive system of rings. Which planet fits both clues?",
+      "options": [
+        "Mars",
+        "Jupiter",
+        "Mercury",
+        "Saturn"
+      ],
+      "answer_index": 3,
+      "answer": "Saturn",
+      "sources": [
+        {
+          "title": "200 Science Facts to Know!",
+          "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+          "page": 9,
+          "fact": 149
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "topic": "Solar System",
+      "division": "Varsity",
+      "id": "2026-27-science-varsity-tossup",
+      "format": "buzzer",
+      "clues": [
+        {
+          "text": "Charon is the largest moon of this body.",
+          "sources": [
+            {
+              "title": "200 Science Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+              "page": 9,
+              "fact": 150
+            }
+          ]
+        },
+        {
+          "text": "For the point, name this dwarf planet once counted as the ninth planet.",
+          "sources": [
+            {
+              "title": "200 Science Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/200-Science-Facts-to-Know.pdf#page=9",
+              "page": 9,
+              "fact": 150
+            }
+          ]
+        }
+      ],
+      "answer": "Pluto"
+    },
+    {
+      "subject": "Geography",
+      "topic": "Islands and Archipelagos",
+      "division": "Elementary",
+      "id": "2026-27-geography-elementary-mcq",
+      "format": "qualifying_exam",
+      "question": "Which is the largest island of Japan?",
+      "options": [
+        "Honshu",
+        "Hokkaido",
+        "Crete",
+        "Java"
+      ],
+      "answer_index": 0,
+      "answer": "Honshu",
+      "sources": [
+        {
+          "title": "100 Geography Facts to Know!",
+          "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+          "page": 1,
+          "fact": 6
+        }
+      ]
+    },
+    {
+      "subject": "Geography",
+      "topic": "Islands and Archipelagos",
+      "division": "Elementary",
+      "id": "2026-27-geography-elementary-tossup",
+      "format": "buzzer",
+      "clues": [
+        {
+          "text": "Kalaallit Nunaat is another name for this island.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 1
+            }
+          ]
+        },
+        {
+          "text": "Its capital is Nuuk.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 1
+            }
+          ]
+        },
+        {
+          "text": "For the point, name Earth's largest island.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 1
+            }
+          ]
+        }
+      ],
+      "answer": "Greenland"
+    },
+    {
+      "subject": "Geography",
+      "topic": "Islands and Archipelagos",
+      "division": "Middle School",
+      "id": "2026-27-geography-middle-school-mcq",
+      "format": "qualifying_exam",
+      "question": "On which island would you visit the Minoan palace at Knossos?",
+      "options": [
+        "Java",
+        "Crete",
+        "Hokkaido",
+        "Greenland"
+      ],
+      "answer_index": 1,
+      "answer": "Crete",
+      "sources": [
+        {
+          "title": "100 Geography Facts to Know!",
+          "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+          "page": 1,
+          "fact": 12
+        }
+      ]
+    },
+    {
+      "subject": "Geography",
+      "topic": "Islands and Archipelagos",
+      "division": "Middle School",
+      "id": "2026-27-geography-middle-school-tossup",
+      "format": "buzzer",
+      "clues": [
+        {
+          "text": "Sapporo is the largest city on this island.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 7
+            }
+          ]
+        },
+        {
+          "text": "For the point, name the northernmost of Japan's main islands.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 7
+            }
+          ]
+        }
+      ],
+      "answer": "Hokkaido"
+    },
+    {
+      "subject": "Geography",
+      "topic": "Islands and Archipelagos",
+      "division": "Junior Varsity",
+      "id": "2026-27-geography-junior-varsity-mcq",
+      "format": "qualifying_exam",
+      "question": "Which Pacific archipelago belongs to Ecuador and is associated with Darwin's finch observations?",
+      "options": [
+        "Canary Islands",
+        "New Guinea",
+        "Galapagos Islands",
+        "Hispaniola"
+      ],
+      "answer_index": 2,
+      "answer": "Galapagos Islands",
+      "sources": [
+        {
+          "title": "100 Geography Facts to Know!",
+          "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+          "page": 1,
+          "fact": 8
+        }
+      ]
+    },
+    {
+      "subject": "Geography",
+      "topic": "Islands and Archipelagos",
+      "division": "Junior Varsity",
+      "id": "2026-27-geography-junior-varsity-tossup",
+      "format": "buzzer",
+      "clues": [
+        {
+          "text": "Antananarivo is the capital on this island.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 4
+            }
+          ]
+        },
+        {
+          "text": "The Mozambique Channel separates it from the African mainland.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 4
+            }
+          ]
+        },
+        {
+          "text": "For the point, name Africa's largest island, the natural home of lemurs.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 4
+            }
+          ]
+        }
+      ],
+      "answer": "Madagascar"
+    },
+    {
+      "subject": "Geography",
+      "topic": "Islands and Archipelagos",
+      "division": "Varsity",
+      "id": "2026-27-geography-varsity-mcq",
+      "format": "qualifying_exam",
+      "question": "Which island is separated from mainland Africa by the Mozambique Channel?",
+      "options": [
+        "Java",
+        "Crete",
+        "Hispaniola",
+        "Madagascar"
+      ],
+      "answer_index": 3,
+      "answer": "Madagascar",
+      "sources": [
+        {
+          "title": "100 Geography Facts to Know!",
+          "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+          "page": 1,
+          "fact": 4
+        }
+      ]
+    },
+    {
+      "subject": "Geography",
+      "topic": "Islands and Archipelagos",
+      "division": "Varsity",
+      "id": "2026-27-geography-varsity-tossup",
+      "format": "buzzer",
+      "clues": [
+        {
+          "text": "The Dominican Republic occupies part of this island.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 14
+            }
+          ]
+        },
+        {
+          "text": "For the point, name the island that the Dominican Republic shares with Haiti.",
+          "sources": [
+            {
+              "title": "100 Geography Facts to Know!",
+              "url": "https://iacompetitionsasia.com/wp-content/uploads/2021/11/100-Geography-Facts-to-Know.pdf#page=1",
+              "page": 1,
+              "fact": 14
+            }
+          ]
+        }
+      ],
+      "answer": "Hispaniola"
+    }
+  ],
+  "coverage_gaps": []
+}
+</script>
+<script>
+(() => {
+  const get = id => document.getElementById(`division-${id}`);
+  const dates = new Intl.DateTimeFormat('en-GB', { dateStyle: 'long', timeZone: 'UTC' });
+  const formatDate = value => dates.format(new Date(value + 'T00:00:00Z'));
+  const normalize = value => value.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ').trim().replace(/^the /, '');
+
+  let bank;
+  let active;
+  let shown = 0;
+  let finished = false;
+  let queue = [];
+  let questionIndex = 0;
+  let buzzClue = null;
+  const coaching = {
+    Elementary: 'Start with multiple choice. Read the question aloud and say why you picked your answer.',
+    'Middle School': 'Compare the two formats. After you answer, identify which clue helped you most.',
+    'Junior Varsity': 'Try answering after an early clue. Reveal another clue if you cannot explain your guess.',
+    Varsity: 'Practise early recognition. After each tossup, use the sources to review any clue you did not recognise.',
+  };
+  const modes = ['qualifying_exam', 'buzzer'];
+  const progressKey = 'bee-division-practice-v1';
+  const divisionKey = 'bee-selected-division';
+  let savedDivision;
+  try {
+    savedDivision = localStorage.getItem(divisionKey);
+  } catch { /* Division can still be selected for this session. */ }
+  let progress = {};
+  try {
+    progress = JSON.parse(localStorage.getItem(progressKey)) || {};
+  } catch { /* Storage may be unavailable. */ }
+
+  function selection() {
+    return bank.questions.filter(q => q.subject === get('subject').value
+      && q.division === get('division').value);
+  }
+
+  function modeItems() {
+    return [...new Map(selection().filter(q => q.format === get('mode').value)
+      .map(q => [normalize(q.question || q.clues.map(clue => clue.text).join(' ')), q])).values()];
+  }
+
+  function missedItems() {
+    return modeItems().filter(q => progress[q.id] && !progress[q.id].correct);
+  }
+
+  function updateProgress() {
+    const items = selection();
+    const count = modeItems().length;
+    get('availability').textContent = `${count} source-backed question${count === 1 ? '' : 's'} in this selection`;
+    get('start').disabled = count === 0;
+    get('retry-missed').disabled = missedItems().length === 0;
+    const attempted = items.filter(q => progress[q.id]).length;
+    const correct = items.filter(q => progress[q.id]?.correct).length;
+    get('student-progress').textContent = `This subject and division · ${attempted}/${items.length} tried · ${correct} correct on latest attempt`;
+  }
+
+  function updateEligibility() {
+    get('coaching').textContent = coaching[get('division').value] || '';
+    updateProgress();
+    const { born_from: from, born_through: through } = bank.divisions[get('division').value];
+    get('eligibility').textContent = from && through
+      ? `Birth dates ${formatDate(from)} through ${formatDate(through)}`
+      : from ? `Born on or after ${formatDate(from)}` : `Born on or before ${formatDate(through)}`;
+  }
+
+  function showClues() {
+    get('prompt').textContent = active.clues.slice(0, shown).map(clue => clue.text).join(' ');
+    get('reveal').disabled = shown >= active.clues.length;
+  }
+
+  function finish(answer, skipped = false) {
+    if (finished) return;
+    finished = true;
+    const correct = !skipped && [active.answer, ...(active.accepted_answers || [])]
+      .some(value => normalize(value) === normalize(answer));
+
+    if (active.format === 'buzzer') {
+      shown = active.clues.length;
+      showClues();
+      get('response').hidden = true;
+      get('clue-controls').hidden = true;
+    } else {
+      for (const option of get('options').children) {
+        option.disabled = true;
+        if (option.textContent === active.answer) option.dataset.result = 'correct';
+        else if (option.textContent === answer) option.dataset.result = 'incorrect';
+      }
+    }
+
+    window.speechSynthesis?.cancel();
+    progress[active.id] = { correct, skipped, buzzClue };
+    try {
+      localStorage.setItem(progressKey, JSON.stringify(progress));
+    } catch { /* Keep progress for this session. */ }
+    updateProgress();
+    get('next-question').hidden = questionIndex + 1 >= queue.length;
+    get('next-format').hidden = !get('next-question').hidden || !selection().some(q => q.format !== active.format);
+    const result = skipped ? 'Answer revealed.' : correct ? 'Correct.' : 'Answer differs from the key.';
+    const timing = buzzClue === null ? '' : ` You buzzed on clue ${buzzClue} of ${active.clues.length}.`;
+    get('feedback').textContent = `${result} Answer: ${active.answer}.${timing}`;
+    const refs = active.sources || active.clues.flatMap(clue => clue.sources);
+    const unique = new Map(refs.map(ref => [`${ref.url}|${ref.fact}`, ref]));
+    for (const ref of unique.values()) {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = ref.url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = `${ref.title}, page ${ref.page}, fact ${ref.fact}`;
+      item.append(link);
+      get('references').append(item);
+    }
+    get('sources').hidden = false;
+    get('feedback').focus();
+  }
+
+  function checkAnswer() {
+    const input = get('answer');
+    if (input.value.trim()) finish(input.value);
+    else input.focus();
+  }
+
+  function renderQuestion() {
+    window.speechSynthesis?.cancel();
+    active = queue[questionIndex];
+    get('practice').hidden = !active;
+    get('status').textContent = active ? '' : 'This selection has no source-backed practice question yet.';
+    if (!active) return;
+
+    finished = false;
+    shown = 1;
+    buzzClue = null;
+    get('topic').textContent = queue.length > 1
+      ? `${active.topic} · ${questionIndex + 1} of ${queue.length}` : active.topic;
+    get('feedback').textContent = '';
+    get('options').replaceChildren();
+    get('references').replaceChildren();
+    get('sources').hidden = true;
+    get('next-format').hidden = true;
+    get('next-question').hidden = true;
+    get('read').hidden = !window.speechSynthesis;
+    get('response').hidden = true;
+    get('answer').value = '';
+    get('clue-controls').hidden = active.format !== 'buzzer';
+    if (active.format === 'buzzer') {
+      showClues();
+    } else {
+      get('prompt').textContent = active.question;
+      for (const value of active.options) {
+        const option = document.createElement('button');
+        option.type = 'button';
+        option.textContent = value;
+        option.addEventListener('click', () => finish(value));
+        get('options').append(option);
+      }
+    }
+    get('topic').focus();
+  }
+
+  function startSession(items) {
+    queue = items;
+    questionIndex = 0;
+    renderQuestion();
+  }
+
+  get('setup').addEventListener('submit', event => {
+    event.preventDefault();
+    if (bank) startSession(modeItems());
+  });
+  get('retry-missed').addEventListener('click', () => startSession(missedItems()));
+  get('next-question').addEventListener('click', () => {
+    questionIndex++;
+    renderQuestion();
+  });
+
+  get('division').addEventListener('change', () => {
+    try {
+      localStorage.setItem(divisionKey, get('division').value);
+    } catch { /* Division can still be selected for this session. */ }
+    updateEligibility();
+  });
+  get('subject').addEventListener('change', updateProgress);
+  get('mode').addEventListener('change', updateProgress);
+  get('next-format').addEventListener('click', () => {
+    get('mode').value = modes.find(mode => mode !== active.format);
+    updateProgress();
+    startSession(modeItems());
+  });
+  get('read').addEventListener('click', () => {
+    const speech = window.speechSynthesis;
+    if (speech.speaking) {
+      speech.cancel();
+      return;
+    }
+    const utterance = new SpeechSynthesisUtterance(get('prompt').textContent);
+    utterance.lang = 'en';
+    utterance.rate = active.division === 'Elementary' ? 0.85 : 1;
+    speech.speak(utterance);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key.toLowerCase() !== 'b' || event.repeat || event.ctrlKey || event.metaKey
+      || event.altKey || event.target.matches('input, textarea, select, [contenteditable]')
+      || !document.getElementById('division-panel').open || get('practice').hidden || get('clue-controls').hidden) return;
+    event.preventDefault();
+    get('buzz').click();
+  });
+  get('reveal').addEventListener('click', () => { shown++; showClues(); });
+  get('buzz').addEventListener('click', () => {
+    buzzClue = shown;
+    window.speechSynthesis?.cancel();
+    get('clue-controls').hidden = true;
+    get('response').hidden = false;
+    get('answer').focus();
+  });
+  get('skip').addEventListener('click', () => finish('', true));
+  get('submit-answer').addEventListener('click', checkAnswer);
+  get('answer').addEventListener('keydown', event => {
+    if (event.key === 'Enter') checkAnswer();
+  });
+
+  function load() {
+    try {
+      bank = JSON.parse(get('bank').textContent);
+      for (const subject of new Set(bank.questions.map(q => q.subject))) {
+        get('subject').add(new Option(subject));
+      }
+      for (const division of Object.keys(bank.divisions)) get('division').add(new Option(division));
+      const mode = new URLSearchParams(location.search).get('mode');
+      if (modes.includes(mode)) get('mode').value = mode;
+      if (Object.prototype.hasOwnProperty.call(bank.divisions, savedDivision)) get('division').value = savedDivision;
+      updateEligibility();
+      get('status').textContent = '';
+    } catch {
+      get('status').textContent = 'Could not load the pilot bank. Reload the page to try again.';
+    }
+  }
+  load();
+})();
 </script>
 </body>
 </html>
