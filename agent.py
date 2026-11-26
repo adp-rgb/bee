@@ -70,9 +70,19 @@ DEFAULT_TOPICS = {
 }
 
 
+# Approximate grade bands for the four IAC divisions (adjust to your students).
+LEVELS = {
+    "Elementary": "grades 3-5: short sentences, familiar words, widely known facts",
+    "Middle School": "grades 6-8: moderate vocabulary, standard school-curriculum facts",
+    "Junior Varsity": "grades 9-10: more specialised facts and terminology",
+    "Varsity": "grades 11-12: the hardest clues and expert-level detail",
+}
+
+
 class Tossup(BaseModel):
     """Structured-output schema: the API enforces this, so no regex/fence stripping is needed."""
     topic: str
+    level: str                # one of the LEVELS keys
     clues: list[str]          # exactly 3: obscure -> medium -> "For the point, name ..."
     correct: str
     distractors: list[str]    # exactly 3
@@ -190,12 +200,13 @@ def retrieve(col, query: str, k: int = 4) -> tuple[str, list[str]]:
 
 
 # ------------------------------------------------------------------------ generation
-def make_prompt(subject: str, mode: str, slots: list[str], avoid: list[str], context: str) -> str:
+def make_prompt(subject: str, mode: str, slots: list[dict], avoid: list[str], context: str) -> str:
     ref = (f"\nReference material (use it for facts and style; write ORIGINAL questions, never copy):\n{context}\n"
            if context else "\nNo reference material is available: rely only on well-established facts.\n")
     return f"""You are an experienced question writer for the IAC {subject} Bee (pyramidal buzzer tossups).
 Write {len(slots)} ORIGINAL tossup questions. Mode: {mode} - {MODES[mode]}
-One question per topic, in this order; 'topic' must equal the assigned name exactly: {json.dumps(slots)}
+One question per slot, in this order; 'topic' and 'level' must equal the assigned values exactly: {json.dumps(slots)}
+Level guide: {json.dumps(LEVELS)}. Match vocabulary, sentence length and difficulty to the level.
 
 Each question has exactly 3 'clues': (1) an obscure, hard clue, (2) a medium clue, (3) an easy giveaway that
 begins with "For the point, name ...". Never state the answer inside the clues.
@@ -241,8 +252,11 @@ def build_item(raw: dict, subject: str, mode: str, topics: list[str], seen_q: se
     options = [correct] + distractors
     topic = next((t for t in topics if norm(t) == norm(raw.get("topic", ""))), None)
     question = " ".join(clues)
+    level = next((l for l in LEVELS if norm(l) == norm(raw.get("level", ""))), None)
     if topic is None:
         return None, "topic not in taxonomy"
+    if level is None:
+        return None, "level not recognised"
     if len(clues) != 3 or not all(clues):
         return None, "needs exactly 3 clues"
     if not clues[2].lower().startswith("for the point"):
@@ -257,7 +271,7 @@ def build_item(raw: dict, subject: str, mode: str, topics: list[str], seen_q: se
         return None, "duplicate question"
     rng.shuffle(options)  # the model always favoured B/C; shuffling in code balances positions
     return {
-        "category": subject, "mode": mode, "topic": topic, "question": question, "clues": clues,
+        "category": subject, "mode": mode, "topic": topic, "level": level, "question": question, "clues": clues,
         "options": options, "answer": options.index(correct), "explanation": raw.get("explanation", "").strip(),
         "grounded": bool(sources), "sources": sources,
     }, None
@@ -313,6 +327,8 @@ def run(args) -> int:
     col = build_index(args.rebuild_index)
 
     quizzes = [] if args.fresh else load_existing()
+    if args.drop_unleveled:
+        quizzes = [q for q in quizzes if q.get("level")]
     seen_q = {norm(q["question"]) for q in quizzes}
     seen_a = {(q["category"], norm(q["options"][q["answer"]])) for q in quizzes}
     rng = random.Random()
@@ -326,11 +342,13 @@ def run(args) -> int:
             while have < args.per_mode and attempts < args.max_attempts:
                 attempts += 1
                 need = min(args.batch_size, args.per_mode - have)
-                slots = [pool[(cursor + i) % len(pool)] for i in range(need)]  # rotate topics for variety
+                names = list(LEVELS)
+                slots = [{"topic": pool[(cursor + i) % len(pool)], "level": names[(cursor + i) % len(names)]}
+                         for i in range(need)]  # rotate topics and levels for variety
                 cursor += need
                 used = [a for s, a in seen_a if s == subject]
                 avoid = rng.sample(used, min(80, len(used)))
-                context, sources = retrieve(col, f"{subject} {mode} " + " ".join(slots))
+                context, sources = retrieve(col, f"{subject} {mode} " + " ".join(s["topic"] for s in slots))
                 try:
                     items = parse(call_model(client, make_prompt(subject, mode, slots, avoid, context), models))
                 except (RuntimeError, ValueError) as e:
@@ -373,6 +391,7 @@ def main() -> int:
     p.add_argument("--no-scrape", action="store_true", help="skip downloading PDFs")
     p.add_argument("--rebuild-index", action="store_true")
     p.add_argument("--fresh", action="store_true", help="ignore the existing quizzes.json")
+    p.add_argument("--drop-unleveled", action="store_true", help="discard existing questions that have no level")
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S")
     return run(args)

@@ -59,6 +59,7 @@ button:disabled{cursor:not-allowed}
 
   <div id="view-quizzes" class="space-y-6">
     <div id="progress" class="text-xs text-slate-400 flex flex-wrap items-center gap-3" aria-live="polite"></div>
+    <div class="flex flex-wrap items-center gap-2"><div id="levels" class="flex flex-wrap gap-2"></div><label class="text-xs text-slate-400 sm:ml-auto">Questions per quiz <select id="count" class="bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-xs"><option>10</option><option>20</option><option selected>30</option></select></label></div>
     <section id="subjects" class="grid grid-cols-1 md:grid-cols-2 gap-6"><p class="text-sm text-slate-500 italic">Loading questions…</p></section>
 
     <section id="quiz" class="hidden bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-8 shadow-2xl" aria-label="Active quiz">
@@ -67,7 +68,7 @@ button:disabled{cursor:not-allowed}
         <button data-act="close" class="text-slate-400 hover:text-white text-sm shrink-0">✕ Close</button>
       </div>
       <div class="h-1 bg-slate-700 rounded mb-6 overflow-hidden"><div id="bar" class="h-full bg-amber-500 transition-all" style="width:0"></div></div>
-      <div class="flex justify-between items-center mb-2"><span class="lbl !mb-0">Pyramidal Tossup Question</span><span id="clue-tag" class="text-xs text-amber-400"></span></div>
+      <div class="flex justify-between items-center mb-2"><span class="lbl !mb-0">Pyramidal Tossup Question</span><span class="flex items-center gap-3"><span id="clue-tag" class="text-xs text-amber-400"></span><button id="speak" data-act="speak" class="pill !text-xs">🔊 Read aloud</button></span></div>
       <div id="q-text" class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-slate-200 leading-relaxed text-base sm:text-lg max-h-72 overflow-y-auto sb mb-3"></div>
       <div id="reveal-wrap" class="mb-4"></div>
       <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6"></div>
@@ -145,8 +146,10 @@ const store = {
   set(v) { try { localStorage.setItem('bee-progress', JSON.stringify(v)); } catch { /* storage unavailable */ } }
 };
 
-let ALL = [], S = null, studyTopic = '';
-const modePool = (cat, mode) => uniq(ALL.filter(q => q.cat === cat && q.mode === (mode === 'tossup' ? 'standard' : mode)));
+let ALL = [], S = null, studyTopic = '', LEVEL = '';
+const lv = q => !LEVEL || q.level === LEVEL;
+const COUNT = () => +$('count').value || LIMIT;
+const modePool = (cat, mode) => uniq(ALL.filter(q => q.cat === cat && lv(q) && q.mode === (mode === 'tossup' ? 'standard' : mode)));
 
 async function load() {
   $('err').classList.add('hidden');
@@ -166,12 +169,18 @@ async function load() {
   }
 }
 
+function renderLevels() {
+  const levels = ['Elementary', 'Middle School', 'Junior Varsity', 'Varsity'].filter(l => ALL.some(q => q.level === l));
+  $('levels').innerHTML = levels.length ? ['', ...levels].map(l => `<button class="pill !text-xs !px-3 !py-1.5 ${l === LEVEL ? 'on' : ''}" data-act="level" data-level="${l}">${l || 'All levels'}</button>`).join('') : '';
+}
+
 function renderHome() {
+  renderLevels();
   $('subjects').innerHTML = Object.entries(SUBJECTS).map(([cat, m]) => {
-    const qs = uniq(ALL.filter(q => q.cat === cat)), topics = [...new Set(qs.map(q => q.topic))].sort();
+    const qs = uniq(ALL.filter(q => q.cat === cat && lv(q))), topics = [...new Set(qs.map(q => q.topic))].sort();
     const pills = topics.map(t => `<button class="pill" data-act="topic" data-cat="${esc(cat)}" data-topic="${esc(t)}">${esc(t)} <span class="opacity-60">${qs.filter(q => q.topic === t).length}</span></button>`).join('');
     const btns = MODES.map(([mode, label, span, cls]) => {
-      const n = Math.min(modePool(cat, mode).length, LIMIT);
+      const n = Math.min(modePool(cat, mode).length, mode === 'tossup' ? LIMIT : COUNT());
       return `<button class="btn ${cls} ${span === 2 ? 'col-span-2' : ''}" data-act="mode" data-cat="${cat}" data-mode="${mode}" ${n ? '' : 'disabled title="No questions in this set yet"'}>${label} <span class="opacity-70">(${n})</span></button>`;
     }).join('');
     return `<div class="card"><div class="flex items-center gap-3 mb-4"><span class="p-3 bg-slate-900 rounded-xl text-xl" aria-hidden="true">${m.icon}</span>
@@ -198,7 +207,7 @@ function record(q, ok) {
 
 function start(qs, label, mode) {
   if (!qs.length) return;
-  const items = shuffle(qs).slice(0, LIMIT).map(q => {
+  const items = shuffle(qs).slice(0, mode === 'tossup' ? LIMIT : COUNT()).map(q => {
     const order = shuffle(q.options.map((_, i) => i));   // shuffle answer positions too
     return { ...q, picked: null, rated: null, shown: 0, pts: 0, flip: false,
       opts: order.map(i => q.options[i]), ans: order.indexOf(q.answer), clues: Array.isArray(q.clues) && q.clues.length ? q.clues : q.question.split(/(?<=[.!?])\s+/) };
@@ -209,6 +218,7 @@ function start(qs, label, mode) {
 }
 
 function renderQ() {
+  window.speechSynthesis?.cancel();
   const q = S.qs[S.i], tossup = S.mode === 'tossup', fc = S.mode === 'flashcards';
   if (!q.shown) q.shown = tossup ? 1 : q.clues.length;
   const done = q.picked != null || q.rated != null, last = S.i === S.qs.length - 1;
@@ -261,13 +271,18 @@ function prev() { if (S.i > 0) { S.i--; renderQ(); } }
 function finish() {
   const asked = S.qs.filter(q => q.picked != null || q.rated != null);
   S.missed = S.qs.filter(q => (q.picked != null && q.picked !== q.ans) || q.rated === false);
+  const byT = {};
+  S.qs.forEach(q => { if (q.picked == null && q.rated == null) return; const t = byT[q.topic] = byT[q.topic] || { n: 0, ok: 0, cat: q.cat }; t.n++; if (q.picked === q.ans || q.rated === true) t.ok++; });
+  const rows = Object.entries(byT), w = rows.filter(([, t]) => t.n >= 2 && t.ok < t.n).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n)[0];
+  const topicHtml = rows.length > 1 ? `<div><span class="lbl">By topic</span><div class="flex flex-wrap gap-1.5">${rows.map(([t, x]) => `<span class="pill">${esc(t)} ${x.ok}/${x.n}</span>`).join('')}</div></div>` : '';
+  const weakBtn = w ? `<button class="btn" data-act="topic" data-cat="${esc(w[1].cat)}" data-topic="${esc(w[0])}">🎯 Practice weakest topic</button>` : '';
   const pct = asked.length ? Math.round(S.right / asked.length * 100) : 0, stat = (l, v) => `<div class="bg-slate-900 p-4 rounded-xl border border-slate-800"><span class="text-slate-400 block text-xs mb-1">${l}</span><span class="text-2xl font-bold">${v}</span></div>`;
   $('quiz').classList.add('hidden');
   $('results').classList.remove('hidden');
   $('results').innerHTML = `<h2 class="text-xl font-bold text-white">Session complete 🎉</h2>
     <div class="grid grid-cols-3 gap-3">${S.mode === 'tossup' ? stat('Total points', S.score + (S.bonus || 0)) + stat('Correct', S.right + '/6') + stat('Bonus', '+' + (S.bonus || 0)) : stat('Score', S.score) + stat('Correct', `${S.right}/${asked.length}`) + stat('Accuracy', pct + '%')}</div>
     ${S.missed.length ? `<h3 class="lbl !mb-0 pt-2">Review missed (${S.missed.length})</h3>` + S.missed.map(q => `<div class="bg-slate-900 border border-slate-800 p-4 rounded-xl text-sm space-y-1"><p class="text-slate-300">${esc(q.question)}</p><p class="text-emerald-400 font-medium">Answer: ${esc(q.opts[q.ans])}</p><p class="text-xs text-slate-400">${esc(q.explanation)}</p></div>`).join('') : '<p class="text-emerald-400 text-sm">No misses. Nicely done!</p>'}
-    <div class="flex gap-2 pt-2">${S.missed.length ? `<button class="btn btn-pri" data-act="retry">🔁 Retry missed (${S.missed.length})</button>` : ''}<button class="btn" data-act="close">Back to menu</button></div>`;
+    ${topicHtml}<div class="flex flex-wrap gap-2 pt-2">${weakBtn}${S.missed.length ? `<button class="btn btn-pri" data-act="retry">🔁 Retry missed (${S.missed.length})</button>` : ''}<button class="btn" data-act="close">Back to menu</button></div>`;
   renderProgress(); $('results').scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -301,8 +316,10 @@ function switchTab(tab) {
 }
 
 const ACT = {
-  topic: d => { switchTab('quizzes'); start(uniq(ALL.filter(q => q.cat === d.cat && q.topic === d.topic)), `${d.cat} • ${d.topic}`, 'quiz'); },
+  topic: d => { switchTab('quizzes'); start(uniq(ALL.filter(q => q.cat === d.cat && lv(q) && q.topic === d.topic)), `${d.cat} • ${d.topic}`, 'quiz'); },
   mode: d => start(modePool(d.cat, d.mode), `${d.cat} • ${d.mode}`, d.mode === 'tossup' ? 'tossup' : d.mode === 'flashcards' ? 'flashcards' : 'quiz'),
+  level: d => { LEVEL = d.level; renderHome(); },
+  speak: () => { const ss = window.speechSynthesis; if (!ss) return; if (ss.speaking) { ss.cancel(); return; } const u = new SpeechSynthesisUtterance($('q-text').textContent); u.lang = 'en-US'; u.rate = 0.95; ss.speak(u); },
   pick: d => pick(+d.i), rate: d => rate(d.v === '1'), next, prev, close: closeQuiz, reload: load, tab: d => switchTab(d.tab),
   flip: () => { S.qs[S.i].flip = true; renderQ(); },
   reveal: () => { const q = S.qs[S.i]; if (q.shown < q.clues.length) { q.shown++; renderQ(); } },
@@ -322,6 +339,8 @@ document.addEventListener('keydown', e => {
   else if (k === 'arrowright') next(); else if (k === 'arrowleft') prev(); else if (k === 'escape') closeQuiz();
 });
 switchTab('quizzes');
+if (!('speechSynthesis' in window)) $('speak').classList.add('hidden');
+$('count').addEventListener('change', renderHome);
 document.addEventListener('DOMContentLoaded', load);
 </script>
 </body>
