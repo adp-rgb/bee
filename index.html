@@ -47,7 +47,12 @@ button:disabled{cursor:not-allowed}
   #division-panel #division-response { margin-top: 1rem; }
   #division-panel #division-response input { width: 100%; }
   #division-panel .secondary { color: #cbd5e1; }
-  #division-panel > summary { cursor: pointer; font-size: 1.125rem; font-weight: 700; }
+  #division-panel > summary { cursor: pointer; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 750; color: #f8fafc; }
+  #division-panel .training-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: .65rem; margin-block: 1rem; }
+  #division-panel .training-stats div { background: #0b1425; border: 1px solid #334155; border-radius: .75rem; padding: .65rem; }
+  #division-panel .training-stats dt { color: #cbd5e1; font-size: .875rem; }
+  #division-panel .training-stats dd { font-weight: 700; font-size: 1.25rem; }
+  #division-panel #division-recommendation { margin-block: .6rem; color: #fde68a; }
   #division-panel > form, #division-panel section { margin-bottom: 0; }
 </style>
 </head>
@@ -59,8 +64,8 @@ button:disabled{cursor:not-allowed}
       <div class="flex items-center gap-2.5">
         <div class="p-2 bg-amber-500 rounded-lg text-xl leading-none" aria-hidden="true">🐝</div>
         <div>
-          <h1 class="text-lg sm:text-xl font-bold tracking-wide text-white leading-tight">Academic Bee AI</h1>
-          <p class="text-xs text-slate-400">Pyramidal Tossup Practice Suite</p>
+          <h1 class="text-lg sm:text-xl font-bold tracking-wide text-white leading-tight">Bee Prep</h1>
+          <p class="text-xs text-slate-400">Science &amp; Geography Training</p>
         </div>
       </div>
       <button data-act="settings" aria-label="Settings" class="sm:hidden btn !py-1.5">⚙️</button>
@@ -81,8 +86,8 @@ button:disabled{cursor:not-allowed}
   </div>
 
   <details id="division-panel" class="card" open>
-    <summary>2026–27 IAC Asia division practice</summary>
-    <p class="secondary">Science and Geography qualifying questions and solo tossups</p>
+    <summary>Training dashboard</summary>
+    <p class="secondary">2026–27 IAC Asia · Science and Geography</p>
     <form id="division-setup">
       <div class="fields">
         <label>Subject<select id="division-subject"></select></label>
@@ -95,17 +100,24 @@ button:disabled{cursor:not-allowed}
       <p id="division-eligibility" class="secondary"></p>
       <p id="division-coaching"></p>
       <p id="division-availability" class="secondary"></p>
-      <p id="division-student-progress" class="secondary" aria-live="polite"></p>
+      <dl class="training-stats">
+        <div><dt>Questions tried</dt><dd id="division-tried">0</dd></div>
+        <div><dt>Correct on latest attempt</dt><dd id="division-correct">0</dd></div>
+        <div><dt>Due for review</dt><dd id="division-due">0</dd></div>
+      </dl>
+      <p id="division-recommendation" role="status"></p>
       <details><summary>How to practise</summary>
         <p>Qualifying Exam has four choices. Solo Buzzer reveals clues one at a time and lets you submit one answer from memory. Press B to buzz while practising with a keyboard.</p>
       </details>
       <button id="division-start" type="submit" disabled>Start practice</button>
       <button type="button" id="division-retry-missed" disabled>Retry missed</button>
+      <button type="button" id="division-review-due" disabled>Review due</button>
     </form>
     <p id="division-status" role="status"></p>
     <section id="division-practice" aria-labelledby="division-topic" hidden>
       <h2 id="division-topic" tabindex="-1"></h2>
       <p id="division-prompt" aria-live="polite"></p>
+      <p id="division-session-score" class="secondary" aria-live="polite"></p>
       <div id="division-options"></div>
       <p><button id="division-read" type="button" hidden>Read aloud</button></p>
       <div id="division-clue-controls" hidden>
@@ -923,6 +935,12 @@ document.addEventListener('DOMContentLoaded', load);
   let queue = [];
   let questionIndex = 0;
   let buzzClue = null;
+  let questionStarted = 0;
+  let buzzSeconds = null;
+  let sessionCorrect = 0;
+  let sessionAnswered = 0;
+  const reviewIntervals = [1, 3, 7, 14, 30];
+  const dayMs = 86_400_000;
   const coaching = {
     Elementary: 'Start with multiple choice. Read the question aloud and say why you picked your answer.',
     'Middle School': 'Compare the two formats. After you answer, identify which clue helped you most.',
@@ -955,6 +973,13 @@ document.addEventListener('DOMContentLoaded', load);
     return modeItems().filter(q => progress[q.id] && !progress[q.id].correct);
   }
 
+  function dueItems(items) {
+    return items.filter(q => {
+      const record = progress[q.id];
+      return record && (record.dueAt ?? (record.correct ? Infinity : 0)) <= Date.now();
+    });
+  }
+
   function updateProgress() {
     const items = selection();
     const count = modeItems().length;
@@ -963,7 +988,15 @@ document.addEventListener('DOMContentLoaded', load);
     get('retry-missed').disabled = missedItems().length === 0;
     const attempted = items.filter(q => progress[q.id]).length;
     const correct = items.filter(q => progress[q.id]?.correct).length;
-    get('student-progress').textContent = `This subject and division · ${attempted}/${items.length} tried · ${correct} correct on latest attempt`;
+    const due = dueItems(items);
+    get('tried').textContent = `${attempted}/${items.length}`;
+    get('correct').textContent = String(correct);
+    get('due').textContent = String(due.length);
+    get('review-due').disabled = due.length === 0;
+    const next = due[0] || items.find(q => !progress[q.id]);
+    get('recommendation').textContent = next
+      ? `${due.length ? 'Review' : 'Study next'}: ${next.topic} · ${next.format === 'buzzer' ? 'Solo Buzzer' : 'Qualifying Exam'}`
+      : items.length ? 'You’ve attempted every question in this selection. Check back when reviews are due.' : '';
   }
 
   function updateEligibility() {
@@ -1000,7 +1033,12 @@ document.addEventListener('DOMContentLoaded', load);
     }
 
     window.speechSynthesis?.cancel();
-    progress[active.id] = { correct, skipped, buzzClue };
+    const streak = correct ? Math.min((progress[active.id]?.streak || 0) + 1, reviewIntervals.length) : 0;
+    const dueAt = correct ? Date.now() + reviewIntervals[streak - 1] * dayMs : Date.now();
+    progress[active.id] = { correct, skipped, buzzClue, buzzSeconds, streak, dueAt };
+    sessionAnswered++;
+    if (correct) sessionCorrect++;
+    get('session-score').textContent = `${sessionCorrect} correct out of ${sessionAnswered} answered this session`;
     try {
       localStorage.setItem(progressKey, JSON.stringify(progress));
     } catch { /* Keep progress for this session. */ }
@@ -1008,7 +1046,7 @@ document.addEventListener('DOMContentLoaded', load);
     get('next-question').hidden = questionIndex + 1 >= queue.length;
     get('next-format').hidden = !get('next-question').hidden || !selection().some(q => q.format !== active.format);
     const result = skipped ? 'Answer revealed.' : correct ? 'Correct.' : 'Answer differs from the key.';
-    const timing = buzzClue === null ? '' : ` You buzzed on clue ${buzzClue} of ${active.clues.length}.`;
+    const timing = buzzClue === null ? '' : ` You buzzed on clue ${buzzClue} of ${active.clues.length} after ${buzzSeconds} s.`;
     get('feedback').textContent = `${result} Answer: ${active.answer}.${timing}`;
     const refs = active.sources || active.clues.flatMap(clue => clue.sources);
     const unique = new Map(refs.map(ref => [`${ref.url}|${ref.fact}`, ref]));
@@ -1042,6 +1080,8 @@ document.addEventListener('DOMContentLoaded', load);
     finished = false;
     shown = 1;
     buzzClue = null;
+    buzzSeconds = null;
+    questionStarted = performance.now();
     get('topic').textContent = queue.length > 1
       ? `${active.topic} · ${questionIndex + 1} of ${queue.length}` : active.topic;
     get('feedback').textContent = '';
@@ -1071,6 +1111,9 @@ document.addEventListener('DOMContentLoaded', load);
 
   function startSession(items) {
     queue = items;
+    sessionCorrect = 0;
+    sessionAnswered = 0;
+    get('session-score').textContent = '';
     questionIndex = 0;
     renderQuestion();
   }
@@ -1080,6 +1123,7 @@ document.addEventListener('DOMContentLoaded', load);
     if (bank) startSession(modeItems());
   });
   get('retry-missed').addEventListener('click', () => startSession(missedItems()));
+  get('review-due').addEventListener('click', () => startSession(dueItems(selection())));
   get('next-question').addEventListener('click', () => {
     questionIndex++;
     renderQuestion();
@@ -1119,6 +1163,7 @@ document.addEventListener('DOMContentLoaded', load);
   get('reveal').addEventListener('click', () => { shown++; showClues(); });
   get('buzz').addEventListener('click', () => {
     buzzClue = shown;
+    buzzSeconds = ((performance.now() - questionStarted) / 1000).toFixed(1);
     window.speechSynthesis?.cancel();
     get('clue-controls').hidden = true;
     get('response').hidden = false;
