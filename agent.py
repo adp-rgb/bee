@@ -1,290 +1,382 @@
+#!/usr/bin/env python3
+"""Academic Bee question generator.
+
+Fills quizzes.json with pyramidal tossups for every (subject, mode) pair.
+Re-running is safe: existing questions are kept and only the gaps are filled.
+
+    export GEMINI_API_KEY=...
+    python agent.py                       # fill every gap up to 30 per subject/mode
+    python agent.py --no-scrape           # use PDFs already in ./data
+    python agent.py --subjects Science    # only one subject
+    python agent.py --fresh               # ignore the existing quizzes.json
+"""
+from __future__ import annotations
+
+import argparse
 import json
+import logging
 import os
+import random
+import re
+import sys
 import time
+from collections import Counter
 from pathlib import Path
-from bs4 import BeautifulSoup
-import chromadb
+from urllib.parse import urljoin, urlparse
+
+import requests
 from google import genai
 from google.genai import types
-from google.genai.errors import APIError, ServerError
-from pypdf import PdfReader
-import requests
+from google.genai.errors import APIError
+from pydantic import BaseModel
 
+log = logging.getLogger("bee")
 
-def load_rules():
-    rules_path = Path("rules.json")
-    if not rules_path.exists():
-        return {"questions_per_round": 300}
-    with open(rules_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+DATA_DIR = Path("data")
+QUIZ_PATH = Path("quizzes.json")
+RULES_PATH = Path("rules.json")
+COLLECTION = "bee_competition_resources"
+RETRY_CODES = {429, 500, 502, 503, 504}
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
-
-def load_topics():
-    topics_path = Path("topics.json")
-    if not topics_path.exists():
-        return {
-            "Geography": [{"name": "World Capitals & Urban Centers"}],
-            "Science": [{"name": "Velocity"}],
-        }
-    with open(topics_path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
-def download_fresh_pdfs():
-    """Scrapes resources for Science Bee and Geography Bee materials."""
-    data_dir = Path("data")
-    data_dir.mkdir(parents=True, exist_ok=True)
-
-    resources = [
-        {
-            "url": "https://iacompetitionsasia.com/resources/",
-            "name": "IAC Asia Resources",
-            "keywords": ["science", "geography", "bee", "competition", "question", "practice"],
-        },
-        {
-            "url": "https://www.internationalgeographybee.com/asia/resources/",
-            "name": "International Geography Bee - Asia",
-            "keywords": ["geography", "bee", "competition", "past", "question"],
-        },
-        {
-            "url": "https://www.iacompetitions.com/resources/",
-            "name": "IAC Competitions Resources",
-            "keywords": ["science", "geography", "bee", "competition", "question"],
-        },
-        {
-            "url": "http://iacompetitions.com/resources-national-geography-bee/",
-            "name": "IAC Competitions Resources",
-            "keywords": ["science", "geography", "bee", "competition", "question"],
-        },
-        {
-            "url": "https://www.iacompetitions.com/resources-national-science-bee/",
-            "name": "IAC Competitions Resources",
-            "keywords": ["science", "geography", "bee", "competition", "question"],
-        },
-        {
-            "url": "https://www.iacompetitions.com/ems-national-geography-bee-past-questions/",
-            "name": "IAC Competitions Resources",
-            "keywords": ["science", "geography", "bee", "competition", "question"],
-        },
-        {
-            "url": "https://www.iacompetitions.com/ems-national-science-bee-past-questions/",
-            "name": "IAC Competitions Resources",
-            "keywords": ["science", "geography", "bee", "competition", "question"],
-        },
-        
-    ]
-
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-    }
-
-    all_pdf_links = []
-    downloaded_count = 0
-
-    for resource in resources:
-        try:
-            response = requests.get(resource["url"], headers=headers, timeout=15)
-            response.raise_for_status()
-            time.sleep(1)
-        except Exception as e:
-            print(f"   ❌ Failed to reach {resource['name']}: {e}")
-            continue
-
-        soup = BeautifulSoup(response.text, "html.parser")
-        pdf_links = []
-
-        for a_tag in soup.find_all("a", href=True):
-            href = a_tag["href"]
-            text = a_tag.get_text().lower()
-            if href.lower().endswith(".pdf") or any(kw in text for kw in resource["keywords"]):
-                if not href.startswith("http"):
-                    href = requests.compat.urljoin(resource["url"], href)
-                pdf_links.append(href)
-
-        all_pdf_links.extend(pdf_links)
-
-    all_pdf_links = list(set(all_pdf_links))
-
-    for pdf_url in all_pdf_links:
-        try:
-            filename = pdf_url.split("/")[-1].split("?")[0]
-            if not filename or len(filename) < 3:
-                filename = f"resource_{len(list(data_dir.glob('*.pdf')))}.pdf"
-
-            file_path = data_dir / filename
-            if file_path.exists():
-                continue
-
-            pdf_res = requests.get(pdf_url, headers=headers, timeout=30)
-            pdf_res.raise_for_status()
-
-            with open(file_path, "wb") as f:
-                f.write(pdf_res.content)
-
-            downloaded_count += 1
-            time.sleep(1)
-        except Exception as e:
-            continue
-
-    print(f"✅ Downloaded {downloaded_count} new resources.")
-    return downloaded_count
-
-
-def build_vector_store():
-    """Build vector store from downloaded materials."""
-    chroma_client = chromadb.Client()
-    collection = chroma_client.get_or_create_collection(name="bee_competition_resources")
-
-    data_dir = Path("data")
-    all_files = list(data_dir.glob("*.pdf")) + list(data_dir.glob("*.txt"))
-
-    if not all_files:
-        return collection
-
-    doc_id = 0
-    for file_path in all_files:
-        text = ""
-        if file_path.suffix == ".pdf":
-            try:
-                reader = PdfReader(file_path, strict=False)
-                for page in reader.pages:
-                    extracted = page.extract_text()
-                    if extracted:
-                        text += extracted + "\n"
-            except Exception:
-                continue
-        elif file_path.suffix == ".txt":
-            try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-                    text = f.read()
-            except Exception:
-                continue
-
-        chunks = [text[i : i + 1000] for i in range(0, len(text), 1000) if len(text[i : i + 1000]) > 100]
-        for chunk in chunks:
-            try:
-                collection.add(
-                    documents=[chunk],
-                    metadatas=[{"source": file_path.name}],
-                    ids=[f"doc_{doc_id}"],
-                )
-                doc_id += 1
-            except Exception:
-                continue
-
-    return collection
-
-
-def generate_with_retry(client, prompt_text, primary_model="gemini-2.5-flash", fallback_model="gemini-1.5-pro", max_retries=5):
-    """Generates quiz questions with fallback retry handling."""
-    models_to_try = [primary_model, fallback_model]
-
-    for model_name in models_to_try:
-        for attempt in range(1, max_retries + 1):
-            try:
-                response = client.models.generate_content(
-                    model=model_name,
-                    contents=prompt_text,
-                    config=types.GenerateContentConfig(
-                        response_mime_type="application/json",
-                        max_output_tokens=8192,
-                    ),
-                )
-                return response
-            except (ServerError, APIError) as e:
-                wait_time = attempt * 3
-                time.sleep(wait_time)
-
-    raise RuntimeError("Failed to generate content after exhausting retries.")
-
-
-def run_ai_agent():
-    api_key = (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
-    if not api_key:
-        raise ValueError("GEMINI_API_KEY environment variable is missing.")
-
-    print("🐝 Starting Academic Bee AI Generator...\n")
-    client = genai.Client(api_key=api_key)
-    rules = load_rules()
-    topics_data = load_topics()
-
-    download_fresh_pdfs()
-    collection = build_vector_store()
-
-    modes = ["standard", "high-frequency", "flashcards", "good-to-know", "practice-specific"]
-    subjects = ["Geography", "Science"]
-    
-    # Batch size of 5 Qs per request (6 batches = 30 Qs per mode/subject)
-    questions_per_batch = 5
-    batches_per_mode = 6
-
-    all_quizzes = []
-
-    for subject in subjects:
-        for mode in modes:
-            print(f"\n⚙️ Generating 30 Qs for [{subject}] - Mode [{mode}]...")
-            for batch_num in range(batches_per_mode):
-                prompt_text = f"""
-You are an official question writer for Science Bee and Geography Bee competitions.
-Generate EXACTLY {questions_per_batch} tossup questions for:
-- Subject: {subject}
-- Mode: {mode}
-
-Topic taxonomy reference: {json.dumps(topics_data.get(subject, []))}
-
-JSON Requirements:
-Return a raw JSON array containing exactly {questions_per_batch} objects:
-[
-  {{
-    "category": "{subject}",
-    "mode": "{mode}",
-    "topic": "Specific Topic Name",
-    "question": "Pyramidal question text starting with hard clues and ending with 'For the point, name...'",
-    "options": ["Option A", "Option B", "Option C", "Option D"],
-    "answer": 0,
-    "explanation": "Brief context and explanation."
-  }}
+RESOURCES = [
+    "https://iacompetitionsasia.com/resources/",
+    "https://www.internationalgeographybee.com/asia/resources/",
+    "https://www.iacompetitions.com/resources/",
+    "http://iacompetitions.com/resources-national-geography-bee/",
+    "https://www.iacompetitions.com/resources-national-science-bee/",
+    "https://www.iacompetitions.com/ems-national-geography-bee-past-questions/",
+    "https://www.iacompetitions.com/ems-national-science-bee-past-questions/",
 ]
-"""
-                try:
-                    res = generate_with_retry(client, prompt_text)
-                    raw_text = res.text.strip()
-                    if raw_text.startswith("```"):
-                        lines = raw_text.splitlines()
-                        lines = [l for l in lines if not l.startswith("```")]
-                        raw_text = "\n".join(lines).strip()
 
-                    items = json.loads(raw_text)
-                    for item in items:
-                        item["category"] = subject
-                        item["mode"] = mode
-                    all_quizzes.extend(items)
-                    print(f"   ✓ Batch {batch_num + 1}/{batches_per_mode} complete (+{len(items)} Qs)")
-                except Exception as e:
-                    print(f"   ❌ Batch failed: {e}")
-                    continue
+# The old prompt only passed the mode *name*, so every mode produced the same kind of
+# question. Each mode now has a real brief.
+MODES = {
+    "standard": "A balanced mix of difficulty, typical of a regional bee round.",
+    "high-frequency": "Subjects and answers that recur most often in past IAC bee questions; use the reference material to spot them.",
+    "flashcards": "Core must-know facts a student should memorise; the answer is a single, well-known term.",
+    "good-to-know": "Fair but less obvious facts that deepen understanding; not so obscure that they would never be asked.",
+    "practice-specific": "Drill the assigned topic thoroughly, varying the sub-area from question to question.",
+}
 
-    if not all_quizzes:
-        print("❌ No questions were generated.")
-        return
+# Fixed taxonomy: the old flow built topics.json *from* quizzes.json (circular) and drifted
+# into near-duplicate names. Override with --topics path/to/topics.json if you like.
+DEFAULT_TOPICS = {
+    "Geography": [
+        "Rivers & Lakes", "Deserts & Arid Regions", "World Capitals & Urban Centers", "Physical Geography",
+        "Islands & Archipelagos", "Mountains & Volcanoes", "Straits & Canals", "Political Geography", "Nations & Borders",
+    ],
+    "Science": ["Physics", "Chemistry", "Biology", "Earth Science", "Astronomy"],
+}
 
-    for idx, q in enumerate(all_quizzes, start=1):
-        q["id"] = idx
 
-    output_payload = {
+class Tossup(BaseModel):
+    """Structured-output schema: the API enforces this, so no regex/fence stripping is needed."""
+    topic: str
+    clues: list[str]          # exactly 3: obscure -> medium -> "For the point, name ..."
+    correct: str
+    distractors: list[str]    # exactly 3
+    explanation: str
+
+
+def norm(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
+
+
+# ----------------------------------------------------------------------------- inputs
+def load_rules() -> dict:
+    if RULES_PATH.exists():
+        return json.loads(RULES_PATH.read_text(encoding="utf-8"))
+    return {"questions_per_round": 30}
+
+
+def load_topics(path: str | None) -> dict[str, list[str]]:
+    if not path:
+        return DEFAULT_TOPICS
+    raw = json.loads(Path(path).read_text(encoding="utf-8"))
+    out = {}
+    for subject in DEFAULT_TOPICS:
+        names = [t["name"] if isinstance(t, dict) else t for t in raw.get(subject, [])]
+        out[subject] = list({norm(n): n for n in names}.values()) or DEFAULT_TOPICS[subject]
+    return out
+
+
+def download_pdfs() -> int:
+    """Download only real PDFs (the old code also saved HTML pages whose link text matched a keyword)."""
+    from bs4 import BeautifulSoup
+
+    DATA_DIR.mkdir(exist_ok=True)
+    links: set[str] = set()
+    for url in RESOURCES:
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=15)
+            r.raise_for_status()
+        except requests.RequestException as e:
+            log.warning("Could not reach %s: %s", url, e)
+            continue
+        for a in BeautifulSoup(r.text, "html.parser").find_all("a", href=True):
+            href = urljoin(url, a["href"])
+            if urlparse(href).path.lower().endswith(".pdf"):
+                links.add(href)
+        time.sleep(1)
+
+    new = 0
+    for link in sorted(links):
+        dest = DATA_DIR / Path(urlparse(link).path).name
+        if dest.exists():
+            continue
+        try:
+            r = requests.get(link, headers=HEADERS, timeout=30)
+            r.raise_for_status()
+        except requests.RequestException as e:
+            log.warning("Download failed %s: %s", link, e)
+            continue
+        if not r.content.startswith(b"%PDF"):
+            log.warning("Skipped (not a PDF): %s", link)
+            continue
+        dest.write_bytes(r.content)
+        new += 1
+        time.sleep(1)
+    log.info("Downloaded %d new PDFs (%d links found).", new, len(links))
+    return new
+
+
+def chunk_text(text: str, size: int = 1000, overlap: int = 150) -> list[str]:
+    text = re.sub(r"\s+", " ", text)
+    chunks = [text[i:i + size] for i in range(0, len(text), size - overlap)]
+    return [c for c in chunks if len(c) > 100]
+
+
+def build_index(rebuild: bool = False):
+    """Persistent vector index of the downloaded material (returns None if unavailable)."""
+    try:
+        import chromadb
+        from pypdf import PdfReader
+    except ImportError:
+        log.warning("chromadb/pypdf not installed: generating without reference material.")
+        return None
+    client = chromadb.PersistentClient(path=".chroma")
+    if rebuild:
+        try:
+            client.delete_collection(COLLECTION)
+        except Exception:  # collection may not exist yet
+            pass
+    col = client.get_or_create_collection(COLLECTION)
+    if col.count() == 0:
+        for f in sorted(DATA_DIR.glob("*.pdf")) + sorted(DATA_DIR.glob("*.txt")):
+            try:
+                if f.suffix == ".pdf":
+                    text = "\n".join(p.extract_text() or "" for p in PdfReader(f, strict=False).pages)
+                else:
+                    text = f.read_text(encoding="utf-8", errors="ignore")
+            except Exception as e:  # corrupt PDFs are common
+                log.warning("Could not read %s: %s", f.name, e)
+                continue
+            chunks = chunk_text(text)
+            for i in range(0, len(chunks), 64):
+                part = chunks[i:i + 64]
+                col.add(documents=part, metadatas=[{"source": f.name}] * len(part),
+                        ids=[f"{f.name}-{i + j}" for j in range(len(part))])
+        log.info("Indexed %d chunks.", col.count())
+    return col if col.count() else None
+
+
+def retrieve(col, query: str, k: int = 4) -> tuple[str, list[str]]:
+    if col is None:
+        return "", []
+    res = col.query(query_texts=[query], n_results=k)
+    docs, metas = res["documents"][0], res["metadatas"][0]
+    return "\n---\n".join(d[:800] for d in docs), sorted({m["source"] for m in metas})
+
+
+# ------------------------------------------------------------------------ generation
+def make_prompt(subject: str, mode: str, slots: list[str], avoid: list[str], context: str) -> str:
+    ref = (f"\nReference material (use it for facts and style; write ORIGINAL questions, never copy):\n{context}\n"
+           if context else "\nNo reference material is available: rely only on well-established facts.\n")
+    return f"""You are an experienced question writer for the IAC {subject} Bee (pyramidal buzzer tossups).
+Write {len(slots)} ORIGINAL tossup questions. Mode: {mode} - {MODES[mode]}
+One question per topic, in this order; 'topic' must equal the assigned name exactly: {json.dumps(slots)}
+
+Each question has exactly 3 'clues': (1) an obscure, hard clue, (2) a medium clue, (3) an easy giveaway that
+begins with "For the point, name ...". Never state the answer inside the clues.
+'correct' is the shortest acceptable answer. 'distractors' are 3 plausible but wrong answers of the same type.
+'explanation' is 1-2 accurate sentences. Every fact must be correct and verifiable.
+Do not use these answers (already used): {json.dumps(avoid)}
+{ref}"""
+
+
+def call_model(client, prompt: str, models: list[str], max_retries: int = 5):
+    """Retry only transient errors (429/5xx) with backoff; a bad model name or key fails fast."""
+    last = None
+    for model in models:
+        for attempt in range(max_retries):
+            try:
+                return client.models.generate_content(
+                    model=model, contents=prompt,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json", response_schema=list[Tossup],
+                        temperature=0.9, max_output_tokens=8192))
+            except APIError as e:
+                last = e
+                if e.code not in RETRY_CODES:
+                    log.error("%s failed with a non-retryable error: %s", model, e)
+                    break  # try the next model
+                delay = min(60, 2 ** attempt * 2) + random.random()
+                log.warning("%s: HTTP %s, retrying in %.0fs", model, e.code, delay)
+                time.sleep(delay)
+    raise RuntimeError(f"All models failed: {last}")
+
+
+def parse(resp) -> list[dict]:
+    items = resp.parsed if getattr(resp, "parsed", None) else json.loads(resp.text)
+    return [i.model_dump() if isinstance(i, BaseModel) else i for i in items]
+
+
+def build_item(raw: dict, subject: str, mode: str, topics: list[str], seen_q: set, seen_a: set,
+               sources: list[str], rng: random.Random):
+    """Validate one generated question. Returns (item, None) or (None, reason)."""
+    clues = [c.strip() for c in raw.get("clues", [])]
+    correct = (raw.get("correct") or "").strip()
+    distractors = [d.strip() for d in raw.get("distractors", [])]
+    options = [correct] + distractors
+    topic = next((t for t in topics if norm(t) == norm(raw.get("topic", ""))), None)
+    question = " ".join(clues)
+    if topic is None:
+        return None, "topic not in taxonomy"
+    if len(clues) != 3 or not all(clues):
+        return None, "needs exactly 3 clues"
+    if not clues[2].lower().startswith("for the point"):
+        return None, "last clue must start with 'For the point'"
+    if len(distractors) != 3 or not all(options) or len({norm(o) for o in options}) != 4:
+        return None, "needs 4 distinct options"
+    if f" {norm(correct)} " in f" {norm(question)} ":
+        return None, "answer leaked into the question"
+    if (subject, norm(correct)) in seen_a:
+        return None, "duplicate answer"
+    if norm(question) in seen_q:
+        return None, "duplicate question"
+    rng.shuffle(options)  # the model always favoured B/C; shuffling in code balances positions
+    return {
+        "category": subject, "mode": mode, "topic": topic, "question": question, "clues": clues,
+        "options": options, "answer": options.index(correct), "explanation": raw.get("explanation", "").strip(),
+        "grounded": bool(sources), "sources": sources,
+    }, None
+
+
+def load_existing() -> list[dict]:
+    """Keep valid entries and drop exact-duplicate questions."""
+    if not QUIZ_PATH.exists():
+        return []
+    data = json.loads(QUIZ_PATH.read_text(encoding="utf-8"))
+    items = data.get("quizzes", []) if isinstance(data, dict) else data
+    out, seen = [], set()
+    for q in items:
+        k = norm(q.get("question", ""))
+        ok = isinstance(q.get("answer"), int) and len(q.get("options", [])) == 4 and 0 <= q["answer"] < 4
+        if k and k not in seen and ok:
+            seen.add(k)
+            out.append(q)
+    return out
+
+
+def save(quizzes: list[dict], rules: dict, models: list[str]) -> None:
+    """Atomic write, so a crash mid-run never corrupts quizzes.json."""
+    for i, q in enumerate(quizzes, 1):
+        q["id"] = i
+    payload = {
         "rules_summary": rules,
-        "quizzes": all_quizzes,
+        "quizzes": quizzes,
         "metadata": {
-            "total_questions": len(all_quizzes),
+            "total_questions": len(quizzes),
+            "counts": dict(sorted(Counter(f"{q['category']}/{q['mode']}" for q in quizzes).items())),
+            "grounded_in_resources": sum(1 for q in quizzes if q.get("grounded") is True),
             "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "models": models,
+            "resources": RESOURCES,
         },
     }
+    tmp = QUIZ_PATH.with_suffix(".tmp")
+    tmp.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(QUIZ_PATH)
 
-    with open("quizzes.json", "w", encoding="utf-8") as f:
-        json.dump(output_payload, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✅ Total {len(all_quizzes)} questions generated and saved to quizzes.json!")
+def run(args) -> int:
+    key = (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
+    if not key:
+        log.error("Set GEMINI_API_KEY (or GOOGLE_API_KEY).")
+        return 2
+    client = genai.Client(api_key=key)
+    models = [m for m in (args.model, args.fallback_model) if m]
+    rules, topics = load_rules(), load_topics(args.topics)
+    if not args.no_scrape:
+        download_pdfs()
+    col = build_index(args.rebuild_index)
+
+    quizzes = [] if args.fresh else load_existing()
+    seen_q = {norm(q["question"]) for q in quizzes}
+    seen_a = {(q["category"], norm(q["options"][q["answer"]])) for q in quizzes}
+    rng = random.Random()
+
+    for subject in args.subjects:
+        pool = topics[subject]
+        for mode in args.modes:
+            have = sum(1 for q in quizzes if q["category"] == subject and q["mode"] == mode)
+            cursor, attempts = rng.randrange(len(pool)), 0
+            log.info("[%s/%s] have %d / %d", subject, mode, have, args.per_mode)
+            while have < args.per_mode and attempts < args.max_attempts:
+                attempts += 1
+                need = min(args.batch_size, args.per_mode - have)
+                slots = [pool[(cursor + i) % len(pool)] for i in range(need)]  # rotate topics for variety
+                cursor += need
+                used = [a for s, a in seen_a if s == subject]
+                avoid = rng.sample(used, min(80, len(used)))
+                context, sources = retrieve(col, f"{subject} {mode} " + " ".join(slots))
+                try:
+                    items = parse(call_model(client, make_prompt(subject, mode, slots, avoid, context), models))
+                except (RuntimeError, ValueError) as e:
+                    log.warning("batch failed: %s", e)
+                    continue
+                rejects = Counter()
+                for raw in items:
+                    item, why = build_item(raw, subject, mode, pool, seen_q, seen_a, sources, rng)
+                    if item is None:
+                        rejects[why] += 1
+                        continue
+                    quizzes.append(item)
+                    seen_q.add(norm(item["question"]))
+                    seen_a.add((subject, norm(item["options"][item["answer"]])))
+                    have += 1
+                log.info("  batch ok: +%d kept, rejected %s", len(items) - sum(rejects.values()), dict(rejects) or "none")
+                save(quizzes, rules, models)  # checkpoint after every batch
+
+    save(quizzes, rules, models)
+    short = {f"{s}/{m}": args.per_mode - sum(1 for q in quizzes if q["category"] == s and q["mode"] == m)
+             for s in args.subjects for m in args.modes}
+    short = {k: v for k, v in short.items() if v > 0}
+    log.info("Done: %d questions in %s", len(quizzes), QUIZ_PATH)
+    if short:
+        log.warning("Still short (run again to retry): %s", short)
+        return 1
+    return 0
+
+
+def main() -> int:
+    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("--subjects", nargs="+", default=list(DEFAULT_TOPICS), choices=list(DEFAULT_TOPICS))
+    p.add_argument("--modes", nargs="+", default=list(MODES), choices=list(MODES))
+    p.add_argument("--per-mode", type=int, default=30, help="target questions per subject/mode")
+    p.add_argument("--batch-size", type=int, default=5)
+    p.add_argument("--max-attempts", type=int, default=12, help="API batches per subject/mode before giving up")
+    p.add_argument("--model", default=os.getenv("BEE_MODEL", "gemini-2.5-flash"))
+    p.add_argument("--fallback-model", default=os.getenv("BEE_FALLBACK_MODEL", "gemini-2.5-pro"))
+    p.add_argument("--topics", help="optional topics.json; default is the built-in taxonomy")
+    p.add_argument("--no-scrape", action="store_true", help="skip downloading PDFs")
+    p.add_argument("--rebuild-index", action="store_true")
+    p.add_argument("--fresh", action="store_true", help="ignore the existing quizzes.json")
+    args = p.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S")
+    return run(args)
 
 
 if __name__ == "__main__":
-    run_ai_agent()
+    sys.exit(main())
