@@ -55,6 +55,37 @@ button:disabled{cursor:not-allowed}
   #division-panel #division-recommendation { margin-block: .6rem; color: #fde68a; }
   #division-panel > form, #division-panel section { margin-bottom: 0; }
 </style>
+
+<style>
+:root { color-scheme: dark; --student-ink:#f1f7f6; --student-muted:#abc2c2; --student-mint:#80edca; }
+body { background: #091619 !important; }
+.bee-shell { max-width: 72rem; }
+.bee-hero { padding: clamp(1.35rem, 5vw, 3.5rem); background: radial-gradient(ellipse at 95% 0%, #234d49, transparent 58%), #12292c; border:1px solid #335558; border-radius:1.5rem; }
+.bee-hero .season { color:var(--student-mint); font-size:.875rem; font-weight:700; }
+.bee-hero h2 { max-width:20ch; font-size:clamp(2rem,6vw,3.65rem); line-height:1.05; letter-spacing:-.045em; font-weight:800; margin:.55rem 0 .9rem; }
+.bee-hero p { color:var(--student-muted); }
+.bee-links { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.2rem; }
+.bee-links a { display:inline-flex; align-items:center; min-height:44px; padding:.55rem .9rem; border-radius:.65rem; border:1px solid #507370; color:var(--student-ink); }
+.bee-links a:first-child { background:var(--student-mint); border-color:var(--student-mint); color:#082921; font-weight:750; }
+#division-panel, #bee-library { scroll-margin-top:8rem; }
+#division-panel { background:#112329; border-color:#355457; }
+#division-panel > form, #division-panel section { background:#0c1c22; border-color:#355457; padding:clamp(.85rem,3vw,1.4rem); }
+#division-panel .fields { grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)); }
+#division-panel select { max-width:100%; width:100%; }
+#division-panel .training-stats div { background:#152d33; border-color:#355457; }
+#division-panel #division-recommendation { color:var(--student-mint); }
+#division-panel #division-start, #division-panel #division-buzz { background:var(--student-mint); color:#082921; }
+#division-panel #division-prompt { color:var(--student-ink); font-size:clamp(1.1rem,3.5vw,1.4rem); line-height:1.55; margin:.75rem 0; }
+#division-panel #division-topic { font-size:1.2rem; font-weight:750; }
+#division-panel #division-feedback { margin-block:.75rem; font-weight:700; }
+#division-panel #division-options { margin-top:.65rem; }
+#division-panel #division-options button:hover:not(:disabled) { border-color:var(--student-mint); }
+#division-panel #division-options [data-result=correct] { color:#a4f7d5; background:#153b35; }
+#division-panel #division-options [data-result=incorrect] { color:#ffd5d5; background:#482930; }
+#division-panel #division-session-bar { width:100%; accent-color:var(--student-mint); }
+#division-panel #division-practice { scroll-margin-top:8rem; }
+.bee-links a:focus-visible, #division-panel summary:focus-visible { outline:3px solid var(--student-mint); outline-offset:3px; }
+</style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans antialiased">
 
@@ -80,13 +111,23 @@ button:disabled{cursor:not-allowed}
   </div>
 </header>
 
-<main class="max-w-6xl mx-auto px-3 sm:px-4 py-6 space-y-6">
+<main class="bee-shell mx-auto px-3 sm:px-4 py-6 space-y-6">
+  <section class="bee-hero" aria-labelledby="bee-hero-title">
+    <p class="season">2026–27 IAC Asia · Science &amp; Geography</p>
+    <h2 id="bee-hero-title">Practise for your next Bee</h2>
+    <p>Pick your division, try a qualifying set or buzz in on a tossup, then review the questions you missed.</p>
+    <nav class="bee-links" aria-label="Training shortcuts">
+      <a href="#division-panel" id="bee-qualifying">Qualifying practice</a>
+      <a href="#division-panel" id="bee-buzzer">Solo buzzer</a>
+      <a href="#bee-library">Study tools</a>
+    </nav>
+  </section>
   <div id="err" class="hidden bg-red-950 border border-red-500 text-red-200 rounded-xl p-4 text-sm flex items-center justify-between gap-3" role="alert">
     <span id="err-msg"></span><button class="btn shrink-0" data-act="reload">Retry</button>
   </div>
 
   <details id="division-panel" class="card" open>
-    <summary>Training dashboard</summary>
+    <summary>Division practice</summary>
     <p class="secondary">2026–27 IAC Asia · Science and Geography</p>
     <form id="division-setup">
       <div class="fields">
@@ -96,6 +137,7 @@ button:disabled{cursor:not-allowed}
           <option value="qualifying_exam">Qualifying exam</option>
           <option value="buzzer">Solo buzzer</option>
         </select></label>
+        <label>Topic<select id="division-filter"><option value="">All topics</option></select></label>
       </div>
       <p id="division-eligibility" class="secondary"></p>
       <p id="division-coaching"></p>
@@ -116,6 +158,7 @@ button:disabled{cursor:not-allowed}
     <p id="division-status" role="status"></p>
     <section id="division-practice" aria-labelledby="division-topic" hidden>
       <h2 id="division-topic" tabindex="-1"></h2>
+      <progress id="division-session-bar" max="1" value="0" aria-label="Questions completed"></progress>
       <p id="division-prompt" aria-live="polite"></p>
       <p id="division-session-score" class="secondary" aria-live="polite"></p>
       <div id="division-options"></div>
@@ -135,6 +178,15 @@ button:disabled{cursor:not-allowed}
     </section>
   </details>
 
+  <details class="card">
+    <summary class="cursor-pointer font-bold">Official IAC resources</summary>
+    <ul class="mt-2 list-disc pl-5 text-amber-300">
+      <li><a class="underline" href="https://iacompetitionsasia.com/science-bee-resources/">IAC Asia Science Bee</a></li>
+      <li><a class="underline" href="https://iacompetitionsasia.com/geography-bee-practice-materials/">IAC Asia Geography Bee</a></li>
+      <li><a class="underline" href="https://iacompetitions.com/resources/">IAC U.S. resources</a></li>
+    </ul>
+  </details>
+  <h2 id="bee-library" class="text-xl font-bold">Study tools</h2>
   <div id="view-quizzes" class="space-y-6">
     <div id="progress" class="text-xs text-slate-400 flex flex-wrap items-center gap-3" aria-live="polite"></div>
     <div class="flex flex-wrap items-center gap-2"><div id="levels" class="flex flex-wrap gap-2"></div><label class="text-xs text-slate-400 sm:ml-auto">Questions per quiz <select id="count" class="bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-xs"><option>10</option><option>20</option><option selected>30</option></select></label></div>
@@ -1981,8 +2033,21 @@ document.addEventListener('DOMContentLoaded', load);
       && q.division === get('division').value);
   }
 
+  function updateTopics() {
+    const filter = get('filter');
+    const previous = filter.value;
+    const topics = [...new Set(selection().map(q => q.topic))].sort();
+    filter.replaceChildren(new Option('All topics', ''));
+    for (const topic of topics) filter.add(new Option(topic));
+    filter.value = topics.includes(previous) ? previous : '';
+  }
+
+  function topicItems() {
+    return selection().filter(q => !get('filter').value || q.topic === get('filter').value);
+  }
+
   function modeItems() {
-    return [...new Map(selection().filter(q => q.format === get('mode').value)
+    return [...new Map(topicItems().filter(q => q.format === get('mode').value)
       .map(q => [normalize(q.question || q.clues.map(clue => clue.text).join(' ')), q])).values()];
   }
 
@@ -1998,7 +2063,7 @@ document.addEventListener('DOMContentLoaded', load);
   }
 
   function updateProgress() {
-    const items = selection();
+    const items = topicItems();
     const count = modeItems().length;
     get('availability').textContent = `${count} source-backed question${count === 1 ? '' : 's'} in this selection`;
     get('start').disabled = count === 0;
@@ -2017,6 +2082,7 @@ document.addEventListener('DOMContentLoaded', load);
   }
 
   function updateEligibility() {
+    updateTopics();
     get('coaching').textContent = coaching[get('division').value] || '';
     updateProgress();
     const { born_from: from, born_through: through } = bank.divisions[get('division').value];
@@ -2054,6 +2120,7 @@ document.addEventListener('DOMContentLoaded', load);
     const dueAt = correct ? Date.now() + reviewIntervals[streak - 1] * dayMs : Date.now();
     progress[active.id] = { correct, skipped, buzzClue, buzzSeconds, streak, dueAt };
     sessionAnswered++;
+    get('session-bar').value = sessionAnswered;
     if (correct) sessionCorrect++;
     get('session-score').textContent = `${sessionCorrect} correct out of ${sessionAnswered} answered this session`;
     try {
@@ -2061,7 +2128,7 @@ document.addEventListener('DOMContentLoaded', load);
     } catch { /* Keep progress for this session. */ }
     updateProgress();
     get('next-question').hidden = questionIndex + 1 >= queue.length;
-    get('next-format').hidden = !get('next-question').hidden || !selection().some(q => q.format !== active.format);
+    get('next-format').hidden = !get('next-question').hidden || !topicItems().some(q => q.format !== active.format);
     const result = skipped ? 'Answer revealed.' : correct ? 'Correct.' : 'Answer differs from the key.';
     const timing = buzzClue === null ? '' : ` You buzzed on clue ${buzzClue} of ${active.clues.length} after ${buzzSeconds} s.`;
     get('feedback').textContent = `${result} Answer: ${active.answer}.${timing}`;
@@ -2128,6 +2195,8 @@ document.addEventListener('DOMContentLoaded', load);
 
   function startSession(items) {
     queue = items;
+    get('session-bar').max = Math.max(items.length, 1);
+    get('session-bar').value = 0;
     sessionCorrect = 0;
     sessionAnswered = 0;
     get('session-score').textContent = '';
@@ -2140,7 +2209,7 @@ document.addEventListener('DOMContentLoaded', load);
     if (bank) startSession(modeItems());
   });
   get('retry-missed').addEventListener('click', () => startSession(missedItems()));
-  get('review-due').addEventListener('click', () => startSession(dueItems(selection())));
+  get('review-due').addEventListener('click', () => startSession(dueItems(topicItems())));
   get('next-question').addEventListener('click', () => {
     questionIndex++;
     renderQuestion();
@@ -2152,7 +2221,18 @@ document.addEventListener('DOMContentLoaded', load);
     } catch { /* Division can still be selected for this session. */ }
     updateEligibility();
   });
-  get('subject').addEventListener('change', updateProgress);
+  get('subject').addEventListener('change', () => {
+    updateTopics();
+    updateProgress();
+  });
+  get('filter').addEventListener('change', updateProgress);
+  for (const [id, mode] of [['bee-qualifying', 'qualifying_exam'], ['bee-buzzer', 'buzzer']]) {
+    document.getElementById(id).addEventListener('click', () => {
+      document.getElementById('division-panel').open = true;
+      get('mode').value = mode;
+      if (bank) updateProgress();
+    });
+  }
   get('mode').addEventListener('change', updateProgress);
   get('next-format').addEventListener('click', () => {
     get('mode').value = modes.find(mode => mode !== active.format);
